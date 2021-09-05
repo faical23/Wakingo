@@ -1,0 +1,513 @@
+<template>
+    <div class="SideBare">
+  <v-card
+    class="mx-auto"
+    :style="SideBarClicked ? 'width:70px !important' : 'width:250px!important'"
+    @click='MoveSideBare("SideBare")'
+  >
+    <v-list :style="SideBarClicked ? 'text-align: center !important;' : 'text-align: start !important;'">
+      <!-- Start logo-->
+        <v-list-item class="SideBar_Logo ">
+          <img  v-if="SideBarClicked " class="logo_img" src="../../assets/img/logo.png" :style="SideBarClicked ? 'width: 100% !important;' : 'width: 25%; !important'">
+            <v-list-item-title v-else  class="SideBar_Logo__title">LOGO</v-list-item-title>
+        </v-list-item>
+      <!-- end logo-->
+
+      <!-- strat table bord-->
+        <v-list-item  class="First_Header" :style="SideBarClicked ? 'display:block !important;' : 'display:flex !important;'">
+         <v-list-item-icon class="SideBar_Icons">
+                  <i class="far fa-home-alt"></i>
+        </v-list-item-icon>
+          <v-list-item-title class="Tableau__bord__title"  :style="SideBarClicked ? 'display:none !important;' : 'display:block !important;'">Tableau de bord</v-list-item-title>
+        </v-list-item>
+      <!-- end table bord-->
+
+
+      <v-list-group
+        class="First_Header"
+        v-for="Parent in SideBare"
+        :key="Parent"
+      >
+
+        <template v-slot:activator>
+        <v-list-item-icon class="SideBar_Icons">
+                  <i :class="Parent.icon" ></i>
+        </v-list-item-icon>
+          <v-list-item-title  :style="SideBarClicked ? 'display:none !important;' : 'display:block !important;'">{{Parent.ParentName}}</v-list-item-title>
+        </template>
+
+              <v-list-group
+          no-action
+          sub-group             
+            v-for="(vente,i) in Parent.ChildData"
+            :key="(vente,i)"
+            :class="['Second_Header', vente.Child ? '' : 'HasNotChidData' ]"
+
+        >
+          <template v-slot:activator >
+              <v-list-item-content >
+                <v-list-item-title>{{vente.FirstChild}}</v-list-item-title>
+              </v-list-item-content>
+          </template>                    
+            <v-list-item
+                      v-for="(Child,i) in vente.Child"
+                      :key="i"
+                      link
+                      class="Third_child"
+                    >
+                      <v-list-item-title >{{Child.SecondChild}}</v-list-item-title>
+
+            </v-list-item>
+        </v-list-group>
+
+    </v-list-group>
+
+
+
+
+    </v-list>
+  </v-card>
+    </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      SideBare:[
+          {
+            ParentName:'Ventes',
+            icon:"fas fa-chart-line",
+            ChildData:[
+              {
+                FirstChild : 'Devis/Proforma',
+                Icons : 'mdi-football-helmet',
+                Child:[
+                  {
+                    SecondChild : 'Liste des devis',
+                    path:'/Ventes/Liste des devies'
+                  },
+                  {
+                    SecondChild : 'Nouveau devis/Proforma',
+                    path:'/Ventes/Nouveau devis/Proforma'
+                  }
+                ]
+              },
+              {
+                FirstChild : 'Commandes clients',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des commandes',
+                    path:'/Ventes/Liste des commandes'
+                  },
+                  {
+                    SecondChild : 'Nouvelle commande',
+                    path:'/Ventes/Nouvelle commande'
+                  }
+                ]
+              },
+              {
+                FirstChild : 'Bons de livraison',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des Bons de livraison',
+                    path:'/Ventes/Liste des Bons de livraison'
+                  },
+                  {
+                    SecondChild : 'Nouvelle  Bons de livraison',
+                    path:'/Ventes/Nouvelle  Bons de livraison'
+                  }
+                ]
+              },
+              {
+                FirstChild : 'Factures',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des Factures',
+                    path:'/Ventes/Liste des Factures'
+                  },
+                  {
+                    SecondChild : 'Nouvelle Factures',
+                    path:'/Nouvelle Factures'
+                  }
+                ]
+              },
+              {
+                FirstChild : 'Avoirs',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des Avoirs',
+                    path:'/Ventes/Liste des Avoirs'
+                  },
+                  {
+                    SecondChild : 'Nouvelle avoir',
+                     path:'/Ventes/Nouvelle avoir'
+                  }
+                ]
+              },
+              {
+                FirstChild: 'Réglements',
+                Icons : 'mdi-account-multiple-outline',
+                Path:'/Ventes/Réglements'
+              },
+              {
+                FirstChild: 'Acomptes',
+                Icons : 'mdi-account-multiple-outline',
+                Path:'/Ventes/Acomptes'
+              },
+              {
+                FirstChild: 'Recettes diverses',
+                Icons : 'mdi-account-multiple-outline',
+                Path:'/Ventes/Recettes diverses'
+              },
+              {
+                FirstChild: 'Recettes récurrents',
+                Icons : 'mdi-account-multiple-outline',
+                Path:'/Ventes/Recettes récurrents'
+              },
+              {
+                FirstChild: 'Regroupment de documents',
+                Icons : 'mdi-account-multiple-outline',
+                Path:'/Ventes/Regroupment de documents'
+              },
+              {
+                FirstChild: 'Rapport commercial',
+                Icons : 'mdi-account-multiple-outline',
+                Path:'/Ventes/Rapport commercial'
+              }
+            ]
+          },
+          {
+            ParentName:'Achats',
+            icon:"fas fa-shopping-cart",
+            ChildData:[
+              {
+                FirstChild : 'Dépenses diverses' ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Achat/Dépenses diverses'
+              },
+              {
+                FirstChild : 'Dépenses récurrents',
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Achat/Dépenses récurrents'
+              }
+            ]
+          },
+          {
+            ParentName:'Trésorerie',
+            icon:"fas fa-university",
+            ChildData:[
+              {
+                FirstChild : 'Comptes de trésorerie',
+                Icons : 'mdi-account-multiple-outline',
+                path:'Comptes de trésorerie'
+              },
+              {
+                FirstChild : 'Trésorerie pévisionnelle',
+                Icons : 'mdi-account-multiple-outline',
+                path : '/Trésorerie pévisionnelle'
+              },
+                            {
+                FirstChild : 'Liste des encaissements',
+                Icons : 'mdi-account-multiple-outline',
+                path:'/Liste des encaissements'
+              },
+              {
+                FirstChild : 'Liste des décaissements',
+                Icons : 'mdi-account-multiple-outline',
+                path : '/Liste des décaissements'
+              },
+                            {
+                FirstChild : 'Remise en banque',
+                Icons : 'mdi-account-multiple-outline',
+                path:'/Remise en banque'
+              },
+              {
+                FirstChild : 'Rapprochement bancaire',
+                Icons : 'mdi-account-multiple-outline',
+                path : '/Rapprochement bancaire'
+              },
+              {
+                FirstChild : 'Transferts compte à compte',
+                Icons : 'mdi-account-multiple-outline',
+                path : '/Transferts compte à compte'
+              },
+
+            ]
+          },
+          {
+            ParentName:'Contacts',
+            icon:"fas fa-address-book",
+            ChildData:[
+              {
+                FirstChild : 'Client' ,
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des client',
+                    path:'/Clinet/Liste des client'
+                  },
+                  {
+                    SecondChild : 'Nouveau Client',
+                    path:'/Clinet/Nouveau Client'
+                  }
+                ]
+              },
+              {
+                FirstChild : 'Familles de client',
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Clinet/Familles de client'
+              },
+              {
+                FirstChild : 'Fournisseurs' ,
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des Fournisseurs',
+                    path:'/Clinet/Liste des Fournisseurs'
+                  },
+                  {
+                    SecondChild : 'Nouveau Fournisseurs',
+                    path:'/Clinet/Nouveau Fournisseurs'
+                  }
+                ]
+              },
+                {
+                FirstChild : 'Familles de Fournisseurs',
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Clinet/Familles de Fournisseurs'
+              },
+            ]
+          },
+          {
+            ParentName:'Catalogue',
+            icon:"fas fa-tags",
+            ChildData:[
+              {
+                FirstChild : 'Articles' ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Catalogue/Articles'
+              },
+              {
+                FirstChild : "Familles d'articles",
+                Icons : 'mdi-account-multiple-outline',
+                Path : "/Catalogue/Familles d'articles"
+              },
+              {
+                FirstChild : "Catégories d'articles" ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : "/Catalogue/Catégories d'articles"
+              },
+              {
+                FirstChild : 'Marques',
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Catalogue/Marques'
+              }
+              ,
+              {
+                FirstChild : 'Remises/Promotions',
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Catalogue/Remise&Promotions'
+              }
+            ]
+          },
+          {
+            ParentName:'Force de vente',
+            icon:"fas fa-users"
+            ,            ChildData:[
+              {
+                FirstChild : 'Gestion des commerciaux' ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Force de vente/Gestion des commerciaux'
+              },
+              {
+                FirstChild : 'Commission par commercial',
+                Icons : 'mdi-account-multiple-outline',
+                Path : '/Force de vente/Commission par commercial'
+              }
+            ]
+          },
+          {
+            ParentName:'Gestion de stock',
+            icon:"fas fa-archive",
+            ChildData:[
+              {
+                FirstChild : 'Mouvements de stock' ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : 'Gestion de stock/Mouvements de stock'
+              },
+              {
+                FirstChild : 'Entrées de marchandises',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des Entrées',
+                    path:'/Gestion de stock/Liste des Entrées'
+                  },
+                  {
+                    SecondChild : "Nouveau bon d'entrée",
+                    path:"/Gestion de stock/Nouveau bon d'entrée"
+                  }
+                ]
+              },
+              {
+                FirstChild : 'sorties de marchandises',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des sortie',
+                    path:'/Gestion de stock/Liste des sortie'
+                  },
+                  {
+                    SecondChild : "Nouveau bon d'entrée",
+                    path:"/Gestion de stock/Nouveau bon sortie"
+                  }
+                ]
+              },
+              {
+                FirstChild : 'Inventaires',
+                Icons : 'mdi-account-multiple-outline',
+                Child:[
+                  {
+                    SecondChild : 'Liste des Inventaires',
+                    path:'/Gestion de stock/Liste des Inventaires'
+                  },
+                  {
+                    SecondChild : "Saisie d'inventaires",
+                    path:"/Gestion de stock/Saisie d'inventaires"
+                  }
+                ]
+              },
+                            {
+                FirstChild : 'Dépots' ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : 'Gestion de stock/Dépots'
+              },
+
+            ]
+          },
+          {
+            ParentName:'Rapports & Relevés',
+            icon:"fas fa-folder-open",
+            ChildData:[
+              {
+                FirstChild : 'Rapport commercial' ,
+                Icons : 'mdi-account-multiple-outline',
+                Path : 'Rapports & Relevés/Rapport commercial'
+              },
+              {
+                FirstChild : 'Relvé des ventes',
+                Icons : 'mdi-account-multiple-outline',
+                Path : 'Rapports & Relevés/Relvé des ventes'
+              }
+            ]
+          }
+      ],
+      Ventes:[
+        {
+          FirstChild : 'Devis/Proforma 1',
+          Icons : 'mdi-account-multiple-outline',
+          Child:[
+            {
+              SecondChild : 'Liste des devis',
+              path:'/Liste des devies'
+            },
+            {
+              SecondChild : 'Liste des devis'
+            }
+          ]
+        },
+        {
+          FirstChild : 'Devis/Proforma 1',
+          Icons : 'mdi-account-multiple-outline',
+          Child:[
+            {
+              SecondChild : 'Liste des devis',
+              path:'/Liste des devies'
+            },
+            {
+              SecondChild : 'Liste des devis'
+            }
+          ]
+        },
+        {
+          FirstChild : 'Devis/Proforma 1',
+          Icons : 'mdi-account-multiple-outline',
+          Child:[
+            {
+              SecondChild : 'Liste des devis',
+              path:'/Liste des devies'
+            },
+            {
+              SecondChild : 'Liste des devis'
+            }
+          ]
+        },
+        {
+          FirstChild : 'Devis/Proforma 1',
+          Icons : 'mdi-account-multiple-outline',
+          Child:[
+            {
+              SecondChild : 'Liste des devis',
+              path:'/Liste des devies'
+            },
+            {
+              SecondChild : 'Liste des devis'
+            }
+          ]
+        },
+        {
+          FirstChild : 'Devis/Proforma 1',
+          Icons : 'mdi-account-multiple-outline',
+          Child:[
+            {
+              SecondChild : 'Liste des devis',
+              path:'/Liste des devies'
+            },
+            {
+              SecondChild : 'Liste des devis'
+            }
+          ]
+        },
+        {
+          FirstChild: 'Devis/Proforma 8',
+          Icons : 'mdi-account-multiple-outline',
+        },
+      ],
+      SecondChildClicked : '',
+      SideBarClicked:false
+    }),
+    methods:{
+      MoveSideBare(ClickFromWhere){
+        if(ClickFromWhere === "Initialisation"){
+              this.SideBarClicked = true
+              if(this.SideBarClicked === true){
+              document.querySelectorAll('.v-list-group__header').forEach(element =>{
+                  element.style="display:block"
+              })
+              document.querySelectorAll('.v-list-group__header__append-icon').forEach(element =>{
+                  element.style="display:none"
+              })
+            }
+        }
+        else if (ClickFromWhere === "SideBare"){
+              this.SideBarClicked = false
+              document.querySelectorAll('.v-list-group__header').forEach(element =>{
+                  element.style="display:flex"
+              })
+              document.querySelectorAll('.v-list-group__header__append-icon').forEach(element =>{
+                  element.style="display:flex"
+              })
+        }
+
+      }
+    },
+    mounted(){
+      this.MoveSideBare("Initialisation");
+    }
+  }
+</script>
+

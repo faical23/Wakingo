@@ -1,0 +1,17 @@
+// 1 - Utils
+@import "utils/variables";
+@import "utils/mixins";
+
+// 2 - Vendors;
+
+// 3 - Base;
+@import "base/reset";
+@import "base/typography";
+
+// 4 - componenets;
+
+@import "components/SideBar";
+
+// 5 - Pages;
+@import "pages/home";
+
