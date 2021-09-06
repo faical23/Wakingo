@@ -102,11 +102,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des commandes',
-                    path:'/Ventes/Liste des commandes'
+                    Path:'/Ventes/Liste des commandes'
                   },
                   {
                     SecondChild : 'Nouvelle commande',
-                    path:'/Ventes/Nouvelle commande'
+                    Path:'/Ventes/Nouvelle commande'
                   }
                 ]
               },
@@ -116,11 +116,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Bons de livraison',
-                    path:'/Ventes/Liste des Bons de livraison'
+                    Path:'/Ventes/Liste des Bons de livraison'
                   },
                   {
                     SecondChild : 'Nouvelle  Bons de livraison',
-                    path:'/Ventes/Nouvelle  Bons de livraison'
+                    Path:'/Ventes/Nouvelle  Bons de livraison'
                   }
                 ]
               },
@@ -130,11 +130,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Factures',
-                    path:'/Ventes/Liste des Factures'
+                    Path:'/Ventes/Liste des Factures'
                   },
                   {
                     SecondChild : 'Nouvelle Factures',
-                    path:'/Nouvelle Factures'
+                    Path:'/Nouvelle Factures'
                   }
                 ]
               },
@@ -144,7 +144,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Avoirs',
-                    path:'/Ventes/Liste des Avoirs'
+                    Path:'/Ventes/Liste des Avoirs'
                   },
                   {
                     SecondChild : 'Nouvelle avoir',

@@ -2,7 +2,7 @@
   <div class="HomePage">
       <SideBar/>
       <div class="Content">
-          this is home page
+          this is Tableau de Bord
           
       </div>
   </div>
