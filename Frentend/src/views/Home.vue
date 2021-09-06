@@ -2,8 +2,7 @@
   <div class="HomePage">
       <SideBar/>
       <div class="Content">
-          This Home page testing dfsfdhsfgsdg
-          
+          This Is home Page
       </div>
   </div>
 </template>
