@@ -36,7 +36,8 @@
           <v-list-item-title  :style="SideBarClicked ? 'display:none !important;' : 'display:block !important;'">{{Parent.ParentName}}</v-list-item-title>
         </template>
 
-              <v-list-group
+
+        <v-list-group
           no-action
           sub-group             
             v-for="(vente,i) in Parent.ChildData"
@@ -46,17 +47,20 @@
         >
           <template v-slot:activator >
               <v-list-item-content >
-                <v-list-item-title>{{vente.FirstChild}}</v-list-item-title>
+                   <router-link :to="vente.Path ? vente.Path : ''">
+                       <v-list-item-title>{{vente.FirstChild}}</v-list-item-title>
+                    </router-link>
               </v-list-item-content>
           </template>                    
             <v-list-item
                       v-for="(Child,i) in vente.Child"
-                      :key="i"
+                      :key="(Child,i)"
                       link
                       class="Third_child"
                     >
-                      <v-list-item-title >{{Child.SecondChild}}</v-list-item-title>
-
+                    <router-link :to="Child.Path" >
+                        <v-list-item-title >{{Child.SecondChild}}</v-list-item-title>
+                    </router-link>
             </v-list-item>
         </v-list-group>
 
@@ -79,16 +83,16 @@
             icon:"fas fa-chart-line",
             ChildData:[
               {
-                FirstChild : 'Devis/Proforma',
+                FirstChild : 'Devis&Proforma',
                 Icons : 'mdi-football-helmet',
                 Child:[
                   {
                     SecondChild : 'Liste des devis',
-                    path:'/Ventes/Liste des devies'
+                    Path:'/Ventes/Liste des devies'
                   },
                   {
-                    SecondChild : 'Nouveau devis/Proforma',
-                    path:'/Ventes/Nouveau devis/Proforma'
+                    SecondChild : 'Nouveau devis&Proforma',
+                    Path:'/Ventes/Nouveau devis/Proforma'
                   }
                 ]
               },
@@ -203,37 +207,37 @@
               {
                 FirstChild : 'Comptes de trésorerie',
                 Icons : 'mdi-account-multiple-outline',
-                path:'Comptes de trésorerie'
+                Path:'/Comptes de trésorerie'
               },
               {
                 FirstChild : 'Trésorerie pévisionnelle',
                 Icons : 'mdi-account-multiple-outline',
-                path : '/Trésorerie pévisionnelle'
+                Path : '/Trésorerie pévisionnelle'
               },
                             {
                 FirstChild : 'Liste des encaissements',
                 Icons : 'mdi-account-multiple-outline',
-                path:'/Liste des encaissements'
+                Path:'/Liste des encaissements'
               },
               {
                 FirstChild : 'Liste des décaissements',
                 Icons : 'mdi-account-multiple-outline',
-                path : '/Liste des décaissements'
+                Path : '/Liste des décaissements'
               },
-                            {
+                {
                 FirstChild : 'Remise en banque',
                 Icons : 'mdi-account-multiple-outline',
-                path:'/Remise en banque'
+                Path:'/Remise en banque'
               },
               {
                 FirstChild : 'Rapprochement bancaire',
                 Icons : 'mdi-account-multiple-outline',
-                path : '/Rapprochement bancaire'
+                Path : '/Rapprochement bancaire'
               },
               {
                 FirstChild : 'Transferts compte à compte',
                 Icons : 'mdi-account-multiple-outline',
-                path : '/Transferts compte à compte'
+                Path : '/Transferts compte à compte'
               },
 
             ]
@@ -248,11 +252,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des client',
-                    path:'/Clinet/Liste des client'
+                    Path:'/Clinet/Liste des client'
                   },
                   {
                     SecondChild : 'Nouveau Client',
-                    path:'/Clinet/Nouveau Client'
+                    Path:'/Clinet/Nouveau Client'
                   }
                 ]
               },
@@ -267,11 +271,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Fournisseurs',
-                    path:'/Clinet/Liste des Fournisseurs'
+                    Path:'/Clinet/Liste des Fournisseurs'
                   },
                   {
                     SecondChild : 'Nouveau Fournisseurs',
-                    path:'/Clinet/Nouveau Fournisseurs'
+                    Path:'/Clinet/Nouveau Fournisseurs'
                   }
                 ]
               },
@@ -317,7 +321,7 @@
           {
             ParentName:'Force de vente',
             icon:"fas fa-users"
-            ,            ChildData:[
+            , ChildData:[
               {
                 FirstChild : 'Gestion des commerciaux' ,
                 Icons : 'mdi-account-multiple-outline',
@@ -345,11 +349,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Entrées',
-                    path:'/Gestion de stock/Liste des Entrées'
+                    Path:'/Gestion de stock/Liste des Entrées'
                   },
                   {
                     SecondChild : "Nouveau bon d'entrée",
-                    path:"/Gestion de stock/Nouveau bon d'entrée"
+                    Path:"/Gestion de stock/Nouveau bon d'entrée"
                   }
                 ]
               },
@@ -359,11 +363,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des sortie',
-                    path:'/Gestion de stock/Liste des sortie'
+                    Path:'/Gestion de stock/Liste des sortie'
                   },
                   {
                     SecondChild : "Nouveau bon d'entrée",
-                    path:"/Gestion de stock/Nouveau bon sortie"
+                    Path:"/Gestion de stock/Nouveau bon sortie"
                   }
                 ]
               },
@@ -373,15 +377,15 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Inventaires',
-                    path:'/Gestion de stock/Liste des Inventaires'
+                    Path:'/Gestion de stock/Liste des Inventaires'
                   },
                   {
                     SecondChild : "Saisie d'inventaires",
-                    path:"/Gestion de stock/Saisie d'inventaires"
+                    Path:"/Gestion de stock/Saisie d'inventaires"
                   }
                 ]
               },
-                            {
+              {
                 FirstChild : 'Dépots' ,
                 Icons : 'mdi-account-multiple-outline',
                 Path : 'Gestion de stock/Dépots'
@@ -405,77 +409,6 @@
               }
             ]
           }
-      ],
-      Ventes:[
-        {
-          FirstChild : 'Devis/Proforma 1',
-          Icons : 'mdi-account-multiple-outline',
-          Child:[
-            {
-              SecondChild : 'Liste des devis',
-              path:'/Liste des devies'
-            },
-            {
-              SecondChild : 'Liste des devis'
-            }
-          ]
-        },
-        {
-          FirstChild : 'Devis/Proforma 1',
-          Icons : 'mdi-account-multiple-outline',
-          Child:[
-            {
-              SecondChild : 'Liste des devis',
-              path:'/Liste des devies'
-            },
-            {
-              SecondChild : 'Liste des devis'
-            }
-          ]
-        },
-        {
-          FirstChild : 'Devis/Proforma 1',
-          Icons : 'mdi-account-multiple-outline',
-          Child:[
-            {
-              SecondChild : 'Liste des devis',
-              path:'/Liste des devies'
-            },
-            {
-              SecondChild : 'Liste des devis'
-            }
-          ]
-        },
-        {
-          FirstChild : 'Devis/Proforma 1',
-          Icons : 'mdi-account-multiple-outline',
-          Child:[
-            {
-              SecondChild : 'Liste des devis',
-              path:'/Liste des devies'
-            },
-            {
-              SecondChild : 'Liste des devis'
-            }
-          ]
-        },
-        {
-          FirstChild : 'Devis/Proforma 1',
-          Icons : 'mdi-account-multiple-outline',
-          Child:[
-            {
-              SecondChild : 'Liste des devis',
-              path:'/Liste des devies'
-            },
-            {
-              SecondChild : 'Liste des devis'
-            }
-          ]
-        },
-        {
-          FirstChild: 'Devis/Proforma 8',
-          Icons : 'mdi-account-multiple-outline',
-        },
       ],
       SecondChildClicked : '',
       SideBarClicked:false
