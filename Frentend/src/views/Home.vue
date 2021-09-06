@@ -2,7 +2,7 @@
   <div class="HomePage">
       <SideBar/>
       <div class="Content">
-          this is home page
+          This Home page testing
           
       </div>
   </div>
