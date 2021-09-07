@@ -175,6 +175,19 @@
                                     <textarea name="" ></textarea>
                             </div>
                         </div>
+                        <div v-if="SelectOptions == 'Options'" class="Options">
+                            <div class="InformationPiéce__Field">
+                                    <h5>Modéle PDF :</h5>
+                                    <select name="pets" id="pet-select">
+                                        <option>Devis de vente-modéle corporate</option>
+                                        <option>Proforma-modéle corporate</option>
+                                    </select>
+                                    <div class="AficheLesPhoto">
+                                        <input type="Checkbox" checked="true">
+                                        <h5>Aficher les photo d'article</h5>
+                                    </div>
+                            </div>
+                        </div>
                     </v-card-text>
                     </v-card>
                 </v-tab-item>

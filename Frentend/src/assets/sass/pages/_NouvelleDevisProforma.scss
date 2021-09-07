@@ -1,5 +1,4 @@
 .NouvelleDevisProforma{
-    background-color: $Body-100;
     width: 100%;
     padding:20px;
     .NouvelleDevisProforma__Header{
@@ -79,7 +78,7 @@
             }
         }
     }
-    .InformationPiéce,.InformationFinanciéres,.Logistique{
+    .InformationPiéce,.InformationFinanciéres,.Logistique,.Options{
         display: flex;
         align-items: center;
         .InformationPiéce__Field{
@@ -161,6 +160,23 @@
             width: 100% !important;
             textarea{
                 height: 30px;
+            }
+        }
+    }
+    .Options{
+        .InformationPiéce__Field{
+            width: 25% !important;
+            .AficheLesPhoto{
+                margin: 15px 0px;
+                display: flex;
+                align-items: center;
+                input{
+                    width: 10% !important
+                }
+                h5{
+                    margin: 0px !important;
+                    padding: 0px !important
+                }
             }
         }
     }

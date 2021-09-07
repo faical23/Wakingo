@@ -1,9 +1,7 @@
 <template>
   <v-app>
-<<<<<<< HEAD
-=======
-   
->>>>>>> chaimaBranch
+
+
     <v-main>
       <router-view/>
       

@@ -13,6 +13,12 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+.GlobalPage {
+  width: 100%;
+  height: 100vh;
+  background-color: #ecf0f5;
+}
+
 html {
   font-size: 100%;
   /* 1 */
@@ -373,7 +379,6 @@ textarea {
 }
 
 .NouvelleDevisProforma {
-  background-color: #ecf0f5;
   width: 100%;
   padding: 20px;
 }
@@ -465,46 +470,46 @@ textarea {
   margin: 0px 10px;
 }
 
-.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique {
+.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique, .NouvelleDevisProforma .Options {
   display: flex;
   align-items: center;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field, .NouvelleDevisProforma .Options .InformationPiéce__Field {
   width: 17% !important;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5 {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5, .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
   color: #222d32 !important;
   font-size: 15px;
   padding-bottom: 15px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea, .NouvelleDevisProforma .Options .InformationPiéce__Field input, .NouvelleDevisProforma .Options .InformationPiéce__Field select, .NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
   border: 1px solid #d4d4d4;
   padding: 6px 10px;
   width: 90%;
   border-radius: 2px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
   display: flex;
   width: 50%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
   width: 100%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
   width: 40%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port, .NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
   width: 60%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
   width: 40%;
 }
 
@@ -560,6 +565,25 @@ textarea {
 
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea {
   height: 30px;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field {
+  width: 25% !important;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto {
+  margin: 15px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto input {
+  width: 10% !important;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto h5 {
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
 .DeleteRow {
