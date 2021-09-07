@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0px;
   padding: 0px;
@@ -369,4 +370,140 @@ textarea {
 
 .HomePage {
   display: flex;
+}
+
+.NouvelleDevisProforma {
+  background-color: #ecf0f5;
+  width: 100%;
+  padding: 20px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left h2 {
+  font-size: 24px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  color: #222d32;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left p {
+  font-size: 15px;
+  font-weight: 300;
+  color: #959595;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink {
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink a {
+  font-size: 13px !important;
+  color: #222d32 !important;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink a i {
+  position: relative;
+  bottom: 3px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink span {
+  font-size: 13px !important;
+  color: #959595 !important;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink .RoutlinkZone {
+  margin: 0px 10px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns {
+  text-align: end;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button {
+  background-color: #3c8dbc;
+  padding: 10px;
+  border-radius: 2px;
+  color: white;
+  border: 1px solid #367fa9;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button svg {
+  fill: white;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button:hover {
+  background-color: #367fa9;
+}
+
+.NouvelleDevisProforma .SwitchOptions {
+  margin: 30px 0px;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-toolbar__content {
+  display: none;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-sheet {
+  background-color: white !important;
+  height: auto !important;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-sheet .v-tab {
+  font-size: 12px !important;
+  color: #222d32 !important;
+  margin-left: 0px !important;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-sheet .v-tab i {
+  margin: 0px 10px;
+}
+
+.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres {
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field {
+  width: 17% !important;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5 {
+  color: #222d32 !important;
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal {
+  display: flex;
+  width: 50%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input {
+  width: 100%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select {
+  width: 40%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port {
+  width: 60%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA {
+  width: 40%;
 }

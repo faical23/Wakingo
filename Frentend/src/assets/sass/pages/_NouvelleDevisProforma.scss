@@ -1,0 +1,138 @@
+.NouvelleDevisProforma{
+    background-color: $Body-100;
+    width: 100%;
+    padding:20px;
+    .NouvelleDevisProforma__Header{
+        display: flex;
+        justify-content: space-between;
+        .NouvelleDevisProforma__Header__Left{
+            h2{
+                font-size:24px;
+                font-weight: 500;
+                padding-bottom:10px;
+                color: $TextColor-100;
+            }
+            p{
+                font-size:15px;
+                font-weight:300;
+                color:$TextColor-200 ;
+            }
+        }
+        .NouvelleDevisProforma__Header__Right{
+            .RouteLink{
+                display: flex;
+                align-items: center;
+                padding-bottom: 50px;
+                a{
+                    font-size:13px !important;
+                    color: $TextColor-100 !important;
+                    i{
+                        position: relative;
+                        bottom:3px;
+                    }
+                }
+                span{
+                    font-size:13px !important;
+                    color: $TextColor-200 !important;
+                }
+                .RoutlinkZone{
+                    margin: 0px 10px;
+                }
+            }
+            .NouvelleDevisProforma__Header__Right__Btns{
+                text-align: end;
+                button{
+                    background-color:$BackgroundColor-100 ;
+                    padding:10px;
+                    border-radius:2px;
+                    color:white ;
+                    border: 1px solid #367fa9;
+                    svg{
+                        fill: white;
+                    }
+                    &:hover{
+                        background-color:#367fa9;
+
+                    }
+                }
+            }
+        }
+    }
+    .SwitchOptions{
+        margin: 30px 0px;
+        .v-toolbar__content{
+            display: none;
+        }
+        .v-sheet{
+            background-color:white !important;
+            height:auto !important;
+            border-bottom: 1px solid rgb(194, 194, 194);
+            
+            .v-tab{
+                font-size:12px !important;
+                color: $TextColor-100 !important;
+                margin-left: 0px !important;
+                i{
+                    margin: 0px 10px;
+                }
+
+            }
+        }
+    }
+    // .InformationsProduit{
+    //     background-color:white;
+    //     margin: 20px 0px;
+    //     .InformationsProduit__Options{
+    //         display: flex;
+    //         button{
+    //             display: flex;
+    //             justify-content: space-between;
+    //             align-items: center;
+    //             padding:10px;
+    //             color:$TextColor-100;
+    //             font-size:13px;
+    //         }
+    //         i{
+    //             margin-right: 10px;
+    //             position: relative;
+    //             bottom:1px;
+    //             color:$TextColor-100 !important;
+    //         }
+    //     }
+    // }
+    .InformationPiéce,.InformationFinanciéres{
+        display: flex;
+        align-items: center;
+        .InformationPiéce__Field{
+            width: 17% !important;
+            h5{
+                color:$TextColor-100 !important;
+                font-size:15px;
+                padding-bottom: 15px;
+            }
+            input,select{
+                border: 1px solid #d4d4d4;
+                padding: 6px 10px;
+                width:90%;
+                border-radius:2px
+            }
+            .RemiseGlobal{
+                display: flex;
+                width: 50%;
+                input{
+                    width:100%;
+                }
+                select{
+                    width:40%;
+                }
+            }
+            .Port{
+                width: 60%;
+            }
+            .TVA{
+                width: 40%;
+            }
+        }
+
+    }
+}

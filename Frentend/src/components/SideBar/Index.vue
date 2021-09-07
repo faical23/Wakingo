@@ -9,17 +9,19 @@
       <!-- Start logo-->
         <v-list-item class="SideBar_Logo ">
           <img  v-if="SideBarClicked " class="logo_img" src="../../assets/img/logo.png" :style="SideBarClicked ? 'width: 100% !important;' : 'width: 25%; !important'">
-            <v-list-item-title v-else  class="SideBar_Logo__title">LOGO</v-list-item-title>
+            <v-list-item-title v-else  class="SideBar_Logo__title">Wakingo</v-list-item-title>
         </v-list-item>
       <!-- end logo-->
 
       <!-- strat table bord-->
+      <router-link to="/">
         <v-list-item  class="First_Header" :style="SideBarClicked ? 'display:block !important;' : 'display:flex !important;'">
          <v-list-item-icon class="SideBar_Icons">
                   <i class="far fa-home-alt"></i>
         </v-list-item-icon>
           <v-list-item-title class="Tableau__bord__title"  :style="SideBarClicked ? 'display:none !important;' : 'display:block !important;'">Tableau de bord</v-list-item-title>
         </v-list-item>
+      </router-link>
       <!-- end table bord-->
 
 
@@ -92,7 +94,7 @@
                   },
                   {
                     SecondChild : 'Nouveau devis&Proforma',
-                    Path:'/Ventes/Nouveau devis/Proforma'
+                    Path:'/Ventes/NouveauDevis/Proforma'
                   }
                 ]
               },
