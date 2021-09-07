@@ -1,15 +1,23 @@
 <template>
-  <hello-world />
+  <v-app class="grey lighten-4">
+ <navbar />
+ 
+  </v-app>
+ 
 </template>
 
+
 <script>
-  import HelloWorld from '../components/HelloWorld'
+
+  // import HelloWorld from '../components/HelloWorld'
+  import navbar from '../components/navbar'
 
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      navbar,
+    
     },
   }
 </script>
