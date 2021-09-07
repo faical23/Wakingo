@@ -465,45 +465,150 @@ textarea {
   margin: 0px 10px;
 }
 
-.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres {
+.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique {
   display: flex;
   align-items: center;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field {
   width: 17% !important;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5 {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5 {
   color: #222d32 !important;
   font-size: 15px;
   padding-bottom: 15px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea {
   border: 1px solid #d4d4d4;
   padding: 6px 10px;
   width: 90%;
   border-radius: 2px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal {
   display: flex;
   width: 50%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input {
   width: 100%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select {
   width: 40%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port {
   width: 60%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA {
   width: 40%;
+}
+
+.NouvelleDevisProforma .Échéancier table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: start;
+}
+
+.NouvelleDevisProforma .Échéancier table th {
+  background-color: white;
+  color: #222d32;
+  font-weight: 600;
+}
+
+.NouvelleDevisProforma .Échéancier table td, .NouvelleDevisProforma .Échéancier table th {
+  border: 1px solid #d9d9d9 !important;
+  padding: 10px;
+  text-align: start;
+  width: 15%;
+}
+
+.NouvelleDevisProforma .Échéancier table td {
+  background-color: #f9f9f9;
+  padding: 10px 8px !important;
+}
+
+.NouvelleDevisProforma .Échéancier table select, .NouvelleDevisProforma .Échéancier table input {
+  background-color: white !important;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone {
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone input {
+  width: 80% !important;
+  border-radius: 0px !important;
+}
+
+.NouvelleDevisProforma .Logistique {
+  width: 85% !important;
+}
+
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field {
+  width: 100% !important;
+}
+
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea {
+  height: 30px;
+}
+
+.DeleteRow {
+  background-color: red !important;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.DeleteRow svg {
+  fill: #ffffff;
+}
+
+.DeleteRow:hover {
+  background-color: #b60000 !important;
+}
+
+.FDM, .LE {
+  width: 5% !important;
+}
+
+.FDM input, .LE input {
+  cursor: pointer;
+}
+
+.LE {
+  width: 8% !important;
+}
+
+.LE input {
+  width: 100% !important;
+}
+
+.btnAjouter {
+  text-align: end;
+  margin: 20px 0px;
+}
+
+.btnAjouter .AjouterUneEchéance {
+  background-color: #00acd6;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+}
+
+.btnAjouter .AjouterUneEchéance span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btnAjouter .AjouterUneEchéance:hover {
+  background-color: #017c9b;
 }

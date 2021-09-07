@@ -53,8 +53,8 @@
                             <div class="InformationPiéce__Field">
                                     <h5>Vendeur :</h5>
                                 <select name="pets" id="pet-select">
-                                    <option value="">Sélectionner un vendeur</option>
-                                    <option v-for="n in 50 " :key="n" value="faical bhais">Dog</option>
+                                    <option value="">Sélectionner un type</option>
+                                    <option v-for="n in 50 " :key="n" value="faical bhais">faical</option>
                                 </select>
                             </div>
 
@@ -97,41 +97,90 @@
                                     </select>
                             </div>
                         </div>
+                        <div v-if="SelectOptions == 'Échéancier'" class="Échéancier" >
+                            <table >
+                                <tr>
+                                    <th>Type d'échéance</th>
+                                    <th>Libellé</th>
+                                    <th>Mode de paiment</th>
+                                    <th>Délai</th>
+                                    <th class="FDM">FDM</th>
+                                    <th  class="LE">Le</th>
+                                    <th>Montant</th>
+                                    <th>Qualité</th>
+                                    <th>#</th>
+                                </tr>
+                                 <tr>
+                                    <td >
+                                    <select name="pets" id="pet-select">
+                                        <option selected="true" disabled="disabled">Sélectionner un type</option>
+                                        <option v-for="n in 3" :key="n" value="faical bhais">Acomptes</option>
+                                    </select>
+                                    </td>
+                                    <td >
+                                        <input type="text" placeholder="100,00% comptant"/>
+                                    </td>
+                                    <td  >
+                                        <select name="pets" id="pet-select">
+                                            <option selected="true" disabled="disabled">Au choix du client</option>
+                                            <option v-for="n in 3" :key="n" value="faical bhais">Virement</option>
+                                        </select>
+                                    </td>
+                                    <td >
+                                        <div class="FiledDélaiJours__zone">
+                                            <input type="number" placeholder="0">
+                                            <input type="text" placeholder="Jours" disabled>
+                                        </div>
+                                    </td>
+                                    <td  class="FDM">
+                                        <input class="Checkbox" type="checkbox">
+                                    </td>
+                                    <td class="LE">
+                                        <input type="number" placeholder="00">
+                                    </td>
+                                    <td>
+                                        <input type="number" placeholder="0,00">
+                                    </td>
+                                    <td>
+                                        <div class="FiledDélaiJours__zone">
+                                            <input type="text" placeholder="100,00">
+                                            <input type="text" placeholder="%" disabled>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="DeleteRow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="btnAjouter">
+                                   <button class="AjouterUneEchéance"><span>+</span> Ajouter une échéance</button>
+                            </div>
+                        </div>
+                        <div  v-if="SelectOptions == 'Logistique'" class="Logistique" >
+                            <div class="InformationPiéce__Field">
+                                    <h5>Mode de livraison péféré :</h5>
+                                    <select name="pets" id="pet-select">
+                                        <option selected="true" disabled="disabled">Sélectionner un type</option>
+                                        <option v-for="n in 3" :key="n" value="faical bhais">Acomptes</option>
+                                    </select>
+                            </div>
+                             <div class="InformationPiéce__Field">
+                                    <h5>Adresse de livraison :</h5>
+                                    <textarea name="" ></textarea>
+                            </div>
+                            <div class="InformationPiéce__Field">
+                                    <h5>Adresse de facturation* :</h5>
+                                    <textarea name="" ></textarea>
+                            </div>
+                        </div>
                     </v-card-text>
                     </v-card>
                 </v-tab-item>
                 </v-tabs-items>
         </v-card>
-      <!-- <div class="InformationsProduit__Options">
-        <button>
-            <i class="far fa-file-alt"></i>
-            Informations piéce
-        </button>
-        <button>
-            <i class="fas fa-calculator"></i>
-            Informations financiéres
-        </button>
-        <button>
-            <i class="fad fa-calendar-alt"></i>
-            Échéancier
-        </button>
-        <button>
-            <i class="fas fa-truck"></i>
-            Logistique
-        </button>
-        <button>
-            <i class="fas fa-link"></i>
-            Documents associés
-        </button>
-        <button>
-            <i class="fas fa-cogs"></i>
-            Options
-        </button>
-
-      </div>
-      <div class="InformationPiéce">
-
-      </div> -->
+   
   </div>
 </template>
 
@@ -167,7 +216,7 @@
             },
 
         ],
-        SelectOptions:'Informations piéce'
+        SelectOptions:'Informations piéce',
       }
     },
     methods:{

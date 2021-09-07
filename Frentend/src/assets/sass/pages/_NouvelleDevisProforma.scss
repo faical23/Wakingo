@@ -79,28 +79,7 @@
             }
         }
     }
-    // .InformationsProduit{
-    //     background-color:white;
-    //     margin: 20px 0px;
-    //     .InformationsProduit__Options{
-    //         display: flex;
-    //         button{
-    //             display: flex;
-    //             justify-content: space-between;
-    //             align-items: center;
-    //             padding:10px;
-    //             color:$TextColor-100;
-    //             font-size:13px;
-    //         }
-    //         i{
-    //             margin-right: 10px;
-    //             position: relative;
-    //             bottom:1px;
-    //             color:$TextColor-100 !important;
-    //         }
-    //     }
-    // }
-    .InformationPiéce,.InformationFinanciéres{
+    .InformationPiéce,.InformationFinanciéres,.Logistique{
         display: flex;
         align-items: center;
         .InformationPiéce__Field{
@@ -110,7 +89,7 @@
                 font-size:15px;
                 padding-bottom: 15px;
             }
-            input,select{
+            input,select,textarea{
                 border: 1px solid #d4d4d4;
                 padding: 6px 10px;
                 width:90%;
@@ -134,5 +113,96 @@
             }
         }
 
+    }
+    .Échéancier{
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            text-align:start;
+            th{
+                background-color:white;
+                color: $TextColor-100;
+                font-weight:600;
+            }
+            td,th{
+                border: 1px solid #d9d9d9 !important;
+                padding: 10px;
+                text-align:start;
+                width:15%;
+            }
+            td{
+                background-color:#f9f9f9;
+                padding: 10px 8px !important;
+            }
+            select,input{
+                background-color:white !important;
+                border: 1px solid #d4d4d4;
+                width: 100%;
+                padding: 10px;
+                border-radius: 3px;
+            }
+
+            .FiledDélaiJours__zone{
+                    display: flex;
+                    align-items: center;
+                    input{
+                        width: 80% !important;
+                        border-radius: 0px !important;
+            }
+
+                
+            }
+
+        }
+    }
+    .Logistique{
+        width: 85% !important;
+        .InformationPiéce__Field{
+            width: 100% !important;
+            textarea{
+                height: 30px;
+            }
+        }
+    }
+}
+.DeleteRow{
+    background-color: red !important;
+    padding: 5px ;
+    border-radius: 6px;
+   svg{
+       fill: $white;
+   }
+   &:hover{
+    background-color: rgb(182, 0, 0) !important;
+
+   }
+}
+.FDM,.LE{
+    width: 5% !important;
+    input{
+        cursor: pointer;
+    }
+}
+.LE{
+    width: 8% !important;
+    input{
+        width: 100% !important;
+    }
+}
+.btnAjouter{
+    text-align: end;
+    margin: 20px 0px;
+    .AjouterUneEchéance{
+        background-color: #00acd6;
+        color: white;
+        padding:15px 20px;
+        border-radius:4px;
+        span{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        &:hover{
+            background-color: #017c9b;
+        }
     }
 }
