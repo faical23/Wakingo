@@ -83,6 +83,7 @@
         align-items: center;
         .InformationPiéce__Field{
             width: 17% !important;
+            margin-bottom: 25px;
             h5{
                 color:$TextColor-100 !important;
                 font-size:15px;
@@ -186,7 +187,7 @@
     }
 }
 .DeleteRow{
-    background-color: red !important;
+    background-color:#dd4b39 !important;
     padding: 5px ;
     border-radius: 6px;
    svg{
@@ -226,3 +227,4 @@
         }
     }
 }
+

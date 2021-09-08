@@ -1,5 +1,8 @@
 <template>
   <div class="InformationsProduit">
+        <v-alert type="error" class="AlertError" v-if="DataIsSubmited && (InformationsPiéceCilent == '' || InformationsPiéceNémuro == '' || LogistiqueAdresseFacturation == '' )">
+            Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
+        </v-alert>
         <v-card class="SwitchOptions">
                 <v-toolbar
                 >
@@ -8,12 +11,13 @@
                     v-model="tab"
                     align-with-title
                     >
-                    <v-tabs-slider color="yellow"></v-tabs-slider>
+                    <v-tabs-slider ></v-tabs-slider>
 
                     <v-tab
                         v-for="(item,n) in items"
                         :key="n"
                         @click='SwitchOptionsToAnother(item.Option)'
+
                     >
                         <i :class="item.Icon"></i>
                         {{ item.Option }}
@@ -33,14 +37,16 @@
                         <div v-if="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field">
                                     <h5>Client* :</h5>
-                                    <input type="text" name="city" list="cityname" placeholder ="Sélectioner un cient" v-model="InformationsPiéceCilent"/>
-                                    <datalist id="cityname">
-                                    <option v-for="(item,n) in 50 " :key="n"  value="faical bahis"/>
+                                        <input  :style="DataIsSubmited && InformationsPiéceCilent == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" type="text" name="city" list="cityname" placeholder ="Sélectioner un cient" v-model="InformationsPiéceCilent"/>
+                                        <datalist id="cityname">
+                                        <option v-for="(item,n) in 50 " :key="n"  value="faical bahis"/>
                                     </datalist>
+                                    <span v-if="DataIsSubmited && InformationsPiéceCilent == '' " class="MessageErrorFiled">Vous devez selectionner un élément</span>
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Numéro* :</h5>
-                                    <input type="text" placeholder ="DEV-07092021-4" v-model="InformationsPiéceNémuro"/>
+                                    <input type="text"  :style="DataIsSubmited && InformationsPiéceNémuro == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" placeholder ="DEV-07092021-4" v-model="InformationsPiéceNémuro"/>
+                                    <span v-if="DataIsSubmited && InformationsPiéceNémuro == ''" class="MessageErrorFiled">Ce champ est obligatoire.</span>
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Date du devis* :</h5>
@@ -48,7 +54,7 @@
                             </div>
                             <div class="InformationPiéce__Field">
                                 <h5>N de référence :</h5>
-                                    <input type="text" placeholder ="DEV-07092021-4" v-model="InformationsPiéceNDeRéférence"/>
+                                    <input type="text" placeholder ="" v-model="InformationsPiéceNDeRéférence"/>
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Vendeur :</h5>
@@ -90,7 +96,7 @@
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Devise utilisée* :</h5>
-                                    <select name="pets" id="pet-select" v-model="InformationsfinanciéresDeviseUtilisée">
+                                    <select name="pets" id="pet-select"  v-model="InformationsfinanciéresDeviseUtilisée">
                                         <option value="MAD-Drham Marocain">MAD-Drham Marocain</option>
                                         <option value="EUR-Euro">EUR-Euro</option>
                                         <option value="USD-Dollar américan">USD-Dollar américan</option>
@@ -188,7 +194,8 @@
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Adresse de facturation* :</h5>
-                                    <textarea name="" v-model="LogistiqueAdresseFacturation"></textarea>
+                                    <textarea name="" v-model="LogistiqueAdresseFacturation" :style="DataIsSubmited && LogistiqueAdresseFacturation == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''"></textarea>
+                                    <span v-if="DataIsSubmited && LogistiqueAdresseFacturation == '' " class="MessageErrorFiled">Ce champ est obligatoire .</span>
                             </div>
                         </div>
                         <div v-if="SelectOptions == 'Options'" class="Options">
@@ -249,7 +256,7 @@
         SelectOptions:'Informations piéce',
         // informations piéce
         InformationsPiéceCilent:'',
-        InformationsPiéceNémuro:'',
+        InformationsPiéceNémuro:'DEV-08092021-4',
         InformationsPiéceDateDuDevis:'',
         InformationsPiéceNDeRéférence:'',
         InformationsPiéceVendeur:'',
@@ -279,7 +286,8 @@
         LogistiqueAdresseFacturation:'',
         ///// Options
         OptionsModèlePDF:'Devis de vente-modéle corporate',
-        OptionsAficherphotoArticle:true
+        OptionsAficherphotoArticle:true,
+        DataIsSubmited:false
 
       }
     },
@@ -332,24 +340,19 @@
            this.EchéancierRow.splice(row,1); 
         },
         GetAllData(){
-            console.log(this.InformationsPiéceCilent,
-                            this.InformationsPiéceNémuro,
-                            this.InformationsPiéceDateDuDevis,
-                            this.InformationsPiéceNDeRéférence,
-                            this.InformationsPiéceVendeur)
-            console.log(this.InformationsfinanciéresDateDécheance,
-                            this.InformationsfinanciéresRemiseGlobal,
-                            this.InformationsfinanciéresRemiseGlobalType,
-                            this.InformationsfinanciéresPort,
-                            this.InformationsfinanciéresTVAPort,
-                            this.InformationsfinanciéresDeviseUtilisée)
-            console.log(this.EchéancierRow)
-            console.log(this.LogistiqueModeLivraison,
-                        this.LogistiqueAdresseLivraison,
-                        this.LogistiqueAdresseFacturation)
-            console.log(this.OptionsModèlePDF)
+            this.DataIsSubmited = true
+        },
+        GetTodayDate(){
+            let GetDate = new Date();
+            let Year = GetDate.getFullYear()
+            let Month = GetDate.getMonth()
+            let Day = GetDate.getDay()
+            let TodayDate = `${Year}-0${Month}-0${Day}`
+            this.InformationsPiéceDateDuDevis = TodayDate;
         }
-
+    },
+    mounted(){
+        this.GetTodayDate()
     }
   }
 </script>

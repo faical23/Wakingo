@@ -19,6 +19,16 @@
 	 background-color: $Body-100;
 
  }
+ .MessageErrorFiled{
+	 color: #dd4b39;
+	 display: block;
+	 padding:10px 0px;
+	 position:absolute;
+ }
+ .AlertError{
+	 background-color:#dd4b39 !important;
+	 margin: 10px 0px;
+ }
 
 html {
 	font-size: 100%; /* 1 */

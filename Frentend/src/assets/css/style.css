@@ -19,6 +19,18 @@
   background-color: #ecf0f5;
 }
 
+.MessageErrorFiled {
+  color: #dd4b39;
+  display: block;
+  padding: 10px 0px;
+  position: absolute;
+}
+
+.AlertError {
+  background-color: #dd4b39 !important;
+  margin: 10px 0px;
+}
+
 html {
   font-size: 100%;
   /* 1 */
@@ -477,6 +489,7 @@ textarea {
 
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field, .NouvelleDevisProforma .Options .InformationPiéce__Field {
   width: 17% !important;
+  margin-bottom: 25px;
 }
 
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5, .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
@@ -589,7 +602,7 @@ textarea {
 }
 
 .DeleteRow {
-  background-color: red !important;
+  background-color: #dd4b39 !important;
   padding: 5px;
   border-radius: 6px;
 }
