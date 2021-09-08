@@ -92,7 +92,8 @@
                 border: 1px solid #d4d4d4;
                 padding: 6px 10px;
                 width:90%;
-                border-radius:2px
+                border-radius:2px;
+                font-size: 12px !important;
             }
             .RemiseGlobal{
                 display: flex;
@@ -138,8 +139,11 @@
                 border: 1px solid #d4d4d4;
                 width: 100%;
                 padding: 10px;
-                border-radius: 3px;
+                border-radius: 2px;
+                font-size: 12px !important;
+
             }
+
 
             .FiledDélaiJours__zone{
                     display: flex;

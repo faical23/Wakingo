@@ -490,6 +490,7 @@ textarea {
   padding: 6px 10px;
   width: 90%;
   border-radius: 2px;
+  font-size: 12px !important;
 }
 
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
@@ -542,7 +543,8 @@ textarea {
   border: 1px solid #d4d4d4;
   width: 100%;
   padding: 10px;
-  border-radius: 3px;
+  border-radius: 2px;
+  font-size: 12px !important;
 }
 
 .NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone {

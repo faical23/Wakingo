@@ -27,8 +27,8 @@
 
       <v-list-group
         class="First_Header"
-        v-for="Parent in SideBare"
-        :key="Parent"
+        v-for="(Parent,n) in SideBare"
+        :key="n"
       >
 
         <template v-slot:activator>
@@ -43,7 +43,7 @@
           no-action
           sub-group             
             v-for="(vente,i) in Parent.ChildData"
-            :key="(vente,i)"
+            :key="(i)"
             :class="['Second_Header', vente.Child ? '' : 'HasNotChidData' ]"
 
         >
@@ -56,7 +56,7 @@
           </template>                    
             <v-list-item
                       v-for="(Child,i) in vente.Child"
-                      :key="(Child,i)"
+                      :key="(i)"
                       link
                       class="Third_child"
                     >

@@ -13,8 +13,8 @@
           
           
     <v-menu
-      v-for="([text], index) in btns"
-      :key="text"
+      v-for="(text, index) in btns"
+      :key="index"
       class="v-menu"
       offset-y
       offset-x
