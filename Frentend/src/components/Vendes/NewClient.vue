@@ -266,7 +266,7 @@ export default {
     TypeClient:'',
     CodeDlient:'CLT-59',
     NomeEntreprise:'',
-    FormeJuridique:'Veuilley Sélectionnnnnnnnnner',
+    FormeJuridique:'Veuilley Sélectionner',
     ICE :'',
     FamilleClient:'Veuilley Sélectionner ',
     Téléphone:'',
