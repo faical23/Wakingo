@@ -1,5 +1,6 @@
 <template>
   <div class="HomePage">
+      <div   v-if='Alert || PopupAddNewClient' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()">fdsfs</div>
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -109,7 +110,15 @@
                         </div>
                     </div>
                 </div>
-                <InformationsProduit/>
+                <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
+                 :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
+                 @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
+                 @AddNewClient='OpenNewClientPopup()'/>
+                <AlertConfirmation
+                         v-if="Alert" @AlertAnnuler="DisabledAlert()
+                         " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
+                 />
+                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'   />
             </div>
       </div>
 
@@ -117,17 +126,51 @@
 </template>
 
 <script>
-  import SideBar from '../../../components/SideBar/Index.vue'
-  import InformationsProduit from '../../../components/InformationsProduits.vue'
-  import NaVBar from '../../../components/navbar.vue'
+    import SideBar from '../../../components/SideBar/Index.vue'
+    import InformationsProduit from '../../../components/Vendes/InformationsProduits.vue'
+    import AlertConfirmation from '../../../components/Vendes/AlertConfirmation.vue'
+    import PopupNewClient from '../../../components/Vendes/NewClient.vue'
+    import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
-
+    data(){
+        return{
+            Alert:false,
+            ConfirmationSelectionerClient : false,
+            PopupAddNewClient:false
+        }
+    },
     components: {
       SideBar,
       InformationsProduit,
-      NaVBar
+      NaVBar,
+      AlertConfirmation,
+      PopupNewClient
     },
+    methods:{
+        DeleteAllPopup(){
+            this.Alert=false
+            this.ConfirmationSelectionerClient = false
+            this.PopupAddNewClient=false
+        },
+        ActiveAlertConfirmation(){
+            this.Alert = true;
+        },
+        DisabledAlert(){
+            this.Alert = false;
+        },
+        ConfirmationAlertCSelectionerClient(){
+            this.ConfirmationSelectionerClient  = true
+            this.Alert = false;
+        },
+        ConfirmationSelectionerClientToFalse(){
+             this.ConfirmationSelectionerClient  = false
+        },
+        OpenNewClientPopup(){
+            this.PopupAddNewClient=true
+        },
+
+    }
   }
 </script>
 
