@@ -90,7 +90,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des devis',
-                    Path:'/Ventes/Liste des devies'
+                    Path:'/Ventes/ListeDevies'
                   },
                   {
                     SecondChild : 'Nouveau devis&Proforma',
