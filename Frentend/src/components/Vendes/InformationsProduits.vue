@@ -25,7 +25,6 @@
                     </v-tabs>
                 </template>
                 </v-toolbar>
-
                 <v-tabs-items v-model="tab">
                 <v-tab-item
                     v-for="(item,i) in items"
@@ -35,13 +34,17 @@
 
                     <v-card-text>
                         <div v-if="SelectOptions == 'Informations piéce'" class="InformationPiéce">
-                            <div class="InformationPiéce__Field">
+                            <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
-                                        <input  :style="DataIsSubmited && InformationsPiéceCilent == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" type="text" name="city" list="cityname" placeholder ="Sélectioner un cient" v-model="InformationsPiéceCilent"/>
-                                        <datalist id="cityname">
-                                        <option v-for="(item,n) in 50 " :key="n"  value="faical bahis"/>
-                                    </datalist>
-                                    <span v-if="DataIsSubmited && InformationsPiéceCilent == '' " class="MessageErrorFiled">Vous devez selectionner un élément</span>
+                                        <button class="SearchClientButton" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+                                        <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
+                                            <input type="text">
+                                            <ul>
+                                                <li class="PlaceClientAndSearch_FirstLi">Sélectioner un cient</li>
+                                                <li v-for="client in Clients" :key="client" @click='ClientSelectionerBeforeConfirmation(client.Name)'>{{client.Name}}</li>
+                                                <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
+                                            </ul>
+                                        </div>
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Numéro* :</h5>
@@ -60,7 +63,7 @@
                                     <h5>Vendeur :</h5>
                                 <select name="pets" id="pet-select" v-model="InformationsPiéceVendeur">
                                     <option value="">Sélectionner un Vendeur</option>
-                                    <option v-for="(item,n) in 50 " :key="n" value="BAHSIS FAICAL">faical</option>
+                                    <option v-for="(item,n) in 10 " :key="n" value="BAHSIS FAICAL">faical</option>
                                 </select>
                             </div>
 
@@ -217,7 +220,7 @@
                 </v-tabs-items>
         </v-card>
         <button style="background-color:red;color:white;padding:10px 30px;" @click="GetAllData()">Get all data</button>
-   
+
   </div>
 </template>
 
@@ -260,6 +263,40 @@
         InformationsPiéceDateDuDevis:'',
         InformationsPiéceNDeRéférence:'',
         InformationsPiéceVendeur:'',
+        ScrollSearchClient:false,
+        Clients:[
+            {
+                Name:"CT1 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT2 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT3 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT4 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT5 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT6 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT7 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT8 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT9 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT10 - ESSAID CHASSE SA"
+            },
+        ],
+        ClientSelected:'Sélectioner un cient',
         // informations financiérs
         InformationsfinanciéresDateDécheance:'',
         InformationsfinanciéresRemiseGlobal:'',
@@ -291,6 +328,8 @@
 
       }
     },
+    props:['ConfirmationSelectionerClient'],
+    emits:['AlertSelectionerClient','AddNewClient'],
     methods:{
         SwitchOptionsToAnother(item){
             this.SelectOptions = item
@@ -349,10 +388,25 @@
             let Day = GetDate.getDay()
             let TodayDate = `${Year}-0${Month}-0${Day}`
             this.InformationsPiéceDateDuDevis = TodayDate;
+        },
+        ClientSelectionerBeforeConfirmation(params){
+            this.$emit('AlertSelectionerClient', params);
+            this.ScrollSearchClient = false
+            this.ClientSelected = params
+        },
+
+        NewClient(){
+            this.$emit('AddNewClient');
         }
     },
     mounted(){
         this.GetTodayDate()
+    },
+    watch: { 
+            ConfirmationSelectionerClient: function () {
+                document.querySelector('.SearchClientButton').innerHTML =  this.ClientSelected
+                this.$emit('ConfirmationSelectionerClientToFalse')
+            },
     }
   }
 </script>

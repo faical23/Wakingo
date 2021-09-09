@@ -9,8 +9,10 @@
 @import "base/typography";
 
 // 4 - componenets;
-
 @import "components/SideBar";
+@import "components/AlertConfirmation";
+@import "components/PopupNewClient";
+
 
 // 5 - Pages;
 @import "pages/home";

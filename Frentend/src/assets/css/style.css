@@ -31,6 +31,14 @@
   margin: 10px 0px;
 }
 
+.BackGourndBlackGlobalPage {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+}
+
 html {
   font-size: 100%;
   /* 1 */
@@ -386,6 +394,182 @@ textarea {
   display: none !important;
 }
 
+.AlertConfirmation {
+  background-color: white !important;
+  width: 40%;
+  border-radius: 4px;
+  position: fixed;
+  top: 0;
+  transform: translate(65%, 15%);
+  z-index: 200;
+}
+
+.AlertConfirmation p {
+  padding: 25px 20px;
+  font-size: 13px;
+}
+
+.AlertConfirmation .Confirmation__text {
+  border-top: 1px solid #d9d9d9 !important;
+  border-bottom: 1px solid #d9d9d9 !important;
+}
+
+.AlertConfirmation .btns {
+  padding: 20px;
+  text-align: end;
+}
+
+.AlertConfirmation .btns button {
+  padding: 10px 17px;
+  border-radius: 3px;
+  margin: 0px 5px;
+}
+
+.AlertConfirmation .btns .Btn__Annuer {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.AlertConfirmation .btns .Btn__Annuer:hover {
+  background-color: #b4b4b4;
+}
+
+.AlertConfirmation .btns .Btn__Confirmer {
+  background-color: #008d4c;
+  color: white;
+}
+
+.AlertConfirmation .btns .Btn__Confirmer:hover {
+  background-color: #036638;
+}
+
+.PopupNewClient {
+  width: 650px;
+  background-color: white !important;
+  border-radius: 4px;
+  position: fixed;
+  top: 0;
+  transform: translate(90%, 5%);
+  z-index: 200;
+}
+
+.PopupNewClient .PopupNewClient__title {
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid #d9d9d9 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.PopupNewClient .PopupNewClient__title p {
+  font-weight: 500;
+  color: #222d32;
+  font-size: 18px;
+}
+
+.PopupNewClient .PopupNewClient__title svg {
+  position: relative;
+  fill: #d9d9d9 !important;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.PopupNewClient .PopupNewClient__title svg:hover {
+  fill: black !important;
+}
+
+.PopupNewClient .PopupNewClient__information {
+  display: flex;
+  padding: 10px 20px 10px 20px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed {
+  padding: 10px 0px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select {
+  border: 1px solid #d4d4d4;
+  padding: 8px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6 {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input {
+  width: 25%;
+  cursor: pointer;
+}
+
+.PopupNewClient .PopupNewClient__information .CodePostalAndVille {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right {
+  width: 50%;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__left {
+  width: 50%;
+}
+
+.PopupNewClient .PopupNewClient__btns {
+  padding: 20px 20px 10px 20px;
+  border-top: 1px solid #d9d9d9 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PopupNewClient .PopupNewClient__btns button {
+  border-radius: 4px;
+  padding: 8px 20px;
+  margin-bottom: 10px;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer {
+  color: black;
+  background-color: #e7e7e7;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover {
+  background-color: #c3c3c3;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer {
+  color: white;
+  background-color: #367fa9;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg {
+  fill: white !important;
+  position: relative;
+  top: 2px;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover {
+  background-color: #024d79;
+}
+
 .HomePage {
   display: flex;
 }
@@ -601,53 +785,126 @@ textarea {
   padding: 0px !important;
 }
 
-.DeleteRow {
+.NouvelleDevisProforma .DeleteRow {
   background-color: #dd4b39 !important;
   padding: 5px;
   border-radius: 6px;
 }
 
-.DeleteRow svg {
+.NouvelleDevisProforma .DeleteRow svg {
   fill: #ffffff;
 }
 
-.DeleteRow:hover {
+.NouvelleDevisProforma .DeleteRow:hover {
   background-color: #b60000 !important;
 }
 
-.FDM, .LE {
+.NouvelleDevisProforma .FDM, .NouvelleDevisProforma .LE {
   width: 5% !important;
 }
 
-.FDM input, .LE input {
+.NouvelleDevisProforma .FDM input, .NouvelleDevisProforma .LE input {
   cursor: pointer;
 }
 
-.LE {
+.NouvelleDevisProforma .LE {
   width: 8% !important;
 }
 
-.LE input {
+.NouvelleDevisProforma .LE input {
   width: 100% !important;
 }
 
-.btnAjouter {
+.NouvelleDevisProforma .btnAjouter {
   text-align: end;
   margin: 20px 0px;
 }
 
-.btnAjouter .AjouterUneEchéance {
+.NouvelleDevisProforma .btnAjouter .AjouterUneEchéance {
   background-color: #00acd6;
   color: white;
   padding: 15px 20px;
   border-radius: 4px;
 }
 
-.btnAjouter .AjouterUneEchéance span {
+.NouvelleDevisProforma .btnAjouter .AjouterUneEchéance span {
   font-weight: bold;
   font-size: 20px;
 }
 
-.btnAjouter .AjouterUneEchéance:hover {
+.NouvelleDevisProforma .btnAjouter .AjouterUneEchéance:hover {
   background-color: #017c9b;
+}
+
+.NouvelleDevisProforma .SearchClient {
+  width: 90% !important;
+}
+
+.NouvelleDevisProforma .SearchClient button {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  text-align: start;
+  color: #222d32 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .SearchClient button i {
+  position: relative;
+  bottom: 1px;
+  color: #222d32 !important;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch {
+  width: 90%;
+  border: 1px solid #d4d4d4;
+  display: block;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch input {
+  border: 1px solid #3c8dbc;
+  padding: 8px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  color: #222d32 !important;
+  margin: 4px 10px;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul {
+  padding: 0px;
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li {
+  padding: 8px 10px;
+  font-size: 14px !important;
+  color: #222d32;
+  cursor: pointer;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li:hover {
+  background-color: #3c8dbc;
+  color: white;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
+  background-color: #dddddd;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient {
+  color: #3c8dbc;
+  margin: 10px 0px;
+  padding: 15px 10px;
+  border-top: 1px solid black;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient:hover {
+  background-color: white;
+  color: #0590e0;
 }
