@@ -17,6 +17,7 @@
   width: 100%;
   height: 100vh;
   background-color: #ecf0f5;
+  overflow-y: scroll;
 }
 
 .MessageErrorFiled {
@@ -169,6 +170,7 @@ img {
   /* 1 */
   -ms-interpolation-mode: bicubic;
   /* 2 */
+  object-fit: cover;
 }
 
 /**
@@ -480,11 +482,11 @@ textarea {
 
 .PopupNewClient .PopupNewClient__information {
   display: flex;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
 }
 
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed {
-  padding: 10px 0px;
+  padding: 10px 0px 25px 0px;
 }
 
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select {
@@ -568,6 +570,94 @@ textarea {
 
 .PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover {
   background-color: #024d79;
+}
+
+.AddArticleVentes {
+  margin: 20px;
+}
+
+.AddArticleVentes .AddArticleVentes__lines {
+  background-color: #3c8dbc;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.AddArticleVentes .AddArticleVentes__lines h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.AddArticleVentes .AddArticleVentes__lines i {
+  font-size: 25px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles {
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedArticle {
+  width: 20%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedTailsArticle {
+  width: 20%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName {
+  display: flex;
+  width: 100%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName button {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  text-align: start;
+  color: #222d32 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName button i {
+  position: relative;
+  bottom: 1px;
+  color: #222d32 !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName .ScrollSelectionerArticel {
+  width: 100%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName .ScrollSelectionerArticel .PlaceClientAndSearch input {
+  margin: 4px 7px !important;
+  width: 90% !important;
+  padding: 4px 10px !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName img {
+  margin: 0px 30px 10px 0px;
+  width: 30% !important;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimple {
+  width: 8% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn {
+  width: 1% !important;
 }
 
 .HomePage {
@@ -666,23 +756,43 @@ textarea {
   margin: 0px 10px;
 }
 
-.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique, .NouvelleDevisProforma .Options {
+.NouvelleDevisProforma .InformationPiéce,
+.NouvelleDevisProforma .InformationFinanciéres,
+.NouvelleDevisProforma .Logistique,
+.NouvelleDevisProforma .Options {
   display: flex;
   align-items: center;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field, .NouvelleDevisProforma .Options .InformationPiéce__Field {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field,
+.NouvelleDevisProforma .Options .InformationPiéce__Field {
   width: 17% !important;
   margin-bottom: 25px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5, .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field h5,
+.NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
   color: #222d32 !important;
   font-size: 15px;
   padding-bottom: 15px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea, .NouvelleDevisProforma .Options .InformationPiéce__Field input, .NouvelleDevisProforma .Options .InformationPiéce__Field select, .NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input,
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select,
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field input,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field select,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea,
+.NouvelleDevisProforma .Options .InformationPiéce__Field input,
+.NouvelleDevisProforma .Options .InformationPiéce__Field select,
+.NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
   border: 1px solid #d4d4d4;
   padding: 6px 10px;
   width: 90%;
@@ -690,68 +800,40 @@ textarea {
   font-size: 12px !important;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
   display: flex;
   width: 50%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
   width: 100%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
   width: 40%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port, .NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
   width: 60%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
   width: 40%;
-}
-
-.NouvelleDevisProforma .Échéancier table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: start;
-}
-
-.NouvelleDevisProforma .Échéancier table th {
-  background-color: white;
-  color: #222d32;
-  font-weight: 600;
-}
-
-.NouvelleDevisProforma .Échéancier table td, .NouvelleDevisProforma .Échéancier table th {
-  border: 1px solid #d9d9d9 !important;
-  padding: 10px;
-  text-align: start;
-  width: 15%;
-}
-
-.NouvelleDevisProforma .Échéancier table td {
-  background-color: #f9f9f9;
-  padding: 10px 8px !important;
-}
-
-.NouvelleDevisProforma .Échéancier table select, .NouvelleDevisProforma .Échéancier table input {
-  background-color: white !important;
-  border: 1px solid #d4d4d4;
-  width: 100%;
-  padding: 10px;
-  border-radius: 2px;
-  font-size: 12px !important;
-}
-
-.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone {
-  display: flex;
-  align-items: center;
-}
-
-.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone input {
-  width: 80% !important;
-  border-radius: 0px !important;
 }
 
 .NouvelleDevisProforma .Logistique {
@@ -799,11 +881,13 @@ textarea {
   background-color: #b60000 !important;
 }
 
-.NouvelleDevisProforma .FDM, .NouvelleDevisProforma .LE {
+.NouvelleDevisProforma .FDM,
+.NouvelleDevisProforma .LE {
   width: 5% !important;
 }
 
-.NouvelleDevisProforma .FDM input, .NouvelleDevisProforma .LE input {
+.NouvelleDevisProforma .FDM input,
+.NouvelleDevisProforma .LE input {
   cursor: pointer;
 }
 
@@ -859,13 +943,61 @@ textarea {
   color: #222d32 !important;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch {
+.Échéancier table, .AddArticleVentes__articles table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: start;
+}
+
+.Échéancier table th, .AddArticleVentes__articles table th {
+  background-color: white;
+  color: #222d32;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.Échéancier table td,
+.Échéancier table th, .AddArticleVentes__articles table td,
+.AddArticleVentes__articles table th {
+  border: 1px solid #d9d9d9 !important;
+  padding: 10px;
+  text-align: start;
+  width: 15%;
+}
+
+.Échéancier table td, .AddArticleVentes__articles table td {
+  background-color: #f9f9f9;
+  padding: 10px 8px !important;
+}
+
+.Échéancier table select,
+.Échéancier table input, .AddArticleVentes__articles table select,
+.AddArticleVentes__articles table input {
+  background-color: white !important;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.Échéancier table .FiledDélaiJours__zone, .AddArticleVentes__articles table .FiledDélaiJours__zone {
+  display: flex;
+  align-items: center;
+}
+
+.Échéancier table .FiledDélaiJours__zone input, .AddArticleVentes__articles table .FiledDélaiJours__zone input {
+  width: 80% !important;
+  border-radius: 0px !important;
+}
+
+.PlaceClientAndSearch {
   width: 90%;
   border: 1px solid #d4d4d4;
   display: block;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch input {
+.PlaceClientAndSearch input {
   border: 1px solid #3c8dbc;
   padding: 8px 10px;
   width: 90%;
@@ -875,36 +1007,63 @@ textarea {
   margin: 4px 10px;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul {
+.PlaceClientAndSearch ul {
   padding: 0px;
   height: 250px;
   overflow-y: scroll;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li {
+.PlaceClientAndSearch ul li {
   padding: 8px 10px;
   font-size: 14px !important;
   color: #222d32;
   cursor: pointer;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li:hover {
+.PlaceClientAndSearch ul li:hover {
   background-color: #3c8dbc;
   color: white;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
+.PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
   background-color: #dddddd;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient {
+.PlaceClientAndSearch_NewCient {
   color: #3c8dbc;
   margin: 10px 0px;
-  padding: 15px 10px;
+  padding: 12px 10px 7px 10px;
   border-top: 1px solid black;
+  cursor: pointer;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient:hover {
+.PlaceClientAndSearch_NewCient:hover {
   background-color: white;
   color: #0590e0;
+}
+
+.DeleteRow {
+  background-color: #dd4b39 !important;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.DeleteRow svg {
+  fill: #ffffff;
+}
+
+.DeleteRow:hover {
+  background-color: #b60000 !important;
+}
+
+.Remise {
+  display: flex;
+}
+
+.Remise input {
+  width: 100%;
+}
+
+.Remise select {
+  width: 100%;
 }

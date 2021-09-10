@@ -110,15 +110,20 @@
                         </div>
                     </div>
                 </div>
+                <!-- <AlertErrorFailed/> -->
                 <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
-                 @AddNewClient='OpenNewClientPopup()'/>
+                 @AddNewClient='OpenNewClientPopup'
+                 :NameOfNewClientAdded='NameOfNewClientAdded'/>
                 <AlertConfirmation
                          v-if="Alert" @AlertAnnuler="DisabledAlert()
                          " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
                  />
-                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'   />
+                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
+            </div>
+            <div class="EspaceAddArticles">
+                <AddArticles/>
             </div>
       </div>
 
@@ -130,6 +135,8 @@
     import InformationsProduit from '../../../components/Vendes/InformationsProduits.vue'
     import AlertConfirmation from '../../../components/Vendes/AlertConfirmation.vue'
     import PopupNewClient from '../../../components/Vendes/NewClient.vue'
+    import AddArticles from '../../../components/Vendes/EspaceArticle.vue'
+    // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
     import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
@@ -137,7 +144,9 @@
         return{
             Alert:false,
             ConfirmationSelectionerClient : false,
-            PopupAddNewClient:false
+            PopupAddNewClient:false,
+            LengthOfClientHave:'',
+            NameOfNewClientAdded:'papapa'
         }
     },
     components: {
@@ -145,7 +154,9 @@
       InformationsProduit,
       NaVBar,
       AlertConfirmation,
-      PopupNewClient
+      PopupNewClient,
+      AddArticles,
+    //   AlertErrorFailed
     },
     methods:{
         DeleteAllPopup(){
@@ -166,9 +177,15 @@
         ConfirmationSelectionerClientToFalse(){
              this.ConfirmationSelectionerClient  = false
         },
-        OpenNewClientPopup(){
+        OpenNewClientPopup(client){
             this.PopupAddNewClient=true
+            this.LengthOfClientHave =client.length
         },
+        NewClientIsAdded(client){
+            this.PopupAddNewClient=false
+            this.NameOfNewClientAdded = client
+            console.log(this.NameOfNewClientAdded)
+        }
 
     }
   }

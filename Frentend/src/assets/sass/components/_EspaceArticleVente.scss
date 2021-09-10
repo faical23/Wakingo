@@ -1,0 +1,82 @@
+.AddArticleVentes{
+    margin: 20px;
+    .AddArticleVentes__lines{
+        background-color: #3c8dbc;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        h4{
+            font-size:18px;
+            font-weight:400;
+            margin-left: 10px;
+        }
+        i{
+            font-size:25px;
+        }
+    }
+    .AddArticleVentes__articles{
+        background-color:white;
+        padding: 10px 20px;
+
+        table{
+            .FailedArticle{
+                width:20%;
+            }
+            .FailedTailsArticle{
+                width:20%;
+            }
+            .FaildAddImageAndName{
+                display: flex;
+                width: 100%;
+                button {
+                  border: 1px solid #d4d4d4;
+                  padding: 6px 10px;
+                  width: 90%;
+                  border-radius: 2px;
+                  font-size: 13px !important;
+                  text-align: start;
+                  color: $TextColor-100 !important;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  i {
+                    position: relative;
+                    bottom: 1px;
+                    color: $TextColor-100 !important;
+                  }
+                }
+                .ScrollSelectionerArticel{
+                    width:100%;
+                        .PlaceClientAndSearch{
+                            input{
+                                margin: 4px 7px !important;
+                                width: 90% !important;
+                                padding:4px 10px !important;
+                            }
+                        }
+                }
+                img{
+                    margin:0px 30px 10px 0px;
+                    width: 30% !important;
+                    height: 80px;
+                    border:1px solid black;
+                    border-radius: 4px;
+                    object-fit: cover;
+                }
+            }   
+            .FailedSimple{
+                width:8% !important;
+            }
+            .FailedSimpleBtn{
+                width:1% !important;
+            }
+
+    
+
+
+        }
+    }
+}
