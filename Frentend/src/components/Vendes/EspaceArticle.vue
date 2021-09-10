@@ -26,7 +26,6 @@
                     </tr>
                     <tr v-for="(article,n) in Article" :key="n">
                         <td class="FaildAddImageAndName">
-                             <!-- <input type="file" hidden ref="ArticelImg" @change="ChangeArticleImg(n)"> -->
                             <img :src="article.ArticleImg" alt="article img"  @click="UploadImg(n)" />
                             <div class="ScrollSelectionerArticel">
                                     <button class="SearchClientButton" @click='scrollSelectArticle == true ? scrollSelectArticle = false :  scrollSelectArticle = true' >Sélectioner un cient <i class="fas fa-sort-down"></i></button>
@@ -40,13 +39,13 @@
                             </div>
                         </td>
                         <td>
-                            <input type="text" v-model="nameArticle">
+                            <input type="text" v-model="article.nameArticle">
                         </td  >
                         <td  class="FailedSimple">
-                            <input type="text" v-model="Qté" placeholder="0,00">
+                            <input type="text" v-model="article.Qté" placeholder="0,00">
                         </td>
                         <td  class="FailedSimple">
-                            <select name="pets" id="pet-select" v-model="Unité">
+                            <select name="pets" id="pet-select" v-model="article.Unité">
                                 <optgroup  label="Unité">
                                     <option value="Unité(s)">Unité(s)</option>
                                     <option value="Douzaine(s)">Douzaine(s)</option>
@@ -74,19 +73,19 @@
                             </select>
                         </td>
                         <td  class="FailedSimple">
-                            <input type="text" v-model="Price" placeholder="0,00">
+                            <input type="text" v-model="article.Price" placeholder="0,00">
                         </td>
                         <td  class="FailedSimple" >
                                 <div class="Remise">
-                                        <input type="text" placeholder="0,00" v-model="RemisePrice"/>
-                                        <select name="pets" id="pet-select" v-model="RemiseType">
+                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"/>
+                                        <select name="pets" id="pet-select" v-model="article.RemiseType">
                                             <option value="%">%</option>
                                             <option value="Montant">Montant</option>
                                         </select>
                                     </div>
                         </td>
                         <td  class="FailedSimple">
-                                    <select class="TVA" name="pets" id="pet-select" v-model="TVA">
+                                    <select class="TVA" name="pets" id="pet-select" v-model="article.TVA">
                                         <option value="20,00%">20,00%</option>
                                         <option value="14,00%">14,00%</option>
                                         <option value="10,00%">10,00%</option>
@@ -95,7 +94,7 @@
                                     </select>
                         </td>
                         <td  class="FailedSimple">
-                            <input type="text" placeholder="0,00" v-model="TotalTTC" disabled>
+                            <input type="text" placeholder="0,00" v-model="article.TotalTTC" disabled>
                         </td>
                         <td  class="FailedSimpleBtn">
                             <button class="DeleteRow">
@@ -159,7 +158,6 @@ export default {
           }
       ],
       ArticleImg:'/img/uploaImg.7d959d34.jpg',
-      scrollSelectArticle:false,
       nameArticle:'',
       Qté:'',
       Unité :'Douzaine(s)',
@@ -216,7 +214,8 @@ export default {
               Price :4.50
           }
       ],
-      IndexImgChange:''
+      IndexImgChange:'',
+    scrollSelectArticle:false,
 
 
   }),
