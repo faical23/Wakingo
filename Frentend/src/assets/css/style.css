@@ -1,0 +1,910 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+.GlobalPage {
+  width: 100%;
+  height: 100vh;
+  background-color: #ecf0f5;
+}
+
+.MessageErrorFiled {
+  color: #dd4b39;
+  display: block;
+  padding: 10px 0px;
+  position: absolute;
+}
+
+.AlertError {
+  background-color: #dd4b39 !important;
+  margin: 10px 0px;
+}
+
+.BackGourndBlackGlobalPage {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+}
+
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+body {
+  line-height: 100%;
+  overflow-x: hidden;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+  font-weight: 700;
+}
+
+i {
+  vertical-align: middle;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:focus,
+a:visited:focus {
+  outline: thin dotted;
+}
+
+a:active, a:hover,
+a:visited:active,
+a:visited:hover {
+  outline: 0;
+}
+
+input,
+textarea:focus {
+  outline: 0;
+}
+
+button:focus {
+  cursor: pointer;
+  outline: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+/**
+* Remove most spacing between table cells.
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: content-box;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+img {
+  max-width: 100%;
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/*=== Import Fonts ===*/
+@font-face {
+  font-family: 'poping-Regular';
+  src: url(../fonts/poppins-1/Poppins-Regular.otf);
+}
+
+@font-face {
+  font-family: 'poping-Extrabold';
+  src: url(../fonts/poppins-1/Poppins-ExtraBold.otf);
+}
+
+@font-face {
+  font-family: 'poping-Semibold';
+  src: url(../fonts/poppins-1/Poppins-SemiBold.otf);
+}
+
+@font-face {
+  font-family: 'poping-Medium';
+  src: url(../fonts/poppins-1/Poppins-Medium.otf);
+}
+
+@font-face {
+  font-family: 'poping-Bold';
+  src: url(../fonts/poppins-1/Poppins-Bold.otf);
+}
+
+@font-face {
+  font-family: 'poping-iLght';
+  src: url(../fonts/poppins-1/Poppins-Light.otf);
+}
+
+/*=== Typography Styling ===*/
+* {
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.SideBare .v-card {
+  height: 100vh !important;
+  width: 250px !important;
+  background-color: #222d32 !important;
+  border-radius: 0px !important;
+  transition: 0.3s ease-in-out !important;
+}
+
+.SideBare .v-list-item__avatar {
+  display: none !important;
+}
+
+.SideBare .v-list-item {
+  padding: 12px 20px !important;
+  min-height: 0px !important;
+}
+
+.SideBare .v-list-item__title {
+  font-size: 13px !important;
+  color: #d9d9d9 !important !important;
+}
+
+.SideBare .list-item__icon:first-child {
+  margin-right: 10px;
+}
+
+.SideBare .v-list {
+  padding: 0px !important;
+  background-color: #222d32 !important;
+}
+
+.SideBare .v-list-item__icon {
+  margin: 0px !important;
+  margin-right: 10px !important;
+  display: content !important;
+}
+
+.SideBare .v-list-item .v-list-item__title, .SideBare .v-list-item .v-list-item__subtitle, .SideBare .NotHasChild {
+  color: #c9c9c9 !important;
+}
+
+.SideBare .v-icon, .SideBare i {
+  color: #c9c9c9 !important;
+  font-size: 18px !important;
+}
+
+.SideBare .Tableau__bord__title {
+  position: relative;
+  top: 2px;
+  cursor: pointer !important;
+}
+
+.SideBare .SideBar_Logo {
+  background-color: #367fa9 !important;
+  cursor: pointer !important;
+}
+
+.SideBare .SideBar_Logo .SideBar_Logo__title {
+  font-size: 30px !important;
+  font-weight: bolder !important;
+  text-align: center !important;
+  color: white !important;
+}
+
+.SideBare .SideBar_Logo:hover {
+  background-color: #367fa9 !important;
+}
+
+.SideBare .v-list-group__items {
+  background-color: #2c3b41 !important;
+}
+
+.SideBare .v-list-group__items .v-list-group:hover .v-list-item__title {
+  color: white !important;
+}
+
+.SideBare .v-list-group__header__prepend-icon {
+  max-width: 13px !important;
+}
+
+.SideBare .First_Header:hover, .SideBare .First_Header:focus {
+  background-color: #141c1f !important;
+}
+
+.SideBare .Second_Header .v-list-group__header, .SideBare .NotHasChild .v-list-group__header {
+  min-height: 0px !important;
+  padding: 8px 25px !important;
+}
+
+.SideBare .Second_Header i, .SideBare .NotHasChild i {
+  font-size: 12px !important;
+  transition: 0.2s ease-in-out;
+}
+
+.SideBare .Second_Header .v-list-item__icon, .SideBare .NotHasChild .v-list-item__icon {
+  min-width: 16px !important;
+  margin: 0px !important;
+  font-size: 14px !important;
+  position: relative;
+  top: 2px;
+  transition: 0.3s ease-in-out;
+  text-align: end !important;
+}
+
+.SideBare .Second_Header .v-list-item__content, .SideBare .NotHasChild .v-list-item__content {
+  padding: 0px !important;
+}
+
+.SideBare .Second_Header .v-list-item__title, .SideBare .NotHasChild .v-list-item__title {
+  position: relative;
+  left: 5px !important;
+  font-size: 14px !important;
+}
+
+.SideBare .Second_Header:hover .v-list-item__title, .SideBare .Second_Header:hover i, .SideBare .Second_Header:hover .v-list-item__icon, .SideBare .NotHasChild:hover .v-list-item__title, .SideBare .NotHasChild:hover i, .SideBare .NotHasChild:hover .v-list-item__icon {
+  color: white !important;
+}
+
+.SideBare .Third_child {
+  padding: 6px 10px !important;
+  padding-left: 60px !important;
+  min-height: 0px !important;
+}
+
+.SideBare .logo_img {
+  width: 100%;
+  margin: auto !important;
+}
+
+.SideBare .SideBar_Icons {
+  display: block !important;
+  min-width: 24px;
+}
+
+.SideBare .HasNotChidData .v-list-group__header__prepend-icon {
+  display: none !important;
+}
+
+.AlertConfirmation {
+  background-color: white !important;
+  width: 40%;
+  border-radius: 4px;
+  position: fixed;
+  top: 0;
+  transform: translate(65%, 15%);
+  z-index: 200;
+}
+
+.AlertConfirmation p {
+  padding: 25px 20px;
+  font-size: 13px;
+}
+
+.AlertConfirmation .Confirmation__text {
+  border-top: 1px solid #d9d9d9 !important;
+  border-bottom: 1px solid #d9d9d9 !important;
+}
+
+.AlertConfirmation .btns {
+  padding: 20px;
+  text-align: end;
+}
+
+.AlertConfirmation .btns button {
+  padding: 10px 17px;
+  border-radius: 3px;
+  margin: 0px 5px;
+}
+
+.AlertConfirmation .btns .Btn__Annuer {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.AlertConfirmation .btns .Btn__Annuer:hover {
+  background-color: #b4b4b4;
+}
+
+.AlertConfirmation .btns .Btn__Confirmer {
+  background-color: #008d4c;
+  color: white;
+}
+
+.AlertConfirmation .btns .Btn__Confirmer:hover {
+  background-color: #036638;
+}
+
+.PopupNewClient {
+  width: 650px;
+  background-color: white !important;
+  border-radius: 4px;
+  position: fixed;
+  top: 0;
+  transform: translate(90%, 5%);
+  z-index: 200;
+}
+
+.PopupNewClient .PopupNewClient__title {
+  padding: 20px 20px 10px 20px;
+  border-bottom: 1px solid #d9d9d9 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.PopupNewClient .PopupNewClient__title p {
+  font-weight: 500;
+  color: #222d32;
+  font-size: 18px;
+}
+
+.PopupNewClient .PopupNewClient__title svg {
+  position: relative;
+  fill: #d9d9d9 !important;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.PopupNewClient .PopupNewClient__title svg:hover {
+  fill: black !important;
+}
+
+.PopupNewClient .PopupNewClient__information {
+  display: flex;
+  padding: 10px 20px 10px 20px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed {
+  padding: 10px 0px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select {
+  border: 1px solid #d4d4d4;
+  padding: 8px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6 {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input {
+  width: 25%;
+  cursor: pointer;
+}
+
+.PopupNewClient .PopupNewClient__information .CodePostalAndVille {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right {
+  width: 50%;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__left {
+  width: 50%;
+}
+
+.PopupNewClient .PopupNewClient__btns {
+  padding: 20px 20px 10px 20px;
+  border-top: 1px solid #d9d9d9 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.PopupNewClient .PopupNewClient__btns button {
+  border-radius: 4px;
+  padding: 8px 20px;
+  margin-bottom: 10px;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer {
+  color: black;
+  background-color: #e7e7e7;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover {
+  background-color: #c3c3c3;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer {
+  color: white;
+  background-color: #367fa9;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg {
+  fill: white !important;
+  position: relative;
+  top: 2px;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover {
+  background-color: #024d79;
+}
+
+.HomePage {
+  display: flex;
+}
+
+.NouvelleDevisProforma {
+  width: 100%;
+  padding: 20px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left h2 {
+  font-size: 24px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  color: #222d32;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left p {
+  font-size: 15px;
+  font-weight: 300;
+  color: #959595;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink {
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink a {
+  font-size: 13px !important;
+  color: #222d32 !important;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink a i {
+  position: relative;
+  bottom: 3px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink span {
+  font-size: 13px !important;
+  color: #959595 !important;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink .RoutlinkZone {
+  margin: 0px 10px;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns {
+  text-align: end;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button {
+  background-color: #3c8dbc;
+  padding: 10px;
+  border-radius: 2px;
+  color: white;
+  border: 1px solid #367fa9;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button svg {
+  fill: white;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button:hover {
+  background-color: #367fa9;
+}
+
+.NouvelleDevisProforma .SwitchOptions {
+  margin: 30px 0px;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-toolbar__content {
+  display: none;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-sheet {
+  background-color: white !important;
+  height: auto !important;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-sheet .v-tab {
+  font-size: 12px !important;
+  color: #222d32 !important;
+  margin-left: 0px !important;
+}
+
+.NouvelleDevisProforma .SwitchOptions .v-sheet .v-tab i {
+  margin: 0px 10px;
+}
+
+.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique, .NouvelleDevisProforma .Options {
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field, .NouvelleDevisProforma .Options .InformationPiéce__Field {
+  width: 17% !important;
+  margin-bottom: 25px;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5, .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
+  color: #222d32 !important;
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea, .NouvelleDevisProforma .Options .InformationPiéce__Field input, .NouvelleDevisProforma .Options .InformationPiéce__Field select, .NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
+  display: flex;
+  width: 50%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
+  width: 100%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
+  width: 40%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port, .NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
+  width: 60%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
+  width: 40%;
+}
+
+.NouvelleDevisProforma .Échéancier table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: start;
+}
+
+.NouvelleDevisProforma .Échéancier table th {
+  background-color: white;
+  color: #222d32;
+  font-weight: 600;
+}
+
+.NouvelleDevisProforma .Échéancier table td, .NouvelleDevisProforma .Échéancier table th {
+  border: 1px solid #d9d9d9 !important;
+  padding: 10px;
+  text-align: start;
+  width: 15%;
+}
+
+.NouvelleDevisProforma .Échéancier table td {
+  background-color: #f9f9f9;
+  padding: 10px 8px !important;
+}
+
+.NouvelleDevisProforma .Échéancier table select, .NouvelleDevisProforma .Échéancier table input {
+  background-color: white !important;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone {
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone input {
+  width: 80% !important;
+  border-radius: 0px !important;
+}
+
+.NouvelleDevisProforma .Logistique {
+  width: 85% !important;
+}
+
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field {
+  width: 100% !important;
+}
+
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea {
+  height: 30px;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field {
+  width: 25% !important;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto {
+  margin: 15px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto input {
+  width: 10% !important;
+}
+
+.NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto h5 {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.NouvelleDevisProforma .DeleteRow {
+  background-color: #dd4b39 !important;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.NouvelleDevisProforma .DeleteRow svg {
+  fill: #ffffff;
+}
+
+.NouvelleDevisProforma .DeleteRow:hover {
+  background-color: #b60000 !important;
+}
+
+.NouvelleDevisProforma .FDM, .NouvelleDevisProforma .LE {
+  width: 5% !important;
+}
+
+.NouvelleDevisProforma .FDM input, .NouvelleDevisProforma .LE input {
+  cursor: pointer;
+}
+
+.NouvelleDevisProforma .LE {
+  width: 8% !important;
+}
+
+.NouvelleDevisProforma .LE input {
+  width: 100% !important;
+}
+
+.NouvelleDevisProforma .btnAjouter {
+  text-align: end;
+  margin: 20px 0px;
+}
+
+.NouvelleDevisProforma .btnAjouter .AjouterUneEchéance {
+  background-color: #00acd6;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+}
+
+.NouvelleDevisProforma .btnAjouter .AjouterUneEchéance span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.NouvelleDevisProforma .btnAjouter .AjouterUneEchéance:hover {
+  background-color: #017c9b;
+}
+
+.NouvelleDevisProforma .SearchClient {
+  width: 90% !important;
+}
+
+.NouvelleDevisProforma .SearchClient button {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  text-align: start;
+  color: #222d32 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .SearchClient button i {
+  position: relative;
+  bottom: 1px;
+  color: #222d32 !important;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch {
+  width: 90%;
+  border: 1px solid #d4d4d4;
+  display: block;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch input {
+  border: 1px solid #3c8dbc;
+  padding: 8px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  color: #222d32 !important;
+  margin: 4px 10px;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul {
+  padding: 0px;
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li {
+  padding: 8px 10px;
+  font-size: 14px !important;
+  color: #222d32;
+  cursor: pointer;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li:hover {
+  background-color: #3c8dbc;
+  color: white;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
+  background-color: #dddddd;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient {
+  color: #3c8dbc;
+  margin: 10px 0px;
+  padding: 15px 10px;
+  border-top: 1px solid black;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient:hover {
+  background-color: white;
+  color: #0590e0;
+}
