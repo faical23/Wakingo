@@ -1,6 +1,6 @@
 <template>
    <nav>
-      <v-toolbar flat app  dense class="light-blue darken-3">
+      <v-toolbar flat app  dense class="navbar light-blue darken-3">
           <v-app-bar-nav-icon class="white--text"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase white--text">
             
