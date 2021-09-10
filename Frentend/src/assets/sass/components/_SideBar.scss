@@ -1,0 +1,145 @@
+
+.SideBare{
+  .v-card {
+    height: 100vh !important;
+    width:250px !important;
+    background-color:$SideBarBackColor !important;
+    border-radius: 0px !important;
+    transition: 0.3s ease-in-out !important;
+  
+  }
+  .v-list-item__avatar{
+    display: none !important;
+  }
+  .v-list-item{
+    padding: 12px 20px !important;
+    min-height: 0px !important;
+  }
+    .v-list-item__title {
+      font-size: 13px !important;
+      color:$SideBarIconColor !important;
+  }
+  .list-item__icon:first-child {
+      margin-right: 10px;
+  }
+  
+  .v-list{
+      padding: 0px !important;
+      background-color:$SideBarBackColor !important;
+  }
+  .v-list-item__icon{
+    margin:0px !important;
+    margin-right: 10px !important;
+    display:content !important;
+  }
+  
+  .v-list-item .v-list-item__title, .v-list-item .v-list-item__subtitle,.NotHasChild {
+      color: #c9c9c9 !important;
+  }
+  .v-icon,i{
+    color: #c9c9c9 !important;
+    font-size: 18px !important;
+  }
+  
+  
+  .Tableau__bord__title{
+    position: relative;
+    top:2px;
+    cursor: pointer !important;
+  }
+  .SideBar_Logo{
+    background-color:#367fa9 !important;
+    cursor: pointer !important;
+    .SideBar_Logo__title{
+      font-size: 30px !important;
+      font-weight: bolder !important;
+      text-align: center !important;
+      color: white !important;
+    }
+    &:hover{
+      background-color:#367fa9 !important;
+    }
+  }
+  .v-list-group__items{
+    background-color:#2c3b41 !important ;
+    .v-list-group{
+      &:hover{
+        .v-list-item__title{
+          color: white !important;
+        }
+      }
+    }
+  }
+  .v-list-group__header__prepend-icon{
+    max-width: 13px !important;
+  }
+  
+  .First_Header{
+    &:hover,&:focus{
+      background-color: #141c1f !important;
+    }
+  }
+  .Second_Header,.NotHasChild{
+    .v-list-group__header {
+      min-height: 0px !important;
+      padding:8px 25px !important;
+    }
+    i{
+      font-size: 12px !important;
+      transition: 0.2s ease-in-out;
+    }
+   .v-list-item__icon{
+      min-width:16px !important;
+      margin:0px !important;
+      font-size: 14px !important;
+      position: relative;
+      top: 2px;
+      transition: 0.3s ease-in-out;
+      text-align: end !important;
+    }
+    .v-list-item__content{
+      padding:0px !important;
+    }
+    .v-list-item__title{
+      position: relative;
+      left: 5px !important;
+      font-size: 14px !important;
+    }
+    &:hover{
+      .v-list-item__title,i,.v-list-item__icon{
+        color: white !important;
+      }
+  
+    }
+  }
+  .Third_child{
+    padding: 6px 10px !important;
+    padding-left: 60px !important;
+    min-height: 0px !important;
+  }
+  
+  .logo_img{
+    width: 100%;
+    margin: auto !important;
+  }
+  
+  
+  
+  
+  .SideBar_Icons {
+    display: block !important;
+    min-width: 24px;
+  }
+  
+  .HasNotChidData{
+    .v-list-group__header__prepend-icon{
+      display:none !important;
+    }
+  }
+  
+}
+
+
+
+
+
