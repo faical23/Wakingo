@@ -1,0 +1,59 @@
+.PopupNewArticle{
+    .PopupNewArticle_Information{
+        display: block !important;
+        margin: 5px 0px !important;
+        input,textarea{
+            margin: 10px 0px;
+        }
+        .PopupNewArticle_Information__zone{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0px;
+            .InputPrix{
+                display: flex;
+                align-items: center;
+            }
+            .Libellé{
+                width: 70%;
+            }
+            .TVA{
+                select{
+                    width: 100% !important;
+                }
+            }
+            
+        }
+        .PriceArticle{
+            input,select{
+                width: 30% !important;
+            }
+        }
+        .CheckboxZone{
+            display: flex;
+            align-items: center;
+            input{
+                position: relative;
+                bottom: 2px;
+            }
+            h6{
+                margin: 0px 10px;
+            }
+        }
+        .Catageory,.PriceArticle,.CheckboxZone{
+            border-bottom: 1px solid rgb(31, 31, 31);
+            padding-bottom: 15px;
+        }
+        .Description{
+            display: block !important; 
+            .DiscriptionZOne{
+            margin-bottom: 10px;
+            textarea{
+                width: 100% !important;
+                height:100px;
+            }
+            }
+        }
+
+    }
+}

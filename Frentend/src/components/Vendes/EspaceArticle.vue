@@ -1,5 +1,6 @@
 <template>
     <div class="AddArticleVentes">
+
         <div class="AddArticleVentes__lines">
             <i class="fas fa-list-alt"></i>
             <h4>Lignes</h4>
@@ -15,7 +16,7 @@
                         <th class="FailedSimple" >
                             <select v-model="PriceType">
                                 <option value="P.U HT">P.U HT</option>
-                                <option value="P.U TTC">P.U HT</option>
+                                <option value="P.U TTC">P.U TTC</option>
                             </select>
                         </th>
                         <th class="FailedSimple" >Remis</th>
@@ -24,28 +25,28 @@
                         <th  class="FailedSimple" >Total TTC</th>
                         <th  class="FailedSimpleBtn">#</th>
                     </tr>
-                    <tr v-for="(article,n) in Article" :key="n">
-                        <td class="FaildAddImageAndName">
-                            <img :src="article.ArticleImg" alt="article img"  @click="UploadImg(n)" />
+                    <tr v-for="(article,index) in Article" :key="index">
+                        <td class="FaildAddImageAndName" v-if="article.Type=='Article'">
+                            <img :src="article.ArticleImg" alt="article img"  @click="UploadImg(index)" />
                             <div class="ScrollSelectionerArticel">
-                                    <button class="SearchClientButton" @click='scrollSelectArticle == true ? scrollSelectArticle = false :  scrollSelectArticle = true' >Sélectioner un cient <i class="fas fa-sort-down"></i></button>
-                                    <div class="PlaceClientAndSearch" v-if="scrollSelectArticle">
+                                    <button class="SearchClientButton" @click="GeThisScrollArticle(index)">Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+                                    <div class="PlaceClientAndSearch" v-if="scrollSelectArticleClicked === index">
                                     <input type="text">
                                     <ul>
                                         <li class="PlaceClientAndSearch_FirstLi">Sélectioner un cient</li>
-                                        <li  v-for="(article,n) in OurArticle" :key="n" @click='GetThisPArticle(article),scrollSelectArticle = false'>{{article.ProductNamel}}</li>    
+                                        <li  v-for="(article,n) in OurArticle" :key="n" @click="GetThisPArticle(article,index),scrollSelectArticleClicked = ''">{{article.ProductName}}</li>    
                                     </ul>
                                     </div>
                             </div>
                         </td>
-                        <td>
-                            <input type="text" v-model="article.nameArticle">
+                        <td :colspan="article.Type=='Article Libre' ? '2' : '1'" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
+                            <input class="InputZone" type="text" v-model="article.nameArticle">
                         </td  >
-                        <td  class="FailedSimple">
-                            <input type="text" v-model="article.Qté" placeholder="0,00">
+                        <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
+                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00">
                         </td>
-                        <td  class="FailedSimple">
-                            <select name="pets" id="pet-select" v-model="article.Unité">
+                        <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
+                            <select  class="InputZone" name="pets" id="pet-select" v-model="article.Unité">
                                 <optgroup  label="Unité">
                                     <option value="Unité(s)">Unité(s)</option>
                                     <option value="Douzaine(s)">Douzaine(s)</option>
@@ -66,17 +67,14 @@
                                 </optgroup>
                                 <optgroup  label="Volume">
                                     <option value="Liters(s)">Liters(s)</option>
-
                                 </optgroup>
-
-
                             </select>
                         </td>
-                        <td  class="FailedSimple">
-                            <input type="text" v-model="article.Price" placeholder="0,00">
+                        <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
+                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00">
                         </td>
-                        <td  class="FailedSimple" >
-                                <div class="Remise">
+                        <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'" >
+                                <div class="Remise InputZone">
                                         <input type="text" placeholder="0,00" v-model="article.RemisePrice"/>
                                         <select name="pets" id="pet-select" v-model="article.RemiseType">
                                             <option value="%">%</option>
@@ -84,8 +82,8 @@
                                         </select>
                                     </div>
                         </td>
-                        <td  class="FailedSimple">
-                                    <select class="TVA" name="pets" id="pet-select" v-model="article.TVA">
+                        <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
+                                    <select  class="TVA InputZone" name="pets" id="pet-select" v-model="article.TVA">
                                         <option value="20,00%">20,00%</option>
                                         <option value="14,00%">14,00%</option>
                                         <option value="10,00%">10,00%</option>
@@ -93,16 +91,129 @@
                                         <option value="0,00%">0,00%</option>
                                     </select>
                         </td>
-                        <td  class="FailedSimple">
-                            <input type="text" placeholder="0,00" v-model="article.TotalTTC" disabled>
+                        <td  colspan="7" style="text-align: end !important;" class="FailedSimple" v-if="article.Type==='Sous total' && article.Type!='Text libre'">
+                            <input style="position:relative !important;width:10% !important" class="InputZone" type="text" value="Sous-total TTC">
+                        </td>
+                        <td  colspan="7"  v-if=" article.Type=='Text libre'">
+                            <input type="text" v-model="article.TextLibre">
+                        </td>
+                        <td  class="FailedSimple" >
+                            <input  class="InputZone" type="text" placeholder="0,00" v-model="article.TotalTTC" disabled>
                         </td>
                         <td  class="FailedSimpleBtn">
-                            <button class="DeleteRow">
+                            <button class="DeleteRow InputZone" @click="DeleteArticle(index)">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
                             </button>
                         </td>
                     </tr>
                 </table>
+                <div class="AddArticleVentes__articles__btns">
+                    
+                        <v-row justify="space-around">
+                            <v-menu
+                            v-for="([text, rounded]) in btns"
+                            :key="text"
+                            :rounded="rounded"
+                            offset-y
+                            >
+                            <template v-slot:activator="{  on }">
+                                <v-btn
+                                v-on="on"
+                                >
+                                Ajouter une ligne
+                                </v-btn>
+                            </template>
+
+                            <v-list>
+                                <v-list-item link>
+                                    <v-list-item-title @click="AddNewArticle('Article')">Article</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item link>
+                                    <v-list-item-title @click="AddNewArticle('Article Libre')">Article libre</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item link>
+                                    <v-list-item-title @click="AddSousTotal()">Sous total</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item link>
+                                    <v-list-item-title @click="TextLibre()">text libre</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                            </v-menu>
+                        </v-row>
+                        <v-btn
+                            color="primary"
+                            dark
+                            large
+                            @click="$emit('NewArticlePopup')"
+                            >
+                            Créée un article
+                        </v-btn>
+                        <v-btn
+                            color="success"
+                            dark
+                            large
+                            >
+                            Choiser les articles
+                        </v-btn>
+                </div>
+                <div class="AddArticleVentes__TableMontant">
+                    <table>
+                            <tr>
+                                <th>Total brut</th>
+                                <th>Remise</th>
+                                <th>Total TH</th>
+                                <th>TVA</th>
+                                <th>Transport HT</th>
+                                <th>TVA PORT</th>
+                                <th>Total TTC</th>
+                                
+                            </tr>
+                            <tr> 
+                               <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                              <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                              <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                              <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                              <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                                <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                                 <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="AddArticleVentes__TVA">
+                    <p>% Table de TVA</p>
+                    <table>
+                        <tr>
+                            <th>Base HT</th>
+                            <th>TVA %</th>
+                            <th>TVA montant</th>
+                        </tr>
+                         <tr>
+                             <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                              <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                              <td>
+                                   <input type="text" placeholder="0,00" disabled>
+                               </td>
+                        </tr>
+                    </table>
+                </div>
         </div>
     </div>
 </template>
@@ -113,93 +224,78 @@
 export default {
   components: { },
   name: "ArticleVentes",
-  emits:[],
+  emits:['NewArticlePopup'],
   props:[],
   data: () => ({
       Article:[
-          {
+        {
+                Type:'Article',
                 ArticleImg:'/img/uploaImg.7d959d34.jpg',
                 scrollSelectArticle:false,
                 nameArticle:'',
                 Qté:'',
                 Unité :'Douzaine(s)',
-                PriceType:'P.U HT',
                 Price:'',
                 RemisePrice:'',
                 RemiseType:'%',
                 TVA:"20,00%",
                 TotalTTC:'',
           },
-        {
-                ArticleImg:'/img/uploaImg.7d959d34.jpg',
-                scrollSelectArticle:false,
-                nameArticle:'',
-                Qté:'',
-                Unité :'Douzaine(s)',
-                PriceType:'P.U HT',
-                Price:'',
-                RemisePrice:'',
-                RemiseType:'%',
-                TVA:"20,00%",
-                TotalTTC:'',
-          },
-        {
-                ArticleImg:'/img/uploaImg.7d959d34.jpg',
-                scrollSelectArticle:false,
-                nameArticle:'',
-                Qté:'',
-                Unité :'Douzaine(s)',
-                PriceType:'P.U HT',
-                Price:'',
-                RemisePrice:'',
-                RemiseType:'%',
-                TVA:"20,00%",
-                TotalTTC:'',
-          }
+        // {
+        //         Type:'Article Libre',
+        //         Qté:'',
+        //         Unité :'Douzaine(s)',
+        //         Price:'',
+        //         RemisePrice:'',
+        //         RemiseType:'%',
+        //         TVA:"20,00%",
+        //         TotalTTC:'',
+        //   },
+        // {
+        //         Type:'Sous total',
+        //         TotalTTC:'',
+        //   },
+        // {
+        //         TextLibre : 'Text libre',
+        //         Type:'Text libre',
+        //   },
       ],
-      ArticleImg:'/img/uploaImg.7d959d34.jpg',
-      nameArticle:'',
-      Qté:'',
-      Unité :'Douzaine(s)',
+
       PriceType:'P.U HT',
-      Price:'',
-      RemisePrice:'',
-      RemiseType:'%',
-      TVA:"20,00%",
       TotalTTC:'',
       OurArticle:[
           {
-              ProductNamel:"ART256A3 350g 1",
+              ProductName:"ART256A3 350g 1",
               Unité:'g',
               Price :4.50
           },
         {
-              ProductNamel:"ART256A3 350g 2",
+              ProductName:"ART256A3 350g 2",
               Unité:'Jour(s)',
               Price :8.50
           },
           {
-              ProductNamel:"ART256A3 350g 3",
-              Unité:'g',
+              ProductName:"ART256A3 350g 3",
+              Unité:'m',
               Price :44
           },
         {
-              ProductNamel:"ART256A3 350g 4",
+              ProductName:"ART256A3 350g 4",
               Unité:'g',
               Price :4.50
           },
           {
-              ProductNamel:"ART256A3 350g 5",
+              ProductName:"ART256A3 350g 5",
               Unité:'g',
               Price :4.50
           },
         {
-              ProductNamel:"ART256A3 350g 2",
+              ProductName:"ART256A3 350g 2",
               Unité:'g',
               Price :4.50
           },
           {
-              ProductNamel:"ART256A3 350g 3",
+              ProductName:"ART256A3 350g 3",
               Unité:'g',
               Price :4.50
           },
@@ -215,7 +311,11 @@ export default {
           }
       ],
       IndexImgChange:'',
-    scrollSelectArticle:false,
+    scrollSelectArticleClicked:'',
+          btns: [
+        ['Removed', '0'],
+      ],
+      colors: ['deep-purple accent-4', 'error', 'teal darken-1'],
 
 
   }),
@@ -234,10 +334,53 @@ export default {
         let file = this.$refs.ArticelImgProduct.files[0]
         this.Article[this.IndexImgChange ].ArticleImg = URL.createObjectURL(file);
     },
-    GetThisPArticle(article){
-        this.nameArticle = article.ProductNamel;
-        this.Unité = article.Unité;
-        this.Price = article.Price;
+    GeThisScrollArticle(n){
+        this.scrollSelectArticleClicked !== n ? this.scrollSelectArticleClicked = n : this.scrollSelectArticleClicked = ''
+    },
+    GetThisPArticle(article,n){
+        console.log(article.ProductNamel,n)
+        this.Article[n].nameArticle = article.ProductName
+        this.Article[n].Unité = article.Unité;
+        this.Article[n].Price = article.Price;
+    },
+    AddNewArticle(TypeArticle){
+
+        const NewArticle ={
+                Type:TypeArticle,
+                ArticleImg:'/img/uploaImg.7d959d34.jpg',
+                scrollSelectArticle:false,
+                nameArticle:'',
+                Qté:'',
+                Unité :'Douzaine(s)',
+                PriceType:'P.U HT',
+                Price:'',
+                RemisePrice:'',
+                RemiseType:'%',
+                TVA:"20,00%",
+                TotalTTC:'',
+          }
+          this.Article.push(NewArticle)
+    },
+    AddSousTotal(){
+        console.log("sousTotal")
+        let SousTotal = {
+                Type:'Sous total',
+                TotalTTC:'',
+          }
+        this.Article.push(SousTotal)
+    },
+    TextLibre(){
+            let TextLibre = {
+                TextLibre : 'Text libre',
+                Type:'Text libre',
+          }
+            this.Article.push(TextLibre)
+    },
+    DeleteArticle(row){
+        this.Article.splice(row,1); 
+    },
+    test(){
+        console.log('work')
     }
   },
   mounted(){

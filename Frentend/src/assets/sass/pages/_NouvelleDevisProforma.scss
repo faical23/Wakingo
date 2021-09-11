@@ -1,6 +1,7 @@
 .NouvelleDevisProforma {
   width: 100%;
   padding: 20px;
+  padding-bottom: 0px !important;
   .NouvelleDevisProforma__Header {
     display: flex;
     justify-content: space-between;
@@ -38,22 +39,7 @@
           margin: 0px 10px;
         }
       }
-      .NouvelleDevisProforma__Header__Right__Btns {
-        text-align: end;
-        button {
-          background-color: $BackgroundColor-100;
-          padding: 10px;
-          border-radius: 2px;
-          color: white;
-          border: 1px solid #367fa9;
-          svg {
-            fill: white;
-          }
-          &:hover {
-            background-color: #367fa9;
-          }
-        }
-      }
+
     }
   }
   .SwitchOptions {
@@ -312,5 +298,25 @@
   }
   select {
     width: 100%;
+  }
+}
+.LastBtnEnregistrer{
+  margin: 20px;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns ,.LastBtnEnregistrer{
+  text-align: end;
+  button {
+    background-color: $BackgroundColor-100;
+    padding: 10px;
+    border-radius: 2px;
+    color: white;
+    border: 1px solid #367fa9;
+    svg {
+      fill: white;
+    }
+    &:hover {
+      background-color: #367fa9;
+    }
   }
 }

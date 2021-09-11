@@ -445,7 +445,7 @@ textarea {
   background-color: #036638;
 }
 
-.PopupNewClient {
+.PopupNewClient, .PopupNewArticle {
   width: 650px;
   background-color: white !important;
   border-radius: 4px;
@@ -455,7 +455,7 @@ textarea {
   z-index: 200;
 }
 
-.PopupNewClient .PopupNewClient__title {
+.PopupNewClient .PopupNewClient__title, .PopupNewArticle .PopupNewClient__title {
   padding: 20px 20px 10px 20px;
   border-bottom: 1px solid #d9d9d9 !important;
   display: flex;
@@ -463,33 +463,33 @@ textarea {
   justify-content: space-between;
 }
 
-.PopupNewClient .PopupNewClient__title p {
+.PopupNewClient .PopupNewClient__title p, .PopupNewArticle .PopupNewClient__title p {
   font-weight: 500;
   color: #222d32;
   font-size: 18px;
 }
 
-.PopupNewClient .PopupNewClient__title svg {
+.PopupNewClient .PopupNewClient__title svg, .PopupNewArticle .PopupNewClient__title svg {
   position: relative;
   fill: #d9d9d9 !important;
   bottom: 10px;
   cursor: pointer;
 }
 
-.PopupNewClient .PopupNewClient__title svg:hover {
+.PopupNewClient .PopupNewClient__title svg:hover, .PopupNewArticle .PopupNewClient__title svg:hover {
   fill: black !important;
 }
 
-.PopupNewClient .PopupNewClient__information {
+.PopupNewClient .PopupNewClient__information, .PopupNewClient .PopupNewArticle_Information, .PopupNewArticle .PopupNewClient__information, .PopupNewArticle .PopupNewArticle_Information {
   display: flex;
   padding: 10px 20px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone {
   padding: 10px 0px 25px 0px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea {
   border: 1px solid #d4d4d4;
   padding: 8px 10px;
   width: 90%;
@@ -497,44 +497,44 @@ textarea {
   font-size: 12px !important;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6 {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone h6 {
   margin-bottom: 5px;
   font-size: 14px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input {
   width: 25%;
   cursor: pointer;
 }
 
-.PopupNewClient .PopupNewClient__information .CodePostalAndVille {
+.PopupNewClient .PopupNewClient__information .CodePostalAndVille, .PopupNewClient .PopupNewArticle_Information .CodePostalAndVille, .PopupNewArticle .PopupNewClient__information .CodePostalAndVille, .PopupNewArticle .PopupNewArticle_Information .CodePostalAndVille {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right {
   width: 50%;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__left {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__left, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__left, .PopupNewArticle .PopupNewClient__information .PopupNewClient__left, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__left {
   width: 50%;
 }
 
-.PopupNewClient .PopupNewClient__btns {
+.PopupNewClient .PopupNewClient__btns, .PopupNewArticle .PopupNewClient__btns {
   padding: 20px 20px 10px 20px;
   border-top: 1px solid #d9d9d9 !important;
   display: flex;
@@ -542,58 +542,40 @@ textarea {
   align-items: center;
 }
 
-.PopupNewClient .PopupNewClient__btns button {
+.PopupNewClient .PopupNewClient__btns button, .PopupNewArticle .PopupNewClient__btns button {
   border-radius: 4px;
   padding: 8px 20px;
   margin-bottom: 10px;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Firmer {
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer, .PopupNewArticle .PopupNewClient__btns .Btn__Firmer {
   color: black;
   background-color: #e7e7e7;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover {
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover, .PopupNewArticle .PopupNewClient__btns .Btn__Firmer:hover {
   background-color: #c3c3c3;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer {
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer {
   color: white;
   background-color: #367fa9;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg {
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer svg {
   fill: white !important;
   position: relative;
   top: 2px;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover {
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer:hover {
   background-color: #024d79;
 }
 
 .AddArticleVentes {
   margin: 20px;
-}
-
-.AddArticleVentes .AddArticleVentes__lines {
-  background-color: #3c8dbc;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.AddArticleVentes .AddArticleVentes__lines h4 {
-  font-size: 18px;
-  font-weight: 400;
-  margin-left: 10px;
-}
-
-.AddArticleVentes .AddArticleVentes__lines i {
-  font-size: 25px;
+  border: 1px solid #3c8dbc;
+  border-radius: 5px;
 }
 
 .AddArticleVentes .AddArticleVentes__articles {
@@ -656,8 +638,175 @@ textarea {
   width: 8% !important;
 }
 
+.AddArticleVentes .AddArticleVentes__articles table td {
+  position: relative;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .InputZone {
+  position: absolute;
+  width: 90% !important;
+}
+
 .AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn {
-  width: 1% !important;
+  width: 3% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn .InputZone {
+  position: absolute;
+  width: 70% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns button {
+  margin: 0px 10px;
+  border: 1px solid black;
+  padding: 7px 25px;
+  border-radius: 4px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns .row {
+  flex: 0 !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns .row button {
+  position: relative;
+  padding: 21px 25px !important;
+  top: 14px;
+  right: 10px;
+  background-color: #30add2;
+  color: white;
+  border: none !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA {
+  padding: 20px 0px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant th, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA th {
+  padding: 7px 3px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant td, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA td {
+  padding: 0px  !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant input, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA input {
+  border: none !important;
+  padding: 6px !important;
+  background-color: #ececec !important;
+  color: black;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA {
+  width: 30%;
+  margin-left: auto;
+  text-align: center;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA p {
+  color: #3c8dbc;
+}
+
+.AddArticleVentes__lines, .RemarqueSection_lines {
+  background-color: #3c8dbc;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.AddArticleVentes__lines h4, .RemarqueSection_lines h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.AddArticleVentes__lines i, .RemarqueSection_lines i {
+  font-size: 25px;
+}
+
+.RemarqueSection {
+  margin: 20px;
+  border: 1px solid #3c8dbc;
+  border-radius: 5px;
+}
+
+.RemarqueSection .RemarqueSectionInput {
+  padding: 20px;
+  height: 150px;
+  background-color: white;
+}
+
+.PopupNewArticle .PopupNewArticle_Information {
+  display: block !important;
+  margin: 5px 0px !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information input, .PopupNewArticle .PopupNewArticle_Information textarea {
+  margin: 10px 0px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .InputPrix {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Libellé {
+  width: 70%;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .TVA select {
+  width: 100% !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PriceArticle input, .PopupNewArticle .PopupNewArticle_Information .PriceArticle select {
+  width: 30% !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone input {
+  position: relative;
+  bottom: 2px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone h6 {
+  margin: 0px 10px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Catageory, .PopupNewArticle .PopupNewArticle_Information .PriceArticle, .PopupNewArticle .PopupNewArticle_Information .CheckboxZone {
+  border-bottom: 1px solid #1f1f1f;
+  padding-bottom: 15px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description {
+  display: block !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description .DiscriptionZOne {
+  margin-bottom: 10px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description .DiscriptionZOne textarea {
+  width: 100% !important;
+  height: 100px;
 }
 
 .HomePage {
@@ -667,6 +816,7 @@ textarea {
 .NouvelleDevisProforma {
   width: 100%;
   padding: 20px;
+  padding-bottom: 0px !important;
 }
 
 .NouvelleDevisProforma .NouvelleDevisProforma__Header {
@@ -710,26 +860,6 @@ textarea {
 
 .NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .RouteLink .RoutlinkZone {
   margin: 0px 10px;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns {
-  text-align: end;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button {
-  background-color: #3c8dbc;
-  padding: 10px;
-  border-radius: 2px;
-  color: white;
-  border: 1px solid #367fa9;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button svg {
-  fill: white;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button:hover {
-  background-color: #367fa9;
 }
 
 .NouvelleDevisProforma .SwitchOptions {
@@ -1066,4 +1196,28 @@ textarea {
 
 .Remise select {
   width: 100%;
+}
+
+.LastBtnEnregistrer {
+  margin: 20px;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns, .LastBtnEnregistrer {
+  text-align: end;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns button, .LastBtnEnregistrer button {
+  background-color: #3c8dbc;
+  padding: 10px;
+  border-radius: 2px;
+  color: white;
+  border: 1px solid #367fa9;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns button svg, .LastBtnEnregistrer button svg {
+  fill: white;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns button:hover, .LastBtnEnregistrer button:hover {
+  background-color: #367fa9;
 }

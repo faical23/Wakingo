@@ -1,22 +1,7 @@
 .AddArticleVentes{
     margin: 20px;
-    .AddArticleVentes__lines{
-        background-color: #3c8dbc;
-        color: white;
-        display: flex;
-        align-items: center;
-        padding: 10px 20px;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        h4{
-            font-size:18px;
-            font-weight:400;
-            margin-left: 10px;
-        }
-        i{
-            font-size:25px;
-        }
-    }
+    border: 1px solid #3c8dbc;
+    border-radius: 5px;
     .AddArticleVentes__articles{
         background-color:white;
         padding: 10px 20px;
@@ -70,13 +55,87 @@
             .FailedSimple{
                 width:8% !important;
             }
-            .FailedSimpleBtn{
-                width:1% !important;
+
+            td{
+                position: relative;
             }
 
-    
+            .InputZone{
+                position:absolute;
+                width:90% !important
+            }
+            .FailedSimpleBtn{
+                width:3% !important;
+                .InputZone{
+                    position:absolute;
+                    width:70% !important
+                }
+            }
 
 
         }
+        .AddArticleVentes__articles__btns{
+            padding: 30px 20px;
+            display: flex;
+            justify-content: flex-end;
+            button{
+                margin: 0px 10px;
+                border: 1px solid black;
+                padding: 7px 25px;
+                border-radius: 4px;
+            }
+            .row{
+                flex: 0 !important;
+                button{
+                    position: relative;
+                    padding:21px 25px !important;
+                    top:14px;
+                    right:10px;
+                    background-color:#30add2;
+                    color:white;
+                    border: none !important;
+                }
+            }
+        }
+        .AddArticleVentes__TableMontant,.AddArticleVentes__TVA{
+            padding: 20px 0px;
+            th{
+                padding: 7px 3px;
+            }
+            td{
+                padding:0px  !important;
+            }
+            input{
+                border: none !important;
+                padding:6px !important;
+                background-color: #ececec !important;
+                color:black;
+            }
+        }
+        .AddArticleVentes__TVA{
+            width: 30%;
+            margin-left: auto;
+            text-align: center;
+            p{
+                color: $BackgroundColor-100;
+            }
+        }
+    }
+}
+.AddArticleVentes__lines,.RemarqueSection_lines{
+    background-color: #3c8dbc;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    h4{
+        font-size:18px;
+        font-weight:400;
+        margin-left: 10px;
+    }
+    i{
+        font-size:25px;
     }
 }
