@@ -122,10 +122,10 @@
                  />
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
-                <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false' />
+                <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
             </div>
             <div class="EspaceAddArticles">
-                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' @ChoiserArticles='PopupChoiserLesArticles = true' />                
+                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' @ChoiserArticles='PopupChoiserLesArticles = true' :DataChoiserArticles='DataChoiserArticles' />                
             </div>
             <div class="EspaceRemarque">
                 <Remarque/>
@@ -205,7 +205,8 @@
             NameOfNewClientAdded:'',
             LengthOfArticleHave:'',
             DataNewArticleAdded:'',
-            PopupChoiserLesArticles :false
+            PopupChoiserLesArticles :false,
+            DataChoiserArticles:''
         }
     },
     components: {
@@ -257,6 +258,10 @@
         SuccessNewClient(article){
             this.PopupNewArticle=false
             this.DataNewArticleAdded = article
+        },
+        GetAllThisArticles(ArticlesGetted){
+            this.PopupChoiserLesArticles = false
+            this.DataChoiserArticles = ArticlesGetted
         }
 
     }

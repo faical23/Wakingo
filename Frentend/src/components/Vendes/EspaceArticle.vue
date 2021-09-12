@@ -226,7 +226,7 @@ export default {
   components: { },
   name: "ArticleVentes",
   emits:['NewArticlePopup'],
-  props:['DataNewArticleAdded'],
+  props:['DataNewArticleAdded','DataChoiserArticles'],
   data: () => ({
       Article:[
         {
@@ -394,7 +394,7 @@ export default {
                 let ArticleLength = this.Article.length - 1
                 if(this.Article[ ArticleLength].nameArticle == ''){
                     this.Article[ ArticleLength].nameArticle = `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`
-                    this.Article[ ArticleLength].Price =  this.DataNewArticleAdded.PrixAchat
+                    this.Article[ ArticleLength].Price =  this.DataNewArticleAdded.PrixVende
                     this.Article[ ArticleLength].Unité =  this.DataNewArticleAdded.UnitéValorisation
                     this.Article[ ArticleLength].TVA =  this.DataNewArticleAdded.TVA
                 }
@@ -406,7 +406,7 @@ export default {
                             nameArticle: `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`,
                             Qté:'',
                             Unité : this.DataNewArticleAdded.UnitéValorisation,
-                            Price:this.DataNewArticleAdded.PrixAchat,
+                            Price:this.DataNewArticleAdded.PrixVende,
                             RemisePrice:'',
                             RemiseType:'%',
                             TVA:this.DataNewArticleAdded.TVA,
@@ -416,6 +416,25 @@ export default {
 
                 }
                 console.log(this.DataNewArticleAdded)
+            },
+            DataChoiserArticles : function (){
+                this.DataChoiserArticles.forEach(element => {
+                    let NewRowArticleChoiser = {
+                            Type:'Article',
+                            ArticleImg:'/img/uploaImg.7d959d34.jpg',
+                            scrollSelectArticle:false,
+                            nameArticle: `${element.name} ${element.Désignation}`,
+                            Qté:'',
+                            Unité : element.Unité,
+                            Price:element.PrixDeVente,
+                            RemisePrice:'',
+                            RemiseType:'%',
+                            TVA:element.TVA,
+                            TotalTTC:'',
+                    }
+                    this.Article.push(NewRowArticleChoiser)
+                    console.log(element)
+                })
             }
     },
   mounted(){

@@ -57,16 +57,16 @@
             </div>
             <div class="PopupNewArticle_Information__Faild">
                 <h6>Catégorie :</h6>
-                        <select  v-model="TypeAchat">
-                            <option value="HT">HT</option>
-                             <option value="TTC">TTC</option>
+                        <select  v-model="CategorySearched" >
+                            <option value="Tous">Tous</option>
+                            <option  v-for="(Catég,n) in Catégory" :key="n" :value="Catég.Name">{{Catég.Name}}</option>
                         </select>
             </div>
             <div class="PopupNewArticle_Information__Faild">
                 <h6>Famille :</h6>
-                        <select  v-model="TypeAchat">
-                            <option value="HT">HT</option>
-                             <option value="TTC">TTC</option>
+                        <select  v-model="FamillySearched">
+                            <option value="Tous">Tous</option>
+                            <option v-for="(Famille,n) in Familles" :key="n"  :value="Famille.Name">{{Famille.Name}}</option>
                         </select>
             </div>
         </div>
@@ -91,8 +91,6 @@
                         </template>
                     </v-data-table>
     </div>
-        {{selected}}
-
     <div class="PopupNewClient__btns">
       <button class="Btn__Firmer" @click="$emit('RemovePopupChoiserArticle')">
         <svg
@@ -135,7 +133,7 @@
         </svg>
         Firmer
       </button>
-      <button class="Btn__Enregistrer Btn__CHoiserArticles" @click='EnregistrerNewArticle()'>
+      <button class="Btn__Enregistrer Btn__CHoiserArticles" @click='GetAllThisArticles()'>
         <svg
           version="1.1"
           id="Capa_1"
@@ -184,7 +182,7 @@
 <script>
 export default {
   name: "ChoiserArticle",
-  emits:['RemovePopupChoiserArticle'],
+  emits:['RemovePopupChoiserArticle','GetAllThisArticles'],
   props:[],
   data: () => ({
       items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
@@ -192,109 +190,137 @@ export default {
         selected: [],
         headers: [
           {
-            text: 'Dessert (100g serving)',
+            text: 'Code',
             align: 'start',
             sortable: false,
             value: 'name',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' },
+          { text: 'Désignation', value: 'Désignation' },
+          { text: 'Famille', value: 'Famille' },
+          { text: 'Catégorie', value: 'Catégorie' },
+          { text: 'Prix de revient', value: 'PriceDeRevient' },
+          { text: 'Prix de vente (HT)', value: 'PrixDeVente' },
         ],
         desserts: [
           {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%',
+            name: 'ART-24',
+            Désignation: 'AAA',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 3.15,
+            Unité:'kg',
+            TVA:'14,00%'
           },
           {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%',
+            name: 'ART-25',
+            Désignation: 'BBB',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 4.18,
+            Unité:'t',
+            TVA:'14,00%'
           },
           {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%',
+            name: 'ART-26',
+            Désignation: 'CCC',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 11.9,
+            Unité:'g',
+            TVA:'14,00%'
           },
           {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8%',
+            name: 'ART-27',
+            Désignation: 'DDD',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 9.56,
+            Unité:'Km',
+            TVA:'14,00%'
           },
           {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16%',
+            name: 'ART-28',
+            Désignation: 'CCC',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 33,
+            Unité:'m',
+            TVA:'14,00%'
           },
           {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0%',
+            name: 'ART-29',
+            Désignation: 'DDD',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 10,
+            Unité:'cm',
+            TVA:'14,00%'
           },
           {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            iron: '2%',
+            name: 'ART-30',
+            Désignation: 'EEE',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 12,
+            Unité:'Unité(s)',
+            TVA:'14,00%'
           },
           {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            iron: '45%',
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            iron: '22%',
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            iron: '6%',
+            name: 'ART-31',
+            Désignation: 'FFF',
+            Famille:'ABCDEFG',
+            Catégorie: 'ABCDEFG',
+            PriceDeRevient: 0.00,
+            PrixDeVente: 20,
+            Unité:'g',
+            TVA:'14,00%'
           },
         ],
+        Catégory:[
+            {
+                Name:'IMPRESSION GRAND FORMAT'
+            },
+            {
+                Name:'IMPRESSION PETIT FORMAT'
+            },
+            {
+                Name:'carte de visite'
+            },
+        ],
+        Familles:[
+            {
+                Name:'ARTICLES grand format'
+            },
+            {
+                Name:'Adhésif'
+            },
+            {
+                Name:'BON & CARNET'
+            },
+            {
+                Name:'CARTE DE VISITE'
+            },
+            {
+                Name:'CHEMISES ET COUVERTURE'
+            },
+
+        ],
+        CategorySearched : 'Tous',
+        FamillySearched : 'Tous'
   }),
   methods:{
-      EnregistrerNewArticle(){
+      GetAllThisArticles(){
+          this.$emit('GetAllThisArticles',this.selected)
       },
-      GetCodeArticleStart(){
-  
-      }
   },
   mounted(){
-    this.GetCodeArticleStart()
   }
   
 };
