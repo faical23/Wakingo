@@ -27,10 +27,10 @@
             }
         }
     }
-    .PopupNewClient__information,.PopupNewArticle_Information{
+    .PopupNewClient__information,.PopupNewArticle_Information,.PopupChoiserArticle__Search{
         display: flex;
         padding: 10px 20px;
-        .PopupNewClient__Right__Filed,.PopupNewArticle_Information__zone{
+        .PopupNewClient__Right__Filed,.PopupNewArticle_Information__zone,.PopupNewArticle_Information__Faild{
             padding: 10px 0px 25px 0px;
             input,select,textarea{
                 border: 1px solid #d4d4d4;

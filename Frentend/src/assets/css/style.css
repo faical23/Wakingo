@@ -480,16 +480,16 @@ textarea {
   fill: black !important;
 }
 
-.PopupNewClient .PopupNewClient__information, .PopupNewClient .PopupNewArticle_Information, .PopupNewArticle .PopupNewClient__information, .PopupNewArticle .PopupNewArticle_Information {
+.PopupNewClient .PopupNewClient__information, .PopupNewClient .PopupNewArticle_Information, .PopupNewClient .PopupChoiserArticle__Search, .PopupNewArticle .PopupNewClient__information, .PopupNewArticle .PopupNewArticle_Information, .PopupNewArticle .PopupChoiserArticle__Search {
   display: flex;
   padding: 10px 20px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild {
   padding: 10px 0px 25px 0px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild textarea {
   border: 1px solid #d4d4d4;
   padding: 8px 10px;
   width: 90%;
@@ -497,40 +497,40 @@ textarea {
   font-size: 12px !important;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone h6 {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild h6, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild h6 {
   margin-bottom: 5px;
   font-size: 14px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input {
   width: 25%;
   cursor: pointer;
 }
 
-.PopupNewClient .PopupNewClient__information .CodePostalAndVille, .PopupNewClient .PopupNewArticle_Information .CodePostalAndVille, .PopupNewArticle .PopupNewClient__information .CodePostalAndVille, .PopupNewArticle .PopupNewArticle_Information .CodePostalAndVille {
+.PopupNewClient .PopupNewClient__information .CodePostalAndVille, .PopupNewClient .PopupNewArticle_Information .CodePostalAndVille, .PopupNewClient .PopupChoiserArticle__Search .CodePostalAndVille, .PopupNewArticle .PopupNewClient__information .CodePostalAndVille, .PopupNewArticle .PopupNewArticle_Information .CodePostalAndVille, .PopupNewArticle .PopupChoiserArticle__Search .CodePostalAndVille {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right {
   width: 50%;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__left, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__left, .PopupNewArticle .PopupNewClient__information .PopupNewClient__left, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__left {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__left, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__left, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__left, .PopupNewArticle .PopupNewClient__information .PopupNewClient__left, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__left, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__left {
   width: 50%;
 }
 
@@ -811,6 +811,52 @@ textarea {
 
 .PopupNewArticle .ArticleErrorPoupFaild {
   padding: 0px !important;
+}
+
+.PopupChoiserArticle {
+  width: 50%;
+  transform: translate(45%, 5%);
+  margin: 0px auto;
+  height: 100vh;
+  overflow: scroll !important;
+  margin-bottom: 300px !important;
+}
+
+.PopupChoiserArticle .PopupChoiserArticle__Search, .PopupChoiserArticle .PopupNewArticle_Information__Faild {
+  width: 100% !important;
+}
+
+.PopupChoiserArticle .PopupChoiserArticle__Search h6, .PopupChoiserArticle .PopupNewArticle_Information__Faild h6 {
+  display: block !important;
+}
+
+.PopupChoiserArticle .PopupNewArticle_Information__Title {
+  background-color: #d2d6de;
+  width: 96% !important;
+  padding: 16px 10px;
+  margin: 10px 20px !important;
+  margin-bottom: 0px !important;
+  font-weight: 100 !important;
+}
+
+.PopupChoiserArticle .PopupNewArticle_Information {
+  padding: 0px 20px;
+  margin: 0px 20px;
+  border: 1px solid #d2d6de !important;
+  margin-bottom: 20px !important;
+  display: block;
+}
+
+.PopupChoiserArticle .PopupNewArticle_TableArticles {
+  margin: 20px 20px;
+}
+
+.PopupChoiserArticle .Btn__CHoiserArticles {
+  background-color: #5ab55e !important;
+}
+
+.PopupChoiserArticle .PopupNewClient__btns {
+  margin-bottom: 50px;
 }
 
 .HomePage {

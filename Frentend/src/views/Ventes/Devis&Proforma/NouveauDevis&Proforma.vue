@@ -1,6 +1,6 @@
 <template>
   <div class="HomePage">
-      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
+      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -122,9 +122,10 @@
                  />
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
+                <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false' />
             </div>
             <div class="EspaceAddArticles">
-                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' />                
+                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' @ChoiserArticles='PopupChoiserLesArticles = true' />                
             </div>
             <div class="EspaceRemarque">
                 <Remarque/>
@@ -187,6 +188,7 @@
     import AddArticles from '../../../components/Vendes/EspaceArticle.vue'
     import Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
+    import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
 
 
     // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
@@ -202,7 +204,8 @@
             LengthOfClientHave:'',
             NameOfNewClientAdded:'',
             LengthOfArticleHave:'',
-            DataNewArticleAdded:''
+            DataNewArticleAdded:'',
+            PopupChoiserLesArticles :false
         }
     },
     components: {
@@ -213,7 +216,8 @@
     PopupNewClient,
     AddArticles,
     Remarque,
-    PopupNewArticle
+    PopupNewArticle,
+    ChoiserArticles
     //   AlertErrorFailed
     },
     methods:{
@@ -222,6 +226,7 @@
             this.ConfirmationSelectionerClient = false
             this.PopupAddNewClient=false
             this.PopupNewArticle = false
+            this.PopupChoiserLesArticles  = false
         },
         ActiveAlertConfirmation(){
             this.Alert = true;
@@ -252,7 +257,6 @@
         SuccessNewClient(article){
             this.PopupNewArticle=false
             this.DataNewArticleAdded = article
-            // console.log(this.DataNewArticleAdded)
         }
 
     }

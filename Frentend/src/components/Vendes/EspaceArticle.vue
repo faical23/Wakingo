@@ -152,6 +152,7 @@
                             color="success"
                             dark
                             large
+                            @click="$emit('ChoiserArticles')"
                             >
                             Choiser les articles
                         </v-btn>
@@ -387,9 +388,6 @@ export default {
     DeleteArticle(row){
         this.Article.splice(row,1); 
     },
-    test(){
-        console.log('work')
-    }
   },
     watch: { 
             DataNewArticleAdded: function (){

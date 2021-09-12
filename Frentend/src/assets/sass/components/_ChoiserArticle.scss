@@ -1,0 +1,39 @@
+.PopupChoiserArticle{
+    width: 50%;
+    transform: translate(45% ,5%);
+    margin: 0px auto;
+    height:100vh;
+    overflow: scroll !important;
+    margin-bottom: 300px !important;
+    .PopupChoiserArticle__Search,.PopupNewArticle_Information__Faild{
+        width: 100% !important;
+        h6{
+            display: block !important;
+        }
+    }
+    .PopupNewArticle_Information__Title{
+        background-color:#d2d6de;
+        width: 96% !important;
+        padding: 16px 10px;
+        margin: 10px 20px !important;
+        margin-bottom: 0px !important;
+        font-weight: 100 !important;
+    }
+    .PopupNewArticle_Information{
+        padding: 0px 20px;
+        margin: 0px 20px;
+        border: 1px solid #d2d6de !important;
+        margin-bottom: 20px !important;
+        display: block;
+
+    }
+    .PopupNewArticle_TableArticles{
+        margin: 20px 20px;
+    }
+    .Btn__CHoiserArticles{
+        background-color: #5ab55e !important;
+     }
+     .PopupNewClient__btns{
+         margin-bottom: 50px;
+     }
+}
