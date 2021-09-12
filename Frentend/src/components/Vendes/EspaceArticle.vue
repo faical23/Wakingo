@@ -94,10 +94,10 @@
                         <td  colspan="7" style="text-align: end !important;" class="FailedSimple" v-if="article.Type==='Sous total' && article.Type!='Text libre'">
                             <input style="position:relative !important;width:10% !important" class="InputZone" type="text" value="Sous-total TTC">
                         </td>
-                        <td  colspan="7"  v-if=" article.Type=='Text libre'">
+                        <td  colspan="8"  v-if=" article.Type=='Text libre'">
                             <input type="text" v-model="article.TextLibre">
                         </td>
-                        <td  class="FailedSimple" >
+                        <td  class="FailedSimple" v-if=" article.Type!='Text libre'">
                             <input  class="InputZone" type="text" placeholder="0,00" v-model="article.TotalTTC" disabled>
                         </td>
                         <td  class="FailedSimpleBtn">
@@ -144,7 +144,7 @@
                             color="primary"
                             dark
                             large
-                            @click="$emit('NewArticlePopup')"
+                            @click="$emit('NewArticlePopup',OurArticle.length)"
                             >
                             Créée un article
                         </v-btn>
@@ -225,7 +225,7 @@ export default {
   components: { },
   name: "ArticleVentes",
   emits:['NewArticlePopup'],
-  props:[],
+  props:['DataNewArticleAdded'],
   data: () => ({
       Article:[
         {
@@ -265,47 +265,54 @@ export default {
       TotalTTC:'',
       OurArticle:[
           {
-              ProductName:"ART256A3 350g 1",
+              ProductName:"ART1 350g ",
               Unité:'g',
-              Price :4.50
+               Price :4.50,
+               TVA:'14,00%'
           },
         {
-              ProductName:"ART256A3 350g 2",
+              ProductName:"ART2 350g ",
               Unité:'Jour(s)',
-              Price :8.50
+              Price :8.50,
+              TVA:'20,00%'
           },
           {
-              ProductName:"ART256A3 350g 3",
+              ProductName:"ART3 350g ",
               Unité:'m',
-              Price :44
+              Price :44,
+               TVA:'20,00%'
           },
         {
-              ProductName:"ART256A3 350g 4",
+              ProductName:"ART4 350g ",
+              Unité:'g',
+              Price :4.50,
+              TVA:'20,00%'
+          },
+          {
+              ProductName:"ART5 350g ",
+              Unité:'g',
+              Price :4.50,
+              TVA:'20,00%'
+          },
+        {
+              ProductName:"ART6 350g ",
+              Unité:'g',
+              Price :4.50,
+              TVA:'20,00%'
+          },
+          {
+              ProductName:"ART7 350g ",
+              Unité:'g',
+              Price :4.50,
+              TVA:'20,00%'
+          },
+        {
+              ProductName:"ART8 350g ",
               Unité:'g',
               Price :4.50
           },
           {
-              ProductName:"ART256A3 350g 5",
-              Unité:'g',
-              Price :4.50
-          },
-        {
-              ProductName:"ART256A3 350g 2",
-              Unité:'g',
-              Price :4.50
-          },
-          {
-              ProductName:"ART256A3 350g 3",
-              Unité:'g',
-              Price :4.50
-          },
-        {
-              ProductNamel:"ART256A3 350g 4",
-              Unité:'g',
-              Price :4.50
-          },
-          {
-              ProductNamel:"ART256A3 350g 5",
+              ProductName:"ART9 350g ",
               Unité:'g',
               Price :4.50
           }
@@ -342,6 +349,7 @@ export default {
         this.Article[n].nameArticle = article.ProductName
         this.Article[n].Unité = article.Unité;
         this.Article[n].Price = article.Price;
+        this.Article[n].TVA = article.TVA;
     },
     AddNewArticle(TypeArticle){
 
@@ -383,6 +391,35 @@ export default {
         console.log('work')
     }
   },
+    watch: { 
+            DataNewArticleAdded: function (){
+                let ArticleLength = this.Article.length - 1
+                if(this.Article[ ArticleLength].nameArticle == ''){
+                    this.Article[ ArticleLength].nameArticle = `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`
+                    this.Article[ ArticleLength].Price =  this.DataNewArticleAdded.PrixAchat
+                    this.Article[ ArticleLength].Unité =  this.DataNewArticleAdded.UnitéValorisation
+                    this.Article[ ArticleLength].TVA =  this.DataNewArticleAdded.TVA
+                }
+                else{
+                    let NewRowArticle = {
+                            Type:'Article',
+                            ArticleImg:'/img/uploaImg.7d959d34.jpg',
+                            scrollSelectArticle:false,
+                            nameArticle: `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`,
+                            Qté:'',
+                            Unité : this.DataNewArticleAdded.UnitéValorisation,
+                            Price:this.DataNewArticleAdded.PrixAchat,
+                            RemisePrice:'',
+                            RemiseType:'%',
+                            TVA:this.DataNewArticleAdded.TVA,
+                            TotalTTC:'',
+                    }
+                     this.Article.push(NewRowArticle)
+
+                }
+                console.log(this.DataNewArticleAdded)
+            }
+    },
   mounted(){
   }
   

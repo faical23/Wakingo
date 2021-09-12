@@ -121,10 +121,10 @@
                          " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
                  />
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
-                <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false'/>
+                <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
             </div>
             <div class="EspaceAddArticles">
-                <AddArticles @NewArticlePopup='PopupNewArticle=true'/>                
+                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' />                
             </div>
             <div class="EspaceRemarque">
                 <Remarque/>
@@ -200,7 +200,9 @@
             PopupAddNewClient:false,
             PopupNewArticle:false,
             LengthOfClientHave:'',
-            NameOfNewClientAdded:'papapa'
+            NameOfNewClientAdded:'',
+            LengthOfArticleHave:'',
+            DataNewArticleAdded:''
         }
     },
     components: {
@@ -241,7 +243,16 @@
         NewClientIsAdded(client){
             this.PopupAddNewClient=false
             this.NameOfNewClientAdded = client
-            console.log(this.NameOfNewClientAdded)
+        },
+        OpneNewArticlePopup(articleLength){
+            this.PopupNewArticle=true
+            this.LengthOfArticleHave = articleLength
+            console.log(this.LengthOfArticleHave )
+        },
+        SuccessNewClient(article){
+            this.PopupNewArticle=false
+            this.DataNewArticleAdded = article
+            // console.log(this.DataNewArticleAdded)
         }
 
     }

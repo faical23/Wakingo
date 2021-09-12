@@ -809,6 +809,10 @@ textarea {
   height: 100px;
 }
 
+.PopupNewArticle .ArticleErrorPoupFaild {
+  padding: 0px !important;
+}
+
 .HomePage {
   display: flex;
 }

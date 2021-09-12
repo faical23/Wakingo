@@ -46,24 +46,28 @@
             <div class="PopupNewArticle_Information__zone">
                 <div class="PopupNewArticle_Information__Failed">
                     <h6>Code de l'article * :</h6>
-                    <input type="text" />
+                    <input type="text" v-model="CodeArtcile" :style="SubmitForm && CodeArtcile == ''  ? 'border:1px solid #dd4b39 !important' : ''" />
+                    <span v-if="SubmitForm && CodeArtcile == '' " class="MessageErrorFiled ArticleErrorPoupFaild">Ce champ est obligatoire.</span>
+
                 </div>
                  <div class="PopupNewArticle_Information__Failed Libellé ">
                     <h6>Libellé de l'article * :</h6>
-                    <input type="text" />
+                    <input type="text" v-model="LibelléArticle" :style="SubmitForm && LibelléArticle == ''  ? 'border:1px solid #dd4b39 !important' : ''"  />
+                    <span v-if="SubmitForm && LibelléArticle == '' " class="MessageErrorFiled ArticleErrorPoupFaild">Ce champ est obligatoire.</span>
+
                 </div>
             </div>
             <div class="CheckboxZone">
-                <input type="checkbox">
+                <input type="checkbox" @click="ActiverGestionStock ? ActiverGestionStock  = false : ActiverGestionStock  = true">
                 <h6>Activer la gestion des stocks</h6>
             </div>
             <div class="PopupNewArticle_Information__zone PriceArticle">
                 <div class="PopupNewArticle_Information__Failed">
                     <h6>Prix d’achat :</h6>
                     <div class="InputPrix">
-                        <input type="text" placeholder="0,00"  />
+                        <input type="text" placeholder="0,00"  v-model="PrixAchat"/>
                         <input type="text" placeholder="MAD" disabled />
-                        <select value="HT">
+                        <select  v-model="TypeAchat">
                             <option value="HT">HT</option>
                              <option value="TTC">TTC</option>
                         </select>
@@ -72,9 +76,9 @@
                 <div class="PopupNewArticle_Information__Failed">
                     <h6>Prix de vente public :</h6>
                     <div class="InputPrix">
-                        <input type="text"  placeholder="0,00" />
+                        <input type="text"  placeholder="0,00" v-model="PrixVende" />
                         <input type="text" placeholder="MAD" disabled />
-                        <select value="HT">
+                        <select v-model="TypeVende">
                             <option value="HT">HT</option>
                              <option value="TTC">TTC</option>
                         </select>
@@ -85,14 +89,14 @@
                 <div class="PopupNewArticle_Information__Failed">
                     <h6>Catégorie :</h6>
                     <div class="InputPrix">
-                        <select value="Veuillez sélectionner">
-                            <option  v-for="(Categ,n) in OurCatégory" :key="n" value="HT">{{Categ.Name}}</option>
+                        <select v-model="Catégorie">
+                            <option  v-for="(Categ,n) in OurCatégory" :key="n" :value="Categ.Name">{{Categ.Name}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="PopupNewArticle_Information__Failed TVA">
                     <h6>TVA :</h6>
-                                    <select value="20,00%">
+                                    <select v-model="TVA">
                                         <option value="20,00%">20,00%</option>
                                         <option value="14,00%">14,00%</option>
                                         <option value="10,00%">10,00%</option>
@@ -102,7 +106,7 @@
                 </div>
                 <div class="PopupNewArticle_Information__Failed">
                     <h6>Unité de valorisation :</h6>
-                            <select value ="Unité(s)">
+                            <select v-model="UnitéValorisation" >
                                 <optgroup  label="Unité">
                                     <option value="Unité(s)">Unité(s)</option>
                                     <option value="Douzaine(s)">Douzaine(s)</option>
@@ -125,12 +129,14 @@
                                     <option value="Liters(s)">Liters(s)</option>
                                 </optgroup>
                             </select>
+
+                            
                 </div>
             </div>
             <div class="PopupNewArticle_Information__zone Description">
                 <div class="DiscriptionZOne">
                     <h5>Description détaillée :</h5>
-                    <textarea type="text" placeholder="Description détaillée "></textarea>
+                    <textarea type="text" placeholder="Description détaillée " v-model="DescriptionDétaillée "></textarea>
                 </div> 
             </div>
             <p>* champs obligatoire</p>
@@ -177,7 +183,7 @@
         </svg>
         Firmer
       </button>
-      <button class="Btn__Enregistrer" @click='EnregistrerNewClient()'>
+      <button class="Btn__Enregistrer" @click='EnregistrerNewArticle()'>
         <svg
           version="1.1"
           id="Capa_1"
@@ -227,7 +233,7 @@
 export default {
   name: "AlertConfirmation",
   emits:['RemovePopupNewArticle'],
-  props:[],
+  props:['LengthOfArticleHave'],
   data: () => ({
       OurCatégory:[
           {
@@ -251,19 +257,51 @@ export default {
                     {
               Name:"BACHE BRILLANT"
           },
-      ]
+      ],
+      CodeArtcile:'',
+      LibelléArticle :'',
+      ActiverGestionStock:false,
+      PrixAchat:'',
+      TypeAchat:'HT',
+      PrixVende:'',
+      TypeVende:'HT',
+      Catégorie:'Veuillez sélectionner',
+      TVA:'20,00%',
+      UnitéValorisation:'Unité(s)',
+      DescriptionDétaillée :'',
+      SubmitForm:false
 
   }),
   methods:{
       EnregistrerNewArticle(){
-    
-
+        this.SubmitForm = true
+        if(this.CodeArtcile != '' && this.LibelléArticle != ''){
+            const NewArticle ={
+                CodeArtcile:this.CodeArtcile,
+                LibelléArticle :this.LibelléArticle,
+                ActiverGestionStock:this.ActiverGestionStock,
+                PrixAchat:this.PrixAchat,
+                TypeAchat:this.TypeAchat,
+                PrixVende:this.PrixVende,
+                TypeVende:this.TypeVende,
+                Catégorie:this.Catégorie,
+                TVA:this.TVA,
+                UnitéValorisation:this.UnitéValorisation,
+                DescriptionDétaillée :this. DescriptionDétaillée,
+            }
+            this.$emit('SuccessNewClient',NewArticle)
+        }
+        else{
+           console.log("some failed is empty")
+        }
       },
-      GetCodeClientStart(){
+      GetCodeArticleStart(){
+        this.CodeArtcile= `ART - ${this.LengthOfArticleHave+1}`
+  
       }
   },
   mounted(){
-    this.GetCodeClientStart()
+    this.GetCodeArticleStart()
   }
   
 };

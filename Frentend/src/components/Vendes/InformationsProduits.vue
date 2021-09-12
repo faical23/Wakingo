@@ -421,7 +421,6 @@
                 document.querySelector('.SearchClientButton').innerHTML =  this.NameOfNewClientAdded
                 const NewClient ={"ClientName":this.NameOfNewClientAdded}
                 this.Clients.push(NewClient)
-                console.log(this.Clients)
             }
     }
   }
