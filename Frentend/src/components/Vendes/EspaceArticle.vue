@@ -14,7 +14,7 @@
                         <th class="FailedSimple">Qté.</th>
                         <th class="FailedSimple" >Unité.</th>
                         <th class="FailedSimple" >
-                            <select v-model="PriceType" @change="ChangePriceType()">
+                            <select v-model="PriceType" @change="ChangePriceType(),GetTotalTTCRow('AllRowMontant')">
                                 <option value="P.U HT">P.U HT</option>
                                 <option value="P.U TTC">P.U TTC</option>
                             </select>
@@ -43,7 +43,7 @@
                             <input class="InputZone" type="text" v-model="article.nameArticle">
                         </td  >
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00">
+                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index)"  @change="GetTotalTTCRow(index)">
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <select  class="InputZone" name="pets" id="pet-select" v-model="article.Unité">
@@ -71,12 +71,12 @@
                             </select>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00">
+                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00"  @keyup="GetTotalTTCRow(index)" @change="GetTotalTTCRow(index)">
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'" >
                                 <div class="Remise InputZone">
-                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"/>
-                                        <select name="pets" id="pet-select" v-model="article.RemiseType">
+                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"  @keyup="GetTotalTTCRow(index)">
+                                        <select name="pets" id="pet-select" v-model="article.RemiseType" @change="GetTotalTTCRow(index)">
                                             <option value="%">%</option>
                                             <option value="Montant">Montant</option>
                                         </select>
@@ -234,11 +234,11 @@ export default {
                 ArticleImg:'/img/uploaImg.7d959d34.jpg',
                 scrollSelectArticle:false,
                 nameArticle:'',
-                Qté:'',
+                Qté:0,
                 Unité :'Douzaine(s)',
-                Price:'',
+                Price:0.00,
                 TypePrice:'',
-                RemisePrice:'',
+                RemisePrice:0,
                 RemiseType:'%',
                 TVA:"20,00%",
                 TotalTTC:'',
@@ -329,9 +329,9 @@ export default {
 
   }),
   methods:{
-    UploadImg(n){
+    UploadImg(index){
         this.$refs.ArticelImgProduct.click()
-        this.IndexImgChange = n;
+        this.IndexImgChange = index;
         console.log(this.IndexImgChange)
     },
     GetArticleImg(){
@@ -343,15 +343,15 @@ export default {
         let file = this.$refs.ArticelImgProduct.files[0]
         this.Article[this.IndexImgChange ].ArticleImg = URL.createObjectURL(file);
     },
-    GeThisScrollArticle(n){
-        this.scrollSelectArticleClicked !== n ? this.scrollSelectArticleClicked = n : this.scrollSelectArticleClicked = ''
+    GeThisScrollArticle(index){
+        this.scrollSelectArticleClicked !== index ? this.scrollSelectArticleClicked = index : this.scrollSelectArticleClicked = ''
     },
-    GetThisPArticle(article,n){
-        console.log(article.ProductNamel,n)
-        this.Article[n].nameArticle = article.ProductName
-        this.Article[n].Unité = article.Unité;
-        this.Article[n].Price = article.Price;
-        this.Article[n].TVA = article.TVA;
+    GetThisPArticle(article,index){
+        console.log(article.ProductNamel,index)
+        this.Article[index].nameArticle = article.ProductName
+        this.Article[index].Unité = article.Unité;
+        this.Article[index].Price = article.Price;
+        this.Article[index].TVA = article.TVA;
     },
     AddNewArticle(TypeArticle){
 
@@ -386,21 +386,98 @@ export default {
           }
             this.Article.push(TextLibre)
     },
-    DeleteArticle(row){
-        this.Article.splice(row,1); 
+    DeleteArticle(index){
+        this.Article.splice(index,1); 
     },
     ChangePriceType(){
-        this.Article.forEach(element =>{
-            if(element.Price){
-                if(this.PriceType === "P.U HT"){
-                    element.Price = (((100 * element.Price) /(100 +  parseFloat(element.TVA))).toFixed(2))
-                }
-                if(this.PriceType === "P.U TTC"){
-                     element.Price = (((element.Price * parseFloat(element.TVA)/ 100) ) + parseFloat(element.Price)).toFixed(2)
-                }
+        // this.Article.forEach(element =>{
+        //     if(element.Price){
+        //         if(this.PriceType === "P.U HT"){
+        //             element.Price = (((100 * element.Price) /(100 +  parseFloat(element.TVA))).toFixed(2))
+        //         }
+        //         if(this.PriceType === "P.U TTC"){
+        //              element.Price = (((element.Price * parseFloat(element.TVA)/ 100) ) + parseFloat(element.Price)).toFixed(2)
+        //         }
+        //     }
+        // })
+    },
+    GetTotalTTCRow(index){
+        if(index === "AllRowMontant"){
+            if(this.PriceType === "P.U TTC"){
+                this.Article.forEach(element =>{
+                    let total =(parseFloat(element.Qté)*element.Price).toFixed(2)
+                    if(element.RemisePrice !== ""){
+                        if(element.RemiseType === "%"){
+                            element.TotalTTC =(total - ( total * parseFloat(element.RemisePrice /100))).toFixed(2)
+                        }
+                        else if(element.RemiseType === "Montant"){
+                            element.TotalTTC = (total -  parseFloat(element.RemisePrice )).toFixed(2)
+                        }
+                    }
+                    else{
+                        element.TotalTTC = total
+                    }
+
+                })
             }
-        })
+            else if(this.PriceType === "P.U HT"){
+                this.Article.forEach(element =>{
+                    let total = (parseFloat(element.Qté) * parseFloat(element.Price))
+                    let totalPlusTVA = (( total * (parseFloat(element.TVA)/ 100) ) + total).toFixed(2)
+                    if(element.RemisePrice !== ""){
+                        if(element.RemiseType === "%"){
+                            element.TotalTTC =(totalPlusTVA - ( totalPlusTVA * parseFloat(element.RemisePrice /100))).toFixed(2)
+                        }
+                        else if(element.RemiseType === "Montant"){
+                            element.TotalTTC = (totalPlusTVA -  parseFloat(element.RemisePrice )).toFixed(2)
+                        }
+                    }
+                    else{
+                        element.TotalTTC =totalPlusTVA
+                    }
+                })
+            }
+        }
+        else{
+            if(this.PriceType === "P.U TTC"){
+                // this.Article[index].TotalTTC = (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
+                    if(this.Article[index].RemiseType === '%' ){
+                        let total =  (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
+                        this.Article[index].TotalTTC =( total - total * parseFloat(this.Article[index].RemisePrice /100) ).toFixed(2)
+                    }
+                    else if(this.Article[index].RemiseType === 'Montant' ){
+                        let total =  (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
+                        this.Article[index].TotalTTC =( total - (parseFloat(this.Article[index].RemisePrice)) ).toFixed(2)
+                    }
+
+            }
+            else if(this.PriceType === "P.U HT"){
+                    if(this.Article[index].RemiseType === '%' ){
+                            let total = parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)
+                            this.Article[index].TotalTTC = (( total * (parseFloat(this.Article[index].TVA)/ 100) ) + total).toFixed(2)
+                            this.Article[index].TotalTTC =( this.Article[index].TotalTTC - this.Article[index].TotalTTC * parseFloat(this.Article[index].RemisePrice /100) ).toFixed(2)
+                    }
+                    else if(this.Article[index].RemiseType === 'Montant' ){
+                            let total = parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)
+                            this.Article[index].TotalTTC = (( total * (parseFloat(this.Article[index].TVA)/ 100) ) + total).toFixed(2)
+                            if(this.Article[index].RemisePrice != ''){
+                                this.Article[index].TotalTTC =( this.Article[index].TotalTTC - (parseFloat(this.Article[index].RemisePrice))).toFixed(2)
+                            }
+                    }
+
+            }
+        }
+    },
+    GetTotalRowIfRemiseRowChange(index){
+        if(this.Article[index].RemiseType === '%' ){
+            let newTotalTTc = (this.Article[index].TotalTTC - this.Article[index].TotalTTC * parseFloat(this.Article[index].RemisePrice /100)).toFixed(2)
+            this.Article[index].TotalTTC = newTotalTTc 
+        }
+        else if(this.Article[index].RemiseType === 'Montant' ){
+            console.log(this.Article[index].RemisePrice)
+        }
     }
+
   },
     watch: { 
             DataNewArticleAdded: function (){
@@ -451,7 +528,7 @@ export default {
                     }
                     else if(this.PriceType == 'P.U TTC'){
                         // HT TO TTC
-                        ArticlePrice = (((element.PrixDeVente * parseFloat(this.DataNewArticleAdded.TVA)/ 100) ) + parseFloat(element.PrixDeVente)).toFixed(2)
+                        ArticlePrice = (((element.PrixDeVente * parseFloat(element.TVA)/ 100) ) + parseFloat(element.PrixDeVente)).toFixed(2)
                     }
                     let NewRowArticleChoiser = {
                             Type:'Article',

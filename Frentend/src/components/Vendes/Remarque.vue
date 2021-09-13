@@ -6,7 +6,7 @@
                 <h4>Remarque</h4>
             </div>
             <div class="RemarqueSectionInput">
-                    Remarque place
+                    <textarea v-model="Remarque" placeholder="Your Reamarque"></textarea>
             </div>
         </div>
 </template>
@@ -17,6 +17,7 @@
     export default {
     name: 'Remarque',     
      data: () => ({ 
+         Remarque:''
     }),
     emits:[],
   }

@@ -744,6 +744,14 @@ textarea {
   background-color: white;
 }
 
+.RemarqueSection textarea {
+  border: 1px solid #3c8dbc !important;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  height: 100px;
+}
+
 .PopupNewArticle .PopupNewArticle_Information {
   display: block !important;
   margin: 5px 0px !important;
