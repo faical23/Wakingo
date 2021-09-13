@@ -1,10 +1,14 @@
 <template>
+ 
     <div class="SideBare">
   <v-card
-    class="mx-auto"
+    class="mx-auto "
     :style="SideBarClicked ? 'width:70px !important' : 'width:250px!important'"
     @click='MoveSideBare("SideBare")'
   >
+
+ 
+
     <v-list :style="SideBarClicked ? 'text-align: center !important;' : 'text-align: start !important;'">
       <!-- Start logo-->
         <v-list-item class="SideBar_Logo ">
@@ -74,6 +78,7 @@
     </v-list>
   </v-card>
     </div>
+    
 </template>
 
 <script>

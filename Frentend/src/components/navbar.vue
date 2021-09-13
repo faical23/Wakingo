@@ -1,5 +1,6 @@
 <template>
    <nav>
+     <div class="navbar">
       <v-toolbar flat app  dense class="light-blue darken-3">
           <v-app-bar-nav-icon class="white--text"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase white--text">
@@ -121,7 +122,7 @@
    
   
       </v-toolbar>
-     
+     </div>
    </nav>
 </template>
 
@@ -180,6 +181,10 @@ span{
 
 .v-menu{
     margin-top: 300px;
+}
+
+.v-toolbar{
+  height: 54.5px;
 }
 
 
