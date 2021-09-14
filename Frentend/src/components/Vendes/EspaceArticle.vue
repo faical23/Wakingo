@@ -429,7 +429,8 @@ export default {
                             element.TotalTTC =(totalPlusTVA - ( totalPlusTVA * parseFloat(element.RemisePrice /100))).toFixed(2)
                         }
                         else if(element.RemiseType === "Montant"){
-                            element.TotalTTC = (totalPlusTVA -  parseFloat(element.RemisePrice )).toFixed(2)
+                            let RemiseConvertToTTC =  (parseFloat(element.RemisePrice ) + (parseFloat(element.RemisePrice )*(parseFloat(element.TVA)/ 100))).toFixed(2)
+                            element.TotalTTC = (totalPlusTVA - RemiseConvertToTTC ).toFixed(2)
                         }
                     }
                     else{
@@ -440,7 +441,6 @@ export default {
         }
         else{
             if(this.PriceType === "P.U TTC"){
-                // this.Article[index].TotalTTC = (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
                     if(this.Article[index].RemiseType === '%' ){
                         let total =  (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
                         this.Article[index].TotalTTC =( total - total * parseFloat(this.Article[index].RemisePrice /100) ).toFixed(2)
@@ -461,22 +461,23 @@ export default {
                             let total = parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)
                             this.Article[index].TotalTTC = (( total * (parseFloat(this.Article[index].TVA)/ 100) ) + total).toFixed(2)
                             if(this.Article[index].RemisePrice != ''){
-                                this.Article[index].TotalTTC =( this.Article[index].TotalTTC - (parseFloat(this.Article[index].RemisePrice))).toFixed(2)
+                                let RemiseConvertToTTC =  (parseFloat(this.Article[index].RemisePrice ) + (parseFloat(this.Article[index].RemisePrice )*(parseFloat(this.Article[index].TVA)/ 100))).toFixed(2)
+                                this.Article[index].TotalTTC =( this.Article[index].TotalTTC - RemiseConvertToTTC ).toFixed(2)
                             }
                     }
 
             }
         }
     },
-    GetTotalRowIfRemiseRowChange(index){
-        if(this.Article[index].RemiseType === '%' ){
-            let newTotalTTc = (this.Article[index].TotalTTC - this.Article[index].TotalTTC * parseFloat(this.Article[index].RemisePrice /100)).toFixed(2)
-            this.Article[index].TotalTTC = newTotalTTc 
-        }
-        else if(this.Article[index].RemiseType === 'Montant' ){
-            console.log(this.Article[index].RemisePrice)
-        }
-    }
+    // GetTotalRowIfRemiseRowChange(index){
+    //     if(this.Article[index].RemiseType === '%' ){
+    //         let newTotalTTc = (this.Article[index].TotalTTC - this.Article[index].TotalTTC * parseFloat(this.Article[index].RemisePrice /100)).toFixed(2)
+    //         this.Article[index].TotalTTC = newTotalTTc 
+    //     }
+    //     else if(this.Article[index].RemiseType === 'Montant' ){
+    //         console.log(this.Article[index].RemisePrice)
+    //     }
+    // }
 
   },
     watch: { 
