@@ -14,12 +14,12 @@
                         <th class="FailedSimple">Qté.</th>
                         <th class="FailedSimple" >Unité.</th>
                         <th class="FailedSimple" >
-                            <select v-model="PriceType" @change="ChangePriceType(),GetTotalTTCRow('AllRowMontant')">
+                            <select v-model="PriceType" @change="GetTotalTTCRow('AllRowMontant'),CalculteGlobalTotalTTC()" >
                                 <option value="P.U HT">P.U HT</option>
                                 <option value="P.U TTC">P.U TTC</option>
                             </select>
                         </th>
-                        <th class="FailedSimple" >Remis</th>
+                        <th class="FailedSimple" >Remise</th>
 
                         <th class="FailedSimple">Tva</th>
                         <th  class="FailedSimple" >Total TTC</th>
@@ -43,7 +43,7 @@
                             <input class="InputZone" type="text" v-model="article.nameArticle">
                         </td  >
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index)"  @change="GetTotalTTCRow(index)">
+                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index),CalculteGlobalTotalTTC()"  @change="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <select  class="InputZone" name="pets" id="pet-select" v-model="article.Unité">
@@ -71,19 +71,19 @@
                             </select>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00"  @keyup="GetTotalTTCRow(index)" @change="GetTotalTTCRow(index)">
+                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00"  @keyup="GetTotalTTCRow(index),CalculteGlobalTotalTTC()" @change="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'" >
                                 <div class="Remise InputZone">
-                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"  @keyup="GetTotalTTCRow(index)">
-                                        <select name="pets" id="pet-select" v-model="article.RemiseType" @change="GetTotalTTCRow(index)">
+                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"  @keyup="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
+                                        <select name="pets" id="pet-select" v-model="article.RemiseType" @change="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
                                             <option value="%">%</option>
                                             <option value="Montant">Montant</option>
                                         </select>
                                     </div>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                                    <select  class="TVA InputZone" name="pets" id="pet-select" v-model="article.TVA">
+                                    <select  class="TVA InputZone" name="pets" id="pet-select" v-model="article.TVA" @change="GetTotalTTCRow(index) ,CalculteGlobalTotalTTC  ()">
                                         <option value="20,00%">20,00%</option>
                                         <option value="14,00%">14,00%</option>
                                         <option value="10,00%">10,00%</option>
@@ -98,7 +98,7 @@
                             <input type="text" v-model="article.TextLibre">
                         </td>
                         <td  class="FailedSimple" v-if=" article.Type!='Text libre'">
-                            <input  class="InputZone" type="text" placeholder="0,00" v-model="article.TotalTTC" disabled>
+                            <input  class="InputZone" type="text" placeholder="0,00" v-model="article.TotalTTC" disabled >
                         </td>
                         <td  class="FailedSimpleBtn">
                             <button class="DeleteRow InputZone" @click="DeleteArticle(index)">
@@ -171,25 +171,25 @@
                             </tr>
                             <tr> 
                                <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="TotalBrutGlobal">
                                </td>
                               <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="RemiseGlobal">
                                </td>
                               <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="TotalHTGlobal">
                                </td>
                               <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="TVAtGlobal">
                                </td>
                               <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="TransportHTGlobal">
                                </td>
                                 <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="TVAPortGlobal">
                                </td>
                                  <td>
-                                   <input type="text" placeholder="0,00" disabled>
+                                   <input type="text" placeholder="0,00" disabled v-model="TotalTTCGlobal">
                                </td>
                             </tr>
                     </table>
@@ -226,7 +226,7 @@ export default {
   components: { },
   name: "ArticleVentes",
   emits:['NewArticlePopup'],
-  props:['DataNewArticleAdded','DataChoiserArticles'],
+  props:['DataNewArticleAdded','DataChoiserArticles','DataRemisAndPort'],
   data: () => ({
       Article:[
         {
@@ -241,7 +241,7 @@ export default {
                 RemisePrice:0,
                 RemiseType:'%',
                 TVA:"20,00%",
-                TotalTTC:'',
+                TotalTTC:0,
           },
         // {
         //         Type:'Article Libre',
@@ -262,7 +262,6 @@ export default {
         //         Type:'Text libre',
         //   },
       ],
-
       PriceType:'P.U HT',
       TotalTTC:'',
       OurArticle:[
@@ -320,12 +319,18 @@ export default {
           }
       ],
       IndexImgChange:'',
-    scrollSelectArticleClicked:'',
+        scrollSelectArticleClicked:'',
           btns: [
         ['Removed', '0'],
       ],
       colors: ['deep-purple accent-4', 'error', 'teal darken-1'],
-
+    TotalBrutGlobal:0,
+    RemiseGlobal:0,
+    TotalHTGlobal:0,
+    TVAtGlobal:0,
+    TransportHTGlobal:0,
+    TVAPortGlobal:0,
+    TotalTTCGlobal:0,
 
   }),
   methods:{
@@ -354,30 +359,58 @@ export default {
         this.Article[index].TVA = article.TVA;
     },
     AddNewArticle(TypeArticle){
-
         const NewArticle ={
                 Type:TypeArticle,
                 ArticleImg:'/img/uploaImg.7d959d34.jpg',
                 scrollSelectArticle:false,
                 nameArticle:'',
-                Qté:'',
+                Qté:0,
                 Unité :'Douzaine(s)',
                 PriceType:'P.U HT',
-                Price:'',
-                RemisePrice:'',
+                Price:0,
+                RemisePrice:0,
                 RemiseType:'%',
                 TVA:"20,00%",
-                TotalTTC:'',
+                TotalTTC:0,
           }
           this.Article.push(NewArticle)
     },
-    AddSousTotal(){
-        console.log("sousTotal")
-        let SousTotal = {
-                Type:'Sous total',
-                TotalTTC:'',
-          }
-        this.Article.push(SousTotal)
+    AddSousTotal(Condition){
+        if(Condition !== "Change Sous Total")
+        {
+            let CalculeSousTotal = 0
+            let LengthArticles = (this.Article.length)-1        
+            if(this.Article[LengthArticles].Type !== "Sous total"){
+                this.Article.forEach(element =>{
+                    if(element.Type === 'Article' || element.Type === 'Article Libre'){
+                            CalculeSousTotal += (parseFloat(element.TotalTTC))
+                    }
+                    else if(element.Type === 'Sous total'){
+                            CalculeSousTotal -= (parseFloat(element.TotalTTC))
+                    }
+                })
+            }
+            let SousTotal = {
+                    Type:'Sous total',
+                    TotalTTC:CalculeSousTotal,
+            }
+
+            this.Article.push(SousTotal)
+        }
+        else{
+            let CalculeSousTotal = 0
+            this.Article.forEach(element =>{
+                if(element.Type === 'Article' || element.Type === 'Article Libre'){
+                        CalculeSousTotal += (parseFloat(element.TotalTTC))
+                }
+                else if(element.Type === 'Sous total' ){
+                    element.TotalTTC = CalculeSousTotal
+                    CalculeSousTotal = 0
+                }               
+            })
+            console.log(CalculeSousTotal)
+        }
+
     },
     TextLibre(){
             let TextLibre = {
@@ -388,59 +421,60 @@ export default {
     },
     DeleteArticle(index){
         this.Article.splice(index,1); 
-    },
-    ChangePriceType(){
-        // this.Article.forEach(element =>{
-        //     if(element.Price){
-        //         if(this.PriceType === "P.U HT"){
-        //             element.Price = (((100 * element.Price) /(100 +  parseFloat(element.TVA))).toFixed(2))
-        //         }
-        //         if(this.PriceType === "P.U TTC"){
-        //              element.Price = (((element.Price * parseFloat(element.TVA)/ 100) ) + parseFloat(element.Price)).toFixed(2)
-        //         }
-        //     }
-        // })
+        this.AddSousTotal('Change Sous Total')
+        this.CalculteGlobalTotalTTC()
     },
     GetTotalTTCRow(index){
         if(index === "AllRowMontant"){
             if(this.PriceType === "P.U TTC"){
                 this.Article.forEach(element =>{
-                    let total =(parseFloat(element.Qté)*element.Price).toFixed(2)
-                    if(element.RemisePrice !== ""){
-                        if(element.RemiseType === "%"){
-                            element.TotalTTC =(total - ( total * parseFloat(element.RemisePrice /100))).toFixed(2)
+                    if( element.Qté !== '' && element.Price !== ''){
+                        let total =(parseFloat(element.Qté)*element.Price).toFixed(2)
+                        if(element.RemisePrice !== ""){
+                            if(element.RemiseType === "%"){
+                                element.TotalTTC =(total - ( total * parseFloat(element.RemisePrice /100))).toFixed(2)
+                            }
+                            else if(element.RemiseType === "Montant"){
+                                element.TotalTTC = (total -  parseFloat(element.RemisePrice )).toFixed(2)
+                            }
                         }
-                        else if(element.RemiseType === "Montant"){
-                            element.TotalTTC = (total -  parseFloat(element.RemisePrice )).toFixed(2)
+                        else{
+                            element.TotalTTC = total
                         }
                     }
                     else{
-                        element.TotalTTC = total
+                            element.TotalTTC = 0
                     }
 
                 })
             }
             else if(this.PriceType === "P.U HT"){
                 this.Article.forEach(element =>{
-                    let total = (parseFloat(element.Qté) * parseFloat(element.Price))
-                    let totalPlusTVA = (( total * (parseFloat(element.TVA)/ 100) ) + total).toFixed(2)
-                    if(element.RemisePrice !== ""){
-                        if(element.RemiseType === "%"){
-                            element.TotalTTC =(totalPlusTVA - ( totalPlusTVA * parseFloat(element.RemisePrice /100))).toFixed(2)
+                    if( element.Qté !== '' && element.Price !== ''){
+                        let total = (parseFloat(element.Qté) * parseFloat(element.Price))
+                        let totalPlusTVA = (( total * (parseFloat(element.TVA)/ 100) ) + total).toFixed(2)
+                        if(element.RemisePrice !== ""){
+                            if(element.RemiseType === "%"){
+                                element.TotalTTC =(totalPlusTVA - ( totalPlusTVA * parseFloat(element.RemisePrice /100))).toFixed(2)
+                            }
+                            else if(element.RemiseType === "Montant"){
+                                let RemiseConvertToTTC =  (parseFloat(element.RemisePrice ) + (parseFloat(element.RemisePrice )*(parseFloat(element.TVA)/ 100))).toFixed(2)
+                                element.TotalTTC = (totalPlusTVA - RemiseConvertToTTC ).toFixed(2)
+                            }
                         }
-                        else if(element.RemiseType === "Montant"){
-                            let RemiseConvertToTTC =  (parseFloat(element.RemisePrice ) + (parseFloat(element.RemisePrice )*(parseFloat(element.TVA)/ 100))).toFixed(2)
-                            element.TotalTTC = (totalPlusTVA - RemiseConvertToTTC ).toFixed(2)
+                        else{
+                            element.TotalTTC =totalPlusTVA
                         }
                     }
                     else{
-                        element.TotalTTC =totalPlusTVA
+                        element.TotalTTC = 0
                     }
                 })
             }
         }
         else{
             if(this.PriceType === "P.U TTC"){
+                if(   this.Article[index].Qté !== '' && this.Article[index].Price !== ''){
                     if(this.Article[index].RemiseType === '%' ){
                         let total =  (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
                         this.Article[index].TotalTTC =( total - total * parseFloat(this.Article[index].RemisePrice /100) ).toFixed(2)
@@ -449,9 +483,14 @@ export default {
                         let total =  (parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)).toFixed(2)
                         this.Article[index].TotalTTC =( total - (parseFloat(this.Article[index].RemisePrice)) ).toFixed(2)
                     }
+                }
+                else{
+                    this.Article[index].TotalTTC = 0
+                }
 
             }
             else if(this.PriceType === "P.U HT"){
+                if( this.Article[index].Qté !== '' && this.Article[index].Price !== ''){
                     if(this.Article[index].RemiseType === '%' ){
                             let total = parseFloat(this.Article[index].Qté) * parseFloat(this.Article[index].Price)
                             this.Article[index].TotalTTC = (( total * (parseFloat(this.Article[index].TVA)/ 100) ) + total).toFixed(2)
@@ -465,20 +504,62 @@ export default {
                                 this.Article[index].TotalTTC =( this.Article[index].TotalTTC - RemiseConvertToTTC ).toFixed(2)
                             }
                     }
-
+                }
+                else{
+                    this.Article[index].TotalTTC = 0
+                }
             }
         }
+        
+        this.AddSousTotal('Change Sous Total')
     },
-    // GetTotalRowIfRemiseRowChange(index){
-    //     if(this.Article[index].RemiseType === '%' ){
-    //         let newTotalTTc = (this.Article[index].TotalTTC - this.Article[index].TotalTTC * parseFloat(this.Article[index].RemisePrice /100)).toFixed(2)
-    //         this.Article[index].TotalTTC = newTotalTTc 
-    //     }
-    //     else if(this.Article[index].RemiseType === 'Montant' ){
-    //         console.log(this.Article[index].RemisePrice)
-    //     }
-    // }
+    CalculteGlobalTotalTTC  (){
+        this.TotalBrutGlobal = 0
+        this.TVAtGlobal = 0
+        this.Article.forEach(element =>{
+            if(element.Type === 'Article' || element.Type === 'Article Libre'){
+                if(this.PriceType === 'P.U HT'){
+                    this.TotalBrutGlobal += parseFloat(element.Qté) * parseFloat(element.Price)
+                    if(this.DataRemisAndPort !== ""){
+                        if(this.DataRemisAndPort?.RemiseType === "%"){
+                            let CalculeTVAtGlobal = parseFloat((element.Qté * element.Price * parseFloat(element.TVA)/100 ))
+                            this.TVAtGlobal += (CalculeTVAtGlobal - (CalculeTVAtGlobal * this.DataRemisAndPort.Remise /100))
+                        }
+                        else if(this.DataRemisAndPort?.RemiseType === "Montant"){
+                            console.log("montant")
+                        }
+                    }
+                    else{
+                            let CalculeTVAtGlobal = parseFloat((element.Qté * element.Price * parseFloat(element.TVA)/100 ))
+                            this.TVAtGlobal += CalculeTVAtGlobal
+                    }
 
+                }
+                else if(this.PriceType === 'P.U TTC'){
+                    let TotalTTcRowBrut = parseFloat(100 * parseFloat(element.TotalTTC)) / (100 + parseFloat(element.TVA))
+                    this.TotalBrutGlobal += TotalTTcRowBrut
+                    if(this.DataRemisAndPort !== ""){
+                        if(this.DataRemisAndPort?.RemiseType === "%"){
+                            let CalculeTVAtGlobal =  TotalTTcRowBrut *parseFloat(element.TVA)/100
+                            this.TVAtGlobal += (CalculeTVAtGlobal - (CalculeTVAtGlobal * this.DataRemisAndPort.Remise /100))
+                        }
+                        else if(this.DataRemisAndPort?.RemiseType === "Montant"){
+                            console.log("montant")
+                        }
+                    }
+                    else{
+                            this.TVAtGlobal += TotalTTcRowBrut *parseFloat(element.TVA)/100
+                    }
+                }
+            }
+        })
+        if(this.DataRemisAndPort !== ''){
+            this.RemiseGlobal = (this.TotalBrutGlobal * this.DataRemisAndPort.Remise /100).toFixed(2)
+        }
+        
+        this.TotalHTGlobal =   this.TotalBrutGlobal - this.RemiseGlobal
+
+    }
   },
     watch: { 
             DataNewArticleAdded: function (){
@@ -547,7 +628,19 @@ export default {
                     this.Article.push(NewRowArticleChoiser)
                     console.log(element)
                 })
+            },
+            DataRemisAndPort : function (){
+                this.TransportHTGlobal =  this.DataRemisAndPort.Port
+                this.TVAPortGlobal = (this.DataRemisAndPort.Port * (parseFloat(this.DataRemisAndPort.PortTVA) /100)).toFixed(2)
+                if(this.DataRemisAndPort.RemiseType === "%"){
+                    this.RemiseGlobal = (this.TotalBrutGlobal * this.DataRemisAndPort.Remise /100).toFixed(2)
+                }
+                if(this.DataRemisAndPort.RemiseType === "Montant"){
+                    this.RemiseGlobal = this.DataRemisAndPort.Remise
+                }
+                this.CalculteGlobalTotalTTC()
             }
+
     },
   mounted(){
   }

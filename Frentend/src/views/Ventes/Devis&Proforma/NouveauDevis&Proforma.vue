@@ -115,7 +115,9 @@
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
                  @AddNewClient='OpenNewClientPopup'
-                 :NameOfNewClientAdded='NameOfNewClientAdded'/>
+                 :NameOfNewClientAdded='NameOfNewClientAdded'
+                 @SendRemiseAndPortToArticleSpace='GetRemiseAndPortTFromArticleSpace'
+                 />
                 <AlertConfirmation
                          v-if="Alert" @AlertAnnuler="DisabledAlert()
                          " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
@@ -125,7 +127,11 @@
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
             </div>
             <div class="EspaceAddArticles">
-                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' @ChoiserArticles='PopupChoiserLesArticles = true' :DataChoiserArticles='DataChoiserArticles' />                
+                <AddArticles @NewArticlePopup='OpneNewArticlePopup'
+                 :DataNewArticleAdded='DataNewArticleAdded' 
+                 @ChoiserArticles='PopupChoiserLesArticles = true' 
+                 :DataChoiserArticles='DataChoiserArticles' 
+                 :DataRemisAndPort='DataRemisAndPort'/>                
             </div>
             <div class="EspaceRemarque">
                 <Remarque/>
@@ -206,7 +212,8 @@
             LengthOfArticleHave:'',
             DataNewArticleAdded:'',
             PopupChoiserLesArticles :false,
-            DataChoiserArticles:''
+            DataChoiserArticles:'',
+            DataRemisAndPort:""
         }
     },
     components: {
@@ -262,6 +269,10 @@
         GetAllThisArticles(ArticlesGetted){
             this.PopupChoiserLesArticles = false
             this.DataChoiserArticles = ArticlesGetted
+        },
+        GetRemiseAndPortTFromArticleSpace(RemisAndPort){
+            this.DataRemisAndPort = RemisAndPort
+            console.log(RemisAndPort)
         }
 
     }
