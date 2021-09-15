@@ -567,7 +567,6 @@ export default {
             }
             else if(this.DataRemisAndPort.RemiseType ===  "Montant"){
                 this.RemiseGlobal = this.DataRemisAndPort.Remise /// remise global if is montant
-
                 /// update tva if is remise global montant
             }
         }
