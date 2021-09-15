@@ -219,7 +219,6 @@
                 </v-tab-item>
                 </v-tabs-items>
         </v-card>
-        <button style="background-color:red;color:white;padding:10px 30px;" @click="GetAllData()">Get all data</button>
 
   </div>
 </template>

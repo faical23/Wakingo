@@ -4,6 +4,9 @@
 
 // 2 - Vendors;
 
+/// layout s
+
+@import "layout/navbar";
 // 3 - Base;
 @import "base/reset";
 @import "base/typography";
@@ -12,11 +15,14 @@
 @import "components/SideBar";
 @import "components/AlertConfirmation";
 @import "components/PopupNewClient";
+@import "components/EspaceArticleVente";
+@import "components/RemarqueSection";
+@import "components/PopupNewArticle";
+@import "components/ChoiserArticle";
 
 // 5 - Pages;
 @import "pages/home";
 @import "pages/NouvelleDevisProforma";
 @import "pages/ListeDesDevis";
 
-// 6- layout
-@import "layout/navbar";
+

@@ -1,294 +1,322 @@
-.NouvelleDevisProforma{
-    width: 100%;
-    padding:20px;
-    .NouvelleDevisProforma__Header{
-        display: flex;
-        justify-content: space-between;
-        .NouvelleDevisProforma__Header__Left{
-            h2{
-                font-size:24px;
-                font-weight: 500;
-                // padding-bottom:10px;
-                color: $TextColor-100;
-            }
-            p{
-                font-size:15px;
-                font-weight:300;
-                color:$TextColor-200 ;
-            }
-        }
-        .NouvelleDevisProforma__Header__Right{
-            .RouteLink{
-                display: flex;
-                align-items: center;
-                padding-bottom: 50px;
-                a{
-                    font-size:13px !important;
-                    color: $TextColor-100 !important;
-                    i{
-                        position: relative;
-                        bottom:3px;
-                    }
-                }
-                span{
-                    font-size:13px !important;
-                    color: $TextColor-200 !important;
-                }
-                .RoutlinkZone{
-                    margin: 0px 10px;
-                }
-            }
-            .NouvelleDevisProforma__Header__Right__Btns{
-                text-align: end;
-                button{
-                    background-color:$BackgroundColor-100 ;
-                    padding:10px;
-                    border-radius:2px;
-                    color:white ;
-                    border: 1px solid #367fa9;
-                    svg{
-                        fill: white;
-                    }
-                    &:hover{
-                        background-color:#367fa9;
-
-                    }
-                }
-            }
-        }
+.NouvelleDevisProforma {
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 0px !important;
+  .NouvelleDevisProforma__Header {
+    display: flex;
+    justify-content: space-between;
+    .NouvelleDevisProforma__Header__Left {
+      h2 {
+        font-size: 24px;
+        font-weight: 500;
+        padding-bottom: 10px;
+        color: $TextColor-100;
+      }
+      p {
+        font-size: 15px;
+        font-weight: 300;
+        color: $TextColor-200;
+      }
     }
-    .SwitchOptions{
-        margin: 30px 0px;
-        .v-toolbar__content{
-            display: none;
-        }
-        .v-sheet{
-            background-color:white !important;
-            height:auto !important;
-            border-bottom: 1px solid rgb(194, 194, 194);
-            
-            .v-tab{
-                font-size:12px !important;
-                color: $TextColor-100 !important;
-                margin-left: 0px !important;
-                i{
-                    margin: 0px 10px;
-                }
-
-            }
-        }
-    }
-    
-    .InformationPiéce,.InformationFinanciéres,.Logistique,.Options{
+    .NouvelleDevisProforma__Header__Right {
+      .RouteLink {
         display: flex;
         align-items: center;
-        .InformationPiéce__Field{
-            width: 17% !important;
-            margin-bottom: 25px;
-            h5{
-                color:$TextColor-100 !important;
-                font-size:15px;
-                padding-bottom: 15px;
-            }
-            input,select,textarea{
-                border: 1px solid #d4d4d4;
-                padding: 6px 10px;
-                width:90%;
-                border-radius:2px;
-                font-size: 12px !important;
-            }
-            .RemiseGlobal{
-                display: flex;
-                width: 50%;
-                input{
-                    width:100%;
-                }
-                select{
-                    width:40%;
-                }
-            }
-            .Port{
-                width: 60%;
-            }
-            .TVA{
-                width: 40%;
-            }
+        padding-bottom: 50px;
+        a {
+          font-size: 13px !important;
+          color: $TextColor-100 !important;
+          i {
+            position: relative;
+            bottom: 3px;
+          }
         }
+        span {
+          font-size: 13px !important;
+          color: $TextColor-200 !important;
+        }
+        .RoutlinkZone {
+          margin: 0px 10px;
+        }
+      }
 
     }
-    .Échéancier{
-        table{
-            border-collapse: collapse;
-            width: 100%;
-            text-align:start;
-            th{
-                background-color:white;
-                color: $TextColor-100;
-                font-weight:600;
-            }
-            td,th{
-                border: 1px solid #d9d9d9 !important;
-                padding: 10px;
-                text-align:start;
-                width:15%;
-            }
-            td{
-                background-color:#f9f9f9;
-                padding: 10px 8px !important;
-            }
-            select,input{
-                background-color:white !important;
-                border: 1px solid #d4d4d4;
-                width: 100%;
-                padding: 10px;
-                border-radius: 2px;
-                font-size: 12px !important;
+  }
+  .SwitchOptions {
+    margin: 30px 0px;
+    .v-toolbar__content {
+      display: none;
+    }
+    .v-sheet {
+      background-color: white !important;
+      height: auto !important;
+      border-bottom: 1px solid rgb(194, 194, 194);
 
-            }
+      .v-tab {
+        font-size: 12px !important;
+        color: $TextColor-100 !important;
+        margin-left: 0px !important;
+        i {
+          margin: 0px 10px;
+        }
+      }
+    }
+  }
 
-
-            .FiledDélaiJours__zone{
-                    display: flex;
-                    align-items: center;
-                    input{
-                        width: 80% !important;
-                        border-radius: 0px !important;
-            }
-
-                
-            }
-
-        }
-    }
-    .Logistique{
-        width: 85% !important;
-        .InformationPiéce__Field{
-            width: 100% !important;
-            textarea{
-                height: 30px;
-            }
-        }
-    }
-    .Options{
-        .InformationPiéce__Field{
-            width: 25% !important;
-            .AficheLesPhoto{
-                margin: 15px 0px;
-                display: flex;
-                align-items: center;
-                input{
-                    width: 10% !important
-                }
-                h5{
-                    margin: 0px !important;
-                    padding: 0px !important
-                }
-            }
-        }
-    }
-    .DeleteRow{
-        background-color:#dd4b39 !important;
-        padding: 5px ;
-        border-radius: 6px;
-       svg{
-           fill: $white;
-       }
-       &:hover{
-        background-color: rgb(182, 0, 0) !important;
-    
-       }
-    }
-    .FDM,.LE{
-        width: 5% !important;
-        input{
-            cursor: pointer;
-        }
-    }
-    .LE{
-        width: 8% !important;
-        input{
-            width: 100% !important;
-        }
-    }
-    .btnAjouter{
-        text-align: end;
-        margin: 20px 0px;
-        .AjouterUneEchéance{
-            background-color: #00acd6;
-            color: white;
-            padding:15px 20px;
-            border-radius:4px;
-            span{
-                font-weight: bold;
-                font-size: 20px;
-            }
-            &:hover{
-                background-color: #017c9b;
-            }
-        }
-    }
-.SearchClient{
-    width:90% !important;
-    button{
+  .InformationPiéce,
+  .InformationFinanciéres,
+  .Logistique,
+  .Options {
+    display: flex;
+    align-items: center;
+    .InformationPiéce__Field {
+      width: 17% !important;
+      margin-bottom: 25px;
+      h5 {
+        color: $TextColor-100 !important;
+        font-size: 15px;
+        padding-bottom: 15px;
+      }
+      input,
+      select,
+      textarea {
         border: 1px solid #d4d4d4;
         padding: 6px 10px;
-        width:90%;
-        border-radius:2px;
-        font-size: 13px !important;
-        text-align: start;
-        color:$TextColor-100 !important;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        i{
-            position: relative;
-            bottom: 1px;
-            color:$TextColor-100 !important;
-        }
-    }
-    .PlaceClientAndSearch{
         width: 90%;
-        border: 1px solid #d4d4d4;
-        display:block;
-        input{
-            border: 1px solid $BackgroundColor-100;
-            padding: 8px 10px;
-            width:90%;
-            border-radius:2px;
-            font-size: 13px !important;
-            color:$TextColor-100 !important;
-            margin: 4px 10px;
+        border-radius: 2px;
+        font-size: 12px !important;
+      }
+      .RemiseGlobal {
+        display: flex;
+        width: 50%;
+        input {
+          width: 100%;
         }
-        ul{
-            padding:0px;
-            height:250px;
-            overflow-y:scroll;
-            li{
-                padding:8px 10px;
-                font-size: 14px !important;
-                color:$TextColor-100;
-                cursor: pointer;
-                &:hover{
-                    background-color:$BackgroundColor-100;
-                    color:white;
-                }
-            }
-            .PlaceClientAndSearch_FirstLi{
-                background-color: #dddddd;
-            }
-            .PlaceClientAndSearch_NewCient{
-                color: $BackgroundColor-100;
-                margin:10px 0px;
-                padding: 15px 10px;
-                border-top: 1px solid black;
-                &:hover{
-                    background-color:white;
-                    color: #0590e0;
-                }
-            }
+        select {
+          width: 40%;
         }
-
+      }
+      .Port {
+        width: 60%;
+      }
+      .TVA {
+        width: 40%;
+      }
     }
+  }
+
+  .Logistique {
+    width: 85% !important;
+    .InformationPiéce__Field {
+      width: 100% !important;
+      textarea {
+        height: 30px;
+      }
+    }
+  }
+  .Options {
+    .InformationPiéce__Field {
+      width: 25% !important;
+      .AficheLesPhoto {
+        margin: 15px 0px;
+        display: flex;
+        align-items: center;
+        input {
+          width: 10% !important;
+        }
+        h5 {
+          margin: 0px !important;
+          padding: 0px !important;
+        }
+      }
+    }
+  }
+  .DeleteRow {
+    background-color: #dd4b39 !important;
+    padding: 5px;
+    border-radius: 6px;
+    svg {
+      fill: $white;
+    }
+    &:hover {
+      background-color: rgb(182, 0, 0) !important;
+    }
+  }
+  .FDM,
+  .LE {
+    width: 5% !important;
+    input {
+      cursor: pointer;
+    }
+  }
+  .LE {
+    width: 8% !important;
+    input {
+      width: 100% !important;
+    }
+  }
+  .btnAjouter {
+    text-align: end;
+    margin: 20px 0px;
+    .AjouterUneEchéance {
+      background-color: #00acd6;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 4px;
+      span {
+        font-weight: bold;
+        font-size: 20px;
+      }
+      &:hover {
+        background-color: #017c9b;
+      }
+    }
+  }
+  .SearchClient {
+    width: 90% !important;
+    button {
+      border: 1px solid #d4d4d4;
+      padding: 6px 10px;
+      width: 90%;
+      border-radius: 2px;
+      font-size: 13px !important;
+      text-align: start;
+      color: $TextColor-100 !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        position: relative;
+        bottom: 1px;
+        color: $TextColor-100 !important;
+      }
+    }
+
+  }
 }
-    
+.Échéancier ,.AddArticleVentes__articles{
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: start;
+    th {
+      background-color: white;
+      color: $TextColor-100;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    td,
+    th {
+      border: 1px solid #d9d9d9 !important;
+      padding: 10px;
+      text-align: start;
+      width: 15%;
+    }
+    td {
+      background-color: #f9f9f9;
+      padding: 10px 8px !important;
+    }
+    select,
+    input {
+      background-color: white !important;
+      border: 1px solid #d4d4d4;
+      width: 100%;
+      padding: 10px;
+      border-radius: 2px;
+      font-size: 12px !important;
+    }
+
+    .FiledDélaiJours__zone {
+      display: flex;
+      align-items: center;
+      input {
+        width: 80% !important;
+        border-radius: 0px !important;
+      }
+    }
+  }
+}
+.PlaceClientAndSearch{
+  width: 90%;
+  border: 1px solid #d4d4d4;
+  display: block;
+  input {
+    border: 1px solid $BackgroundColor-100;
+    padding: 8px 10px;
+    width: 90%;
+    border-radius: 2px;
+    font-size: 13px !important;
+    color: $TextColor-100 !important;
+    margin: 4px 10px;
+  }
+  ul {
+    padding: 0px;
+    height: 250px;
+    overflow-y: scroll;
+    li {
+      padding: 8px 10px;
+      font-size: 14px !important;
+      color: $TextColor-100;
+      cursor: pointer;
+      &:hover {
+        background-color: $BackgroundColor-100;
+        color: white;
+      }
+    }
+    .PlaceClientAndSearch_FirstLi {
+      background-color: #dddddd;
+    }
+
+  }
+}
+.PlaceClientAndSearch_NewCient {
+  color: $BackgroundColor-100;
+  margin: 10px 0px;
+  padding: 12px 10px 7px 10px;
+  border-top: 1px solid black;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+    color: #0590e0;
+  }
+}
+.DeleteRow {
+  background-color: #dd4b39 !important;
+  padding: 5px;
+  border-radius: 6px;
+  svg {
+    fill: $white;
+  }
+  &:hover {
+    background-color: rgb(182, 0, 0) !important;
+  }
+}
+.Remise {
+  display: flex;
+  input {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+}
+.LastBtnEnregistrer{
+  margin: 20px;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns ,.LastBtnEnregistrer{
+  text-align: end;
+  button {
+    background-color: $BackgroundColor-100;
+    padding: 10px;
+    border-radius: 2px;
+    color: white;
+    border: 1px solid #367fa9;
+    svg {
+      fill: white;
+    }
+    &:hover {
+      background-color: #367fa9;
+    }
+  }
 }

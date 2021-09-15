@@ -1,6 +1,6 @@
 <template>
   <div class="HomePage">
-      <div   v-if='Alert || PopupAddNewClient' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()">fdsfs</div>
+      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -110,6 +110,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- <AlertErrorFailed/> -->
                 <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
@@ -190,6 +191,13 @@
     import InformationsProduit from '../../../components/Vendes/InformationsProduits.vue'
     import AlertConfirmation from '../../../components/Vendes/AlertConfirmation.vue'
     import PopupNewClient from '../../../components/Vendes/NewClient.vue'
+    import AddArticles from '../../../components/Vendes/EspaceArticle.vue'
+    import Remarque from '../../../components/Vendes/Remarque.vue'
+    import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
+    import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
+
+
+    // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
     import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
@@ -209,17 +217,24 @@
         }
     },
     components: {
-      SideBar,
-      InformationsProduit,
-      NaVBar,
-      AlertConfirmation,
-      PopupNewClient
+    SideBar,
+    InformationsProduit,
+    NaVBar,
+    AlertConfirmation,
+    PopupNewClient,
+    AddArticles,
+    Remarque,
+    PopupNewArticle,
+    ChoiserArticles
+    //   AlertErrorFailed
     },
     methods:{
         DeleteAllPopup(){
             this.Alert=false
             this.ConfirmationSelectionerClient = false
             this.PopupAddNewClient=false
+            this.PopupNewArticle = false
+            this.PopupChoiserLesArticles  = false
         },
         ActiveAlertConfirmation(){
             this.Alert = true;
@@ -234,8 +249,13 @@
         ConfirmationSelectionerClientToFalse(){
              this.ConfirmationSelectionerClient  = false
         },
-        OpenNewClientPopup(){
+        OpenNewClientPopup(client){
             this.PopupAddNewClient=true
+            this.LengthOfClientHave =client.length
+        },
+        NewClientIsAdded(client){
+            this.PopupAddNewClient=false
+            this.NameOfNewClientAdded = client
         },
         OpneNewArticlePopup(articleLength){
             this.PopupNewArticle=true
@@ -258,4 +278,3 @@
     }
   }
 </script>
-

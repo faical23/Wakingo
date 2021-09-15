@@ -1,4 +1,21 @@
 @charset "UTF-8";
+nav .v-toolbar {
+  height: 55px !important;
+  background-color: #3c8dbc !important;
+}
+
+.ch {
+  margin-top: 23px;
+}
+
+.v-menu__content {
+  box-shadow: none;
+}
+
+.NouvelleDevisProforma__Header {
+  margin-bottom: -31px;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -17,6 +34,7 @@
   width: 100%;
   height: 100vh;
   background-color: #ecf0f5;
+  overflow-y: scroll;
 }
 
 .MessageErrorFiled {
@@ -169,6 +187,7 @@ img {
   /* 1 */
   -ms-interpolation-mode: bicubic;
   /* 2 */
+  object-fit: cover;
 }
 
 /**
@@ -443,7 +462,7 @@ textarea {
   background-color: #036638;
 }
 
-.PopupNewClient {
+.PopupNewClient, .PopupNewArticle {
   width: 650px;
   background-color: white !important;
   border-radius: 4px;
@@ -453,7 +472,7 @@ textarea {
   z-index: 200;
 }
 
-.PopupNewClient .PopupNewClient__title {
+.PopupNewClient .PopupNewClient__title, .PopupNewArticle .PopupNewClient__title {
   padding: 20px 20px 10px 20px;
   border-bottom: 1px solid #d9d9d9 !important;
   display: flex;
@@ -461,33 +480,33 @@ textarea {
   justify-content: space-between;
 }
 
-.PopupNewClient .PopupNewClient__title p {
+.PopupNewClient .PopupNewClient__title p, .PopupNewArticle .PopupNewClient__title p {
   font-weight: 500;
   color: #222d32;
   font-size: 18px;
 }
 
-.PopupNewClient .PopupNewClient__title svg {
+.PopupNewClient .PopupNewClient__title svg, .PopupNewArticle .PopupNewClient__title svg {
   position: relative;
   fill: #d9d9d9 !important;
   bottom: 10px;
   cursor: pointer;
 }
 
-.PopupNewClient .PopupNewClient__title svg:hover {
+.PopupNewClient .PopupNewClient__title svg:hover, .PopupNewArticle .PopupNewClient__title svg:hover {
   fill: black !important;
 }
 
-.PopupNewClient .PopupNewClient__information {
+.PopupNewClient .PopupNewClient__information, .PopupNewClient .PopupNewArticle_Information, .PopupNewClient .PopupChoiserArticle__Search, .PopupNewArticle .PopupNewClient__information, .PopupNewArticle .PopupNewArticle_Information, .PopupNewArticle .PopupChoiserArticle__Search {
   display: flex;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed {
-  padding: 10px 0px;
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild {
+  padding: 10px 0px 25px 0px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild textarea {
   border: 1px solid #d4d4d4;
   padding: 8px 10px;
   width: 90%;
@@ -495,44 +514,44 @@ textarea {
   font-size: 12px !important;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6 {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild h6, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild h6 {
   margin-bottom: 5px;
   font-size: 14px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0px;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input {
   width: 25%;
   cursor: pointer;
 }
 
-.PopupNewClient .PopupNewClient__information .CodePostalAndVille {
+.PopupNewClient .PopupNewClient__information .CodePostalAndVille, .PopupNewClient .PopupNewArticle_Information .CodePostalAndVille, .PopupNewClient .PopupChoiserArticle__Search .CodePostalAndVille, .PopupNewArticle .PopupNewClient__information .CodePostalAndVille, .PopupNewArticle .PopupNewArticle_Information .CodePostalAndVille, .PopupNewArticle .PopupChoiserArticle__Search .CodePostalAndVille {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__Right {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right {
   width: 50%;
 }
 
-.PopupNewClient .PopupNewClient__information .PopupNewClient__left {
+.PopupNewClient .PopupNewClient__information .PopupNewClient__left, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__left, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__left, .PopupNewArticle .PopupNewClient__information .PopupNewClient__left, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__left, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__left {
   width: 50%;
 }
 
-.PopupNewClient .PopupNewClient__btns {
+.PopupNewClient .PopupNewClient__btns, .PopupNewArticle .PopupNewClient__btns {
   padding: 20px 20px 10px 20px;
   border-top: 1px solid #d9d9d9 !important;
   display: flex;
@@ -540,34 +559,329 @@ textarea {
   align-items: center;
 }
 
-.PopupNewClient .PopupNewClient__btns button {
+.PopupNewClient .PopupNewClient__btns button, .PopupNewArticle .PopupNewClient__btns button {
   border-radius: 4px;
   padding: 8px 20px;
   margin-bottom: 10px;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Firmer {
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer, .PopupNewArticle .PopupNewClient__btns .Btn__Firmer {
   color: black;
   background-color: #e7e7e7;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover {
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover, .PopupNewArticle .PopupNewClient__btns .Btn__Firmer:hover {
   background-color: #c3c3c3;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer {
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer {
   color: white;
   background-color: #367fa9;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg {
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer svg {
   fill: white !important;
   position: relative;
   top: 2px;
 }
 
-.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover {
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer:hover {
   background-color: #024d79;
+}
+
+.AddArticleVentes {
+  margin: 20px;
+  border: 1px solid #3c8dbc;
+  border-radius: 5px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles {
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedArticle {
+  width: 20%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedTailsArticle {
+  width: 20%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName {
+  display: flex;
+  width: 100%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName button {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  text-align: start;
+  color: #222d32 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName button i {
+  position: relative;
+  bottom: 1px;
+  color: #222d32 !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName .ScrollSelectionerArticel {
+  width: 100%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName .ScrollSelectionerArticel .PlaceClientAndSearch input {
+  margin: 4px 7px !important;
+  width: 90% !important;
+  padding: 4px 10px !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName img {
+  margin: 0px 30px 10px 0px;
+  width: 30% !important;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimple {
+  width: 8% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table td {
+  position: relative;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .InputZone {
+  position: absolute;
+  width: 90% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn {
+  width: 3% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn .InputZone {
+  position: absolute;
+  width: 70% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns button {
+  margin: 0px 10px;
+  border: 1px solid black;
+  padding: 7px 25px;
+  border-radius: 4px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns .row {
+  flex: 0 !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns .row button {
+  position: relative;
+  padding: 21px 25px !important;
+  top: 14px;
+  right: 10px;
+  background-color: #30add2;
+  color: white;
+  border: none !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA {
+  padding: 20px 0px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant th, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA th {
+  padding: 7px 3px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant td, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA td {
+  padding: 0px  !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant input, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA input {
+  border: none !important;
+  padding: 6px !important;
+  background-color: #ececec !important;
+  color: black;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA {
+  width: 30%;
+  margin-left: auto;
+  text-align: center;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA p {
+  color: #3c8dbc;
+}
+
+.AddArticleVentes__lines, .RemarqueSection_lines {
+  background-color: #3c8dbc;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.AddArticleVentes__lines h4, .RemarqueSection_lines h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.AddArticleVentes__lines i, .RemarqueSection_lines i {
+  font-size: 25px;
+}
+
+.RemarqueSection {
+  margin: 20px;
+  border: 1px solid #3c8dbc;
+  border-radius: 5px;
+}
+
+.RemarqueSection .RemarqueSectionInput {
+  padding: 20px;
+  height: 150px;
+  background-color: white;
+}
+
+.RemarqueSection textarea {
+  border: 1px solid #3c8dbc !important;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  height: 100px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information {
+  display: block !important;
+  margin: 5px 0px !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information input, .PopupNewArticle .PopupNewArticle_Information textarea {
+  margin: 10px 0px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .InputPrix {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Libellé {
+  width: 70%;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .TVA select {
+  width: 100% !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PriceArticle input, .PopupNewArticle .PopupNewArticle_Information .PriceArticle select {
+  width: 30% !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone input {
+  position: relative;
+  bottom: 2px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone h6 {
+  margin: 0px 10px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Catageory, .PopupNewArticle .PopupNewArticle_Information .PriceArticle, .PopupNewArticle .PopupNewArticle_Information .CheckboxZone {
+  border-bottom: 1px solid #1f1f1f;
+  padding-bottom: 15px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description {
+  display: block !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description .DiscriptionZOne {
+  margin-bottom: 10px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description .DiscriptionZOne textarea {
+  width: 100% !important;
+  height: 100px;
+}
+
+.PopupNewArticle .ArticleErrorPoupFaild {
+  padding: 0px !important;
+}
+
+.PopupChoiserArticle {
+  width: 50%;
+  transform: translate(45%, 5%);
+  margin: 0px auto;
+  height: 100vh;
+  overflow: scroll !important;
+  margin-bottom: 300px !important;
+}
+
+.PopupChoiserArticle .PopupChoiserArticle__Search, .PopupChoiserArticle .PopupNewArticle_Information__Faild {
+  width: 100% !important;
+}
+
+.PopupChoiserArticle .PopupChoiserArticle__Search h6, .PopupChoiserArticle .PopupNewArticle_Information__Faild h6 {
+  display: block !important;
+}
+
+.PopupChoiserArticle .PopupNewArticle_Information__Title {
+  background-color: #d2d6de;
+  width: 96% !important;
+  padding: 16px 10px;
+  margin: 10px 20px !important;
+  margin-bottom: 0px !important;
+  font-weight: 100 !important;
+}
+
+.PopupChoiserArticle .PopupNewArticle_Information {
+  padding: 0px 20px;
+  margin: 0px 20px;
+  border: 1px solid #d2d6de !important;
+  margin-bottom: 20px !important;
+  display: block;
+}
+
+.PopupChoiserArticle .PopupNewArticle_TableArticles {
+  margin: 20px 20px;
+}
+
+.PopupChoiserArticle .Btn__CHoiserArticles {
+  background-color: #5ab55e !important;
+}
+
+.PopupChoiserArticle .PopupNewClient__btns {
+  margin-bottom: 50px;
 }
 
 .HomePage {
@@ -577,6 +891,7 @@ textarea {
 .NouvelleDevisProforma {
   width: 100%;
   padding: 20px;
+  padding-bottom: 0px !important;
 }
 
 .NouvelleDevisProforma .NouvelleDevisProforma__Header {
@@ -587,6 +902,7 @@ textarea {
 .NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left h2 {
   font-size: 24px;
   font-weight: 500;
+  padding-bottom: 10px;
   color: #222d32;
 }
 
@@ -621,26 +937,6 @@ textarea {
   margin: 0px 10px;
 }
 
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns {
-  text-align: end;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button {
-  background-color: #3c8dbc;
-  padding: 10px;
-  border-radius: 2px;
-  color: white;
-  border: 1px solid #367fa9;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button svg {
-  fill: white;
-}
-
-.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button:hover {
-  background-color: #367fa9;
-}
-
 .NouvelleDevisProforma .SwitchOptions {
   margin: 30px 0px;
 }
@@ -665,23 +961,43 @@ textarea {
   margin: 0px 10px;
 }
 
-.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique, .NouvelleDevisProforma .Options {
+.NouvelleDevisProforma .InformationPiéce,
+.NouvelleDevisProforma .InformationFinanciéres,
+.NouvelleDevisProforma .Logistique,
+.NouvelleDevisProforma .Options {
   display: flex;
   align-items: center;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field, .NouvelleDevisProforma .Options .InformationPiéce__Field {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field,
+.NouvelleDevisProforma .Options .InformationPiéce__Field {
   width: 17% !important;
   margin-bottom: 25px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5, .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field h5,
+.NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
   color: #222d32 !important;
   font-size: 15px;
   padding-bottom: 15px;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea, .NouvelleDevisProforma .Options .InformationPiéce__Field input, .NouvelleDevisProforma .Options .InformationPiéce__Field select, .NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input,
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select,
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field input,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field select,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea,
+.NouvelleDevisProforma .Options .InformationPiéce__Field input,
+.NouvelleDevisProforma .Options .InformationPiéce__Field select,
+.NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
   border: 1px solid #d4d4d4;
   padding: 6px 10px;
   width: 90%;
@@ -689,68 +1005,40 @@ textarea {
   font-size: 12px !important;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
   display: flex;
   width: 50%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
   width: 100%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
   width: 40%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port, .NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
   width: 60%;
 }
 
-.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
   width: 40%;
-}
-
-.NouvelleDevisProforma .Échéancier table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: start;
-}
-
-.NouvelleDevisProforma .Échéancier table th {
-  background-color: white;
-  color: #222d32;
-  font-weight: 600;
-}
-
-.NouvelleDevisProforma .Échéancier table td, .NouvelleDevisProforma .Échéancier table th {
-  border: 1px solid #d9d9d9 !important;
-  padding: 10px;
-  text-align: start;
-  width: 15%;
-}
-
-.NouvelleDevisProforma .Échéancier table td {
-  background-color: #f9f9f9;
-  padding: 10px 8px !important;
-}
-
-.NouvelleDevisProforma .Échéancier table select, .NouvelleDevisProforma .Échéancier table input {
-  background-color: white !important;
-  border: 1px solid #d4d4d4;
-  width: 100%;
-  padding: 10px;
-  border-radius: 2px;
-  font-size: 12px !important;
-}
-
-.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone {
-  display: flex;
-  align-items: center;
-}
-
-.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone input {
-  width: 80% !important;
-  border-radius: 0px !important;
 }
 
 .NouvelleDevisProforma .Logistique {
@@ -798,11 +1086,13 @@ textarea {
   background-color: #b60000 !important;
 }
 
-.NouvelleDevisProforma .FDM, .NouvelleDevisProforma .LE {
+.NouvelleDevisProforma .FDM,
+.NouvelleDevisProforma .LE {
   width: 5% !important;
 }
 
-.NouvelleDevisProforma .FDM input, .NouvelleDevisProforma .LE input {
+.NouvelleDevisProforma .FDM input,
+.NouvelleDevisProforma .LE input {
   cursor: pointer;
 }
 
@@ -858,13 +1148,61 @@ textarea {
   color: #222d32 !important;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch {
+.Échéancier table, .AddArticleVentes__articles table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: start;
+}
+
+.Échéancier table th, .AddArticleVentes__articles table th {
+  background-color: white;
+  color: #222d32;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.Échéancier table td,
+.Échéancier table th, .AddArticleVentes__articles table td,
+.AddArticleVentes__articles table th {
+  border: 1px solid #d9d9d9 !important;
+  padding: 10px;
+  text-align: start;
+  width: 15%;
+}
+
+.Échéancier table td, .AddArticleVentes__articles table td {
+  background-color: #f9f9f9;
+  padding: 10px 8px !important;
+}
+
+.Échéancier table select,
+.Échéancier table input, .AddArticleVentes__articles table select,
+.AddArticleVentes__articles table input {
+  background-color: white !important;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.Échéancier table .FiledDélaiJours__zone, .AddArticleVentes__articles table .FiledDélaiJours__zone {
+  display: flex;
+  align-items: center;
+}
+
+.Échéancier table .FiledDélaiJours__zone input, .AddArticleVentes__articles table .FiledDélaiJours__zone input {
+  width: 80% !important;
+  border-radius: 0px !important;
+}
+
+.PlaceClientAndSearch {
   width: 90%;
   border: 1px solid #d4d4d4;
   display: block;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch input {
+.PlaceClientAndSearch input {
   border: 1px solid #3c8dbc;
   padding: 8px 10px;
   width: 90%;
@@ -874,38 +1212,89 @@ textarea {
   margin: 4px 10px;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul {
+.PlaceClientAndSearch ul {
   padding: 0px;
   height: 250px;
   overflow-y: scroll;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li {
+.PlaceClientAndSearch ul li {
   padding: 8px 10px;
   font-size: 14px !important;
   color: #222d32;
   cursor: pointer;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li:hover {
+.PlaceClientAndSearch ul li:hover {
   background-color: #3c8dbc;
   color: white;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
+.PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
   background-color: #dddddd;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient {
+.PlaceClientAndSearch_NewCient {
   color: #3c8dbc;
   margin: 10px 0px;
-  padding: 15px 10px;
+  padding: 12px 10px 7px 10px;
   border-top: 1px solid black;
+  cursor: pointer;
 }
 
-.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient:hover {
+.PlaceClientAndSearch_NewCient:hover {
   background-color: white;
   color: #0590e0;
+}
+
+.DeleteRow {
+  background-color: #dd4b39 !important;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.DeleteRow svg {
+  fill: #ffffff;
+}
+
+.DeleteRow:hover {
+  background-color: #b60000 !important;
+}
+
+.Remise {
+  display: flex;
+}
+
+.Remise input {
+  width: 100%;
+}
+
+.Remise select {
+  width: 100%;
+}
+
+.LastBtnEnregistrer {
+  margin: 20px;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns, .LastBtnEnregistrer {
+  text-align: end;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns button, .LastBtnEnregistrer button {
+  background-color: #3c8dbc;
+  padding: 10px;
+  border-radius: 2px;
+  color: white;
+  border: 1px solid #367fa9;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns button svg, .LastBtnEnregistrer button svg {
+  fill: white;
+}
+
+.NouvelleDevisProforma__Header__Right__Btns button:hover, .LastBtnEnregistrer button:hover {
+  background-color: #367fa9;
 }
 
 .v-card.v-card--flat.v-sheet.theme--light {
@@ -986,21 +1375,4 @@ textarea {
 
 .btnnnn {
   display: flex;
-}
-
-nav .v-toolbar {
-  height: 55px !important;
-  background-color: #3c8dbc !important;
-}
-
-.ch {
-  margin-top: 23px;
-}
-
-.v-menu__content {
-  box-shadow: none;
-}
-
-.NouvelleDevisProforma__Header {
-  margin-bottom: -31px;
 }
