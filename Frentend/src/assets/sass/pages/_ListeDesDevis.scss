@@ -1,4 +1,82 @@
-.NouvelleDevisProforma{
-    width: 100%;
-    padding:20px;
+.v-card.v-card--flat.v-sheet.theme--light {
+    height: 181px !important;
+    margin-bottom: 22px !important;
 }
+
+.recherche_rapide_content{
+    height: auto !important;
+    margin-bottom: 200px !important;
+    display: flex;
+}
+
+.v-card__title.text-p.blue.lighten-4.black--text {
+    height: 43px;
+}
+.recherche_rapide_title{
+    background-color: #d2d6de !important;
+    // height: 43px;
+    padding: 10px;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.table-title{
+    background-color: #3c8dbc !important;
+    padding: 10px;
+    color: white;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size: 18px;
+    line-height: 1;
+}
+    
+    .mdi-clipboard-list-outline{
+        font-size: 25px;
+        color: white;
+        margin-right: 8px;
+    }
+    .mdi-file-search{
+        font-size: 25px;
+        margin-right: 8px;
+    }
+    .mdi-calendar-month{
+        margin-left: 23px;
+    }
+    .bnt-nv-bon-de-livraison{
+        background-color: #3c8dbc !important;
+        color: white;
+        // float: right;
+
+        .mdi-plus-thick{
+            font-size: 21px;
+            margin-right: 8px;
+
+        }
+    }
+    .nouveau-bon{
+        margin-left: 83.5%;
+        margin-bottom: 24px;
+    }
+
+    .table-btn-group{
+        margin: 20px;
+        margin-left: 76%;
+        display: flex;
+    }
+
+    .action-icon{
+        margin-right: 5px;
+    }
+
+    .action-btn{
+       text-decoration: none; 
+    }
+
+    .btnnnn{
+        display: flex;
+    }
+
+
+    
+    
+

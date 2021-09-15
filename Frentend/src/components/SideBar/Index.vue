@@ -13,7 +13,7 @@
       <!-- Start logo-->
         <v-list-item class="SideBar_Logo ">
           <img  v-if="SideBarClicked " class="logo_img" src="../../assets/img/logo.png" :style="SideBarClicked ? 'width: 100% !important;' : 'width: 25%; !important'">
-            <v-list-item-title v-else  class="SideBar_Logo__title">Wakingo</v-list-item-title>
+            <v-list-item-title v-else  class="SideBar_Logo__title" @click='MoveSideBare("SideBare")'>Wakingo</v-list-item-title>
         </v-list-item>
       <!-- end logo-->
 

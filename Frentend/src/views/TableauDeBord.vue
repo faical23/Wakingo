@@ -10,6 +10,10 @@
 
 <script>
   import SideBar from '../components/SideBar/Index.vue'
+  import Vue from "vue";
+  import JsonExcel from "vue-json-excel";
+ 
+  Vue.component("downloadExcel", JsonExcel);
 
   export default {
     name: 'Home',

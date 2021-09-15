@@ -4,9 +4,10 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import './assets/sass/style.scss'
+import excel from 'vue-excel-export'
 
+Vue.use(excel)
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,

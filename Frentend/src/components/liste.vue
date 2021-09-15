@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-        <v-form >
+        <v-form class="recherche_rapide_content" >
           <v-row>
              <!-- <v-spacer></v-spacer> -->
              <v-icon>

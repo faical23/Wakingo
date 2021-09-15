@@ -19,6 +19,7 @@
       class="v-menu"
       offset-y
       offset-x
+      flat
       
      
     >
@@ -75,11 +76,12 @@
 
         
       </template>
-     <v-list>
+     <v-list flat  class="ch">
         <v-list-item
           v-for="item in items"
           :key="item"
           link
+         
         >
          
               <v-icon small>
