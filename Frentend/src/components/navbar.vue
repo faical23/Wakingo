@@ -94,7 +94,10 @@
 
             <v-list-item-content>
                   <v-list-item-title >
-                    <span class="item">{{ item.text }}</span>
+                    <router-link to="/Ventes/Mon-Compte">
+                    <span class="item">{{ item.text0 }}</span>
+                    </router-link>
+                    <span class="item">{{ item.text1 }}</span>
                     <span class="config">{{ item.text2 }}</span>
                   </v-list-item-title>
             </v-list-item-content>
@@ -141,8 +144,8 @@
       ],
       
       items: [
-        { text: 'Mon compte', icon: 'mdi-account' },
-        { text: 'Mot de passe', icon: 'mdi-lock' },
+        { text0: 'Mon compte', icon: 'mdi-account' },
+        { text1: 'Mot de passe', icon: 'mdi-lock' },
         { text2: 'config', icon2: 'mdi-cog' },
      
       ],

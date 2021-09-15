@@ -123,7 +123,6 @@
 
     components: {
       SideBar,
-      // InformationsProduit,
       NaVBar,
       DatePicker,
       Table
