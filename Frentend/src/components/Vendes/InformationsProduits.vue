@@ -1,6 +1,10 @@
 <template>
   <div class="InformationsProduit">
+<<<<<<< HEAD
         <v-alert type="error" class="AlertError" v-if="DataIsSubmited && (ClientSelected == 'Sélectioner un cient'|| InformationsPiéceNémuro == '' || LogistiqueAdresseFacturation == '' )">
+=======
+        <v-alert type="error" class="AlertError" v-if="DataIsSubmited && (InformationsPiéceCilent == '' || InformationsPiéceNémuro == '' || LogistiqueAdresseFacturation == '' )">
+>>>>>>> chaimaBranch
             Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
         </v-alert>
         <v-card class="SwitchOptions">
@@ -36,17 +40,28 @@
                         <div v-if="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
+<<<<<<< HEAD
                                         <button class="SearchClientButton"    :style="DataIsSubmited && ClientSelected == 'Sélectioner un cient' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+=======
+                                        <button class="SearchClientButton" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+>>>>>>> chaimaBranch
                                         <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
                                             <input type="text">
                                             <ul>
                                                 <li class="PlaceClientAndSearch_FirstLi">Sélectioner un cient</li>
+<<<<<<< HEAD
                                                 <li v-for="client in Clients" :key="client" @click='ClientSelectionerBeforeConfirmation(client.ClientName)'>{{client.ClientName}}</li>    
                                             </ul>
                                                 <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
                                         </div>
                                         <span v-if="DataIsSubmited && ClientSelected == 'Sélectioner un cient'" class="MessageErrorFiled">Vous devez selectionner un élément.</span>
 
+=======
+                                                <li v-for="client in Clients" :key="client" @click='ClientSelectionerBeforeConfirmation(client.Name)'>{{client.Name}}</li>
+                                                <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
+                                            </ul>
+                                        </div>
+>>>>>>> chaimaBranch
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Numéro* :</h5>
@@ -221,7 +236,12 @@
                 </v-tab-item>
                 </v-tabs-items>
         </v-card>
+<<<<<<< HEAD
         <!-- <button style="background-color:red;color:white;padding:10px 30px;" @click="GetAllData()">Get all data</button> -->
+=======
+        <button style="background-color:red;color:white;padding:10px 30px;" @click="GetAllData()">Get all data</button>
+
+>>>>>>> chaimaBranch
   </div>
 </template>
 
@@ -267,6 +287,7 @@
         ScrollSearchClient:false,
         Clients:[
             {
+<<<<<<< HEAD
                 ClientName:"CLT1 - ESSAID CHASSE SA"
             },
             {
@@ -304,6 +325,36 @@
             },
             {
                 ClientName:"CLT13 - ESSAID CHASSE SA"
+=======
+                Name:"CT1 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT2 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT3 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT4 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT5 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT6 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT7 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT8 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT9 - ESSAID CHASSE SA"
+            },
+            {
+                Name:"CT10 - ESSAID CHASSE SA"
+>>>>>>> chaimaBranch
             },
         ],
         ClientSelected:'Sélectioner un cient',
@@ -338,7 +389,11 @@
 
       }
     },
+<<<<<<< HEAD
     props:['ConfirmationSelectionerClient','NameOfNewClientAdded'],
+=======
+    props:['ConfirmationSelectionerClient'],
+>>>>>>> chaimaBranch
     emits:['AlertSelectionerClient','AddNewClient'],
     methods:{
         SwitchOptionsToAnother(item){
@@ -389,7 +444,11 @@
            this.EchéancierRow.splice(row,1); 
         },
         GetAllData(){
+<<<<<<< HEAD
             this.DataIsSubmited = true;
+=======
+            this.DataIsSubmited = true
+>>>>>>> chaimaBranch
         },
         GetTodayDate(){
             let GetDate = new Date();
@@ -404,9 +463,15 @@
             this.ScrollSearchClient = false
             this.ClientSelected = params
         },
+<<<<<<< HEAD
         NewClient(){
             this.$emit('AddNewClient',this.Clients);
             this.ScrollSearchClient = false
+=======
+
+        NewClient(){
+            this.$emit('AddNewClient');
+>>>>>>> chaimaBranch
         }
     },
     mounted(){
@@ -417,11 +482,14 @@
                 document.querySelector('.SearchClientButton').innerHTML =  this.ClientSelected
                 this.$emit('ConfirmationSelectionerClientToFalse')
             },
+<<<<<<< HEAD
             NameOfNewClientAdded : function (){
                 document.querySelector('.SearchClientButton').innerHTML =  this.NameOfNewClientAdded
                 const NewClient ={"ClientName":this.NameOfNewClientAdded}
                 this.Clients.push(NewClient)
             }
+=======
+>>>>>>> chaimaBranch
     }
   }
 </script>

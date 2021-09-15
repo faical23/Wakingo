@@ -17,7 +17,10 @@
   width: 100%;
   height: 100vh;
   background-color: #ecf0f5;
+<<<<<<< HEAD
   overflow-y: scroll;
+=======
+>>>>>>> chaimaBranch
 }
 
 .MessageErrorFiled {
@@ -170,7 +173,10 @@ img {
   /* 1 */
   -ms-interpolation-mode: bicubic;
   /* 2 */
+<<<<<<< HEAD
   object-fit: cover;
+=======
+>>>>>>> chaimaBranch
 }
 
 /**
@@ -277,7 +283,11 @@ textarea {
 
 .SideBare .v-list-item__title {
   font-size: 13px !important;
+<<<<<<< HEAD
   color: #d9d9d9 !important !important;
+=======
+  color: #d9d9d9 !important ;
+>>>>>>> chaimaBranch
 }
 
 .SideBare .list-item__icon:first-child {
@@ -311,12 +321,21 @@ textarea {
 }
 
 .SideBare .SideBar_Logo {
+<<<<<<< HEAD
   background-color: #367fa9 !important;
+=======
+  
+  
+>>>>>>> chaimaBranch
   cursor: pointer !important;
 }
 
 .SideBare .SideBar_Logo .SideBar_Logo__title {
+<<<<<<< HEAD
   font-size: 30px !important;
+=======
+  font-size: 25px !important;
+>>>>>>> chaimaBranch
   font-weight: bolder !important;
   text-align: center !important;
   color: white !important;
@@ -445,7 +464,11 @@ textarea {
   background-color: #036638;
 }
 
+<<<<<<< HEAD
 .PopupNewClient, .PopupNewArticle {
+=======
+.PopupNewClient {
+>>>>>>> chaimaBranch
   width: 650px;
   background-color: white !important;
   border-radius: 4px;
@@ -455,7 +478,11 @@ textarea {
   z-index: 200;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__title, .PopupNewArticle .PopupNewClient__title {
+=======
+.PopupNewClient .PopupNewClient__title {
+>>>>>>> chaimaBranch
   padding: 20px 20px 10px 20px;
   border-bottom: 1px solid #d9d9d9 !important;
   display: flex;
@@ -463,19 +490,28 @@ textarea {
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__title p, .PopupNewArticle .PopupNewClient__title p {
+=======
+.PopupNewClient .PopupNewClient__title p {
+>>>>>>> chaimaBranch
   font-weight: 500;
   color: #222d32;
   font-size: 18px;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__title svg, .PopupNewArticle .PopupNewClient__title svg {
+=======
+.PopupNewClient .PopupNewClient__title svg {
+>>>>>>> chaimaBranch
   position: relative;
   fill: #d9d9d9 !important;
   bottom: 10px;
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__title svg:hover, .PopupNewArticle .PopupNewClient__title svg:hover {
   fill: black !important;
 }
@@ -490,6 +526,22 @@ textarea {
 }
 
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone textarea, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild select, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone textarea, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild select, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild textarea {
+=======
+.PopupNewClient .PopupNewClient__title svg:hover {
+  fill: black !important;
+}
+
+.PopupNewClient .PopupNewClient__information {
+  display: flex;
+  padding: 10px 20px 10px 20px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed {
+  padding: 10px 0px;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed input, .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed select {
+>>>>>>> chaimaBranch
   border: 1px solid #d4d4d4;
   padding: 8px 10px;
   width: 90%;
@@ -497,35 +549,56 @@ textarea {
   font-size: 12px !important;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild h6, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone h6, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone h6, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild h6 {
+=======
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed h6 {
+>>>>>>> chaimaBranch
   margin-bottom: 5px;
   font-size: 14px;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox {
+=======
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox {
+>>>>>>> chaimaBranch
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0px;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single {
+=======
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single {
+>>>>>>> chaimaBranch
   display: flex;
   align-items: center;
   width: 100%;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewClient .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewClient__information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__zone .Checkbox .Checkbox__single input, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewArticle_Information__Faild .Checkbox .Checkbox__single input {
+=======
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right__Filed .Checkbox .Checkbox__single input {
+>>>>>>> chaimaBranch
   width: 25%;
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__information .CodePostalAndVille, .PopupNewClient .PopupNewArticle_Information .CodePostalAndVille, .PopupNewClient .PopupChoiserArticle__Search .CodePostalAndVille, .PopupNewArticle .PopupNewClient__information .CodePostalAndVille, .PopupNewArticle .PopupNewArticle_Information .CodePostalAndVille, .PopupNewArticle .PopupChoiserArticle__Search .CodePostalAndVille {
+=======
+.PopupNewClient .PopupNewClient__information .CodePostalAndVille {
+>>>>>>> chaimaBranch
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__information .PopupNewClient__Right, .PopupNewClient .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewClient .PopupChoiserArticle__Search .PopupNewClient__Right, .PopupNewArticle .PopupNewClient__information .PopupNewClient__Right, .PopupNewArticle .PopupNewArticle_Information .PopupNewClient__Right, .PopupNewArticle .PopupChoiserArticle__Search .PopupNewClient__Right {
   width: 50%;
 }
@@ -535,6 +608,17 @@ textarea {
 }
 
 .PopupNewClient .PopupNewClient__btns, .PopupNewArticle .PopupNewClient__btns {
+=======
+.PopupNewClient .PopupNewClient__information .PopupNewClient__Right {
+  width: 50%;
+}
+
+.PopupNewClient .PopupNewClient__information .PopupNewClient__left {
+  width: 50%;
+}
+
+.PopupNewClient .PopupNewClient__btns {
+>>>>>>> chaimaBranch
   padding: 20px 20px 10px 20px;
   border-top: 1px solid #d9d9d9 !important;
   display: flex;
@@ -542,32 +626,53 @@ textarea {
   align-items: center;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__btns button, .PopupNewArticle .PopupNewClient__btns button {
+=======
+.PopupNewClient .PopupNewClient__btns button {
+>>>>>>> chaimaBranch
   border-radius: 4px;
   padding: 8px 20px;
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__btns .Btn__Firmer, .PopupNewArticle .PopupNewClient__btns .Btn__Firmer {
+=======
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer {
+>>>>>>> chaimaBranch
   color: black;
   background-color: #e7e7e7;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover, .PopupNewArticle .PopupNewClient__btns .Btn__Firmer:hover {
   background-color: #c3c3c3;
 }
 
 .PopupNewClient .PopupNewClient__btns .Btn__Enregistrer, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer {
+=======
+.PopupNewClient .PopupNewClient__btns .Btn__Firmer:hover {
+  background-color: #c3c3c3;
+}
+
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer {
+>>>>>>> chaimaBranch
   color: white;
   background-color: #367fa9;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer svg {
+=======
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer svg {
+>>>>>>> chaimaBranch
   fill: white !important;
   position: relative;
   top: 2px;
 }
 
+<<<<<<< HEAD
 .PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover, .PopupNewArticle .PopupNewClient__btns .Btn__Enregistrer:hover {
   background-color: #024d79;
 }
@@ -859,6 +964,12 @@ textarea {
   margin-bottom: 50px;
 }
 
+=======
+.PopupNewClient .PopupNewClient__btns .Btn__Enregistrer:hover {
+  background-color: #024d79;
+}
+
+>>>>>>> chaimaBranch
 .HomePage {
   display: flex;
 }
@@ -866,7 +977,10 @@ textarea {
 .NouvelleDevisProforma {
   width: 100%;
   padding: 20px;
+<<<<<<< HEAD
   padding-bottom: 0px !important;
+=======
+>>>>>>> chaimaBranch
 }
 
 .NouvelleDevisProforma .NouvelleDevisProforma__Header {
@@ -912,6 +1026,29 @@ textarea {
   margin: 0px 10px;
 }
 
+<<<<<<< HEAD
+=======
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns {
+  text-align: end;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button {
+  background-color: #3c8dbc;
+  padding: 10px;
+  border-radius: 2px;
+  color: white;
+  border: 1px solid #367fa9;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button svg {
+  fill: white;
+}
+
+.NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Right .NouvelleDevisProforma__Header__Right__Btns button:hover {
+  background-color: #367fa9;
+}
+
+>>>>>>> chaimaBranch
 .NouvelleDevisProforma .SwitchOptions {
   margin: 30px 0px;
 }
@@ -936,31 +1073,44 @@ textarea {
   margin: 0px 10px;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .InformationPiéce,
 .NouvelleDevisProforma .InformationFinanciéres,
 .NouvelleDevisProforma .Logistique,
 .NouvelleDevisProforma .Options {
+=======
+.NouvelleDevisProforma .InformationPiéce, .NouvelleDevisProforma .InformationFinanciéres, .NouvelleDevisProforma .Logistique, .NouvelleDevisProforma .Options {
+>>>>>>> chaimaBranch
   display: flex;
   align-items: center;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field,
 .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field,
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field,
 .NouvelleDevisProforma .Options .InformationPiéce__Field {
+=======
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field, .NouvelleDevisProforma .Logistique .InformationPiéce__Field, .NouvelleDevisProforma .Options .InformationPiéce__Field {
+>>>>>>> chaimaBranch
   width: 17% !important;
   margin-bottom: 25px;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5,
 .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5,
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5,
 .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
+=======
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field h5, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field h5, .NouvelleDevisProforma .Logistique .InformationPiéce__Field h5, .NouvelleDevisProforma .Options .InformationPiéce__Field h5 {
+>>>>>>> chaimaBranch
   color: #222d32 !important;
   font-size: 15px;
   padding-bottom: 15px;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input,
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select,
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea,
@@ -973,6 +1123,9 @@ textarea {
 .NouvelleDevisProforma .Options .InformationPiéce__Field input,
 .NouvelleDevisProforma .Options .InformationPiéce__Field select,
 .NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
+=======
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field input, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field select, .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field textarea, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field textarea, .NouvelleDevisProforma .Logistique .InformationPiéce__Field input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field textarea, .NouvelleDevisProforma .Options .InformationPiéce__Field input, .NouvelleDevisProforma .Options .InformationPiéce__Field select, .NouvelleDevisProforma .Options .InformationPiéce__Field textarea {
+>>>>>>> chaimaBranch
   border: 1px solid #d4d4d4;
   padding: 6px 10px;
   width: 90%;
@@ -980,14 +1133,19 @@ textarea {
   font-size: 12px !important;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal,
 .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal,
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal,
 .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
+=======
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal {
+>>>>>>> chaimaBranch
   display: flex;
   width: 50%;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input,
 .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input,
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input,
@@ -1016,6 +1174,67 @@ textarea {
   width: 40%;
 }
 
+=======
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal input, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal input {
+  width: 100%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select, .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
+  width: 40%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port, .NouvelleDevisProforma .Options .InformationPiéce__Field .Port {
+  width: 60%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TVA, .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Logistique .InformationPiéce__Field .TVA, .NouvelleDevisProforma .Options .InformationPiéce__Field .TVA {
+  width: 40%;
+}
+
+.NouvelleDevisProforma .Échéancier table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: start;
+}
+
+.NouvelleDevisProforma .Échéancier table th {
+  background-color: white;
+  color: #222d32;
+  font-weight: 600;
+}
+
+.NouvelleDevisProforma .Échéancier table td, .NouvelleDevisProforma .Échéancier table th {
+  border: 1px solid #d9d9d9 !important;
+  padding: 10px;
+  text-align: start;
+  width: 15%;
+}
+
+.NouvelleDevisProforma .Échéancier table td {
+  background-color: #f9f9f9;
+  padding: 10px 8px !important;
+}
+
+.NouvelleDevisProforma .Échéancier table select, .NouvelleDevisProforma .Échéancier table input {
+  background-color: white !important;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 12px !important;
+}
+
+.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone {
+  display: flex;
+  align-items: center;
+}
+
+.NouvelleDevisProforma .Échéancier table .FiledDélaiJours__zone input {
+  width: 80% !important;
+  border-radius: 0px !important;
+}
+
+>>>>>>> chaimaBranch
 .NouvelleDevisProforma .Logistique {
   width: 85% !important;
 }
@@ -1061,6 +1280,7 @@ textarea {
   background-color: #b60000 !important;
 }
 
+<<<<<<< HEAD
 .NouvelleDevisProforma .FDM,
 .NouvelleDevisProforma .LE {
   width: 5% !important;
@@ -1068,6 +1288,13 @@ textarea {
 
 .NouvelleDevisProforma .FDM input,
 .NouvelleDevisProforma .LE input {
+=======
+.NouvelleDevisProforma .FDM, .NouvelleDevisProforma .LE {
+  width: 5% !important;
+}
+
+.NouvelleDevisProforma .FDM input, .NouvelleDevisProforma .LE input {
+>>>>>>> chaimaBranch
   cursor: pointer;
 }
 
@@ -1123,6 +1350,7 @@ textarea {
   color: #222d32 !important;
 }
 
+<<<<<<< HEAD
 .Échéancier table, .AddArticleVentes__articles table {
   border-collapse: collapse;
   width: 100%;
@@ -1172,12 +1400,19 @@ textarea {
 }
 
 .PlaceClientAndSearch {
+=======
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch {
+>>>>>>> chaimaBranch
   width: 90%;
   border: 1px solid #d4d4d4;
   display: block;
 }
 
+<<<<<<< HEAD
 .PlaceClientAndSearch input {
+=======
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch input {
+>>>>>>> chaimaBranch
   border: 1px solid #3c8dbc;
   padding: 8px 10px;
   width: 90%;
@@ -1187,24 +1422,37 @@ textarea {
   margin: 4px 10px;
 }
 
+<<<<<<< HEAD
 .PlaceClientAndSearch ul {
+=======
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul {
+>>>>>>> chaimaBranch
   padding: 0px;
   height: 250px;
   overflow-y: scroll;
 }
 
+<<<<<<< HEAD
 .PlaceClientAndSearch ul li {
+=======
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li {
+>>>>>>> chaimaBranch
   padding: 8px 10px;
   font-size: 14px !important;
   color: #222d32;
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .PlaceClientAndSearch ul li:hover {
+=======
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul li:hover {
+>>>>>>> chaimaBranch
   background-color: #3c8dbc;
   color: white;
 }
 
+<<<<<<< HEAD
 .PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
   background-color: #dddddd;
 }
@@ -1271,3 +1519,20 @@ textarea {
 .NouvelleDevisProforma__Header__Right__Btns button:hover, .LastBtnEnregistrer button:hover {
   background-color: #367fa9;
 }
+=======
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_FirstLi {
+  background-color: #dddddd;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient {
+  color: #3c8dbc;
+  margin: 10px 0px;
+  padding: 15px 10px;
+  border-top: 1px solid black;
+}
+
+.NouvelleDevisProforma .SearchClient .PlaceClientAndSearch ul .PlaceClientAndSearch_NewCient:hover {
+  background-color: white;
+  color: #0590e0;
+}
+>>>>>>> chaimaBranch

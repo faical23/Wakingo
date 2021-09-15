@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <v-content>
+<<<<<<< HEAD
         <v-form >
+=======
+        <v-form class="recherche_rapide_content" >
+>>>>>>> chaimaBranch
           <v-row>
              <!-- <v-spacer></v-spacer> -->
              <v-icon>

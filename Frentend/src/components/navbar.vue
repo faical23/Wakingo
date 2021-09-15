@@ -1,6 +1,7 @@
 <template>
    <nav>
-      <v-toolbar flat app  dense class="light-blue darken-3">
+     <div class="navbar">
+      <v-toolbar flat app  dense >
           <v-app-bar-nav-icon class="white--text"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase white--text">
             
@@ -18,6 +19,7 @@
       class="v-menu"
       offset-y
       offset-x
+      flat
       
      
     >
@@ -27,7 +29,7 @@
          <!-- user btn  -->
         <v-tab flat
           :color="index"
-          class="white--text ma-5 light-blue darken-3"
+          class="white--text ma-5 "
           
           v-bind="attrs"
           v-on="on"
@@ -47,7 +49,7 @@
            <!-- settings btn  -->
         <v-tab flat
           :color="index"
-          class="white--text ma-5 light-blue darken-3"  
+          class="white--text ma-5 "  
         >
         <v-icon
           color="white"
@@ -61,7 +63,7 @@
          <!-- help btn  -->
         <v-tab flat
           :color="index"
-          class="white--text ma-5 light-blue darken-3"  
+          class="white--text ma-5 "  
         >
         <v-icon
           color="white"
@@ -74,11 +76,12 @@
 
         
       </template>
-     <v-list>
+     <v-list flat  class="ch">
         <v-list-item
           v-for="item in items"
           :key="item"
           link
+         
         >
          
               <v-icon small>
@@ -121,7 +124,7 @@
    
   
       </v-toolbar>
-     
+     </div>
    </nav>
 </template>
 
@@ -180,6 +183,10 @@ span{
 
 .v-menu{
     margin-top: 300px;
+}
+
+.v-toolbar{
+  height: 54.5px;
 }
 
 

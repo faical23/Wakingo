@@ -12,12 +12,23 @@
 @import "components/SideBar";
 @import "components/AlertConfirmation";
 @import "components/PopupNewClient";
+<<<<<<< HEAD
 @import "components/EspaceArticleVente";
 @import "components/RemarqueSection";
 @import "components/PopupNewArticle";
 @import "components/ChoiserArticle";
+=======
+
+>>>>>>> chaimaBranch
 
 // 5 - Pages;
 @import "pages/home";
 @import "pages/NouvelleDevisProforma";
+<<<<<<< HEAD
 
+=======
+@import "pages/ListeDesDevis";
+
+// 6- layout
+@import "layout/navbar";
+>>>>>>> chaimaBranch

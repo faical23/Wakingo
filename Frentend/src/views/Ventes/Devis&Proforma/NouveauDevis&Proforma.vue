@@ -1,6 +1,10 @@
 <template>
   <div class="HomePage">
+<<<<<<< HEAD
       <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
+=======
+      <div   v-if='Alert || PopupAddNewClient' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()">fdsfs</div>
+>>>>>>> chaimaBranch
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -110,16 +114,24 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <!-- <AlertErrorFailed/> -->
                 <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
                  @AddNewClient='OpenNewClientPopup'
                  :NameOfNewClientAdded='NameOfNewClientAdded'/>
+=======
+                <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
+                 :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
+                 @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
+                 @AddNewClient='OpenNewClientPopup()'/>
+>>>>>>> chaimaBranch
                 <AlertConfirmation
                          v-if="Alert" @AlertAnnuler="DisabledAlert()
                          " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
                  />
+<<<<<<< HEAD
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
@@ -174,6 +186,9 @@
                                 </svg>
                                 Enregistrer
                             </button>
+=======
+                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'   />
+>>>>>>> chaimaBranch
             </div>
       </div>
 
@@ -185,6 +200,7 @@
     import InformationsProduit from '../../../components/Vendes/InformationsProduits.vue'
     import AlertConfirmation from '../../../components/Vendes/AlertConfirmation.vue'
     import PopupNewClient from '../../../components/Vendes/NewClient.vue'
+<<<<<<< HEAD
     import AddArticles from '../../../components/Vendes/EspaceArticle.vue'
     import Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
@@ -192,6 +208,8 @@
 
 
     // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
+=======
+>>>>>>> chaimaBranch
     import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
@@ -199,6 +217,7 @@
         return{
             Alert:false,
             ConfirmationSelectionerClient : false,
+<<<<<<< HEAD
             PopupAddNewClient:false,
             PopupNewArticle:false,
             LengthOfClientHave:'',
@@ -220,14 +239,28 @@
     PopupNewArticle,
     ChoiserArticles
     //   AlertErrorFailed
+=======
+            PopupAddNewClient:false
+        }
+    },
+    components: {
+      SideBar,
+      InformationsProduit,
+      NaVBar,
+      AlertConfirmation,
+      PopupNewClient
+>>>>>>> chaimaBranch
     },
     methods:{
         DeleteAllPopup(){
             this.Alert=false
             this.ConfirmationSelectionerClient = false
             this.PopupAddNewClient=false
+<<<<<<< HEAD
             this.PopupNewArticle = false
             this.PopupChoiserLesArticles  = false
+=======
+>>>>>>> chaimaBranch
         },
         ActiveAlertConfirmation(){
             this.Alert = true;
@@ -242,6 +275,7 @@
         ConfirmationSelectionerClientToFalse(){
              this.ConfirmationSelectionerClient  = false
         },
+<<<<<<< HEAD
         OpenNewClientPopup(client){
             this.PopupAddNewClient=true
             this.LengthOfClientHave =client.length
@@ -263,6 +297,11 @@
             this.PopupChoiserLesArticles = false
             this.DataChoiserArticles = ArticlesGetted
         }
+=======
+        OpenNewClientPopup(){
+            this.PopupAddNewClient=true
+        },
+>>>>>>> chaimaBranch
 
     }
   }

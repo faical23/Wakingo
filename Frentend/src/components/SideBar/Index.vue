@@ -1,15 +1,32 @@
 <template>
+<<<<<<< HEAD
     <div class="SideBare">
   <v-card
     class="mx-auto"
     :style="SideBarClicked ? 'width:70px !important' : 'width:250px!important'"
     @click='MoveSideBare("SideBare")'
   >
+=======
+ 
+    <div class="SideBare">
+  <v-card
+    class="mx-auto "
+    :style="SideBarClicked ? 'width:70px !important' : 'width:250px!important'"
+    @click='MoveSideBare("SideBare")'
+  >
+
+ 
+
+>>>>>>> chaimaBranch
     <v-list :style="SideBarClicked ? 'text-align: center !important;' : 'text-align: start !important;'">
       <!-- Start logo-->
         <v-list-item class="SideBar_Logo ">
           <img  v-if="SideBarClicked " class="logo_img" src="../../assets/img/logo.png" :style="SideBarClicked ? 'width: 100% !important;' : 'width: 25%; !important'">
+<<<<<<< HEAD
             <v-list-item-title v-else  class="SideBar_Logo__title">Wakingo</v-list-item-title>
+=======
+            <v-list-item-title v-else  class="SideBar_Logo__title" @click='MoveSideBare("SideBare")'>Wakingo</v-list-item-title>
+>>>>>>> chaimaBranch
         </v-list-item>
       <!-- end logo-->
 
@@ -74,6 +91,10 @@
     </v-list>
   </v-card>
     </div>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> chaimaBranch
 </template>
 
 <script>

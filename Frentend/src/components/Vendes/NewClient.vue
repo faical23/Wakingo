@@ -72,13 +72,21 @@
         </div>
         <div class="PopupNewClient__Right__Filed">
           <h6>Code du client * :</h6>
+<<<<<<< HEAD
           <input type="text" v-model="CodeClient"  :style="EnregistrerData && CodeClient == '' ? 'border:1px solid #dd4b39 !important' : ''"  />
           <span v-if="EnregistrerData && CodeClient == '' " class="MessageErrorFiled">Ce champ est obligatoire..</span>
+=======
+          <input type="text" v-model="CodeDlient" />
+>>>>>>> chaimaBranch
         </div>
         <!-- if is particulier-->
         <div v-if="Particulier" class="PopupNewClient__Right__Filed">
           <h6>Civilité :</h6>
+<<<<<<< HEAD
           <select v-model="Civilité" :style="EnregistrerData && Civilité == 'Veuilley sélectionner' ? 'border:1px solid #dd4b39 !important' : ''">
+=======
+          <select v-model="Civilité">
+>>>>>>> chaimaBranch
             <option value="Veuilley sélectionner">Veuilley sélectionner</option>
             <option value="Monsieur">Monsieur</option>
             <option value="Mademoiselle">Mademoiselle</option>
@@ -87,6 +95,7 @@
             <option value="Docteur">Docteur</option>
             <option value="Professeur">Professeure</option>
           </select>
+<<<<<<< HEAD
           <span v-if="EnregistrerData && Civilité == 'Veuilley sélectionner' " class="MessageErrorFiled">Ce champ est obligatoire..</span>
         </div>
         <div  v-if="Particulier"  class="PopupNewClient__Right__Filed">
@@ -99,16 +108,34 @@
           <input type="text" v-model="Nom"  :style="EnregistrerData && Nom == '' ? 'border:1px solid #dd4b39 !important' : ''" />
           <span v-if="EnregistrerData && Nom == '' " class="MessageErrorFiled">Ce champ est obligatoire..</span>
 
+=======
+        </div>
+        <div  v-if="Particulier"  class="PopupNewClient__Right__Filed">
+          <h6>Prénom :</h6>
+          <input type="text" v-model="Prénom" />
+        </div>
+        <div  v-if="Particulier" class="PopupNewClient__Right__Filed">
+          <h6>Nom * :</h6>
+          <input type="text" v-model="Nom"/>
+>>>>>>> chaimaBranch
         </div>
         <!-- if is entreprise-->
         <div v-if="entreprise"  class="PopupNewClient__Right__Filed">
           <h6>Nom de l'entreprise * :</h6>
+<<<<<<< HEAD
           <input type="text" placeholder="Société" v-model="NomeEntreprise"  :style="EnregistrerData && NomeEntreprise == '' ? 'border:1px solid #dd4b39 !important' : ''"/>
           <span v-if="EnregistrerData && NomeEntreprise == '' " class="MessageErrorFiled">Ce champ est obligatoire..</span>
         </div>
         <div  v-if="entreprise" class="PopupNewClient__Right__Filed">
           <h6>Forme juridique :</h6>
           <select v-model="FormeJuridique"  :style="EnregistrerData && FormeJuridique == 'Veuilley sélectionner' ? 'border:1px solid #dd4b39 !important' : ''">
+=======
+          <input type="text" placeholder="Société" v-model=" NomeEntreprise"/>
+        </div>
+        <div  v-if="entreprise" class="PopupNewClient__Right__Filed">
+          <h6>Forme juridique :</h6>
+          <select v-model="FormeJuridique">
+>>>>>>> chaimaBranch
             <option value="Veuilley sélectionner">Veuilley sélectionner</option>
             <option value="EI - Entreprise individuell">
               EI - Entreprise individuelle
@@ -128,13 +155,20 @@
             <option value="COOP - Coopérativ">COOP - Coopérative</option>
             <option value="ASSO - Association">ASSO - Association</option>
           </select>
+<<<<<<< HEAD
             <span v-if="EnregistrerData && FormeJuridique == 'Veuilley sélectionner' " class="MessageErrorFiled">Ce champ est obligatoire..</span>
+=======
+>>>>>>> chaimaBranch
         </div>
 
         <div v-if="entreprise" class="PopupNewClient__Right__Filed">
           <h6>ICE *</h6>
+<<<<<<< HEAD
           <input type="text" v-model="ICE" :style="EnregistrerData && ICE == '' ? 'border:1px solid #dd4b39 !important' : ''" />
           <span v-if="EnregistrerData && ICE == '' " class="MessageErrorFiled">Ce champ est obligatoire.</span>
+=======
+          <input type="text" v-model="ICE"/>
+>>>>>>> chaimaBranch
         </div>
         <div class="PopupNewClient__Right__Filed">
           <h6>Famille de client :</h6>
@@ -185,7 +219,11 @@
           x="0px"
           y="0px"
           width="10px"
+<<<<<<< HEAD
           height="10px"
+=======
+          height="10x"
+>>>>>>> chaimaBranch
           viewBox="0 0 348.333 348.334"
           style="enable-background: new 0 0 348.333 348.334"
           xml:space="preserve"
@@ -267,6 +305,7 @@
 export default {
   name: "AlertConfirmation",
   emits:['RemovePopupAddClient'],
+<<<<<<< HEAD
   props:['LengthOfClientHave'],
   data: () => ({
     Particulier: false,
@@ -277,6 +316,18 @@ export default {
     FormeJuridique:'Veuilley sélectionner',
     ICE :'',
     FamilleClient:'Veuilley Sélectionner ',
+=======
+  data: () => ({
+    Particulier: false,
+    entreprise: true,
+
+    TypeClient:'',
+    CodeDlient:'CLT-59',
+    NomeEntreprise:'',
+    FormeJuridique:'Veuilley sélectionner',
+    ICE :'',
+    FamilleClient:'Veuilley sélectionner',
+>>>>>>> chaimaBranch
     Téléphone:'',
     Email :'',
     Adresse:'',
@@ -285,12 +336,17 @@ export default {
     Pays:'',
     Civilité:'Veuilley sélectionner',
     Prénom:'',
+<<<<<<< HEAD
     Nom:'',
     EnregistrerData:false
+=======
+    Nom:''
+>>>>>>> chaimaBranch
 
   }),
   methods:{
       EnregistrerNewClient(){
+<<<<<<< HEAD
         this.EnregistrerData= true
         let newClient = {}
         if(this.entreprise){
@@ -350,5 +406,10 @@ export default {
     this.GetCodeClientStart()
   }
   
+=======
+          console.log('ds')
+      }
+  }
+>>>>>>> chaimaBranch
 };
 </script>
