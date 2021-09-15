@@ -18,26 +18,6 @@
                         </div>
                         
                     </div>
-<<<<<<< HEAD
-                    
-                </div>
-                <div class="card">
-                <v-card flat dense >
-                    <v-card-title class="text-p blue lighten-4  black--text">
-                        <v-icon>
-                            mdi-file-search
-                        </v-icon>
-                      Recherche rapide
-                    </v-card-title>
-                    <div>
-                        
-                    <v-card-text>
-                            <Liste />   
-                    </v-card-text>
-                    </div>
-                   
-                </v-card>
-=======
                 </div>
                 <div class="card">
                     <v-card flat dense >
@@ -98,29 +78,10 @@
                 
                 </div>
                 <div class="nouveau-bon">
->>>>>>> chaimaBranch
                  <router-link
                     to= "/Ventes/NouveauDevis/Proforma"
                     >     
                     <v-btn
-<<<<<<< HEAD
-                        color="primary"
-                        elevation="1"
-                        class="bnt" 
-                        >
-                        <v-icon>
-                            mdi-plus-thick
-                        </v-icon>
-                        Nouveau bon de livraison
-                        </v-btn>
-                    </router-link>
-                    <Table />
-            </div>
-            </div>
-      </div>
-    
-  </div>
-=======
                         elevation="1"
                         class="bnt-nv-bon-de-livraison  white--text" 
                         >
@@ -137,22 +98,14 @@
       </div>
     
   
->>>>>>> chaimaBranch
                 
 </template>
 
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
-<<<<<<< HEAD
-  // import InformationsProduit from '../../../components/InformationsProduits.vue'
-  import  Liste from '../../../components/liste.vue'
-  import NaVBar from '../../../components/navbar.vue'
-  import Table from '../../../components/table.vue'
-=======
   import NaVBar from '../../../components/navbar.vue'
   import Table from '../../../components/table.vue'
   import DatePicker from "../../../components/DatePicker.vue";
->>>>>>> chaimaBranch
   export default {
     name: 'Home',
 
@@ -172,11 +125,7 @@
       SideBar,
       // InformationsProduit,
       NaVBar,
-<<<<<<< HEAD
-      Liste,
-=======
       DatePicker,
->>>>>>> chaimaBranch
       Table
     },
   }

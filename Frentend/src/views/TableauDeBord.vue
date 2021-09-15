@@ -10,13 +10,10 @@
 
 <script>
   import SideBar from '../components/SideBar/Index.vue'
-<<<<<<< HEAD
-=======
   import Vue from "vue";
   import JsonExcel from "vue-json-excel";
  
   Vue.component("downloadExcel", JsonExcel);
->>>>>>> chaimaBranch
 
   export default {
     name: 'Home',

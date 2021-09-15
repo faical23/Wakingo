@@ -1,10 +1,6 @@
 <template>
   <div class="HomePage">
-<<<<<<< HEAD
-      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
-=======
       <div   v-if='Alert || PopupAddNewClient' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()">fdsfs</div>
->>>>>>> chaimaBranch
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -114,81 +110,15 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <!-- <AlertErrorFailed/> -->
-                <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
-                 :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
-                 @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
-                 @AddNewClient='OpenNewClientPopup'
-                 :NameOfNewClientAdded='NameOfNewClientAdded'/>
-=======
                 <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
                  @AddNewClient='OpenNewClientPopup()'/>
->>>>>>> chaimaBranch
                 <AlertConfirmation
                          v-if="Alert" @AlertAnnuler="DisabledAlert()
                          " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
                  />
-<<<<<<< HEAD
-                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
-                <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
-                <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
-            </div>
-            <div class="EspaceAddArticles">
-                <AddArticles @NewArticlePopup='OpneNewArticlePopup' :DataNewArticleAdded='DataNewArticleAdded' @ChoiserArticles='PopupChoiserLesArticles = true' :DataChoiserArticles='DataChoiserArticles' />                
-            </div>
-            <div class="EspaceRemarque">
-                <Remarque/>
-            </div>
-            <div class="LastBtnEnregistrer">
-                            <button>
-                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                    width="15px" height="15px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
-                                <g>
-                                    <g id="save">
-                                        <path d="M357,0H51C22.95,0,0,22.95,0,51v357c0,28.05,22.95,51,51,51h357c28.05,0,51-22.95,51-51V102L357,0z M229.5,408
-                                            c-43.35,0-76.5-33.15-76.5-76.5s33.15-76.5,76.5-76.5c43.35,0,76.5,33.15,76.5,76.5S272.85,408,229.5,408z M306,153H51V51h255V153
-                                            z"/>
-                                    </g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                </svg>
-                                Enregistrer
-                            </button>
-=======
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'   />
->>>>>>> chaimaBranch
             </div>
       </div>
 
@@ -200,16 +130,6 @@
     import InformationsProduit from '../../../components/Vendes/InformationsProduits.vue'
     import AlertConfirmation from '../../../components/Vendes/AlertConfirmation.vue'
     import PopupNewClient from '../../../components/Vendes/NewClient.vue'
-<<<<<<< HEAD
-    import AddArticles from '../../../components/Vendes/EspaceArticle.vue'
-    import Remarque from '../../../components/Vendes/Remarque.vue'
-    import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
-    import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
-
-
-    // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
-=======
->>>>>>> chaimaBranch
     import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
@@ -217,29 +137,6 @@
         return{
             Alert:false,
             ConfirmationSelectionerClient : false,
-<<<<<<< HEAD
-            PopupAddNewClient:false,
-            PopupNewArticle:false,
-            LengthOfClientHave:'',
-            NameOfNewClientAdded:'',
-            LengthOfArticleHave:'',
-            DataNewArticleAdded:'',
-            PopupChoiserLesArticles :false,
-            DataChoiserArticles:''
-        }
-    },
-    components: {
-    SideBar,
-    InformationsProduit,
-    NaVBar,
-    AlertConfirmation,
-    PopupNewClient,
-    AddArticles,
-    Remarque,
-    PopupNewArticle,
-    ChoiserArticles
-    //   AlertErrorFailed
-=======
             PopupAddNewClient:false
         }
     },
@@ -249,18 +146,12 @@
       NaVBar,
       AlertConfirmation,
       PopupNewClient
->>>>>>> chaimaBranch
     },
     methods:{
         DeleteAllPopup(){
             this.Alert=false
             this.ConfirmationSelectionerClient = false
             this.PopupAddNewClient=false
-<<<<<<< HEAD
-            this.PopupNewArticle = false
-            this.PopupChoiserLesArticles  = false
-=======
->>>>>>> chaimaBranch
         },
         ActiveAlertConfirmation(){
             this.Alert = true;
@@ -275,33 +166,9 @@
         ConfirmationSelectionerClientToFalse(){
              this.ConfirmationSelectionerClient  = false
         },
-<<<<<<< HEAD
-        OpenNewClientPopup(client){
-            this.PopupAddNewClient=true
-            this.LengthOfClientHave =client.length
-        },
-        NewClientIsAdded(client){
-            this.PopupAddNewClient=false
-            this.NameOfNewClientAdded = client
-        },
-        OpneNewArticlePopup(articleLength){
-            this.PopupNewArticle=true
-            this.LengthOfArticleHave = articleLength
-            console.log(this.LengthOfArticleHave )
-        },
-        SuccessNewClient(article){
-            this.PopupNewArticle=false
-            this.DataNewArticleAdded = article
-        },
-        GetAllThisArticles(ArticlesGetted){
-            this.PopupChoiserLesArticles = false
-            this.DataChoiserArticles = ArticlesGetted
-        }
-=======
         OpenNewClientPopup(){
             this.PopupAddNewClient=true
         },
->>>>>>> chaimaBranch
 
     }
   }
