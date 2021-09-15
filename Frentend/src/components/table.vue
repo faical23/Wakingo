@@ -24,7 +24,7 @@
         <v-btn>
           Pdf
         <v-icon
-        class="v-pdf"
+        class="mdi-file-pdf-outline"
         color="black"
         >mdi-file-pdf-outline</v-icon>
         </v-btn>
@@ -32,10 +32,6 @@
         imprimer
         </v-btn>
         </div>
-        
-          
-       
-        
         <v-card-content>
                 <v-data-table
                 v-model="selected"
