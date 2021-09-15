@@ -210,7 +210,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 3.15,
             Unité:'kg',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-25',
@@ -220,7 +220,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 4.18,
             Unité:'t',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-26',
@@ -230,7 +230,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 11.9,
             Unité:'g',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-27',
@@ -240,7 +240,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 9.56,
             Unité:'Km',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-28',
@@ -250,7 +250,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 33,
             Unité:'m',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-29',
@@ -260,7 +260,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 10,
             Unité:'cm',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-30',
@@ -270,7 +270,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 12,
             Unité:'Unité(s)',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
           {
             name: 'ART-31',
@@ -280,7 +280,7 @@ export default {
             PriceDeRevient: 0.00,
             PrixDeVente: 20,
             Unité:'g',
-            TVA:'14,00%'
+            TVA:'20,00%'
           },
         ],
         Catégory:[

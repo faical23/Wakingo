@@ -14,7 +14,7 @@
                         <th class="FailedSimple">Qté.</th>
                         <th class="FailedSimple" >Unité.</th>
                         <th class="FailedSimple" >
-                            <select v-model="PriceType">
+                            <select v-model="PriceType" @change="ChangePriceType()">
                                 <option value="P.U HT">P.U HT</option>
                                 <option value="P.U TTC">P.U TTC</option>
                             </select>
@@ -237,6 +237,7 @@ export default {
                 Qté:'',
                 Unité :'Douzaine(s)',
                 Price:'',
+                TypePrice:'',
                 RemisePrice:'',
                 RemiseType:'%',
                 TVA:"20,00%",
@@ -388,13 +389,39 @@ export default {
     DeleteArticle(row){
         this.Article.splice(row,1); 
     },
+    ChangePriceType(){
+        this.Article.forEach(element =>{
+            if(element.Price){
+                if(this.PriceType === "P.U HT"){
+                    element.Price = (((100 * element.Price) /(100 +  parseFloat(element.TVA))).toFixed(2))
+                }
+                if(this.PriceType === "P.U TTC"){
+                     element.Price = (((element.Price * parseFloat(element.TVA)/ 100) ) + parseFloat(element.Price)).toFixed(2)
+                }
+            }
+        })
+    }
   },
     watch: { 
             DataNewArticleAdded: function (){
+                let ArticlePrice = ''
+                if(this.PriceType == 'P.U HT' && this.DataNewArticleAdded.TypeVende == 'HT' || this.PriceType == 'P.U TTC' && this.DataNewArticleAdded.TypeVende == 'TTC'){
+
+                    ArticlePrice = this.DataNewArticleAdded.PrixVende
+                }
+                else if(this.PriceType == 'P.U HT' && this.DataNewArticleAdded.TypeVende == 'TTC'){
+                    //// TTC TO HT
+                    ArticlePrice = (((100 * this.DataNewArticleAdded.PrixVende) /(100 +  parseFloat(this.DataNewArticleAdded.TVA))).toFixed(2))
+                }
+                else if(this.PriceType == 'P.U TTC' && this.DataNewArticleAdded.TypeVende == 'HT'){
+                    // HT TO TTC
+                    ArticlePrice = (((this.DataNewArticleAdded.PrixVende * parseFloat(this.DataNewArticleAdded.TVA)/ 100) ) + parseFloat(this.DataNewArticleAdded.PrixVende)).toFixed(2)
+                }
+
                 let ArticleLength = this.Article.length - 1
                 if(this.Article[ ArticleLength].nameArticle == ''){
                     this.Article[ ArticleLength].nameArticle = `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`
-                    this.Article[ ArticleLength].Price =  this.DataNewArticleAdded.PrixVende
+                    this.Article[ ArticleLength].Price =  ArticlePrice
                     this.Article[ ArticleLength].Unité =  this.DataNewArticleAdded.UnitéValorisation
                     this.Article[ ArticleLength].TVA =  this.DataNewArticleAdded.TVA
                 }
@@ -406,7 +433,7 @@ export default {
                             nameArticle: `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`,
                             Qté:'',
                             Unité : this.DataNewArticleAdded.UnitéValorisation,
-                            Price:this.DataNewArticleAdded.PrixVende,
+                            Price:ArticlePrice,
                             RemisePrice:'',
                             RemiseType:'%',
                             TVA:this.DataNewArticleAdded.TVA,
@@ -415,10 +442,17 @@ export default {
                      this.Article.push(NewRowArticle)
 
                 }
-                console.log(this.DataNewArticleAdded)
             },
             DataChoiserArticles : function (){
                 this.DataChoiserArticles.forEach(element => {
+                    let ArticlePrice = ''
+                    if(this.PriceType == 'P.U HT'  ){
+                        ArticlePrice = element.PrixDeVente
+                    }
+                    else if(this.PriceType == 'P.U TTC'){
+                        // HT TO TTC
+                        ArticlePrice = (((element.PrixDeVente * parseFloat(this.DataNewArticleAdded.TVA)/ 100) ) + parseFloat(element.PrixDeVente)).toFixed(2)
+                    }
                     let NewRowArticleChoiser = {
                             Type:'Article',
                             ArticleImg:'/img/uploaImg.7d959d34.jpg',
@@ -426,7 +460,7 @@ export default {
                             nameArticle: `${element.name} ${element.Désignation}`,
                             Qté:'',
                             Unité : element.Unité,
-                            Price:element.PrixDeVente,
+                            Price:ArticlePrice ,
                             RemisePrice:'',
                             RemiseType:'%',
                             TVA:element.TVA,
