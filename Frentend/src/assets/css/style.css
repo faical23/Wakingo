@@ -1298,7 +1298,7 @@ textarea {
 }
 
 .v-card.v-card--flat.v-sheet.theme--light {
-  height: 181px !important;
+  height: .v-card.v-card--flat.v-sheet.theme--light uto !important;
   margin-bottom: 22px !important;
 }
 
