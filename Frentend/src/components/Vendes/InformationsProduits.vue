@@ -76,8 +76,8 @@
                             <div class="InformationPiéce__Field">
                                     <h5>Remise globale :</h5>
                                     <div class="RemiseGlobal">
-                                        <input type="number" placeholder="0,00" v-model="InformationsfinanciéresRemiseGlobal"/>
-                                        <select name="pets" id="pet-select" v-model="InformationsfinanciéresRemiseGlobalType">
+                                        <input type="number" placeholder="0,00" v-model="InformationsfinanciéresRemiseGlobal" @keyup="SendRemiseAndPortToArticleSpace" />
+                                        <select name="pets" id="pet-select" v-model="InformationsfinanciéresRemiseGlobalType" @change="SendRemiseAndPortToArticleSpace">
                                             <option value="%">%</option>
                                             <option value="Montant">Montant</option>
                                         </select>
@@ -85,11 +85,11 @@
                             </div>
                              <div class="InformationPiéce__Field">
                                     <h5>Port:</h5>
-                                    <input class="Port" type="text" placeholder="0,00" v-model="InformationsfinanciéresPort"/>
+                                    <input class="Port" type="text" placeholder="0,00" v-model="InformationsfinanciéresPort"  @keyup="SendRemiseAndPortToArticleSpace"  />
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Tva/port:</h5>
-                                    <select class="TVA" name="pets" id="pet-select" v-model="InformationsfinanciéresTVAPort">
+                                    <select class="TVA" name="pets" id="pet-select" v-model="InformationsfinanciéresTVAPort"  @change="SendRemiseAndPortToArticleSpace">>
                                         <option value="20,00%">20,00%</option>
                                         <option value="14,00%">14,00%</option>
                                         <option value="10,00%">10,00%</option>
@@ -299,9 +299,9 @@
         ClientSelected:'Sélectioner un cient',
         // informations financiérs
         InformationsfinanciéresDateDécheance:'',
-        InformationsfinanciéresRemiseGlobal:'',
+        InformationsfinanciéresRemiseGlobal:0,
         InformationsfinanciéresRemiseGlobalType:'%',
-        InformationsfinanciéresPort:'',
+        InformationsfinanciéresPort:0,
         InformationsfinanciéresTVAPort:'20,00%',
         InformationsfinanciéresDeviseUtilisée:'MAD-Drham Marocain',
         //échéancier
@@ -328,8 +328,8 @@
 
       }
     },
-    props:['ConfirmationSelectionerClient'],
-    emits:['AlertSelectionerClient','AddNewClient'],
+    props:['ConfirmationSelectionerClient','NameOfNewClientAdded'],
+    emits:['AlertSelectionerClient','AddNewClient','SendRemiseAndPortToArticleSpace'],
     methods:{
         SwitchOptionsToAnother(item){
             this.SelectOptions = item
@@ -396,7 +396,17 @@
         },
 
         NewClient(){
-            this.$emit('AddNewClient');
+            this.$emit('AddNewClient',this.Clients);
+            this.ScrollSearchClient = false
+        },
+        SendRemiseAndPortToArticleSpace(){
+            let RemisAndPort ={
+                Remise:this.InformationsfinanciéresRemiseGlobal,
+                RemiseType:this.InformationsfinanciéresRemiseGlobalType,
+                Port:this.InformationsfinanciéresPort,
+                PortTVA:this.InformationsfinanciéresTVAPort
+            }
+            this.$emit('SendRemiseAndPortToArticleSpace',RemisAndPort)
         }
     },
     mounted(){

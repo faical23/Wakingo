@@ -571,6 +571,304 @@ textarea {
   background-color: #024d79;
 }
 
+<<<<<<< HEAD
+=======
+.AddArticleVentes {
+  margin: 20px;
+  border: 1px solid #3c8dbc;
+  border-radius: 5px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles {
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedArticle {
+  width: 20%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedTailsArticle {
+  width: 20%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName {
+  display: flex;
+  width: 100%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName button {
+  border: 1px solid #d4d4d4;
+  padding: 6px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 13px !important;
+  text-align: start;
+  color: #222d32 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName button i {
+  position: relative;
+  bottom: 1px;
+  color: #222d32 !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName .ScrollSelectionerArticel {
+  width: 100%;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName .ScrollSelectionerArticel .PlaceClientAndSearch input {
+  margin: 4px 7px !important;
+  width: 90% !important;
+  padding: 4px 10px !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FaildAddImageAndName img {
+  margin: 0px 30px 10px 0px;
+  width: 30% !important;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimple {
+  width: 8% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table td {
+  position: relative;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .InputZone {
+  position: absolute;
+  width: 90% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn {
+  width: 3% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles table .FailedSimpleBtn .InputZone {
+  position: absolute;
+  width: 70% !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns button {
+  margin: 0px 10px;
+  border: 1px solid black;
+  padding: 7px 25px;
+  border-radius: 4px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns .row {
+  flex: 0 !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__articles__btns .row button {
+  position: relative;
+  padding: 21px 25px !important;
+  top: 14px;
+  right: 10px;
+  background-color: #30add2;
+  color: white;
+  border: none !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA {
+  padding: 20px 0px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant th, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA th {
+  padding: 7px 3px;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant td, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA td {
+  padding: 0px  !important;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TableMontant input, .AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA input {
+  border: none !important;
+  padding: 6px !important;
+  background-color: #ececec !important;
+  color: black;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA {
+  width: 30%;
+  margin-left: auto;
+  text-align: center;
+}
+
+.AddArticleVentes .AddArticleVentes__articles .AddArticleVentes__TVA p {
+  color: #3c8dbc;
+}
+
+.AddArticleVentes__lines, .RemarqueSection_lines {
+  background-color: #3c8dbc;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.AddArticleVentes__lines h4, .RemarqueSection_lines h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.AddArticleVentes__lines i, .RemarqueSection_lines i {
+  font-size: 25px;
+}
+
+.RemarqueSection {
+  margin: 20px;
+  border: 1px solid #3c8dbc;
+  border-radius: 5px;
+}
+
+.RemarqueSection .RemarqueSectionInput {
+  padding: 20px;
+  height: 150px;
+  background-color: white;
+}
+
+.RemarqueSection textarea {
+  border: 1px solid #3c8dbc !important;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  height: 100px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information {
+  display: block !important;
+  margin: 5px 0px !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information input, .PopupNewArticle .PopupNewArticle_Information textarea {
+  margin: 10px 0px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .InputPrix {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .Libellé {
+  width: 70%;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PopupNewArticle_Information__zone .TVA select {
+  width: 100% !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .PriceArticle input, .PopupNewArticle .PopupNewArticle_Information .PriceArticle select {
+  width: 30% !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone input {
+  position: relative;
+  bottom: 2px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .CheckboxZone h6 {
+  margin: 0px 10px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Catageory, .PopupNewArticle .PopupNewArticle_Information .PriceArticle, .PopupNewArticle .PopupNewArticle_Information .CheckboxZone {
+  border-bottom: 1px solid #1f1f1f;
+  padding-bottom: 15px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description {
+  display: block !important;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description .DiscriptionZOne {
+  margin-bottom: 10px;
+}
+
+.PopupNewArticle .PopupNewArticle_Information .Description .DiscriptionZOne textarea {
+  width: 100% !important;
+  height: 100px;
+}
+
+.PopupNewArticle .ArticleErrorPoupFaild {
+  padding: 0px !important;
+}
+
+.PopupChoiserArticle {
+  width: 50%;
+  transform: translate(45%, 5%);
+  margin: 0px auto;
+  height: 100vh;
+  overflow: scroll !important;
+  margin-bottom: 300px !important;
+}
+
+.PopupChoiserArticle .PopupChoiserArticle__Search, .PopupChoiserArticle .PopupNewArticle_Information__Faild {
+  width: 100% !important;
+}
+
+.PopupChoiserArticle .PopupChoiserArticle__Search h6, .PopupChoiserArticle .PopupNewArticle_Information__Faild h6 {
+  display: block !important;
+}
+
+.PopupChoiserArticle .PopupNewArticle_Information__Title {
+  background-color: #d2d6de;
+  width: 96% !important;
+  padding: 16px 10px;
+  margin: 10px 20px !important;
+  margin-bottom: 0px !important;
+  font-weight: 100 !important;
+}
+
+.PopupChoiserArticle .PopupNewArticle_Information {
+  padding: 0px 20px;
+  margin: 0px 20px;
+  border: 1px solid #d2d6de !important;
+  margin-bottom: 20px !important;
+  display: block;
+}
+
+.PopupChoiserArticle .PopupNewArticle_TableArticles {
+  margin: 20px 20px;
+}
+
+.PopupChoiserArticle .Btn__CHoiserArticles {
+  background-color: #5ab55e !important;
+}
+
+.PopupChoiserArticle .PopupNewClient__btns {
+  margin-bottom: 50px;
+}
+
+>>>>>>> FaicalBranch
 .HomePage {
   display: flex;
 }

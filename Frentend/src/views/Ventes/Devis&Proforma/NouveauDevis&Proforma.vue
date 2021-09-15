@@ -113,12 +113,72 @@
                 <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
-                 @AddNewClient='OpenNewClientPopup()'/>
+                 @AddNewClient='OpenNewClientPopup'
+                 :NameOfNewClientAdded='NameOfNewClientAdded'
+                 @SendRemiseAndPortToArticleSpace='GetRemiseAndPortTFromArticleSpace'
+                 />
                 <AlertConfirmation
                          v-if="Alert" @AlertAnnuler="DisabledAlert()
                          " @ConfirmationAlert='ConfirmationAlertCSelectionerClient()'
                  />
-                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'   />
+                 <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
+                <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
+                <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
+            </div>
+            <div class="EspaceAddArticles">
+                <AddArticles @NewArticlePopup='OpneNewArticlePopup'
+                 :DataNewArticleAdded='DataNewArticleAdded' 
+                 @ChoiserArticles='PopupChoiserLesArticles = true' 
+                 :DataChoiserArticles='DataChoiserArticles' 
+                 :DataRemisAndPort='DataRemisAndPort'/>                
+            </div>
+            <div class="EspaceRemarque">
+                <Remarque/>
+            </div>
+            <div class="LastBtnEnregistrer">
+                            <button>
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    width="15px" height="15px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
+                                <g>
+                                    <g id="save">
+                                        <path d="M357,0H51C22.95,0,0,22.95,0,51v357c0,28.05,22.95,51,51,51h357c28.05,0,51-22.95,51-51V102L357,0z M229.5,408
+                                            c-43.35,0-76.5-33.15-76.5-76.5s33.15-76.5,76.5-76.5c43.35,0,76.5,33.15,76.5,76.5S272.85,408,229.5,408z M306,153H51V51h255V153
+                                            z"/>
+                                    </g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                </svg>
+                                Enregistrer
+                            </button>
             </div>
       </div>
 
@@ -137,7 +197,15 @@
         return{
             Alert:false,
             ConfirmationSelectionerClient : false,
-            PopupAddNewClient:false
+            PopupAddNewClient:false,
+            PopupNewArticle:false,
+            LengthOfClientHave:'',
+            NameOfNewClientAdded:'',
+            LengthOfArticleHave:'',
+            DataNewArticleAdded:'',
+            PopupChoiserLesArticles :false,
+            DataChoiserArticles:'',
+            DataRemisAndPort:""
         }
     },
     components: {
@@ -169,6 +237,23 @@
         OpenNewClientPopup(){
             this.PopupAddNewClient=true
         },
+        OpneNewArticlePopup(articleLength){
+            this.PopupNewArticle=true
+            this.LengthOfArticleHave = articleLength
+            console.log(this.LengthOfArticleHave )
+        },
+        SuccessNewClient(article){
+            this.PopupNewArticle=false
+            this.DataNewArticleAdded = article
+        },
+        GetAllThisArticles(ArticlesGetted){
+            this.PopupChoiserLesArticles = false
+            this.DataChoiserArticles = ArticlesGetted
+        },
+        GetRemiseAndPortTFromArticleSpace(RemisAndPort){
+            this.DataRemisAndPort = RemisAndPort
+            console.log(RemisAndPort)
+        }
 
     }
   }
