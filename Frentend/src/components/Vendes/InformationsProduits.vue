@@ -34,7 +34,7 @@
                         <div v-show="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
-                                        <button class="SearchClientButton"    :style="DataIsSubmited && ClientSelected == 'Sélectioner un cient' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
+                                        <button class="SearchClientButton"    :style="DataIsSubmited && InformationsPiéceCilent == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
                                         <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
                                             <input type="text">
                                             <ul>
@@ -43,7 +43,7 @@
                                             </ul>
                                                 <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
                                         </div>
-                                        <span v-if="DataIsSubmited && ClientSelected == 'Sélectioner un cient'" class="MessageErrorFiled">Vous devez selectionner un élément.</span>
+                                        <span v-if="DataIsSubmited && InformationsPiéceCilent == ''" class="MessageErrorFiled">Vous devez selectionner un élément.</span>
 
                             </div>
                             <div class="InformationPiéce__Field">
@@ -386,9 +386,6 @@
         DeleteRowEchéance(row){
            this.EchéancierRow.splice(row,1); 
         },
-        GetAllData(){
-            this.DataIsSubmited = true;
-        },
         GetTodayDate(){
             let GetDate = new Date();
             let Year = GetDate.getFullYear()
@@ -455,8 +452,8 @@
                         "Modèle_PDF":this.OptionsModèlePDF
                     }
                 }
-                this.$store.commit('GetInformationVentes',FacturesInformation,)
-                // console.log(FacturesInformation)
+                this.$store.commit('GetInformationVentes',FacturesInformation)
+                this.DataIsSubmited = true;
             }
     },
     mounted(){

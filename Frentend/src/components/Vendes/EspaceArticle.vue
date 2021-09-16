@@ -29,7 +29,9 @@
                         <td class="FaildAddImageAndName" v-if="article.Type=='Article'">
                             <img :src="article.ArticleImg" alt="article img"  @click="UploadImg(index)" />
                             <div class="ScrollSelectionerArticel">
-                                    <button class="SearchClientButton" @click="GeThisScrollArticle(index)">Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+                                    <button class="SearchClientButton SearchArticles" @click="GeThisScrollArticle(index)">{{article.nameArticle}}<i class="fas fa-sort-down"></i></button>
+                                    <span v-if="DataIsSubmited && article.nameArticle == 'Sélectioner un client' " class="MessageErrorFiled ArticleFailedError">Ce champ est obligatoire .</span>
+
                                     <div class="PlaceClientAndSearch" v-if="scrollSelectArticleClicked === index">
                                     <input type="text">
                                     <ul>
@@ -40,10 +42,13 @@
                             </div>
                         </td>
                         <td :colspan="article.Type=='Article Libre' ? '2' : '1'" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input class="InputZone" type="text" v-model="article.nameArticle">
+                            <input class="InputZone" type="text" v-model="article.DétailsArticle">
+                            <span v-if="DataIsSubmited && article.DétailsArticle == '' " class="MessageErrorFiled ArticleFailedError">Ce champ est obligatoire .</span>
+
                         </td  >
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()"  @change="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
+                            <span v-if="DataIsSubmited && (isNaN(article.Qté) || article.Qté == '0') " class="MessageErrorFiled ArticleFailedError">vous devez spécifier la valeur correcte.</span>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <select  class="InputZone" name="pets" id="pet-select" v-model="article.Unité">
@@ -72,6 +77,7 @@
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00"  @keyup="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()" @change="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
+                            <span v-if="DataIsSubmited && (isNaN(article.Price) || article.Price == '0') " class="MessageErrorFiled ArticleFailedError">vous devez spécifier la valeur correcte.</span>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'" >
                                 <div class="Remise InputZone">
@@ -234,7 +240,8 @@ export default {
                 Type:'Article',
                 ArticleImg:'/img/uploaImg.7d959d34.jpg',
                 scrollSelectArticle:false,
-                nameArticle:'',
+                nameArticle:'Sélectioner un client',
+                DétailsArticle:'',
                 Qté:0,
                 Unité :'Douzaine(s)',
                 Price:0.00,
@@ -338,7 +345,9 @@ export default {
             TableTva_TVA:0,
             TableTva_TVAMontant:0,
         },
-    ]
+    ],
+    DataIsSubmited :false
+
 
 
   }),
@@ -361,18 +370,20 @@ export default {
         this.scrollSelectArticleClicked !== index ? this.scrollSelectArticleClicked = index : this.scrollSelectArticleClicked = ''
     },
     GetThisPArticle(article,index){
-        console.log(article.ProductNamel,index)
         this.Article[index].nameArticle = article.ProductName
         this.Article[index].Unité = article.Unité;
         this.Article[index].Price = article.Price;
         this.Article[index].TVA = article.TVA;
+        // let ArticlesDrowDown = document.querySelectorAll('.SearchArticles')
+
     },
     AddNewArticle(TypeArticle){
         const NewArticle ={
                 Type:TypeArticle,
                 ArticleImg:'/img/uploaImg.7d959d34.jpg',
                 scrollSelectArticle:false,
-                nameArticle:'',
+                nameArticle:'Sélectioner un client',
+                DétailsArticle:'',
                 Qté:0,
                 Unité :'Douzaine(s)',
                 PriceType:'P.U HT',
@@ -689,7 +700,7 @@ export default {
                     "Table TVA" :this.Table_TVA
                 }
                 this.$store.commit('GetArticles',InformationArtices)
-
+                this.DataIsSubmited = true;
                 // console.log(InformationArtices)
             }
 

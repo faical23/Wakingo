@@ -297,25 +297,38 @@
     },
     watch: {
             '$store.state.InformationVentes': function() {
+                 this.AlertError = false
                 let InformationsArticles = this.$store.state.InformationVentes
                 if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
                     && InformationsArticles?.Informations_Piéce?.Numéro !== ''
                     && InformationsArticles?.Logistique?.AdresseFacturation !== ''
                     && this.AlertError != true
-
                 ){
-                        this.AlertSuccess =  true
-
+                    this.AlertSuccess = true
+                    this.AlertError = false      
+                    console.log('can insert')              
                 }
                 else{
-                        this.AlertError = true
+                    this.AlertError = true
+                    this.AlertSuccess = false
+                    console.log('cant insert')              
                 }
                 console.log("Information articles :", InformationsArticles)
-
             },
             '$store.state.InformationsArticles': function() {
                 let InformationsArticles = this.$store.state.InformationsArticles
-                // this.AlertError = true
+                InformationsArticles.Articles.forEach(element =>{
+                    if(element.nameArticle != 'Sélectioner un client' && element.Qté != '' && element.Price != '' && this.AlertError != true){
+                        this.AlertSuccess = true
+                        this.AlertError = false
+                        console.log('can insert')              
+                    }
+                    else{
+                        this.AlertError = true
+                        this.AlertSuccess = false
+                        console.log('cant insert')              
+                    }
+                })
                 console.log("les articles :",InformationsArticles)
             }
     },

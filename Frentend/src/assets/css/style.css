@@ -44,6 +44,10 @@ nav .v-toolbar {
   position: absolute;
 }
 
+.ArticleFailedError {
+  top: 40px;
+}
+
 .AlertError {
   background-color: #dd4b39 !important;
   margin-top: 30px;

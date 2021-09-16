@@ -11,8 +11,7 @@ export default new Vuex.Store({
   },
   mutations: {
     ActiveToInsert(state){
-      state.InsertVendreData = true ;
-
+        state.InsertVendreData ? state.InsertVendreData = false : state.InsertVendreData = true
     },
     GetArticles(state,Data){
       state.InformationsArticles= Data
