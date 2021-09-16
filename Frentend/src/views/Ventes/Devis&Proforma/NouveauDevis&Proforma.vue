@@ -7,7 +7,7 @@
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                        <h2>Devis / Proforma : DEV-07092021-4 </h2>
+                        <h2>Devis / Proforma : {{GetNuméro()}} </h2>
                         <p>Cette page vous permet de créer et mettre à jour un devis / Proforma</p>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
@@ -17,7 +17,7 @@
                             <span  class="RoutlinkZone">Devis / Proforma : DEV-07092021-4</span>
                         </div>
                         <div  class="NouvelleDevisProforma__Header__Right__Btns">
-                            <button>
+                            <button @click="GetAllDataFromChildComponent()">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     width="15px" height="15px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
                                 <g>
@@ -110,8 +110,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- <AlertErrorFailed/> -->
-                <InformationsProduit @AlertSelectionerClient="ActiveAlertConfirmation"
+                <v-alert  v-if="AlertError" type="error" class="AlertError" >
+                    Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
+                </v-alert>
+                <v-alert v-if="AlertSuccess" type="success" class="AlertError">
+                    Le nouveau devis a bien été enregistré!
+                </v-alert>
+                <InformationsProduit
+                :Numero='Numero'
+                 @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
                  @ConfirmationSelectionerClientToFalse="ConfirmationSelectionerClientToFalse()"
                  @AddNewClient='OpenNewClientPopup'
@@ -213,7 +220,10 @@
             DataNewArticleAdded:'',
             PopupChoiserLesArticles :false,
             DataChoiserArticles:'',
-            DataRemisAndPort:""
+            DataRemisAndPort:"",
+            Numero:'',
+            AlertError:false,
+            AlertSuccess : false
         }
     },
     components: {
@@ -225,10 +235,17 @@
     AddArticles,
     Remarque,
     PopupNewArticle,
-    ChoiserArticles
+    ChoiserArticles,
+    
     //   AlertErrorFailed
     },
     methods:{
+        GetNuméro(){
+            var today = new Date();
+            var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
+            this.Numero= `DEV-${date}-5`
+            return this.Numero
+        },
         DeleteAllPopup(){
             this.Alert=false
             this.ConfirmationSelectionerClient = false
@@ -273,8 +290,34 @@
         GetRemiseAndPortTFromArticleSpace(RemisAndPort){
             this.DataRemisAndPort = RemisAndPort
             console.log(RemisAndPort)
+        },
+        GetAllDataFromChildComponent(){
+            this.$store.commit('ActiveToInsert')
         }
+    },
+    watch: {
+            '$store.state.InformationVentes': function() {
+                let InformationsArticles = this.$store.state.InformationVentes
+                if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
+                    && InformationsArticles?.Informations_Piéce?.Numéro !== ''
+                    && InformationsArticles?.Logistique?.AdresseFacturation !== ''
+                    && this.AlertError != true
 
-    }
+                ){
+                        this.AlertSuccess =  true
+
+                }
+                else{
+                        this.AlertError = true
+                }
+                console.log("Information articles :", InformationsArticles)
+
+            },
+            '$store.state.InformationsArticles': function() {
+                let InformationsArticles = this.$store.state.InformationsArticles
+                // this.AlertError = true
+                console.log("les articles :",InformationsArticles)
+            }
+    },
   }
 </script>

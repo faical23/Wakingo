@@ -14,7 +14,7 @@
                         <th class="FailedSimple">Qté.</th>
                         <th class="FailedSimple" >Unité.</th>
                         <th class="FailedSimple" >
-                            <select v-model="PriceType" @change="GetTotalTTCRow('AllRowMontant'),CalculteGlobalTotalTTC()" >
+                            <select v-model="PriceType" @change="GetTotalTTCRow('AllRowMontant'),Calculte_TotatlBrut_And_Remise()" >
                                 <option value="P.U HT">P.U HT</option>
                                 <option value="P.U TTC">P.U TTC</option>
                             </select>
@@ -34,7 +34,7 @@
                                     <input type="text">
                                     <ul>
                                         <li class="PlaceClientAndSearch_FirstLi">Sélectioner un cient</li>
-                                        <li  v-for="(article,n) in OurArticle" :key="n" @click="GetThisPArticle(article,index),scrollSelectArticleClicked = '',GetTotalTTCRow(index),CalculteGlobalTotalTTC()">{{article.ProductName}}</li>    
+                                        <li  v-for="(article,n) in OurArticle" :key="n" @click="GetThisPArticle(article,index),scrollSelectArticleClicked = '',GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">{{article.ProductName}}</li>    
                                     </ul>
                                     </div>
                             </div>
@@ -43,7 +43,7 @@
                             <input class="InputZone" type="text" v-model="article.nameArticle">
                         </td  >
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index),CalculteGlobalTotalTTC()"  @change="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
+                            <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()"  @change="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <select  class="InputZone" name="pets" id="pet-select" v-model="article.Unité">
@@ -71,19 +71,19 @@
                             </select>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00"  @keyup="GetTotalTTCRow(index),CalculteGlobalTotalTTC()" @change="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
+                            <input class="InputZone" type="text" v-model="article.Price" placeholder="0,00"  @keyup="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()" @change="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'" >
                                 <div class="Remise InputZone">
-                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"  @keyup="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
-                                        <select name="pets" id="pet-select" v-model="article.RemiseType" @change="GetTotalTTCRow(index),CalculteGlobalTotalTTC()">
+                                        <input type="text" placeholder="0,00" v-model="article.RemisePrice"  @keyup="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
+                                        <select name="pets" id="pet-select" v-model="article.RemiseType" @change="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
                                             <option value="%">%</option>
                                             <option value="Montant">Montant</option>
                                         </select>
                                     </div>
                         </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
-                                    <select  class="TVA InputZone" name="pets" id="pet-select" v-model="article.TVA" @change="GetTotalTTCRow(index) ,CalculteGlobalTotalTTC()">
+                                    <select  class="TVA InputZone" name="pets" id="pet-select" v-model="article.TVA" @change="GetTotalTTCRow(index) ,Calculte_TotatlBrut_And_Remise()">
                                         <option value="20,00%">20,00%</option>
                                         <option value="14,00%">14,00%</option>
                                         <option value="10,00%">10,00%</option>
@@ -216,6 +216,7 @@
                     </table>
                 </div>
         </div>
+
     </div>
 </template>
 
@@ -438,8 +439,8 @@ export default {
         this.Article.splice(index,1); 
         this.Table_TVA.splice(index,1); 
         this.AddSousTotal('Change Sous Total')
-        this.CalculteGlobalTotalTTC()
-        this.CalculeTbaleTVA()
+        this.Calculte_TotatlBrut_And_Remise()
+        this.Calcule_TableTva_And_Tva_Global_And_TotalHt_And_TottalTTc()
     },
     GetTotalTTCRow(index){
         if(index === "AllRowMontant"){
@@ -529,41 +530,33 @@ export default {
         }
         
         this.AddSousTotal('Change Sous Total')
-        this.CalculeTbaleTVA()
+        this.Calcule_TableTva_And_Tva_Global_And_TotalHt_And_TottalTTc()
     },
-    CalculteGlobalTotalTTC (){
+    Calculte_TotatlBrut_And_Remise(){
         this.TotalBrutGlobal = 0
-        this.TVAtGlobal = 0
-        /// calcule total global brut AND tva global brut
+        /// calcule total global brut 
         this.Article.forEach(element =>{
             //// calcule tota brut if is HT
             if(this.PriceType === 'P.U HT'){
                 let totalBrutBeforeRemiseRow = parseFloat(element.Qté * element.Price) //// calcule total row before remove remise
-                let TVAtGlobalBeforeRemiseRow = parseFloat((element.Qté * element.Price * parseFloat(element.TVA)/100 )) //// calcule tva row before remove remise
 
                 if(element.RemiseType === "%"){
                     this.TotalBrutGlobal += totalBrutBeforeRemiseRow -(totalBrutBeforeRemiseRow * (element.RemisePrice/100)) /// remove remise from total brut de chaque row if is %
-                    this.TVAtGlobal += TVAtGlobalBeforeRemiseRow -(TVAtGlobalBeforeRemiseRow * (element.RemisePrice/100))/// remove remise from tva de chaque row  if is %
                 }
                 else if(element.RemiseType === "Montant"){
                     this.TotalBrutGlobal += totalBrutBeforeRemiseRow - element.RemisePrice //// remove remise if is montant
-                    this.TVAtGlobal += TVAtGlobalBeforeRemiseRow -(element.RemisePrice * parseFloat(element.TVA)/100 )/// remove remise from tva de chaque row  if is montant
                 }
             }
             else if(this.PriceType === 'P.U TTC'){
-                //// calcule totaL brut if is TTC
                 let totalBrutBeforeRemiseRow = parseFloat(100 * element.TotalTTC) / (100 + parseFloat(element.TVA)) //// calcule total before remove remise
-                let TVAtGlobalBeforeRemiseRow = parseFloat((totalBrutBeforeRemiseRow * parseFloat(element.TVA)/100 )) //// calcule tva row before remove remise
                 this.TotalBrutGlobal +=  totalBrutBeforeRemiseRow 
-                this.TVAtGlobal+= TVAtGlobalBeforeRemiseRow 
             }
         })
 
-        //// calcule remise global AND update tva global
+        //// calcule remise global
         if(this.DataRemisAndPort != ''){
             if(this.DataRemisAndPort.RemiseType === "%"){
                 this.RemiseGlobal = (this.TotalBrutGlobal * this.DataRemisAndPort.Remise /100).toFixed(2) /// remise global if is %
-                this.TVAtGlobal= this.TVAtGlobal - ( this.TVAtGlobal * this.DataRemisAndPort.Remise /100) //// update tva global if remise global is %
             }
             else if(this.DataRemisAndPort.RemiseType ===  "Montant"){
                 this.RemiseGlobal = this.DataRemisAndPort.Remise /// remise global if is montant
@@ -571,26 +564,40 @@ export default {
             }
         }
 
-
         //// calcle total ht global for
         this.TotalHTGlobal = this.TotalBrutGlobal - this.RemiseGlobal
         //// calcule total ttc global 
-        this.TotalTTCGlobal =(parseFloat(this.TotalHTGlobal) + parseFloat(this.TVAtGlobal) +parseFloat(this.TransportHTGlobal) + parseFloat(this.TVAPortGlobal)).toFixed(2)
-
+        this.TotalTTCGlobal =parseFloat((parseFloat(this.TotalHTGlobal) + parseFloat(this.TVAtGlobal) +parseFloat(this.TransportHTGlobal) + parseFloat(this.TVAPortGlobal))).toFixed(2)
+    
     },
-    CalculeTbaleTVA(){
+    Calcule_TableTva_And_Tva_Global_And_TotalHt_And_TottalTTc(){
         let row = 0
+        this.TVAtGlobal = 0
         this.Article.forEach(element =>{
-            if(this.Article.length){
                 if(element.Type === 'Article' || element.Type === 'Article Libre'){
-                                let BaseHT = parseFloat(100 * element.TotalTTC) / (100 + parseFloat(element.TVA))
-                                this.DataRemisAndPort != '' ? this.Table_TVA[row].TableTva_BaseHT = (BaseHT - (BaseHT * (this.DataRemisAndPort.Remise /100) )).toFixed(2) :  this.Table_TVA[row].TableTva_BaseHT = (BaseHT).toFixed(2)
-                                this.Table_TVA[row].TableTva_TVA = parseFloat(element.TVA)
-                                this.Table_TVA[row].TableTva_TVAMontant= (this.Table_TVA[row].TableTva_BaseHT * this.Table_TVA[row].TableTva_TVA / 100).toFixed(2)
+                    let BaseHT = parseFloat(100 * element.TotalTTC) / (100 + parseFloat(element.TVA))
+                    if(this.DataRemisAndPort != '' && this.DataRemisAndPort?.Remise != '' ){
+                        if(this.DataRemisAndPort.RemiseType === "%"){                           
+                            this.Table_TVA[row].TableTva_BaseHT = (BaseHT - (BaseHT * (this.DataRemisAndPort.Remise /100) )).toFixed(2)
+                        }
+                        else if(this.DataRemisAndPort.RemiseType === "Montant"){
+                            let DeviseRemiseForEveryRow = this.DataRemisAndPort.Remise /this.Article.length
+                            this.Table_TVA[row].TableTva_BaseHT = (BaseHT - DeviseRemiseForEveryRow  ).toFixed(2)
+                        }
+                    }
+                    else{                       
+                        this.Table_TVA[row].TableTva_BaseHT = (BaseHT).toFixed(2)
+                    }
+                    this.Table_TVA[row].TableTva_TVA = parseFloat(element.TVA)
+                    this.Table_TVA[row].TableTva_TVAMontant= (this.Table_TVA[row].TableTva_BaseHT * this.Table_TVA[row].TableTva_TVA / 100).toFixed(2)
+                    this.TVAtGlobal += parseFloat(this.Table_TVA[row].TableTva_TVAMontant)
+                    row++;
                 }
-            }
-            row++;
+
         })
+        this.Calculte_TotatlBrut_And_Remise()
+
+
     }
   },
     watch: { 
@@ -664,8 +671,26 @@ export default {
             DataRemisAndPort : function (){
                 this.TransportHTGlobal =  this.DataRemisAndPort.Port
                 this.TVAPortGlobal = (this.DataRemisAndPort.Port * (parseFloat(this.DataRemisAndPort.PortTVA) /100)).toFixed(2)
-                this.CalculteGlobalTotalTTC()
-                this.CalculeTbaleTVA()
+                this.Calculte_TotatlBrut_And_Remise()
+                this.Calcule_TableTva_And_Tva_Global_And_TotalHt_And_TottalTTc()
+            },
+            '$store.state.InsertVendreData': function() {
+                let InformationArtices = {
+                    "Articles" : this.Article,
+                    "Total Global":{
+                            "Total Brut":this.TotalBrutGlobal,
+                            "Remise":this.RemiseGlobal,
+                            "Total HT":this.TotalHTGlobal,
+                            "TVAt":this.TVAtGlobal,
+                            "Transport HT":this.TransportHTGlobal,
+                            "TVA Port":this.TVAPortGlobal,
+                            "Total TTC ":this.TotalTTCGlobal,
+                    },
+                    "Table TVA" :this.Table_TVA
+                }
+                this.$store.commit('GetArticles',InformationArtices)
+
+                // console.log(InformationArtices)
             }
 
     },

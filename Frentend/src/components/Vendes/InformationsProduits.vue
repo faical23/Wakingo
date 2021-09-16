@@ -1,8 +1,6 @@
 <template>
   <div class="InformationsProduit">
-        <v-alert type="error" class="AlertError" v-if="DataIsSubmited && (ClientSelected == 'Sélectioner un cient'|| InformationsPiéceNémuro == '' || LogistiqueAdresseFacturation == '' )">
-            Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
-        </v-alert>
+
         <v-card class="SwitchOptions">
                 <v-toolbar
                 >
@@ -33,10 +31,10 @@
                     <v-card flat>
 
                     <v-card-text>
-                        <div v-if="SelectOptions == 'Informations piéce'" class="InformationPiéce">
+                        <div v-show="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
-                                        <button class="SearchClientButton"    :style="DataIsSubmited && ClientSelected == 'Sélectioner un cient' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+                                        <button class="SearchClientButton"    :style="DataIsSubmited && ClientSelected == 'Sélectioner un cient' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
                                         <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
                                             <input type="text">
                                             <ul>
@@ -221,7 +219,6 @@
                 </v-tab-item>
                 </v-tabs-items>
         </v-card>
-        <!-- <button style="background-color:red;color:white;padding:10px 30px;" @click="GetAllData()">Get all data</button> -->
   </div>
 </template>
 
@@ -260,7 +257,7 @@
         SelectOptions:'Informations piéce',
         // informations piéce
         InformationsPiéceCilent:'',
-        InformationsPiéceNémuro:'DEV-08092021-4',
+        InformationsPiéceNémuro:this.Numero,
         InformationsPiéceDateDuDevis:'',
         InformationsPiéceNDeRéférence:'',
         InformationsPiéceVendeur:'',
@@ -334,11 +331,12 @@
         ///// Options
         OptionsModèlePDF:'Devis de vente-modéle corporate',
         OptionsAficherphotoArticle:true,
-        DataIsSubmited:false
+        DataIsSubmited:false,
+        CheckIfExportData:''
 
       }
     },
-    props:['ConfirmationSelectionerClient','NameOfNewClientAdded'],
+    props:['ConfirmationSelectionerClient','NameOfNewClientAdded','Numero'],
     emits:['AlertSelectionerClient','AddNewClient','SendRemiseAndPortToArticleSpace'],
     methods:{
         SwitchOptionsToAnother(item){
@@ -402,7 +400,7 @@
         ClientSelectionerBeforeConfirmation(params){
             this.$emit('AlertSelectionerClient', params);
             this.ScrollSearchClient = false
-            this.ClientSelected = params
+            this.InformationsPiéceCilent = params
         },
         NewClient(){
             this.$emit('AddNewClient',this.Clients);
@@ -418,19 +416,52 @@
             this.$emit('SendRemiseAndPortToArticleSpace',RemisAndPort)
         }
     },
-    mounted(){
-        this.GetTodayDate()
-    },
     watch: { 
             ConfirmationSelectionerClient: function () {
-                document.querySelector('.SearchClientButton').innerHTML =  this.ClientSelected
+                document.querySelector('.SearchClientButton').innerHTML =  this.InformationsPiéceCilent
                 this.$emit('ConfirmationSelectionerClientToFalse')
             },
             NameOfNewClientAdded : function (){
                 document.querySelector('.SearchClientButton').innerHTML =  this.NameOfNewClientAdded
                 const NewClient ={"ClientName":this.NameOfNewClientAdded}
                 this.Clients.push(NewClient)
+            },
+            '$store.state.InsertVendreData': function() {
+                let FacturesInformation={
+                    "Informations_Piéce":{
+                        "Client_Name" :  this.InformationsPiéceCilent,
+                        "Numéro" :   this.InformationsPiéceNémuro,
+                        "Date_Devis" :   this.InformationsPiéceDateDuDevis,
+                        "N_De_référence" :   this.InformationsPiéceNDeRéférence,
+                        "Vendeur" :   this.InformationsPiéceVendeur,
+                    },
+                    "Informations_Financiéres":{
+                        "Date_déchéance" :  this.InformationsfinanciéresDateDécheance,
+                        "Remise_global" :   this.InformationsfinanciéresRemiseGlobal,
+                        "Type_remise global" :   this. InformationsfinanciéresRemiseGlobalType,
+                        "Port" :   this.  InformationsfinanciéresPort,
+                        "TVA/Port" :   this.InformationsfinanciéresTVAPort,
+                        "Devise_utilisée" :   this.InformationsfinanciéresDeviseUtilisée,
+                    },
+                    "écheancier":{
+                        "Echéancier" :this.EchéancierRow
+                    },
+                    "Logistique":{
+                        "Mode_Livraison":this.LogistiqueModeLivraison,
+                        "Adresse_Livraison":this.LogistiqueAdresseLivraison,
+                        "AdresseFacturation":this.LogistiqueAdresseFacturation
+                    },
+                    "Options":{
+                        "Modèle_PDF":this.OptionsModèlePDF
+                    }
+                }
+                this.$store.commit('GetInformationVentes',FacturesInformation,)
+                // console.log(FacturesInformation)
             }
-    }
+    },
+    mounted(){
+        this.GetTodayDate()
+        
+    },
   }
 </script>

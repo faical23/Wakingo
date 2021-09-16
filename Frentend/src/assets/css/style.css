@@ -46,7 +46,7 @@ nav .v-toolbar {
 
 .AlertError {
   background-color: #dd4b39 !important;
-  margin: 10px 0px;
+  margin-top: 30px;
 }
 
 .BackGourndBlackGlobalPage {
@@ -1279,6 +1279,7 @@ textarea {
 
 .NouvelleDevisProforma__Header__Right__Btns, .LastBtnEnregistrer {
   text-align: end;
+  margin-bottom: 20px;
 }
 
 .NouvelleDevisProforma__Header__Right__Btns button, .LastBtnEnregistrer button {
