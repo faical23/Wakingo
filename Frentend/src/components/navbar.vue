@@ -19,14 +19,12 @@
       class="v-menu"
       offset-y
       offset-x
-      flat
-      
-     
+      flat 
     >
      
       <template v-slot:activator="{ attrs, on } ">
                
-         <!-- user btn  -->
+         <!-- user btn  --> 
         <v-tab flat
           :color="index"
           class="white--text ma-5 "
