@@ -16,7 +16,7 @@
                             <router-link to="/" class="RoutlinkZone">Gestion des devis / Proforma</router-link>>
                             <span  class="RoutlinkZone">Devis / Proforma : DEV-07092021-4</span>
                         </div>
-                        <div  class="NouvelleDevisProforma__Header__Right__Btns">
+                        <div v-if="DisplayBtnEnregistrer" class="NouvelleDevisProforma__Header__Right__Btns">
                             <button @click="GetAllDataFromChildComponent()">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     width="15px" height="15px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
@@ -110,11 +110,33 @@
                         </div>
                     </div>
                 </div>
+                <div class="ValideOrAnnulerBtns" v-if="AlertSuccess">
+                    <v-btn
+                    color="success"
+                    dark
+                    @click="ValideInsertData()"
+                    >
+                    Valider
+                    </v-btn>
+                    <v-btn
+                    color="warning"
+                    dark
+                    @click="AnnulerInsertData()"
+                    >
+                    Anunuler
+                    </v-btn>
+                </div>
                 <v-alert  v-if="AlertError" type="error" class="AlertError" >
                     Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
                 </v-alert>
                 <v-alert v-if="AlertSuccess" type="success" class="AlertError">
                     Le nouveau devis a bien été enregistré!
+                </v-alert>
+                <v-alert v-if="AlertAnnuler" type="success" class="AlertError">
+                     Le devis a bien été annulé!
+                </v-alert>
+                <v-alert v-if="AlertValidé" type="success" class="AlertError">
+                     Le devis a bien été Validé!
                 </v-alert>
                 <InformationsProduit
                 :Numero='Numero'
@@ -223,7 +245,13 @@
             DataRemisAndPort:"",
             Numero:'',
             AlertError:false,
-            AlertSuccess : false
+            AlertSuccess : false,
+            AlertAnnuler : false,
+            AlertValidé:false,
+            Articles:'AA',
+            InformtionArticle:'BB',
+            RemarqueArticle : 'CC',
+            DisplayBtnEnregistrer : true
         }
     },
     components: {
@@ -293,6 +321,19 @@
         },
         GetAllDataFromChildComponent(){
             this.$store.commit('ActiveToInsert')
+        },
+        ValideInsertData(){
+            this.AlertAnnuler = false,
+            this.AlertSuccess = false
+            this.AlertValidé = true
+            this.RemarqueArticle = this.$store.state.RemarqueArticle
+            console.log(this.Articles,this.InformtionArticle,this.RemarqueArticle)
+            ///// AXIOS REQUEST HER
+        },
+        AnnulerInsertData(){
+            this.AlertAnnuler = true
+            this.AlertSuccess = false
+
         }
     },
     watch: {
@@ -305,31 +346,31 @@
                     && this.AlertError != true
                 ){
                     this.AlertSuccess = true
-                    this.AlertError = false      
-                    console.log('can insert')              
+                    this.AlertError = false  
+                    this.DisplayBtnEnregistrer = false
+                    this.InformtionArticle = InformationsArticles
                 }
                 else{
                     this.AlertError = true
                     this.AlertSuccess = false
-                    console.log('cant insert')              
+                    this.DisplayBtnEnregistrer = true
                 }
-                console.log("Information articles :", InformationsArticles)
             },
             '$store.state.InformationsArticles': function() {
                 let InformationsArticles = this.$store.state.InformationsArticles
                 InformationsArticles.Articles.forEach(element =>{
-                    if(element.nameArticle != 'Sélectioner un client' && element.Qté != '' && element.Price != '' && this.AlertError != true){
+                    if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price))&& this.AlertError != true){
                         this.AlertSuccess = true
                         this.AlertError = false
-                        console.log('can insert')              
+                        this.Articles = InformationsArticles
+                        this.DisplayBtnEnregistrer = false
                     }
                     else{
                         this.AlertError = true
                         this.AlertSuccess = false
-                        console.log('cant insert')              
+                        this.DisplayBtnEnregistrer = true
                     }
                 })
-                console.log("les articles :",InformationsArticles)
             }
     },
   }

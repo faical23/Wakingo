@@ -898,6 +898,10 @@ textarea {
   padding-bottom: 0px !important;
 }
 
+.NouvelleDevisProforma .ValideOrAnnulerBtns button {
+  margin: 0px 10px !important;
+}
+
 .NouvelleDevisProforma .NouvelleDevisProforma__Header {
   display: flex;
   justify-content: space-between;
@@ -1029,6 +1033,21 @@ textarea {
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field .RemiseGlobal select,
 .NouvelleDevisProforma .Options .InformationPiéce__Field .RemiseGlobal select {
   width: 40%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TauxChange,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TauxChange,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .TauxChange,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .TauxChange {
+  display: flex;
+  width: 50%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TauxChange input,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TauxChange input,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .TauxChange input,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .TauxChange input {
+  width: 100%;
 }
 
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port,

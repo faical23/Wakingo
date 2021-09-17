@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     InsertVendreData : false, 
     InformationVentes : "Empty",
-    InformationsArticles : "Empty"
+    InformationsArticles : "Empty",
+    RemarqueArticle: "Empty"
   },
   mutations: {
     ActiveToInsert(state){
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     GetInformationVentes(state,Data){
       state.InformationVentes= Data
+    },
+    GetRemarqueArticles(state,Data){
+      state.RemarqueArticle= Data
     }
   },
   actions: {

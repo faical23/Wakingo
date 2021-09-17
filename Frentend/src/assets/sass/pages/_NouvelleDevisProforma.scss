@@ -2,6 +2,11 @@
     width: 100%;
     padding: 20px;
     padding-bottom: 0px !important;
+    .ValideOrAnnulerBtns{
+      button{
+        margin: 0px 10px !important;
+      }
+    }
     .NouvelleDevisProforma__Header {
       display: flex;
       justify-content: space-between;
@@ -94,6 +99,13 @@
           }
           select {
             width: 40%;
+          }
+        }
+        .TauxChange{
+          display: flex;
+          width: 50%;
+          input {
+            width: 100%;
           }
         }
         .Port {

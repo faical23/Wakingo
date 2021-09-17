@@ -20,6 +20,11 @@
          Remarque:''
     }),
     emits:[],
+    watch:{
+        '$store.state.InsertVendreData': function() {
+            this.$store.commit('GetRemarqueArticles',this.Remarque)
+        }
+    }
   }
     
 </script>

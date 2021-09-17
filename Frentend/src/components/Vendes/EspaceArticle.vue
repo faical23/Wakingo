@@ -244,7 +244,7 @@ export default {
                 DétailsArticle:'',
                 Qté:0,
                 Unité :'Douzaine(s)',
-                Price:0.00,
+                Price:0,
                 TypePrice:'',
                 RemisePrice:0,
                 RemiseType:'%',

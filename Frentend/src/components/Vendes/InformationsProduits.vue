@@ -99,11 +99,18 @@
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Devise utilisée* :</h5>
-                                    <select name="pets" id="pet-select"  v-model="InformationsfinanciéresDeviseUtilisée">
+                                    <select name="pets" id="pet-select"  v-model="InformationsfinanciéresDeviseUtilisée" @change="CheckDevisUtilisé()">
                                         <option value="MAD-Drham Marocain">MAD-Drham Marocain</option>
                                         <option value="EUR-Euro">EUR-Euro</option>
                                         <option value="USD-Dollar américan">USD-Dollar américan</option>
                                     </select>
+                            </div>
+                            <div v-if="DeviseNotMad"  class="InformationPiéce__Field">
+                                    <h5>Taux de change :</h5>
+                                    <div  class="TauxChange" >
+                                        <input type="text" v-model="InformationsfinanciéresTauxChange" />
+                                        <input type="text" value="MAD" disabled>
+                                    </div>
                             </div>
                         </div>
                         <div v-if="SelectOptions == 'Échéancier'" class="Échéancier" >
@@ -311,6 +318,7 @@
         InformationsfinanciéresPort:0,
         InformationsfinanciéresTVAPort:'20,00%',
         InformationsfinanciéresDeviseUtilisée:'MAD-Drham Marocain',
+        InformationsfinanciéresTauxChange : 0,
         //échéancier
         EchéancierRow:[
             {
@@ -332,7 +340,8 @@
         OptionsModèlePDF:'Devis de vente-modéle corporate',
         OptionsAficherphotoArticle:true,
         DataIsSubmited:false,
-        CheckIfExportData:''
+        CheckIfExportData:'',
+        DeviseNotMad : false,
 
       }
     },
@@ -403,6 +412,20 @@
             this.$emit('AddNewClient',this.Clients);
             this.ScrollSearchClient = false
         },
+        CheckDevisUtilisé(){
+            
+            if (this.InformationsfinanciéresDeviseUtilisée === "EUR-Euro") {
+                this.DeviseNotMad = true
+                this.InformationsfinanciéresTauxChange = 10.80
+            }
+            else if(this.InformationsfinanciéresDeviseUtilisée === "USD-Dollar américan"){
+                this.DeviseNotMad = true
+                this.InformationsfinanciéresTauxChange =9.60
+            }
+            else{
+                this.DeviseNotMad = false
+            }
+        },
         SendRemiseAndPortToArticleSpace(){
             let RemisAndPort ={
                 Remise:this.InformationsfinanciéresRemiseGlobal,
@@ -439,6 +462,7 @@
                         "Port" :   this.  InformationsfinanciéresPort,
                         "TVA/Port" :   this.InformationsfinanciéresTVAPort,
                         "Devise_utilisée" :   this.InformationsfinanciéresDeviseUtilisée,
+                        "TauxChange_If_DeviseUtilisée_Not_MAD":this.InformationsfinanciéresTauxChange
                     },
                     "écheancier":{
                         "Echéancier" :this.EchéancierRow
