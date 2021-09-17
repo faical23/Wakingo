@@ -1,8 +1,6 @@
 <template>
   <div class="InformationsProduit">
-        <v-alert type="error" class="AlertError" v-if="DataIsSubmited && (InformationsPiéceCilent == '' || InformationsPiéceNémuro == '' || LogistiqueAdresseFacturation == '' )">
-            Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
-        </v-alert>
+
         <v-card class="SwitchOptions">
                 <v-toolbar
                 >
@@ -33,18 +31,20 @@
                     <v-card flat>
 
                     <v-card-text>
-                        <div v-if="SelectOptions == 'Informations piéce'" class="InformationPiéce">
+                        <div v-show="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
-                                        <button class="SearchClientButton" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient <i class="fas fa-sort-down"></i></button>
+                                        <button class="SearchClientButton"    :style="DataIsSubmited && ClientSelected == 'Sélectioner un cient' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
                                         <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
                                             <input type="text">
                                             <ul>
                                                 <li class="PlaceClientAndSearch_FirstLi">Sélectioner un cient</li>
-                                                <li v-for="client in Clients" :key="client" @click='ClientSelectionerBeforeConfirmation(client.Name)'>{{client.Name}}</li>
-                                                <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
+                                                <li v-for="client in Clients" :key="client" @click='ClientSelectionerBeforeConfirmation(client.ClientName)'>{{client.ClientName}}</li>    
                                             </ul>
+                                                <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
                                         </div>
+                                        <span v-if="DataIsSubmited && ClientSelected == 'Sélectioner un cient'" class="MessageErrorFiled">Vous devez selectionner un élément.</span>
+
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Numéro* :</h5>
@@ -219,7 +219,6 @@
                 </v-tab-item>
                 </v-tabs-items>
         </v-card>
-
   </div>
 </template>
 
@@ -258,41 +257,50 @@
         SelectOptions:'Informations piéce',
         // informations piéce
         InformationsPiéceCilent:'',
-        InformationsPiéceNémuro:'DEV-08092021-4',
+        InformationsPiéceNémuro:this.Numero,
         InformationsPiéceDateDuDevis:'',
         InformationsPiéceNDeRéférence:'',
         InformationsPiéceVendeur:'',
         ScrollSearchClient:false,
         Clients:[
             {
-                Name:"CT1 - ESSAID CHASSE SA"
+                ClientName:"CLT1 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT2 - ESSAID CHASSE SA"
+                ClientName:"CLT2 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT3 - ESSAID CHASSE SA"
+                ClientName:"CLT3 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT4 - ESSAID CHASSE SA"
+                ClientName:"CLT4 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT5 - ESSAID CHASSE SA"
+                ClientName:"CLT5 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT6 - ESSAID CHASSE SA"
+                ClientName:"CLT6 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT7 - ESSAID CHASSE SA"
+                ClientName:"CLT7 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT8 - ESSAID CHASSE SA"
+                ClientName:"CLT8 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT9 - ESSAID CHASSE SA"
+                ClientName:"CLT9 - ESSAID CHASSE SA"
             },
             {
-                Name:"CT10 - ESSAID CHASSE SA"
+                ClientName:"CLT10 - ESSAID CHASSE SA"
+            },
+            {
+                ClientName:"CLT11 - ESSAID CHASSE SA"
+            },
+            {
+                ClientName:"CLT12 - ESSAID CHASSE SA"
+            },
+            {
+                ClientName:"CLT13 - ESSAID CHASSE SA"
             },
         ],
         ClientSelected:'Sélectioner un cient',
@@ -323,11 +331,12 @@
         ///// Options
         OptionsModèlePDF:'Devis de vente-modéle corporate',
         OptionsAficherphotoArticle:true,
-        DataIsSubmited:false
+        DataIsSubmited:false,
+        CheckIfExportData:''
 
       }
     },
-    props:['ConfirmationSelectionerClient','NameOfNewClientAdded'],
+    props:['ConfirmationSelectionerClient','NameOfNewClientAdded','Numero'],
     emits:['AlertSelectionerClient','AddNewClient','SendRemiseAndPortToArticleSpace'],
     methods:{
         SwitchOptionsToAnother(item){
@@ -378,7 +387,7 @@
            this.EchéancierRow.splice(row,1); 
         },
         GetAllData(){
-            this.DataIsSubmited = true
+            this.DataIsSubmited = true;
         },
         GetTodayDate(){
             let GetDate = new Date();
@@ -391,9 +400,8 @@
         ClientSelectionerBeforeConfirmation(params){
             this.$emit('AlertSelectionerClient', params);
             this.ScrollSearchClient = false
-            this.ClientSelected = params
+            this.InformationsPiéceCilent = params
         },
-
         NewClient(){
             this.$emit('AddNewClient',this.Clients);
             this.ScrollSearchClient = false
@@ -408,14 +416,52 @@
             this.$emit('SendRemiseAndPortToArticleSpace',RemisAndPort)
         }
     },
-    mounted(){
-        this.GetTodayDate()
-    },
     watch: { 
             ConfirmationSelectionerClient: function () {
-                document.querySelector('.SearchClientButton').innerHTML =  this.ClientSelected
+                document.querySelector('.SearchClientButton').innerHTML =  this.InformationsPiéceCilent
                 this.$emit('ConfirmationSelectionerClientToFalse')
             },
-    }
+            NameOfNewClientAdded : function (){
+                document.querySelector('.SearchClientButton').innerHTML =  this.NameOfNewClientAdded
+                const NewClient ={"ClientName":this.NameOfNewClientAdded}
+                this.Clients.push(NewClient)
+            },
+            '$store.state.InsertVendreData': function() {
+                let FacturesInformation={
+                    "Informations_Piéce":{
+                        "Client_Name" :  this.InformationsPiéceCilent,
+                        "Numéro" :   this.InformationsPiéceNémuro,
+                        "Date_Devis" :   this.InformationsPiéceDateDuDevis,
+                        "N_De_référence" :   this.InformationsPiéceNDeRéférence,
+                        "Vendeur" :   this.InformationsPiéceVendeur,
+                    },
+                    "Informations_Financiéres":{
+                        "Date_déchéance" :  this.InformationsfinanciéresDateDécheance,
+                        "Remise_global" :   this.InformationsfinanciéresRemiseGlobal,
+                        "Type_remise global" :   this. InformationsfinanciéresRemiseGlobalType,
+                        "Port" :   this.  InformationsfinanciéresPort,
+                        "TVA/Port" :   this.InformationsfinanciéresTVAPort,
+                        "Devise_utilisée" :   this.InformationsfinanciéresDeviseUtilisée,
+                    },
+                    "écheancier":{
+                        "Echéancier" :this.EchéancierRow
+                    },
+                    "Logistique":{
+                        "Mode_Livraison":this.LogistiqueModeLivraison,
+                        "Adresse_Livraison":this.LogistiqueAdresseLivraison,
+                        "AdresseFacturation":this.LogistiqueAdresseFacturation
+                    },
+                    "Options":{
+                        "Modèle_PDF":this.OptionsModèlePDF
+                    }
+                }
+                this.$store.commit('GetInformationVentes',FacturesInformation,)
+                // console.log(FacturesInformation)
+            }
+    },
+    mounted(){
+        this.GetTodayDate()
+        
+    },
   }
 </script>
