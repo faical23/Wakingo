@@ -701,7 +701,10 @@ export default {
                 }
                 this.$store.commit('GetArticles',InformationArtices)
                 this.DataIsSubmited = true;
-                // console.log(InformationArtices)
+            },
+            '$store.state.Réinitialiser': function() {
+                this.$forceUpdate();
+                console.log('reinitaliser from articles')
             }
 
     },

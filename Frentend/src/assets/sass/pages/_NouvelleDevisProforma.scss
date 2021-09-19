@@ -2,9 +2,15 @@
     width: 100%;
     padding: 20px;
     padding-bottom: 0px !important;
-    .ValideOrAnnulerBtns{
+    .ValideOrAnnulerBtnsOrlinks{
+      display: flex;
       button{
-        margin: 0px 10px !important;
+        display: flex;
+        align-items: center;
+        margin: 0px 5px !important;
+      }
+      svg{
+        margin: 0px 5px !important;
       }
     }
     .NouvelleDevisProforma__Header {
@@ -141,6 +147,11 @@
             padding: 0px !important;
           }
         }
+      }
+    }
+    .PiéceAttachée{
+      p{
+        padding: 20px 0px;
       }
     }
     .DeleteRow {

@@ -8,7 +8,9 @@ export default new Vuex.Store({
     InsertVendreData : false, 
     InformationVentes : "Empty",
     InformationsArticles : "Empty",
-    RemarqueArticle: "Empty"
+    RemarqueArticle: "Empty",
+    Réinitialiser : false,
+
   },
   mutations: {
     ActiveToInsert(state){
@@ -22,6 +24,9 @@ export default new Vuex.Store({
     },
     GetRemarqueArticles(state,Data){
       state.RemarqueArticle= Data
+    },
+    RéinitialiserCompenent(state){
+      state.Réinitialiser ? state.Réinitialiser = false : state.Réinitialiser = true
     }
   },
   actions: {

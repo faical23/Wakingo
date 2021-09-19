@@ -898,8 +898,18 @@ textarea {
   padding-bottom: 0px !important;
 }
 
-.NouvelleDevisProforma .ValideOrAnnulerBtns button {
-  margin: 0px 10px !important;
+.NouvelleDevisProforma .ValideOrAnnulerBtnsOrlinks {
+  display: flex;
+}
+
+.NouvelleDevisProforma .ValideOrAnnulerBtnsOrlinks button {
+  display: flex;
+  align-items: center;
+  margin: 0px 5px !important;
+}
+
+.NouvelleDevisProforma .ValideOrAnnulerBtnsOrlinks svg {
+  margin: 0px 5px !important;
 }
 
 .NouvelleDevisProforma .NouvelleDevisProforma__Header {
@@ -1093,6 +1103,10 @@ textarea {
 .NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto h5 {
   margin: 0px !important;
   padding: 0px !important;
+}
+
+.NouvelleDevisProforma .PiéceAttachée p {
+  padding: 20px 0px;
 }
 
 .NouvelleDevisProforma .DeleteRow {

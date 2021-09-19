@@ -14,7 +14,7 @@
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
                             <router-link to="/" class="RoutlinkZone">Gestion des devis / Proforma</router-link>>
-                            <span  class="RoutlinkZone">Devis / Proforma : DEV-07092021-4</span>
+                            <span  class="RoutlinkZone">Devis / Proforma : {{GetNuméro()}} </span>
                         </div>
                         <div v-if="DisplayBtnEnregistrer" class="NouvelleDevisProforma__Header__Right__Btns">
                             <button @click="GetAllDataFromChildComponent()">
@@ -60,7 +60,7 @@
                                 </svg>
                                 Enregistrer
                             </button>
-                            <button>
+                            <button @click="Réinitialiser()">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     width="15px" height="15px" viewBox="0 0 92.33 92.33" style="enable-background:new 0 0 92.33 92.33;" xml:space="preserve"
                                         >
@@ -110,10 +110,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="ValideOrAnnulerBtns" v-if="AlertSuccess">
+                <div class="ValideOrAnnulerBtnsOrlinks">
                     <v-btn
                     color="success"
                     dark
+                     v-if="AlertSuccess"
                     @click="ValideInsertData()"
                     >
                     Valider
@@ -121,9 +122,68 @@
                     <v-btn
                     color="warning"
                     dark
+                     v-if="AlertSuccess"
                     @click="AnnulerInsertData()"
                     >
-                    Anunuler
+                    Annuler
+                    </v-btn>
+                    <v-btn
+                    color="primary"
+                    dark
+                    v-if="ValideInsert"
+                    >
+                    <i class="far fa-credit-card"></i>
+                    Acompte
+                    </v-btn>
+                    <router-link to="/Ventes/NouvelleCommande/update/757" class="RoutlinkZone">
+                        <v-btn
+                        color="primary"
+                        dark
+                        v-if="ValideInsert"
+                        >
+                        <i class="fas fa-share"></i>
+                        Commander
+                        </v-btn>
+                    </router-link>
+                    <router-link to="/" class="RoutlinkZone">
+                        <v-btn
+                        color="primary"
+                        dark
+                        v-if="ValideInsert"
+                        >
+                        <i class="fas fa-share"></i>
+                        Facturer
+                        </v-btn>
+                    </router-link>
+                        <router-link v-if="ValideInsert" to="/Ventes/NouveauDevis/Proforma/update/444" class="RoutlinkZone">
+                             <v-btn
+                                color="warning"
+                                dark
+                                v-if="ValideInsert"
+                                @click="SwitchToUpdateMode()"
+                                >
+                            <i class="fas fa-unlock-alt"></i>
+                            Forcer la mise à jour
+                            </v-btn>
+
+                            </router-link>
+
+                    <v-btn
+                        color="warning"
+                        dark
+                        v-if="ValideInsert"
+                        >
+                        <i class="fas fa-ban"></i>
+                        Annuler
+                    </v-btn>
+                    <v-btn
+                        color="primary"
+                        dark
+                        v-if="Update"
+                        @click="UpdateDataVende()"
+                        >
+                        <i class="fas fa-ban"></i>
+                        Update
                     </v-btn>
                 </div>
                 <v-alert  v-if="AlertError" type="error" class="AlertError" >
@@ -138,7 +198,11 @@
                 <v-alert v-if="AlertValidé" type="success" class="AlertError">
                      Le devis a bien été Validé!
                 </v-alert>
+                <v-alert v-if="UpdateSuccess" type="success" class="AlertError">
+                     Le devis a bien été modifié!
+                </v-alert>
                 <InformationsProduit
+                :PagePath='PagePath'
                 :Numero='Numero'
                  @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
@@ -166,7 +230,7 @@
                 <Remarque/>
             </div>
             <div class="LastBtnEnregistrer">
-                            <button>
+                            <button @click="GetAllDataFromChildComponent()">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     width="15px" height="15px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
                                 <g>
@@ -226,12 +290,12 @@
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
 
 
-    // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
     import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
     data(){
         return{
+            PagePath:'',
             Alert:false,
             ConfirmationSelectionerClient : false,
             PopupAddNewClient:false,
@@ -251,7 +315,10 @@
             Articles:'AA',
             InformtionArticle:'BB',
             RemarqueArticle : 'CC',
-            DisplayBtnEnregistrer : true
+            DisplayBtnEnregistrer : true,
+            ValideInsert : false,
+            Update : false,
+            UpdateSuccess : false
         }
     },
     components: {
@@ -326,6 +393,7 @@
             this.AlertAnnuler = false,
             this.AlertSuccess = false
             this.AlertValidé = true
+            this.ValideInsert = true
             this.RemarqueArticle = this.$store.state.RemarqueArticle
             console.log(this.Articles,this.InformtionArticle,this.RemarqueArticle)
             ///// AXIOS REQUEST HER
@@ -334,6 +402,28 @@
             this.AlertAnnuler = true
             this.AlertSuccess = false
 
+        },
+        Réinitialiser(){
+            this.$store.commit('RéinitialiserCompenent')
+        },
+        SwitchToUpdateMode(){
+            this.Update = true
+            this.AlertValidé = false
+            this.ValideInsert = false;
+            // AXIOS TO UPDATE HER
+        },
+        UpdateDataVende(){
+            this.AlertValidé = false
+            this.ValideInsert = false;
+            this.$store.commit('ActiveToInsert')
+            this.UpdateSuccess = true
+            this.AlertValidé = false
+            this.ValideInsert = false;
+            console.log(
+            this.Articles,
+            this.InformtionArticle,
+            this.RemarqueArticle,
+            )
         }
     },
     watch: {
@@ -345,7 +435,6 @@
                     && InformationsArticles?.Logistique?.AdresseFacturation !== ''
                     && this.AlertError != true
                 ){
-                    this.AlertSuccess = true
                     this.AlertError = false  
                     this.DisplayBtnEnregistrer = false
                     this.InformtionArticle = InformationsArticles
@@ -372,6 +461,10 @@
                     }
                 })
             }
+    },
+    created() {
+        this.PagePath = this.$router.currentRoute.path
+        console.log(this.PagePath);
     },
   }
 </script>

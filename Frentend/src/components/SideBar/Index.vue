@@ -99,7 +99,7 @@
                   },
                   {
                     SecondChild : 'Nouveau devis&Proforma',
-                    Path:'/Ventes/NouveauDevis/Proforma'
+                    Path:'/Ventes/NouveauDevis/Proforma/Create'
                   }
                 ]
               },
@@ -113,7 +113,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle commande',
-                    Path:'/Ventes/Nouvelle commande'
+                    Path:'/Ventes/NouvelleCommande/Create'
                   }
                 ]
               },
