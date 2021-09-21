@@ -33,7 +33,7 @@
                         <div v-show="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
-                                        <button class="SearchClientButton"    :style="DataIsSubmited && InformationsPiéceCilent == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
+                                        <button class="SearchClientButton"    :style="DataIsSubmited && InformationsPiéceCilent == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>{{InformationsPiéceCilent}}<i class="fas fa-sort-down"></i></button>
                                         <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
                                             <input type="text">
                                             <ul>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Numéro* :</h5>
-                                    <input type="text"  :style="DataIsSubmited && InformationsPiéceNémuro == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" placeholder ="DEV-07092021-4" v-model="InformationsPiéceNémuro"/>
+                                    <input type="text"  :style="DataIsSubmited && InformationsPiéceNémuro == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''"  v-model="InformationsPiéceNémuro"/>
                                     <span v-if="DataIsSubmited && InformationsPiéceNémuro == ''" class="MessageErrorFiled">Ce champ est obligatoire.</span>
                             </div>
                             <div class="InformationPiéce__Field">
@@ -68,7 +68,7 @@
 
                         </div>
                         <div v-if="SelectOptions == 'Informations financiéres'" class="InformationFinanciéres">
-                            <div class="InformationPiéce__Field"  v-if="PagePath !== '/Ventes/NouvelleCommande/Create'" >
+                            <div class="InformationPiéce__Field"  v-if="!PagePath.includes('NouvelleCommande') && !PagePath.includes('NouvelleBonsDeLivraison')" >
                                     <h5>Date d'échéance :</h5>
                                     <input type="date" v-model="InformationsfinanciéresDateDécheance" />
                             </div>
@@ -186,7 +186,13 @@
                             </div>
                         </div>
                         <div  v-if="SelectOptions == 'Logistique'" class="Logistique" >
+                            
+                            <div class="InformationPiéce__Field" v-if="PagePath.includes('NouvelleCommande')">
+                                    <h5>Date de livraison :</h5>
+                                    <input type="date" v-model="LogistiqueDateLivraison">
+                            </div>
                             <div class="InformationPiéce__Field">
+
                                     <h5>Mode de livraison péféré :</h5>
                                     <select v-model="LogistiqueModeLivraison">
                                         <option value="Sélectionner un type">Sélectionner un type</option>
@@ -197,11 +203,16 @@
                                         <option value="à la charge de vendeur">à la charge de vendeur</option>
                                     </select>
                             </div>
+                            <div class="InformationPiéce__Field" v-if="PagePath.includes('NouvelleBonsDeLivraison')">                                    <h5>Dépôt :</h5>
+                                    <select v-model="Dépôt">
+                                        <option  v-for="depot,n in DepotWehave" :key="n" :value="depot.Name">{{depot.Name}}</option>
+                                    </select>
+                            </div>
                              <div class="InformationPiéce__Field">
                                     <h5>Adresse de livraison :</h5>
                                     <textarea name=""  v-model="LogistiqueAdresseLivraison" ></textarea>
                             </div>
-                            <div class="InformationPiéce__Field">
+                            <div class="InformationPiéce__Field"   v-if="PagePath.includes('NouveauDevis')">
                                     <h5>Adresse de facturation* :</h5>
                                     <textarea name="" v-model="LogistiqueAdresseFacturation" :style="DataIsSubmited && LogistiqueAdresseFacturation == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''"></textarea>
                                     <span v-if="DataIsSubmited && LogistiqueAdresseFacturation == '' " class="MessageErrorFiled">Ce champ est obligatoire .</span>
@@ -233,6 +244,7 @@
                 </v-tab-item>
                 </v-tabs-items>
         </v-card>
+        props : {{DataIfPageIsUPdating}}
   </div>
 </template>
 
@@ -275,7 +287,7 @@
         ],
         SelectOptions:'Informations piéce',
         // informations piéce
-        InformationsPiéceCilent:'',
+        InformationsPiéceCilent:'Sélectioner un client',
         InformationsPiéceNémuro:this.Numero,
         InformationsPiéceDateDuDevis:'',
         InformationsPiéceNDeRéférence:'',
@@ -349,6 +361,13 @@
         LogistiqueModeLivraison : 'Sélectionner un type',
         LogistiqueAdresseLivraison:'',
         LogistiqueAdresseFacturation:'',
+        LogistiqueDateLivraison:'',
+        Dépôt:'Dépôt principal',
+        DepotWehave:[
+            {
+                Name:'Dépôt principal'
+            }
+        ],
         ///// Options
         OptionsModèlePDF:'Devis de vente-modéle corporate',
         OptionsAfficherphotoArticle:true,
@@ -356,19 +375,27 @@
         DataIsSubmited:false,
         CheckIfExportData:'',
         DeviseNotMad : false,
+        PathPage:''
 
       }
     },
-    props:['PagePath','ConfirmationSelectionerClient','NameOfNewClientAdded','Numero'],
+    props:['DataIfPageIsUPdating','PagePath','ConfirmationSelectionerClient','NameOfNewClientAdded','Numero'],
     emits:['AlertSelectionerClient','AddNewClient','SendRemiseAndPortToArticleSpace'],
     methods:{
-        RemoveElementFromSlideIngormation(){
-            if(this.PagePath === '/Ventes/NouveauDevis/Proforma/Create'){
+        CheckPathUrl(){
+            let URl = this.$router.currentRoute.path
+            URl.includes('Update')
+            if(this.PagePath.includes('NouveauDevis')){
                 this.items.splice(5,1)
                 this.InformationsPiéceDateName ="Date de Devis * "
+                
             }
-            else if(this.PagePath === '/Ventes/NouvelleCommande/Create'){
+            else if(this.PagePath.includes('NouvelleCommande')){
                 this.InformationsPiéceDateName ="Date de la commande * "
+            }
+            else if(this.PagePath.includes('NouvelleBonsDeLivraison')){
+                this.items.splice(5,1)
+                this.InformationsPiéceDateName ="Date de la livraison *: "
             }
         },
         SwitchOptionsToAnother(item){
@@ -460,6 +487,14 @@
                 PortTVA:this.InformationsfinanciéresTVAPort
             }
             this.$emit('SendRemiseAndPortToArticleSpace',RemisAndPort)
+        },
+        /////this function work if  this page is updating page or if is getting data from url code
+        GetDataIfIsUpdating(){
+            if(this.ArticlesDataIfPageIsUPdating != "Empty"){
+                this.InformationsPiéceCilent = this.DataIfPageIsUPdating.Informations_Piéce.Client_Name
+                this.InformationsPiéceNémuro= this.DataIfPageIsUPdating.Informations_Piéce.Numéro
+            }
+
         }
     },
     watch: { 
@@ -473,16 +508,14 @@
                 this.Clients.push(NewClient)
             },
             '$store.state.InsertVendreData': function() {
-                let FacturesInformation={
+                let ArtcileInformations={
                     "Informations_Piéce":{
                         "Client_Name" :  this.InformationsPiéceCilent,
                         "Numéro" :   this.InformationsPiéceNémuro,
-                        // "Date_Devis" :   this.InformationsPiéceDateDuDevis,
                         "N_De_référence" :   this.InformationsPiéceNDeRéférence,
                         "Vendeur" :   this.InformationsPiéceVendeur,
                     },
                     "Informations_Financiéres":{
-                        // "Date_déchéance" :  this.InformationsfinanciéresDateDécheance,
                         "Remise_global" :   this.InformationsfinanciéresRemiseGlobal,
                         "Type_remise global" :   this. InformationsfinanciéresRemiseGlobalType,
                         "Port" :   this.  InformationsfinanciéresPort,
@@ -496,34 +529,51 @@
                     "Logistique":{
                         "Mode_Livraison":this.LogistiqueModeLivraison,
                         "Adresse_Livraison":this.LogistiqueAdresseLivraison,
-                        "AdresseFacturation":this.LogistiqueAdresseFacturation
+                        "AdresseFacturation":this.LogistiqueAdresseFacturation,
                     },
                     "Options":{
                         "Modèle_PDF":this.OptionsModèlePDF,
                         "AfficherPhotoArticle " : this.OptionsAfficherphotoArticle ,
                     }
                 }
-                    if(this.PagePath === '/Ventes/NouveauDevis/Proforma/Create'){
-                        FacturesInformation.Informations_Piéce.Date_Devis = this.InformationsPiéceDateDuDevis
-                        FacturesInformation.Informations_Financiéres.DateEcheance = this.InformationsfinanciéresDateDécheance
+                    if(this.PagePath.includes('NouveauDevis')){
+                        ArtcileInformations.Informations_Piéce.Date_Devis = this.InformationsPiéceDateDuDevis
+                        ArtcileInformations.Informations_Financiéres.DateEcheance = this.InformationsfinanciéresDateDécheance
                     }
-                    else if(this.PagePath === '/Ventes/NouvelleCommande/Create'){
-                        FacturesInformation.Informations_Piéce.Date_de_commande = this.InformationsPiéceDateDuDevis
-                        FacturesInformation.Options.AfficherPrixArticle = this.InformationsPiéceDateDuDevis
-                        FacturesInformation.PiéceAttachée = this.$refs.PiéceAttachéeFile
+                    else if(this.PagePath.includes('NouvelleCommande')){
+                        ArtcileInformations.Informations_Piéce.Date_de_commande = this.InformationsPiéceDateDuDevis
+                        ArtcileInformations.Options.AfficherPrixArticle = this.InformationsPiéceDateDuDevis
+                        ArtcileInformations.PiéceAttachée = this.$refs.PiéceAttachéeFile
+                    }
+                    else if (this.PagePath.includes('NouvelleBonsDeLivraison')){
+                        ArtcileInformations.Logistique.Dépot= this.Dépôt
                     }
 
-                this.$store.commit('GetInformationVentes',FacturesInformation)
+                this.$store.commit('GetInformationVentes',ArtcileInformations)
                 this.DataIsSubmited = true;
             },
             '$store.state.Réinitialiser': function() {
                 this.$forceUpdate();
                 console.log('reinitaliser from informations article')
+            },
+            /////this function work if  this page is updating page or if is getting data from code url
+            DataIfPageIsUPdating : function() {
+            // if(this.ArticlesDataIfPageIsUPdating != "Empty"){
+            //     this.InformationsPiéceCilent = this.DataIfPageIsUPdating.Informations_Piéce.Client_Name
+            // }
+                this.InformationsPiéceCilent = this.DataIfPageIsUPdating?.Informations_Piéce?.Client_Name
+                this.InformationsPiéceNémuro= this.DataIfPageIsUPdating?.Informations_Piéce?.Numéro
+                //// Pass Data Her to evevry proprieté data
+            },
+            Numero : function() {
+                this.InformationsPiéceNémuro = this.Numero
             }
     },
     mounted(){
         this.GetTodayDate()
-        this.RemoveElementFromSlideIngormation()
+        this.CheckPathUrl()
+        this.GetDataIfIsUpdating()
     },
+
   }
 </script>

@@ -4,6 +4,7 @@ import TableauDeBord from '../views/TableauDeBord'
 import NouvelleDevis from '../views/Ventes/Devis&Proforma/NouveauDevis&Proforma'
 import listeDevis from '../views/Ventes/Devis&Proforma/ListeDesDevis.vue'
 import NouvelleCommande from '../views/Ventes/CommandesClinets/NouvelleCommandes.vue'
+import NouvelleBonLivraison from '../views/Ventes/BonsLivraison/NouvelleBonLivraison.vue'
 
 Vue.use(VueRouter)
 
@@ -18,7 +19,27 @@ const routes = [
     name: 'NouvelleDevis',
     component: NouvelleDevis,
     children: [
-      { path: '/Ventes/NouveauDevis/Proforma/update/:Id', component: NouvelleDevis}
+      { path: '/Ventes/NouveauDevis/Proforma/Update/:code', component: NouvelleDevis}
+    ]
+  },
+  {
+    path: '/Ventes/NouvelleCommande/Create',
+    name: 'NouvelleCommande',
+    component: NouvelleCommande,
+    children: [
+      { path: '/Ventes/NouvelleCommande/Update/:Id', component: NouvelleCommande},
+      { path: '/Ventes/NouvelleCommande/NewCommande/:Id', component: NouvelleCommande}
+
+    ]
+  },
+  {
+    path: '/Ventes/NouvelleBonsDeLivraison/Create',
+    name: 'NouvelleCommande',
+    component: NouvelleBonLivraison,
+    children: [
+      { path: '/Ventes/NouvelleBonsDeLivraison/Update/:Id', component: NouvelleBonLivraison},
+      { path: '/Ventes/NouvelleBonsDeLivraison/NewBonlivraison/:Id', component: NouvelleBonLivraison}
+
     ]
   },
   {
@@ -26,14 +47,6 @@ const routes = [
     name: 'listeDevis',
     component: listeDevis
   },
-  {
-    path: '/Ventes/NouvelleCommande/Create',
-    name: 'NouvelleCommande',
-    component: NouvelleCommande,
-    children: [
-      { path: '/Ventes/NouvelleCommande/update/:Id', component: NouvelleDevis}
-    ]
-  }
 ]
 
 const router = new VueRouter({

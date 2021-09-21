@@ -20,6 +20,7 @@
          Remarque:''
     }),
     emits:[],
+    props:['RemarqueDataIfPageIsUpdating'],
     watch:{
         '$store.state.InsertVendreData': function() {
             this.$store.commit('GetRemarqueArticles',this.Remarque)
@@ -27,6 +28,9 @@
         '$store.state.Réinitialiser': function() {
             this.$forceUpdate();
             console.log('reinitaliser from articles')
+        },
+        'RemarqueDataIfPageIsUpdating':function() {
+            this.Remarque = this.RemarqueDataIfPageIsUpdating
         }
     }
   }

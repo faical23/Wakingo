@@ -7,14 +7,14 @@
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                        <h2>Commande client  : {{GetNuméro()}} </h2>
+                        <h2>Commande client  : {{Numero}} </h2>
                         <p>Cette page vous permet de créer et mettre à jour une commande client</p>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
                             <router-link to="/" class="RoutlinkZone">Gestion des commandes clients</router-link>>
-                            <span  class="RoutlinkZone">Commande client : {{GetNuméro()}}</span>
+                            <span  class="RoutlinkZone">Commande client : {{Numero}}</span>
                         </div>
                         <div v-if="DisplayBtnEnregistrer" class="NouvelleDevisProforma__Header__Right__Btns">
                             <button @click="GetAllDataFromChildComponent()">
@@ -110,10 +110,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="ValideOrAnnulerBtnsOrlinks" v-if="AlertSuccess">
+                <div class="ValideOrAnnulerBtnsOrlinks">
                     <v-btn
                     color="success"
                     dark
+                     v-if="AlertSuccess "
                     @click="ValideInsertData()"
                     >
                     Valider
@@ -121,9 +122,78 @@
                     <v-btn
                     color="warning"
                     dark
+                     v-if="AlertSuccess"
                     @click="AnnulerInsertData()"
                     >
-                    Anunuler
+                    Annuler
+                    </v-btn>
+                    <v-btn
+                    color="primary"
+                    dark
+                    v-if="ValideInsert"
+                    >
+                    <i class="far fa-credit-card"></i>
+                    Acompte
+                    </v-btn>
+                    <router-link :to="`/Ventes/NouvelleBonsDeLivraison/NewBonlivraison/${LinkToNewBonlivraison}`" class="RoutlinkZone">
+                        <v-btn
+                        color="primary"
+                        dark
+                        v-if="ValideInsert"
+                        >
+                        <i class="fas fa-share"></i>
+                        livrer
+                        </v-btn>
+                    </router-link>
+                    <router-link to="/Facturer" class="RoutlinkZone">
+                        <v-btn
+                        color="primary"
+                        dark
+                        v-if="ValideInsert"
+                        >
+                        <i class="fas fa-share"></i>
+                        Facturer
+                        </v-btn>
+                    </router-link>
+                        <router-link v-if="ValideInsert" :to="`/Ventes/NouvelleCommande/Update/${Numero}`" class="RoutlinkZone">
+                             <v-btn
+                                color="warning"
+                                dark
+                                v-if="ValideInsert"
+                                @click="SwitchToUpdateMode()"
+                                >
+                            <i class="fas fa-unlock-alt"></i>
+                            Forcer la mise à jour
+                            </v-btn>
+
+                        </router-link>
+
+                    <v-btn
+                        color="warning"
+                        dark
+                        v-if="ValideInsert"
+                        @click="AnnulerInsertData()"
+                        >
+                        <i class="fas fa-ban"></i>
+                        Annuler
+                    </v-btn>
+                        <v-btn
+                            color="primary"
+                            dark
+                            v-if="ValideInsert"
+                            @click="NewDevis()"
+                            >
+                            <i class="fas fa-plus"></i>
+                            New Commande
+                        </v-btn>
+                    <v-btn
+                        color="primary"
+                        dark
+                        v-if="Update"
+                        @click="UpdateDataVende()"
+                        >
+                        <i class="fas fa-ban"></i>
+                        Update
                     </v-btn>
                 </div>
                 <v-alert  v-if="AlertError" type="error" class="AlertError" >
@@ -138,8 +208,12 @@
                 <v-alert v-if="AlertValidé" type="success" class="AlertError">
                      Le bon de  commande a bien été Validé!
                 </v-alert>
+                <v-alert v-if="UpdateSuccess" type="success" class="AlertError">
+                     Le commande a bien été modifié!
+                </v-alert>
                 <InformationsProduit
                 :PagePath='PagePath'
+                :DataIfPageIsUPdating='DataIfPageIsUPdating'
                 :Numero='Numero'
                  @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
@@ -159,6 +233,7 @@
             <div class="EspaceAddArticles">
                 <AddArticles
                 :PagePath='PagePath'
+                :ArticlesDataIfPageIsUPdating='ArticlesDataIfPageIsUPdating'
                 @NewArticlePopup='OpneNewArticlePopup'
                 :DataNewArticleAdded='DataNewArticleAdded' 
                 @ChoiserArticles='PopupChoiserLesArticles = true' 
@@ -167,7 +242,7 @@
                 />                
             </div>
             <div class="EspaceRemarque">
-                <Remarque/>
+                <Remarque  :RemarqueDataIfPageIsUpdating ="RemarqueDataIfPageIsUpdating"/>
             </div>
             <div class="LastBtnEnregistrer">
                             <button @click="GetAllDataFromChildComponent()">
@@ -230,7 +305,6 @@
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
 
 
-    // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
     import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
@@ -256,7 +330,16 @@
             Articles:'AA',
             InformtionArticle:'BB',
             RemarqueArticle : 'CC',
-            DisplayBtnEnregistrer : true
+            DisplayBtnEnregistrer : true,
+            ValideInsert : false,
+            Update : false,
+            UpdateSuccess : false,
+            ConditonURL :'',
+            CodeURLIfUpdate : '',
+            DataIfPageIsUPdating:'Empty',
+            ArticlesDataIfPageIsUPdating : "Empty",
+            RemarqueDataIfPageIsUpdating : "Empty",
+            LinkToNewBonlivraison:''
         }
     },
     components: {
@@ -270,14 +353,21 @@
     PopupNewArticle,
     ChoiserArticles,
     
-    //   AlertErrorFailed
     },
     methods:{
         GetNuméro(){
-            var today = new Date();
-            var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
-            this.Numero= ` CDV-${date}-5`
-            return this.Numero
+                let URl = this.$router.currentRoute.path
+                var today = new Date();
+                var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
+                if(URl.includes('Create')){
+                    this.Numero= `CDV-${date}-5`
+                    this.LinkToNewBonlivraison =  `BL-${date}-5`
+                }
+                 else if(URl.includes('Update') || URl.includes('update') || URl.includes('NewCommande')){
+                        let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
+                        this.Numero=  CodeIfUpdate
+                        this.LinkToNewBonlivraison =  `BL-${date}-5`
+                 }
         },
         DeleteAllPopup(){
             this.Alert=false
@@ -325,12 +415,16 @@
             console.log(RemisAndPort)
         },
         GetAllDataFromChildComponent(){
+            this.AlertAnnuler = false
             this.$store.commit('ActiveToInsert')
+            console.log('get data')
         },
         ValideInsertData(){
+            this.AlertAnnuler = false
             this.AlertAnnuler = false,
             this.AlertSuccess = false
             this.AlertValidé = true
+            this.ValideInsert = true
             this.RemarqueArticle = this.$store.state.RemarqueArticle
             console.log(this.Articles,this.InformtionArticle,this.RemarqueArticle)
             ///// AXIOS REQUEST HER
@@ -338,55 +432,268 @@
         AnnulerInsertData(){
             this.AlertAnnuler = true
             this.AlertSuccess = false
+            this.ValideInsert = false
+            this.AlertValidé = false
+            this.DisplayBtnEnregistrer = true
+            this.UpdateSuccess = false
+            this.NewAddVende = true
+            history.pushState(null, '', '/Ventes/NouvelleCommande/Create');  
+            
+            //// AXIOS TO ANNULER WHERE 
 
         },
         Réinitialiser(){
-            // this.$forceUpdate();
-            // this.$router.go()	// Refreshes pag
-            console.log("reanlisation")
             this.$store.commit('RéinitialiserCompenent')
-        }
+            ///rEALISATION HER
+        },
+        SwitchToUpdateMode(){
+            this.Update = true
+            this.AlertValidé = false
+            this.ValideInsert = false;
+            this.UpdateSuccess = false
+        },
+        UpdateDataVende(){
+                        this.$store.commit('ActiveToInsert')
+                        this.ValideInsert = true
+                        this.Update = false
+                        let InformationsArticles = this.$store.state.InformationVentes
+                        if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
+                            && InformationsArticles?.Informations_Piéce?.Numéro !== ''
+                            ){
+                            this.AlertError = false
+                            let InformationsArticles = this.$store.state.InformationsArticles
+                            if(InformationsArticles  != 'Empty' ){
+                                    this.AlertError = false
+                                    InformationsArticles.Articles.forEach(element =>{
+                                    if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price) && this.AlertError != true)){
+                                        this.UpdateSuccess = true
+                                        this.AlertError = false
+                                        console.log('aright')
+                                        // AXIOS TO UPDATE her
+                                    }
+                                    else{
+                                        this.UpdateSuccess = false
+                                        this.AlertError = true
+                                        console.log('vide')
+                                    }
+                                })
+                            }
+                            console.log(InformationsArticles)
+                        }
+                        else{
+                            this.UpdateSuccess = false
+                            this.AlertError = true
+                            console.log('vide')
+                        }
+                        console.log(InformationsArticles)
+        },
+        NewDevis(){
+            this.Update = false
+            this.AlertValidé = false
+            this.ValideInsert = false;
+            this.UpdateSuccess = false;
+            this.DisplayBtnEnregistrer = true
+            this.UpdateSuccess = false
+            this.AlertAnnuler = false
+            this.AlertValidé = false
+            this.ValideInsert = false
+            this.$store.commit('RéinitialiserCompenent')
+            this.NewAddVende = true
+            history.pushState(null, '', '/Ventes/NouvelleCommande/Create');  
+
+
+            //// reanlisation her
+        },
+        GetPathURL(){
+            let URl = this.$router.currentRoute.path
+            console.log(this.$router.currentRoute.path)
+            let Condition= ''
+            let CodeIfUpdate = ''
+            if(URl.includes('Create')){
+                Condition = 'Create'
+            }
+            else if(URl.includes('Update') || URl.includes('update')){
+                Condition = 'Update'
+                CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
+                this.Update = true
+                this.DisplayBtnEnregistrer = false
+                //// get data from axios where element = code 
+                /// and send data from props to the child components
+                //  and sedn data to the vuex store 
+                this.DataIfPageIsUPdating = {
+                                    "Informations_Piéce":{
+                                        "Client_Name" :  "CLT8 - ESSAID CHASSE SA",
+                                        "Numéro" :    CodeIfUpdate,
+                                        "Date_Devis" :   "09-08-2019",
+                                        "N_De_référence" :   this.InformationsPiéceNDeRéférence,
+                                        "Vendeur" :   this.InformationsPiéceVendeur,
+                                    },
+                                    "Informations_Financiéres":{
+                                        "Remise_global" :   10,
+                                        "Type_remise global" :   "%",
+                                        "Port" :   9,
+                                        "TVA/Port" :   "20,00%",
+                                        "Devise_utilisée" :   'MAD-Drham Marocain',
+                                        "TauxChange_If_DeviseUtilisée_Not_MAD":9.60
+                                    },
+                                    "écheancier":[
+                                                { 
+                                                TypeEchéancier : 'Sélectionner un type',
+                                                LibilléEchéance : '100,00% comptant',
+                                                ModePaimentEchéance:'Au choix du client',
+                                                DélaiEchéance:'',
+                                                FDEEcheance : false,
+                                                LeEchéance:'',
+                                                MontantEchéance:'',
+                                                QuotitéEchéance:'',
+                                                }
+                                            ],
+                                    "Logistique":{
+                                        "Mode_Livraison":'Sélectionner un type',
+                                        "Adresse_Livraison":"ABCDEF",
+                                        "AdresseFacturation":"ABCDEF"
+                                    },
+                                    "Options":{
+                                        "Modèle_PDF":"Devis de vente-modéle corporate",
+                                        "AfficherPhotoArticle " : true,
+                                        "AfficherPrixArticle" : true
+                                    },
+                                    'PiéceAttachée':"File"
+                                    }
+                this.ArticlesDataIfPageIsUPdating={
+                    "Articles" : '',
+                    "Total_Global":{
+                            "Total_Brut":150,
+                            "Remise":10,
+                            "Total_HT":122,
+                            "TVAt":42,
+                            "Transport_HT":12,
+                            "TVA_Port":8,
+                            "Total_TTC":122,
+                    },
+                    "Table_TVA" :''
+
+                }
+                this.RemarqueDataIfPageIsUpdating = 'Remarque from Updating page or url code'
+                
+
+            }
+            else if(URl.includes('NewCommande')){
+                Condition = 'NewCommande'
+                CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
+                // this.Update = true
+                this.DisplayBtnEnregistrer = true
+                //// get data from axios where element = code 
+                /// and send data from props to the child components
+                //  and sedn data to the vuex store 
+                this.DataIfPageIsUPdating = {
+                                    "Informations_Piéce":{
+                                        "Client_Name" :  "CLT8 - ESSAID CHASSE SA",
+                                        "Numéro" :    CodeIfUpdate,
+                                        "Date_Devis" :   "09-08-2019",
+                                        "N_De_référence" :   this.InformationsPiéceNDeRéférence,
+                                        "Vendeur" :   this.InformationsPiéceVendeur,
+                                    },
+                                    "Informations_Financiéres":{
+                                        "Remise_global" :   10,
+                                        "Type_remise global" :   "%",
+                                        "Port" :   9,
+                                        "TVA/Port" :   "20,00%",
+                                        "Devise_utilisée" :   'MAD-Drham Marocain',
+                                        "TauxChange_If_DeviseUtilisée_Not_MAD":9.60
+                                    },
+                                    "écheancier":[
+                                                { 
+                                                TypeEchéancier : 'Sélectionner un type',
+                                                LibilléEchéance : '100,00% comptant',
+                                                ModePaimentEchéance:'Au choix du client',
+                                                DélaiEchéance:'',
+                                                FDEEcheance : false,
+                                                LeEchéance:'',
+                                                MontantEchéance:'',
+                                                QuotitéEchéance:'',
+                                                }
+                                            ],
+                                    "Logistique":{
+                                        "Mode_Livraison":'Sélectionner un type',
+                                        "Adresse_Livraison":"ABCDEF",
+                                        "AdresseFacturation":"ABCDEF"
+                                    },
+                                    "Options":{
+                                        "Modèle_PDF":"Devis de vente-modéle corporate",
+                                        "AfficherPhotoArticle " : true,
+                                        "AfficherPrixArticle" : true
+                                    },
+                                    'PiéceAttachée':"File"
+                                    }
+                this.ArticlesDataIfPageIsUPdating={
+                    "Articles" : '',
+                    "Total_Global":{
+                            "Total_Brut":150,
+                            "Remise":10,
+                            "Total_HT":122,
+                            "TVAt":42,
+                            "Transport_HT":12,
+                            "TVA_Port":8,
+                            "Total_TTC":122,
+                    },
+                    "Table_TVA" :''
+
+                }
+                this.RemarqueDataIfPageIsUpdating = 'Remarque from Updating page or url code'
+            }
+            // this.Numero= "dsdsdq"
+            this.ConditonURL = Condition
+            this.CodeURLIfUpdate = "CodeIfUpdate"
+        },
+
     },
     watch: {
             '$store.state.InformationVentes': function() {
-                 this.AlertError = false
                 let InformationsArticles = this.$store.state.InformationVentes
-                if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
-                    && InformationsArticles?.Informations_Piéce?.Numéro !== ''
-                    && InformationsArticles?.Logistique?.AdresseFacturation !== ''
-                    && this.AlertError != true
-                ){
-                    this.AlertSuccess = true
-                    this.AlertError = false  
-                    this.DisplayBtnEnregistrer = false
-                    this.InformtionArticle = InformationsArticles
-                }
-                else{
-                    this.AlertError = true
-                    this.AlertSuccess = false
-                    this.DisplayBtnEnregistrer = true
-                }
-            },
-            '$store.state.InformationsArticles': function() {
-                let InformationsArticles = this.$store.state.InformationsArticles
-                InformationsArticles.Articles.forEach(element =>{
-                    if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price))&& this.AlertError != true){
-                        this.AlertSuccess = true
+                    if((this.ConditonURL == 'Create' || this.ConditonURL == 'NewCommande' )&& this.ValideInsert != true){
                         this.AlertError = false
-                        this.Articles = InformationsArticles
+                        if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
+                        && InformationsArticles?.Informations_Piéce?.Numéro !== ''
+                        && this.AlertError != true
+                    ){
+                        this.AlertError = false  
                         this.DisplayBtnEnregistrer = false
+                        this.InformtionArticle = InformationsArticles
                     }
                     else{
                         this.AlertError = true
                         this.AlertSuccess = false
                         this.DisplayBtnEnregistrer = true
                     }
-                })
+                }
+
+            },
+            '$store.state.InformationsArticles': function() {
+                let InformationsArticles = this.$store.state.InformationsArticles
+                if((this.ConditonURL == 'Create' || this.ConditonURL == 'NewCommande' )&& this.ValideInsert != true){
+                    InformationsArticles.Articles.forEach(element =>{
+                        if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price))&& this.AlertError != true){
+                            if( this.ValideInsert == false){
+                                this.AlertSuccess = true
+                            }
+                            this.AlertError = false
+                            this.Articles = InformationsArticles
+                            this.DisplayBtnEnregistrer = false
+                        }
+                        else{
+                            this.AlertError = true
+                            this.AlertSuccess = false
+                            this.DisplayBtnEnregistrer = true
+                        }
+                    })
+                }
             }
     },
     created() {
         this.PagePath = this.$router.currentRoute.path
-      console.log(this.PagePath);
+        this.GetNuméro()
+        this.GetPathURL()
     },
   }
 </script>

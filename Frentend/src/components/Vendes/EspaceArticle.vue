@@ -11,7 +11,8 @@
                     <tr>
                         <th class="FailedArticle">Article</th>
                         <th class="FailedTailsArticle">Détails de l'article</th>
-                        <th class="FailedSimple">Qté.</th>
+                        <th class="FailedSimple" v-if="PagePath.includes('NouvelleBonsDeLivraison')">{{QtéCommandée}}</th>
+                        <th class="FailedSimple">{{Qté}}</th>
                         <th class="FailedSimple" >Unité.</th>
                         <th class="FailedSimple" >
                             <select v-model="PriceType" @change="GetTotalTTCRow('AllRowMontant'),Calculte_TotatlBrut_And_Remise()" >
@@ -20,7 +21,6 @@
                             </select>
                         </th>
                         <th class="FailedSimple" >Remise</th>
-
                         <th class="FailedSimple">Tva</th>
                         <th  class="FailedSimple" >Total TTC</th>
                         <th  class="FailedSimpleBtn">#</th>
@@ -46,6 +46,9 @@
                             <span v-if="DataIsSubmited && article.DétailsArticle == '' " class="MessageErrorFiled ArticleFailedError">Ce champ est obligatoire .</span>
 
                         </td  >
+                        <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre' && PagePath.includes('NouvelleBonsDeLivraison')" >
+                            <input  class="InputZone" type="text" placeholder="0" v-model="article.QtéCommandeé">
+                        </td>
                         <td  class="FailedSimple" v-if="article.Type!='Sous total' && article.Type!='Text libre'">
                             <input :class=" article.Type != 'Article Libre' ? 'InputZone' : '' " type="text" v-model="article.Qté" placeholder="0,00" @keyup="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()"  @change="GetTotalTTCRow(index),Calculte_TotatlBrut_And_Remise()">
                             <span v-if="DataIsSubmited && (isNaN(article.Qté) || article.Qté == '0') " class="MessageErrorFiled ArticleFailedError">vous devez spécifier la valeur correcte.</span>
@@ -222,8 +225,10 @@
                     </table>
                 </div>
         </div>
+        props : {{ArticlesDataIfPageIsUPdating}}
 
     </div>
+
 </template>
 
 
@@ -233,7 +238,7 @@ export default {
   components: { },
   name: "ArticleVentes",
   emits:['NewArticlePopup'],
-  props:['DataNewArticleAdded','DataChoiserArticles','DataRemisAndPort'],
+  props:['PagePath','DataNewArticleAdded','DataChoiserArticles','DataRemisAndPort','ArticlesDataIfPageIsUPdating'],
   data: () => ({
       Article:[
         {
@@ -243,6 +248,7 @@ export default {
                 nameArticle:'Sélectioner un client',
                 DétailsArticle:'',
                 Qté:0,
+                QtéCommandeé:0,
                 Unité :'Douzaine(s)',
                 Price:0,
                 TypePrice:'',
@@ -346,12 +352,17 @@ export default {
             TableTva_TVAMontant:0,
         },
     ],
-    DataIsSubmited :false
-
-
-
+    DataIsSubmited :false,
+    Qté:'Qté',
+    QtéCommandée:'Qté.Commandée',
   }),
   methods:{
+    CheckPathURL(){
+            if(this.PagePath.includes('NouvelleBonsDeLivraison')){
+                this.Qté= 'Qté.livrée' 
+                console.log('wsslatt')
+            }
+    },
     UploadImg(index){
         this.$refs.ArticelImgProduct.click()
         this.IndexImgChange = index;
@@ -385,9 +396,10 @@ export default {
                 nameArticle:'Sélectioner un client',
                 DétailsArticle:'',
                 Qté:0,
+                QtéCommandeé:0,
                 Unité :'Douzaine(s)',
-                PriceType:'P.U HT',
                 Price:0,
+                TypePrice:'',
                 RemisePrice:0,
                 RemiseType:'%',
                 TVA:"20,00%",
@@ -609,6 +621,20 @@ export default {
         this.Calculte_TotatlBrut_And_Remise()
 
 
+    },
+    /////this function work if  this page is updating page or if is getting data from url code
+    GetDataIfIsUpdating(){
+        if(this.ArticlesDataIfPageIsUPdating != "Empty"){
+            this.TotalBrutGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Total_Brut
+            this.RemiseGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Remise
+            this.TotalHTGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Total_HT
+            this.TVAtGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.TVAt
+            this.TransportHTGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Transport_HT
+            this.TVAPortGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.TVA_Port
+            this.TotalTTCGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Total_TTC
+
+        }
+
     }
   },
     watch: { 
@@ -640,17 +666,24 @@ export default {
                             ArticleImg:'/img/uploaImg.7d959d34.jpg',
                             scrollSelectArticle:false,
                             nameArticle: `${this.DataNewArticleAdded.CodeArtcile} ${this.DataNewArticleAdded.LibelléArticle}`,
-                            Qté:'',
+                            Qté:0,
+                            QtéCommandeé:0,
                             Unité : this.DataNewArticleAdded.UnitéValorisation,
                             Price:ArticlePrice,
-                            RemisePrice:'',
+                            RemisePrice:0,
                             RemiseType:'%',
                             TVA:this.DataNewArticleAdded.TVA,
-                            TotalTTC:'',
+                            TotalTTC:0,
                     }
                      this.Article.push(NewRowArticle)
-
                 }
+                    /// add new tva table if article is added
+                    let NewTable_TVA ={
+                        TableTva_BaseHT:0,
+                        TableTva_TVA:0,
+                        TableTva_TVAMontant:0,
+                    }
+                    this.Table_TVA.push(NewTable_TVA)
             },
             DataChoiserArticles : function (){
                 this.DataChoiserArticles.forEach(element => {
@@ -676,6 +709,13 @@ export default {
                             TotalTTC:'',
                     }
                     this.Article.push(NewRowArticleChoiser)
+                    /// add new tva table if article is added
+                    let NewTable_TVA ={
+                        TableTva_BaseHT:0,
+                        TableTva_TVA:0,
+                        TableTva_TVAMontant:0,
+                    }
+                    this.Table_TVA.push(NewTable_TVA)
                     console.log(element)
                 })
             },
@@ -705,10 +745,20 @@ export default {
             '$store.state.Réinitialiser': function() {
                 this.$forceUpdate();
                 console.log('reinitaliser from articles')
+            },
+            ArticlesDataIfPageIsUPdating : function() {
+                this.TotalBrutGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Total_Brut
+                this.RemiseGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Remise
+                this.TotalHTGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Total_HT
+                this.TVAtGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.TVAt
+                this.TransportHTGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Transport_HT
+                this.TVAPortGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.TVA_Port
+                this.TotalTTCGlobal = this.ArticlesDataIfPageIsUPdating.Total_Global.Total_TTC
             }
-
     },
   mounted(){
+      this.GetDataIfIsUpdating()
+      this.CheckPathURL()
   }
   
 };

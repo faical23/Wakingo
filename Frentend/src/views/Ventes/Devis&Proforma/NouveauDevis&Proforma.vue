@@ -7,14 +7,14 @@
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                        <h2>Devis / Proforma : {{GetNuméro()}} </h2>
+                        <h2>Devis / Proforma : {{Numero}} </h2>
                         <p>Cette page vous permet de créer et mettre à jour un devis / Proforma</p>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
                             <router-link to="/" class="RoutlinkZone">Gestion des devis / Proforma</router-link>>
-                            <span  class="RoutlinkZone">Devis / Proforma : {{GetNuméro()}} </span>
+                            <span  class="RoutlinkZone">Devis / Proforma : {{Numero}} </span>
                         </div>
                         <div v-if="DisplayBtnEnregistrer" class="NouvelleDevisProforma__Header__Right__Btns">
                             <button @click="GetAllDataFromChildComponent()">
@@ -114,7 +114,7 @@
                     <v-btn
                     color="success"
                     dark
-                     v-if="AlertSuccess"
+                     v-if="AlertSuccess "
                     @click="ValideInsertData()"
                     >
                     Valider
@@ -135,7 +135,7 @@
                     <i class="far fa-credit-card"></i>
                     Acompte
                     </v-btn>
-                    <router-link to="/Ventes/NouvelleCommande/update/757" class="RoutlinkZone">
+                    <router-link :to="`/Ventes/NouvelleCommande/NewCommande/${LinkToNewCommande}`" class="RoutlinkZone">
                         <v-btn
                         color="primary"
                         dark
@@ -145,7 +145,7 @@
                         Commander
                         </v-btn>
                     </router-link>
-                    <router-link to="/" class="RoutlinkZone">
+                    <router-link to="/Facturer" class="RoutlinkZone">
                         <v-btn
                         color="primary"
                         dark
@@ -155,7 +155,7 @@
                         Facturer
                         </v-btn>
                     </router-link>
-                        <router-link v-if="ValideInsert" to="/Ventes/NouveauDevis/Proforma/update/444" class="RoutlinkZone">
+                        <router-link v-if="ValideInsert" :to="`/Ventes/NouveauDevis/Proforma/Update/${Numero}`" class="RoutlinkZone">
                              <v-btn
                                 color="warning"
                                 dark
@@ -172,9 +172,19 @@
                         color="warning"
                         dark
                         v-if="ValideInsert"
+                        @click="AnnulerInsertData()"
                         >
                         <i class="fas fa-ban"></i>
                         Annuler
+                    </v-btn>
+                    <v-btn
+                        color="primary"
+                        dark
+                        v-if="ValideInsert"
+                        @click="NewDevis()"
+                        >
+                        <i class="fas fa-plus"></i>
+                        New Devis
                     </v-btn>
                     <v-btn
                         color="primary"
@@ -185,6 +195,12 @@
                         <i class="fas fa-ban"></i>
                         Update
                     </v-btn>
+                </div>
+                <div class="IconsAfterValide" v-if="AlertSuccess || ValideInsert || UpdateSuccess">
+                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-import"></i>
                 </div>
                 <v-alert  v-if="AlertError" type="error" class="AlertError" >
                     Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
@@ -203,6 +219,9 @@
                 </v-alert>
                 <InformationsProduit
                 :PagePath='PagePath'
+                :DataIfPageIsUPdating='DataIfPageIsUPdating'
+                :ConditonURL='ConditonURL'
+                :CodeURLIfUpdate='CodeURLIfUpdate'
                 :Numero='Numero'
                  @AlertSelectionerClient="ActiveAlertConfirmation"
                  :ConfirmationSelectionerClient="ConfirmationSelectionerClient" 
@@ -220,14 +239,17 @@
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
             </div>
             <div class="EspaceAddArticles">
-                <AddArticles @NewArticlePopup='OpneNewArticlePopup'
+                <AddArticles
+                :PagePath='PagePath'
+                :ArticlesDataIfPageIsUPdating='ArticlesDataIfPageIsUPdating'
+                 @NewArticlePopup='OpneNewArticlePopup'
                  :DataNewArticleAdded='DataNewArticleAdded' 
                  @ChoiserArticles='PopupChoiserLesArticles = true' 
                  :DataChoiserArticles='DataChoiserArticles' 
                  :DataRemisAndPort='DataRemisAndPort'/>                
             </div>
             <div class="EspaceRemarque">
-                <Remarque/>
+                <Remarque  :RemarqueDataIfPageIsUpdating ="RemarqueDataIfPageIsUpdating"/>
             </div>
             <div class="LastBtnEnregistrer">
                             <button @click="GetAllDataFromChildComponent()">
@@ -318,7 +340,14 @@
             DisplayBtnEnregistrer : true,
             ValideInsert : false,
             Update : false,
-            UpdateSuccess : false
+            UpdateSuccess : false,
+            ConditonURL :'',
+            CodeURLIfUpdate : '',
+            DataIfPageIsUPdating:'Empty',
+            ArticlesDataIfPageIsUPdating : "Empty",
+            RemarqueDataIfPageIsUpdating : "Empty",
+            LinkToNewCommande:'',
+            NewAddVende : false,
         }
     },
     components: {
@@ -336,10 +365,18 @@
     },
     methods:{
         GetNuméro(){
-            var today = new Date();
-            var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
-            this.Numero= `DEV-${date}-5`
-            return this.Numero
+                let URl = this.$router.currentRoute.path
+                var today = new Date();
+                var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
+                if(URl.includes('Create')){
+                        this.Numero= `DEV-${date}-5`
+                        this.LinkToNewCommande = `CDV-${date}-5`
+                }
+                 else if(URl.includes('Update') || URl.includes('update')){
+                        let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
+                        this.Numero=  CodeIfUpdate
+                        this.LinkToNewCommande = `CDV-${date}-5`
+                 }
         },
         DeleteAllPopup(){
             this.Alert=false
@@ -387,9 +424,12 @@
             console.log(RemisAndPort)
         },
         GetAllDataFromChildComponent(){
+            this.AlertAnnuler = false
             this.$store.commit('ActiveToInsert')
+            console.log("get data child component")
         },
         ValideInsertData(){
+            this.AlertAnnuler = false
             this.AlertAnnuler = false,
             this.AlertSuccess = false
             this.AlertValidé = true
@@ -401,70 +441,207 @@
         AnnulerInsertData(){
             this.AlertAnnuler = true
             this.AlertSuccess = false
+            this.ValideInsert = false
+            this.AlertValidé = false
+            this.DisplayBtnEnregistrer = true
+            this.UpdateSuccess = false
+            this.NewAddVende = true
+            history.pushState(null, '', '/Ventes/NouveauDevis/Proforma/Create');  
+            
+            //// AXIOS TO ANNULER WHERE 
 
         },
         Réinitialiser(){
             this.$store.commit('RéinitialiserCompenent')
+            ///rEALISATION HER
         },
         SwitchToUpdateMode(){
             this.Update = true
             this.AlertValidé = false
             this.ValideInsert = false;
-            // AXIOS TO UPDATE HER
+            this.UpdateSuccess = false
         },
         UpdateDataVende(){
+                        this.$store.commit('ActiveToInsert')
+                        this.ValideInsert = true
+                        this.Update = false
+                        let InformationsArticles = this.$store.state.InformationVentes
+                        if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
+                            && InformationsArticles?.Informations_Piéce?.Numéro !== ''
+                            && InformationsArticles?.Logistique?.AdresseFacturation !== ''
+                            ){
+                            this.AlertError = false
+                            let InformationsArticles = this.$store.state.InformationsArticles
+                            if(InformationsArticles  != 'Empty' ){
+                                    this.AlertError = false
+                                    InformationsArticles.Articles.forEach(element =>{
+                                    if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price) && this.AlertError != true)){
+                                        this.UpdateSuccess = true
+                                        this.AlertError = false
+                                        console.log('aright')
+                                        // AXIOS TO UPDATE her
+                                    }
+                                    else{
+                                        this.UpdateSuccess = false
+                                        this.AlertError = true
+                                        console.log('vide')
+                                    }
+                                })
+                            }
+                            console.log(InformationsArticles)
+                        }
+                        else{
+                            this.UpdateSuccess = false
+                            this.AlertError = true
+                            console.log('vide')
+                        }
+                        console.log(InformationsArticles)
+        },
+        NewDevis(){
+            this.Update = false
             this.AlertValidé = false
             this.ValideInsert = false;
-            this.$store.commit('ActiveToInsert')
-            this.UpdateSuccess = true
+            this.UpdateSuccess = false;
+            this.DisplayBtnEnregistrer = true
+            this.UpdateSuccess = false
+            this.AlertAnnuler = false
             this.AlertValidé = false
-            this.ValideInsert = false;
-            console.log(
-            this.Articles,
-            this.InformtionArticle,
-            this.RemarqueArticle,
-            )
-        }
+            this.ValideInsert = false
+            this.NewAddVende = true
+            this.$store.commit('RéinitialiserCompenent')
+            history.pushState(null, '', '/Ventes/NouveauDevis/Proforma/Create');  
+
+            //// reanlisation her
+        },
+        GetPathURL(){
+            let URl = this.$router.currentRoute.path
+            let Condition= ''
+            let CodeIfUpdate = ''
+            if(URl.includes('Create')){
+                Condition = 'Create'
+            }
+            else if(URl.includes('Update') || URl.includes('update')){
+                Condition = 'Update'
+                CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
+                this.Update = true
+                this.DisplayBtnEnregistrer = false
+                //// get data from axios where element = code 
+                /// and send data from props to the child components
+                //  and sedn data to the vuex store 
+                this.DataIfPageIsUPdating = {
+                                    "Informations_Piéce":{
+                                        "Client_Name" :  "CLT8 - ESSAID CHASSE SA",
+                                        "Numéro" :    CodeIfUpdate,
+                                        "Date_Devis" :   "09-08-2019",
+                                        "N_De_référence" :   this.InformationsPiéceNDeRéférence,
+                                        "Vendeur" :   this.InformationsPiéceVendeur,
+                                    },
+                                    "Informations_Financiéres":{
+                                        "Remise_global" :   10,
+                                        "Type_remise global" :   "%",
+                                        "Port" :   9,
+                                        "TVA/Port" :   "20,00%",
+                                        "Devise_utilisée" :   'MAD-Drham Marocain',
+                                        "TauxChange_If_DeviseUtilisée_Not_MAD":9.60
+                                    },
+                                    "écheancier":[
+                                                { 
+                                                TypeEchéancier : 'Sélectionner un type',
+                                                LibilléEchéance : '100,00% comptant',
+                                                ModePaimentEchéance:'Au choix du client',
+                                                DélaiEchéance:'',
+                                                FDEEcheance : false,
+                                                LeEchéance:'',
+                                                MontantEchéance:'',
+                                                QuotitéEchéance:'',
+                                                }
+                                            ],
+                                    "Logistique":{
+                                        "Mode_Livraison":'Sélectionner un type',
+                                        "Adresse_Livraison":"ABCDEF",
+                                        "AdresseFacturation":"ABCDEF"
+                                    },
+                                    "Options":{
+                                        "Modèle_PDF":"Devis de vente-modéle corporate",
+                                        "AfficherPhotoArticle " : true,
+                                        "AfficherPrixArticle" : true
+                                    },
+                                    'PiéceAttachée':"File"
+                                    }
+                this.ArticlesDataIfPageIsUPdating={
+                    "Articles" : '',
+                    "Total_Global":{
+                            "Total_Brut":150,
+                            "Remise":10,
+                            "Total_HT":122,
+                            "TVAt":42,
+                            "Transport_HT":12,
+                            "TVA_Port":8,
+                            "Total_TTC":122,
+                    },
+                    "Table_TVA" :''
+
+                }
+                this.RemarqueDataIfPageIsUpdating = 'Remarque from Updating page or url code'
+                
+
+            }
+            
+            // this.Numero= "dsdsdq"
+            this.ConditonURL = Condition
+            this.CodeURLIfUpdate = CodeIfUpdate
+        },
+
     },
     watch: {
             '$store.state.InformationVentes': function() {
-                 this.AlertError = false
                 let InformationsArticles = this.$store.state.InformationVentes
-                if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
-                    && InformationsArticles?.Informations_Piéce?.Numéro !== ''
-                    && InformationsArticles?.Logistique?.AdresseFacturation !== ''
-                    && this.AlertError != true
-                ){
-                    this.AlertError = false  
-                    this.DisplayBtnEnregistrer = false
-                    this.InformtionArticle = InformationsArticles
-                }
-                else{
-                    this.AlertError = true
-                    this.AlertSuccess = false
-                    this.DisplayBtnEnregistrer = true
-                }
-            },
-            '$store.state.InformationsArticles': function() {
-                let InformationsArticles = this.$store.state.InformationsArticles
-                InformationsArticles.Articles.forEach(element =>{
-                    if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price))&& this.AlertError != true){
-                        this.AlertSuccess = true
+                    if((this.ConditonURL == 'Create' || this.NewAddVende ) && this.ValideInsert != true){
                         this.AlertError = false
-                        this.Articles = InformationsArticles
+                        if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
+                        && InformationsArticles?.Informations_Piéce?.Numéro !== ''
+                        && InformationsArticles?.Logistique?.AdresseFacturation !== ''
+                        && this.AlertError != true
+                    ){
+                        this.AlertError = false  
                         this.DisplayBtnEnregistrer = false
+                        this.InformtionArticle = InformationsArticles
                     }
                     else{
                         this.AlertError = true
                         this.AlertSuccess = false
                         this.DisplayBtnEnregistrer = true
+
                     }
-                })
+                }
+
+            },
+            '$store.state.InformationsArticles': function() {
+                let InformationsArticles = this.$store.state.InformationsArticles
+                if((this.ConditonURL == 'Create' || this.NewAddVende ) && this.ValideInsert != true){
+                    InformationsArticles.Articles.forEach(element =>{
+                        if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price))&& this.AlertError != true){
+                            if( this.ValideInsert == false){
+                                this.AlertSuccess = true
+                            }
+                            this.AlertError = false
+                            this.Articles = InformationsArticles
+                            this.DisplayBtnEnregistrer = false
+                        }
+                        else{
+                            this.AlertError = true
+                            this.AlertSuccess = false
+                            this.DisplayBtnEnregistrer = true
+                        }
+                    })
+                }
             }
     },
     created() {
         this.PagePath = this.$router.currentRoute.path
-        console.log(this.PagePath);
+        this.GetPathURL()
+        this.GetNuméro()
+
     },
   }
 </script>

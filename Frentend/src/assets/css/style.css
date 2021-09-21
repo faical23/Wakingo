@@ -1335,6 +1335,24 @@ textarea {
   background-color: #367fa9;
 }
 
+.IconsAfterValide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.IconsAfterValide i {
+  font-size: 25px;
+  margin: 0px 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+.IconsAfterValide i:hover {
+  background-color: #b1b1b1;
+}
+
 .v-card.v-card--flat.v-sheet.theme--light {
   height: .v-card.v-card--flat.v-sheet.theme--light uto !important;
   margin-bottom: 22px !important;

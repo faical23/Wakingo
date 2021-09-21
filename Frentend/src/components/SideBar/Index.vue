@@ -127,7 +127,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle  Bons de livraison',
-                    Path:'/Ventes/Nouvelle  Bons de livraison'
+                    Path:'/Ventes/NouvelleBonsDeLivraison/Create'
                   }
                 ]
               },
