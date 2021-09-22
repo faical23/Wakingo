@@ -145,7 +145,7 @@
                         livrer
                         </v-btn>
                     </router-link>
-                    <router-link to="/Facturer" class="RoutlinkZone">
+                    <router-link :to="`/Ventes/NouvelleFacture/NouvelleFacture/${LinkToNewFacture}`" class="RoutlinkZone">
                         <v-btn
                         color="primary"
                         dark
@@ -362,11 +362,13 @@
                 if(URl.includes('Create')){
                     this.Numero= `CDV-${date}-5`
                     this.LinkToNewBonlivraison =  `BL-${date}-5`
+                    this.LinkToNewFacture = `FAC-${date}-5`
                 }
                  else if(URl.includes('Update') || URl.includes('update') || URl.includes('NewCommande')){
                         let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
                         this.Numero=  CodeIfUpdate
                         this.LinkToNewBonlivraison =  `BL-${date}-5`
+                        this.LinkToNewFacture = `FAC-${date}-5`
                  }
         },
         DeleteAllPopup(){

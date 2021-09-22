@@ -141,7 +141,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle Factures',
-                    Path:'/Nouvelle Factures'
+                    Path:'/Ventes/NouvelleFacture/Create'
                   }
                 ]
               },
@@ -150,13 +150,13 @@
                 Icons : 'mdi-account-multiple-outline',
                 Child:[
                   {
-                    SecondChild : 'Liste des Avoirs',
-                    Path:'/Ventes/Liste des Avoirs'
+                    SecondChild : 'Liste des Avoirs ',
+                    Path:'/Ventes/ListeDesAvoirs'
                   },
                   {
-                    SecondChild : 'Nouvelle avoir',
-                     path:'/Ventes/Nouvelle avoir'
-                  }
+                    SecondChild : 'Nouvelle Avoirs',
+                    Path:'/Ventes/NouvelleAvoir/Create'
+                  },
                 ]
               },
               {

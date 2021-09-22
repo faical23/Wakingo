@@ -8,13 +8,13 @@
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
                         <h2>Bon de livraison : {{Numero}} </h2>
-                        <p>Cette page vous permet de créer et mettre à jour un devis / Proforma</p>
+                        <p>Cette page vous permet de créer et mettre à jour un Bon de livraison</p>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
-                            <router-link to="/" class="RoutlinkZone">Gestion des devis / Proforma</router-link>>
-                            <span  class="RoutlinkZone">Devis / Proforma : {{Numero}} </span>
+                            <router-link to="/" class="RoutlinkZone">Gestion des Bon de livraison</router-link>>
+                            <span  class="RoutlinkZone">Bon de livraison : {{Numero}} </span>
                         </div>
                         <div v-if="DisplayBtnEnregistrer" class="NouvelleDevisProforma__Header__Right__Btns">
                             <button @click="GetAllDataFromChildComponent()">
@@ -127,25 +127,7 @@
                     >
                     Annuler
                     </v-btn>
-                    <v-btn
-                    color="primary"
-                    dark
-                    v-if="ValideInsert"
-                    >
-                    <i class="far fa-credit-card"></i>
-                    Acompte
-                    </v-btn>
-                    <router-link :to="`/Ventes/NouvelleCommande/NewCommande/${LinkToNewCommande}`" class="RoutlinkZone">
-                        <v-btn
-                        color="primary"
-                        dark
-                        v-if="ValideInsert"
-                        >
-                        <i class="fas fa-share"></i>
-                        Commander
-                        </v-btn>
-                    </router-link>
-                    <router-link to="/Facturer" class="RoutlinkZone">
+                    <router-link :to="`/Ventes/NouvelleFacture/NouvelleFacture/${LinkToNewFacture}`"  class="RoutlinkZone">
                         <v-btn
                         color="primary"
                         dark
@@ -184,7 +166,7 @@
                         @click="NewDevis()"
                         >
                         <i class="fas fa-plus"></i>
-                        New Devis
+                        New Bon livraison
                     </v-btn>
                     <v-btn
                         color="primary"
@@ -206,16 +188,16 @@
                     Le formulaire contient des erreurs (Champs obligatoires non remplis ou incorrects)
                 </v-alert>
                 <v-alert v-if="AlertSuccess" type="success" class="AlertError">
-                    Le nouveau devis a bien été enregistré!
+                    Le nouveau Bon livraison a bien été enregistré!
                 </v-alert>
                 <v-alert v-if="AlertAnnuler" type="success" class="AlertError">
-                     Le devis a bien été annulé!
+                     Le Bon livraison a bien été annulé!
                 </v-alert>
                 <v-alert v-if="AlertValidé" type="success" class="AlertError">
-                     Le devis a bien été Validé!
+                     Le Bon livraison a bien été Validé!
                 </v-alert>
                 <v-alert v-if="UpdateSuccess" type="success" class="AlertError">
-                     Le devis a bien été modifié!
+                     Le Bon livraison a bien été modifié!
                 </v-alert>
                 <InformationsProduit
                 :PagePath='PagePath'
@@ -346,7 +328,7 @@
             DataIfPageIsUPdating:'Empty',
             ArticlesDataIfPageIsUPdating : "Empty",
             RemarqueDataIfPageIsUpdating : "Empty",
-            LinkToNewCommande:'',
+            LinkToNewFacture:'',
             NewAddVende : false,
         }
     },
@@ -370,12 +352,14 @@
                 var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
                 if(URl.includes('Create')){
                         this.Numero= `BL-${date}-5`
-                        this.LinkToNewCommande = `BL-${date}-5`
+                        this.LinkToNewFacture = `FAC-${date}-5`
+
                 }
                  else if(URl.includes('Update') || URl.includes('update') || URl.includes('NewBonlivraison')){
                         let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
                         this.Numero=  CodeIfUpdate
-                        this.LinkToNewCommande = `BL-${date}-5`
+                        this.LinkToNewFacture = `FAC-${date}-5`
+
                  }
         },
         DeleteAllPopup(){

@@ -5,6 +5,8 @@ import NouvelleDevis from '../views/Ventes/Devis&Proforma/NouveauDevis&Proforma'
 import listeDevis from '../views/Ventes/Devis&Proforma/ListeDesDevis.vue'
 import NouvelleCommande from '../views/Ventes/CommandesClinets/NouvelleCommandes.vue'
 import NouvelleBonLivraison from '../views/Ventes/BonsLivraison/NouvelleBonLivraison.vue'
+import NouvelleFacture from '../views/Ventes/Factures/NouvelleFacteurs.vue'
+import NouvelleAvoir from '../views/Ventes/Avoirs/NouvelleAvoir.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +41,26 @@ const routes = [
     children: [
       { path: '/Ventes/NouvelleBonsDeLivraison/Update/:Id', component: NouvelleBonLivraison},
       { path: '/Ventes/NouvelleBonsDeLivraison/NewBonlivraison/:Id', component: NouvelleBonLivraison}
+
+    ]
+  },
+  {
+    path: '/Ventes/NouvelleFacture/Create',
+    name: 'NouvelleCommande',
+    component: NouvelleFacture,
+    children: [
+      { path: '/Ventes/NouvelleFacture/Update/:Id', component: NouvelleFacture},
+      { path: '/Ventes/NouvelleFacture/NouvelleFacture/:Id', component: NouvelleFacture}
+
+    ]
+  },
+  {
+    path: '/Ventes/NouvelleAvoir/Create',
+    name: 'NouvelleCommande',
+    component: NouvelleAvoir,
+    children: [
+      { path: '/Ventes/NouvelleAvoir/Update/:Id', component: NouvelleAvoir},
+      { path: '/Ventes/NouvelleAvoir/NouvelleAvoir/:Id', component: NouvelleAvoir}
 
     ]
   },

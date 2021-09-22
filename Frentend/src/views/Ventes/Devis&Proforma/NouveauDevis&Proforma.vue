@@ -145,7 +145,7 @@
                         Commander
                         </v-btn>
                     </router-link>
-                    <router-link to="/Facturer" class="RoutlinkZone">
+                    <router-link :to="`/Ventes/NouvelleFacture/NouvelleFacture/${LinkToNewFacture}`" class="RoutlinkZone">
                         <v-btn
                         color="primary"
                         dark
@@ -347,6 +347,7 @@
             ArticlesDataIfPageIsUPdating : "Empty",
             RemarqueDataIfPageIsUpdating : "Empty",
             LinkToNewCommande:'',
+            LinkToNewFacture:'',
             NewAddVende : false,
         }
     },
@@ -371,11 +372,14 @@
                 if(URl.includes('Create')){
                         this.Numero= `DEV-${date}-5`
                         this.LinkToNewCommande = `CDV-${date}-5`
+                        this.LinkToNewFacture = `FAC-${date}-5`
                 }
                  else if(URl.includes('Update') || URl.includes('update')){
                         let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
                         this.Numero=  CodeIfUpdate
                         this.LinkToNewCommande = `CDV-${date}-5`
+                        this.LinkToNewFacture = `FAC-${date}-5`
+
                  }
         },
         DeleteAllPopup(){

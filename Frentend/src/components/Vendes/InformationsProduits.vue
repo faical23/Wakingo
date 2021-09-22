@@ -68,7 +68,7 @@
 
                         </div>
                         <div v-if="SelectOptions == 'Informations financiéres'" class="InformationFinanciéres">
-                            <div class="InformationPiéce__Field"  v-if="!PagePath.includes('NouvelleCommande') && !PagePath.includes('NouvelleBonsDeLivraison')" >
+                            <div class="InformationPiéce__Field"  v-if="!PagePath.includes('NouvelleCommande') && !PagePath.includes('NouvelleBonsDeLivraison') && !PagePath.includes('NouvelleFacture') && !PagePath.includes('NouvelleAvoir')" >
                                     <h5>Date d'échéance :</h5>
                                     <input type="date" v-model="InformationsfinanciéresDateDécheance" />
                             </div>
@@ -111,6 +111,11 @@
                                         <input type="text" value="MAD" disabled>
                                     </div>
                             </div>
+                            <div v-if="PagePath.includes('NouvelleFacture') || PagePath.includes('NouvelleAvoir')" class="InformationPiéce__Field">
+                                    <h5>Adresse de facturation* :</h5>
+                                    <textarea name="" v-model="LogistiqueAdresseFacturation" :style="DataIsSubmited && LogistiqueAdresseFacturation == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''"></textarea>
+                                    <span v-if="DataIsSubmited && LogistiqueAdresseFacturation == '' " class="MessageErrorFiled">Ce champ est obligatoire .</span>
+                            </div>
                         </div>
                         <div v-if="SelectOptions == 'Échéancier'" class="Échéancier" >
                             <table >
@@ -118,16 +123,18 @@
                                     <th>Type d'échéance</th>
                                     <th>Libellé</th>
                                     <th>Mode de paiment</th>
+                                    <th   class="FDM" v-if="PagePath.includes('NouvelleFacture')" >Gérér</th>
                                     <th>Délai</th>
                                     <th class="FDM">FDM</th>
                                     <th  class="LE">Le</th>
+                                    <th v-if="PagePath.includes('NouvelleFacture')" >Date d'échéance</th>
                                     <th>Montant</th>
                                     <th>Qualité</th>
                                     <th>#</th>
                                 </tr>
                                  <tr  v-for="(Row,n) in EchéancierRow" :key="n">
                                     <td >
-                                        <select name="pets" id="pet-select" v-model="Row.TypeEchéancier">
+                                        <select name="pets" id="pet-select" v-model="Row.TypeEchéancier" @change="CheckTypeEchéancier(n)">
                                             <option selected="true">Sélectionner un type</option>
                                             <option value="Acomptes">Acomptes</option>
                                             <option value="écheance">écheance</option>
@@ -153,17 +160,23 @@
 
                                         </select>
                                     </td>
+                                    <td  class="FDM"  v-if="PagePath.includes('NouvelleFacture')"> 
+                                        <input class="Checkbox" type="checkbox" @click="Row.Génerer == true ? Row.Génerer = false : Row.Génerer = true">
+                                    </td>
                                     <td >
                                         <div class="FiledDélaiJours__zone">
-                                            <input type="" placeholder="0"  v-model="Row.DélaiEchéance" @keyup="ChangeEchéancierRowLibillé(n)">
-                                            <input type="text" placeholder="Jours" disabled>
+                                            <input  v-if="Row.Génerer || !PagePath.includes('NouvelleFacture')" type="" placeholder="0"  v-model="Row.DélaiEchéance" @keyup="ChangeEchéancierRowLibillé(n)">
+                                            <input  v-if="Row.Génerer || !PagePath.includes('NouvelleFacture')" type="text" placeholder="Jours" disabled>
                                         </div>
                                     </td>
                                     <td  class="FDM">
-                                        <input class="Checkbox" type="checkbox" @click="Row.FDEEcheance == true ? Row.FDEEcheance = false : Row.FDEEcheance = true, ChangeEchéancierRowLibillé(n)">
+                                        <input  v-if="Row.Génerer || !PagePath.includes('NouvelleFacture')" class="Checkbox" type="checkbox" @click="Row.FDEEcheance == true ? Row.FDEEcheance = false : Row.FDEEcheance = true, ChangeEchéancierRowLibillé(n)">
                                     </td>
                                     <td class="LE">
-                                        <input :disabled="Row.FDEEcheance != true" :style="Row.FDEEcheance != true ? 'background-color:#d9d9d9 !important;cursor: no-drop;' : 'background-color:white !important;'" type="text" placeholder="00" v-model="Row.LeEchéance" @keyup=" ChangeEchéancierRowLibillé(n)">
+                                        <input  v-if="Row.Génerer || !PagePath.includes('NouvelleFacture')" :disabled="Row.FDEEcheance != true" :style="Row.FDEEcheance != true ? 'background-color:#d9d9d9 !important;cursor: no-drop;' : 'background-color:white !important;'" type="text" placeholder="00" v-model="Row.LeEchéance" @keyup=" ChangeEchéancierRowLibillé(n)">
+                                    </td>
+                                    <td  v-if="PagePath.includes('NouvelleFacture')">
+                                        <input  type="date" v-model="Row.DateDécheance">
                                     </td>
                                     <td>
                                         <input type="text" placeholder="0,00" v-model="Row.MontantEchéance">
@@ -355,6 +368,8 @@
                 LeEchéance:'',
                 MontantEchéance:'',
                 QuotitéEchéance:'',
+                Génerer: false,
+                DateDécheance:''
             },
         ],
         //// Logistique
@@ -397,37 +412,74 @@
                 this.items.splice(5,1)
                 this.InformationsPiéceDateName ="Date de la livraison *: "
             }
+            else if(this.PagePath.includes('NouvelleFacture')){
+                this.items.splice(5,1)
+                this.items.splice(3,1)
+                this.InformationsPiéceDateName ="Date de la Facture *: "
+            }
+            else if(this.PagePath.includes('NouvelleAvoir')){
+                this.items.splice(5,1)
+                this.items.splice(3,1)
+                this.items.splice(2,1)
+                this.InformationsPiéceDateName ="Date de la Facture *: "
+            }
         },
         SwitchOptionsToAnother(item){
             this.SelectOptions = item
             console.log(this.SelectOptions)
         },
+        CheckTypeEchéancier(row){
+            console.log(this.EchéancierRow[row].TypeEchéancier)
+            if(this.EchéancierRow[row].TypeEchéancier == "Acomptes"){
+                this.EchéancierRow[row].LibilléEchéance = "% à la commande"
+            }
+            else if(this.EchéancierRow[row].TypeEchéancier == "Retunue"){
+                this.EchéancierRow[row].LibilléEchéance = "% retenue de garantie"
+            }
+            else if(this.EchéancierRow[row].TypeEchéancier == "écheance"){
+                // this.EchéancierRow[row].LibilléEchéance = "% comptant"
+                this.ChangeEchéancierRowLibillé(row)
+            }
+        },
         ChangeEchéancierRowLibillé(row){
             console.log(row)
-             if(this.EchéancierRow[row].DélaiEchéance != '' && this.EchéancierRow[row].FDEEcheance != true)
+             if(this.EchéancierRow[row].DélaiEchéance != '' && this.EchéancierRow[row].FDEEcheance != true && this.EchéancierRow[row].TypeEchéancier == 'écheance')
              {
                  this.EchéancierRow[row].LibilléEchéance=`100,00%  ${this.EchéancierRow[row].DélaiEchéance}  jours nets`
              }
-             if(this.EchéancierRow[row].DélaiEchéance == '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance == '')
+             if(this.EchéancierRow[row].DélaiEchéance == '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance == '' && this.EchéancierRow[row].TypeEchéancier == 'écheance')
              {
                  this.EchéancierRow[row].LibilléEchéance=`100,00%  fin de mois`
              }
-            if(this.EchéancierRow[row].DélaiEchéance != '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance == '')
+            if(this.EchéancierRow[row].DélaiEchéance != '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance == '' && this.EchéancierRow[row].TypeEchéancier == 'écheance')
              {
                  this.EchéancierRow[row].LibilléEchéance=`100,00%  ${this.EchéancierRow[row].DélaiEchéance} Jours fin de mois  `
              }
-            if(this.EchéancierRow[row].DélaiEchéance == '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance != '')
+            if(this.EchéancierRow[row].DélaiEchéance == '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance != '' && this.EchéancierRow[row].TypeEchéancier == 'écheance')
              {
                  this.EchéancierRow[row].LibilléEchéance=`100,00%  fin de mois le ${this.EchéancierRow[row].LeEchéance}`
              }
-             if(this.EchéancierRow[row].DélaiEchéance != '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance != '')
+             if(this.EchéancierRow[row].DélaiEchéance != '' && this.EchéancierRow[row].FDEEcheance != false && this.EchéancierRow[row].LeEchéance != '' && this.EchéancierRow[row].TypeEchéancier == 'écheance')
              {
                  this.EchéancierRow[row].LibilléEchéance=`100,00% ${this.EchéancierRow[row].DélaiEchéance} jours fin de mois le ${this.EchéancierRow[row].LeEchéance}`
              }
              if(this.EchéancierRow[row].DélaiEchéance == '' && this.EchéancierRow[row].FDEEcheance != true ){
                  this.EchéancierRow[row].LibilléEchéance = '100,00% comptant'
              }
+             //// change date d'écheance if Délai not empty
 
+            var myDate = new Date();
+            var newDate = this.addDays(myDate,this.EchéancierRow[row].DélaiEchéance);
+            let month = newDate.getMonth()+1
+            let Year = newDate.getFullYear()
+            let Day = newDate.getDate()
+            month.toString().length != 2 ? month = `0${newDate.getMonth()+1}` :month = `${newDate.getMonth() + 1}`
+            Day.toString().length != 2 ? Day = `0${newDate.getDate()}` : Day = `${newDate.getDate()}`
+            var TodayDate= `${Year}-${month}-${Day}`
+            myDate,this.EchéancierRow[row].DateDécheance=  TodayDate
+        },
+        addDays(myDate,days) {
+            return new Date(myDate.getTime() + days*24*60*60*1000);
         },
         NewEchéance(){
             const NewRow ={
@@ -441,17 +493,23 @@
                 QuotitéEchéance:'',
             }
             this.EchéancierRow.push(NewRow)
+            this.GetTodayDate()
         },
         DeleteRowEchéance(row){
            this.EchéancierRow.splice(row,1); 
         },
         GetTodayDate(){
-            let GetDate = new Date();
-            let Year = GetDate.getFullYear()
-            let Month = GetDate.getMonth()
-            let Day = GetDate.getDay()
-            let TodayDate = `${Year}-0${Month}-0${Day}`
-            this.InformationsPiéceDateDuDevis = TodayDate;
+            // let GetDate = new Date();
+            // let Year = GetDate.getFullYear()
+            // let Month = GetDate.getMonth()
+            // let Day = GetDate.getDay()
+            // let TodayDate = `${Year}-0${Month}-0${Day}`
+            var today = new Date();
+            var date = `${today.getFullYear()}-0${(today.getMonth()+1)}-${today.getDate()}`
+            this.InformationsPiéceDateDuDevis = date;
+            this.EchéancierRow.forEach(element => {
+                element.DateDécheance  = date;
+            });
         },
         ClientSelectionerBeforeConfirmation(params){
             this.$emit('AlertSelectionerClient', params);
