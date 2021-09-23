@@ -131,6 +131,8 @@
                     color="primary"
                     dark
                     v-if="ValideInsert"
+                    @click="PopupAcompte = true"
+
                     >
                     <i class="far fa-credit-card"></i>
                     Acompte
@@ -211,6 +213,9 @@
                 <v-alert v-if="UpdateSuccess" type="success" class="AlertError">
                      Le commande a bien été modifié!
                 </v-alert>
+                <v-alert v-if="NewAcompteSuccess" type="success" class="AlertError">
+                      L'acompte a bien été enregistré!
+                </v-alert>
                 <InformationsProduit
                 :PagePath='PagePath'
                 :DataIfPageIsUPdating='DataIfPageIsUPdating'
@@ -229,6 +234,8 @@
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
+                <PopupAcompte  v-if="PopupAcompte" @RemovePopupAcompte="PopupAcompte=false" @NewAcompteSubmited="PopupAcompte=false,NewAcompteSuccess=true"/>
+
             </div>
             <div class="EspaceAddArticles">
                 <AddArticles
@@ -303,6 +310,7 @@
     import Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
+    import PopupAcompte from '../../../components/Vendes/AcomptePopup.vue'
 
 
     import NaVBar from '../../../components/navbar.vue'
@@ -339,7 +347,9 @@
             DataIfPageIsUPdating:'Empty',
             ArticlesDataIfPageIsUPdating : "Empty",
             RemarqueDataIfPageIsUpdating : "Empty",
-            LinkToNewBonlivraison:''
+            LinkToNewBonlivraison:'',
+            PopupAcompte:false,
+            NewAcompteSuccess : false
         }
     },
     components: {
@@ -352,6 +362,7 @@
     Remarque,
     PopupNewArticle,
     ChoiserArticles,
+    PopupAcompte
     
     },
     methods:{
@@ -499,6 +510,7 @@
             this.AlertAnnuler = false
             this.AlertValidé = false
             this.ValideInsert = false
+            this.NewAcompteSuccess =false
             this.$store.commit('RéinitialiserCompenent')
             this.NewAddVende = true
             history.pushState(null, '', '/Ventes/NouvelleCommande/Create');  

@@ -1,6 +1,6 @@
 <template>
   <div class="HomePage">
-      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
+      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ||  PopupRégler ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -131,19 +131,20 @@
                     color="primary"
                     dark
                     v-if="ValideInsert"
+                    @click="PopupRégler = true"
                     >
                     <i class="far fa-credit-card"></i>
                     Régler
                     </v-btn>
 
-                    <router-link to="/Avoir" class="RoutlinkZone">
+                    <router-link :to="`/Ventes/NouvelleAvoir/NouvelleAvoir/${LinkNewAvoir}`" class="RoutlinkZone">
                         <v-btn
                         color="primary"
                         dark
                         v-if="ValideInsert"
                         >
                         <i class="fas fa-share"></i>
-                            Générer un Facture
+                            Générer un Avoir
                         </v-btn>
                     </router-link>
                         <router-link v-if="ValideInsert" :to="`/Ventes/NouvelleFacture/Update/${Numero}`" class="RoutlinkZone">
@@ -228,6 +229,7 @@
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
+                <Regler v-if="PopupRégler"  @RemovePopupRegler="PopupRégler = false"/>
             </div>
             <div class="EspaceAddArticles">
                 <AddArticles
@@ -301,6 +303,7 @@
     import Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
+    import Regler from '../../../components/Vendes/PopupRégler.vue'
 
 
     import NaVBar from '../../../components/navbar.vue'
@@ -337,8 +340,9 @@
             DataIfPageIsUPdating:'Empty',
             ArticlesDataIfPageIsUPdating : "Empty",
             RemarqueDataIfPageIsUpdating : "Empty",
-            LinkToNewCommande:'',
+            LinkNewAvoir:'',
             NewAddVende : false,
+            PopupRégler : false
         }
     },
     components: {
@@ -351,8 +355,8 @@
     Remarque,
     PopupNewArticle,
     ChoiserArticles,
-    
-    //   AlertErrorFailed
+    Regler 
+
     },
     methods:{
         GetNuméro(){
@@ -361,12 +365,12 @@
                 var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
                 if(URl.includes('Create')){
                         this.Numero= `FAC-${date}-5`
-                        // this.LinkToNewCommande = `FAC-${date}-5`
+                        this.LinkNewAvoir = `FAV-${date}-5`
                 }
                  else if(URl.includes('Update') || URl.includes('update') || URl.includes('NouvelleFacture')){
                         let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
                         this.Numero=  CodeIfUpdate
-                        // this.LinkToNewCommande = `FAC-${date}-5`
+                        this.LinkNewAvoir = `FAV-${date}-5`
                  }
         },
         DeleteAllPopup(){
@@ -375,6 +379,7 @@
             this.PopupAddNewClient=false
             this.PopupNewArticle = false
             this.PopupChoiserLesArticles  = false
+            this.PopupRégler = false
         },
         ActiveAlertConfirmation(){
             this.Alert = true;

@@ -499,11 +499,7 @@
            this.EchéancierRow.splice(row,1); 
         },
         GetTodayDate(){
-            // let GetDate = new Date();
-            // let Year = GetDate.getFullYear()
-            // let Month = GetDate.getMonth()
-            // let Day = GetDate.getDay()
-            // let TodayDate = `${Year}-0${Month}-0${Day}`
+
             var today = new Date();
             var date = `${today.getFullYear()}-0${(today.getMonth()+1)}-${today.getDate()}`
             this.InformationsPiéceDateDuDevis = date;
@@ -605,6 +601,9 @@
                     }
                     else if (this.PagePath.includes('NouvelleBonsDeLivraison')){
                         ArtcileInformations.Logistique.Dépot= this.Dépôt
+                    }
+                    else if (this.PagePath.includes('NouvelleAvoir')){
+                        ArtcileInformations.Informations_Piéce.DateFacture= this.InformationsPiéceDateDuDevis
                     }
 
                 this.$store.commit('GetInformationVentes',ArtcileInformations)

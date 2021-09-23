@@ -728,16 +728,16 @@ export default {
             '$store.state.InsertVendreData': function() {
                 let InformationArtices = {
                     "Articles" : this.Article,
-                    "Total Global":{
-                            "Total Brut":this.TotalBrutGlobal,
+                    "TotalGlobal":{
+                            "Total_Brut":this.TotalBrutGlobal,
                             "Remise":this.RemiseGlobal,
-                            "Total HT":this.TotalHTGlobal,
+                            "Total_HT":this.TotalHTGlobal,
                             "TVAt":this.TVAtGlobal,
                             "Transport HT":this.TransportHTGlobal,
-                            "TVA Port":this.TVAPortGlobal,
-                            "Total TTC ":this.TotalTTCGlobal,
+                            "TVA_Port":this.TVAPortGlobal,
+                            "TotalTTC":this.TotalTTCGlobal,
                     },
-                    "Table TVA" :this.Table_TVA
+                    "TableTVA" :this.Table_TVA
                 }
                 this.$store.commit('GetArticles',InformationArtices)
                 this.DataIsSubmited = true;

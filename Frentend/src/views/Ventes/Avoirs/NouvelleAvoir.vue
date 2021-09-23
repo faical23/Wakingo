@@ -1,6 +1,6 @@
 <template>
   <div class="HomePage">
-      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles ' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
+      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles || Remproser' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
@@ -131,7 +131,7 @@
                     color="primary"
                     dark
                     v-if="ValideInsert"
-                    >
+                    @click="Remproser=true">
                     <i class="far fa-credit-card"></i>
                     Rembourser
                     </v-btn>
@@ -184,6 +184,9 @@
                 <v-alert v-if="UpdateSuccess" type="success" class="AlertError">
                      Le Avoir a bien été modifié!
                 </v-alert>
+                <v-alert v-if="RemproserSuccess" type="success" class="AlertError">
+                      Le remboursement d'avoir a bien été enregistré!
+                </v-alert>
                 <InformationsProduit
                 :PagePath='PagePath'
                 :DataIfPageIsUPdating='DataIfPageIsUPdating'
@@ -204,6 +207,7 @@
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
+                <PopupRemproser v-if="Remproser" @RemovePopupRembrosment="Remproser=false" @NewRembrosmentSubmited="Remproser=false,RemproserSuccess=true" />
             </div>
             <div class="EspaceAddArticles">
                 <AddArticles
@@ -277,6 +281,7 @@
     import Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
+    import PopupRemproser from '../../../components/Vendes/PopupRembrouser.vue'
 
 
     import NaVBar from '../../../components/navbar.vue'
@@ -316,6 +321,8 @@
             LinkToNewCommande:'',
             LinkToNewFacture:'',
             NewAddVende : false,
+            Remproser : false,
+            RemproserSuccess:false
         }
     },
     components: {
@@ -328,6 +335,7 @@
     Remarque,
     PopupNewArticle,
     ChoiserArticles,
+    PopupRemproser
     
     //   AlertErrorFailed
     },
@@ -337,16 +345,11 @@
                 var today = new Date();
                 var date = `${today.getDate()}0${(today.getMonth()+1)}${today.getFullYear()}`
                 if(URl.includes('Create')){
-                        this.Numero= `DEV-${date}-5`
-                        this.LinkToNewCommande = `CDV-${date}-5`
-                        this.LinkToNewFacture = `FAC-${date}-5`
+                        this.Numero= `FAV-${date}-5`
                 }
-                 else if(URl.includes('Update') || URl.includes('update')){
+                 else if(URl.includes('Update') || URl.includes('update') || URl.includes('NouvelleAvoir')){
                         let CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
                         this.Numero=  CodeIfUpdate
-                        this.LinkToNewCommande = `CDV-${date}-5`
-                        this.LinkToNewFacture = `FAC-${date}-5`
-
                  }
         },
         DeleteAllPopup(){
@@ -355,6 +358,8 @@
             this.PopupAddNewClient=false
             this.PopupNewArticle = false
             this.PopupChoiserLesArticles  = false
+            this.Remproser = false
+
         },
         ActiveAlertConfirmation(){
             this.Alert = true;
@@ -479,6 +484,7 @@
             this.AlertValidé = false
             this.ValideInsert = false
             this.NewAddVende = true
+            this.RemproserSuccess=false
             this.$store.commit('RéinitialiserCompenent')
             history.pushState(null, '', '/Ventes/NouveauDevis/Proforma/Create');  
 
@@ -557,6 +563,70 @@
                 
 
             }
+            else if (URl.includes('NouvelleAvoir')){
+                Condition = 'NouvelleAvoir'
+                CodeIfUpdate  = URl.substring(URl.lastIndexOf('/') + 1)
+                // this.Update = true
+                this.DisplayBtnEnregistrer = true
+                //// get data from axios where element = code 
+                /// and send data from props to the child components
+                //  and sedn data to the vuex store 
+                this.DataIfPageIsUPdating = {
+                                    "Informations_Piéce":{
+                                        "Client_Name" :  "CLT8 - ESSAID CHASSE SA",
+                                        "Numéro" :    CodeIfUpdate,
+                                        "Date_Devis" :   "09-08-2019",
+                                        "N_De_référence" :   this.InformationsPiéceNDeRéférence,
+                                        "Vendeur" :   this.InformationsPiéceVendeur,
+                                    },
+                                    "Informations_Financiéres":{
+                                        "Remise_global" :   10,
+                                        "Type_remise global" :   "%",
+                                        "Port" :   9,
+                                        "TVA/Port" :   "20,00%",
+                                        "Devise_utilisée" :   'MAD-Drham Marocain',
+                                        "TauxChange_If_DeviseUtilisée_Not_MAD":9.60
+                                    },
+                                    "écheancier":[
+                                                { 
+                                                TypeEchéancier : 'Sélectionner un type',
+                                                LibilléEchéance : '100,00% comptant',
+                                                ModePaimentEchéance:'Au choix du client',
+                                                DélaiEchéance:'',
+                                                FDEEcheance : false,
+                                                LeEchéance:'',
+                                                MontantEchéance:'',
+                                                QuotitéEchéance:'',
+                                                }
+                                            ],
+                                    "Logistique":{
+                                        "Mode_Livraison":'Sélectionner un type',
+                                        "Adresse_Livraison":"ABCDEF",
+                                        "AdresseFacturation":"ABCDEF"
+                                    },
+                                    "Options":{
+                                        "Modèle_PDF":"Devis de vente-modéle corporate",
+                                        "AfficherPhotoArticle " : true,
+                                        "AfficherPrixArticle" : true
+                                    },
+                                    'PiéceAttachée':"File"
+                                    }
+                this.ArticlesDataIfPageIsUPdating={
+                    "Articles" : '',
+                    "Total_Global":{
+                            "Total_Brut":150,
+                            "Remise":10,
+                            "Total_HT":122,
+                            "TVAt":42,
+                            "Transport_HT":12,
+                            "TVA_Port":8,
+                            "Total_TTC":122,
+                    },
+                    "Table_TVA" :''
+
+                }
+                this.RemarqueDataIfPageIsUpdating = 'Remarque from Updating page or url code'
+            }
             
             // this.Numero= "dsdsdq"
             this.ConditonURL = Condition
@@ -567,7 +637,7 @@
     watch: {
             '$store.state.InformationVentes': function() {
                 let InformationsArticles = this.$store.state.InformationVentes
-                    if((this.ConditonURL == 'Create' || this.NewAddVende ) && this.ValideInsert != true){
+                    if((this.ConditonURL == 'Create' || this.ConditonURL == 'NouvelleAvoir' ) && this.ValideInsert != true){
                         this.AlertError = false
                         if(InformationsArticles?.Informations_Piéce?.Client_Name !== ''
                         && InformationsArticles?.Informations_Piéce?.Numéro !== ''
@@ -589,7 +659,7 @@
             },
             '$store.state.InformationsArticles': function() {
                 let InformationsArticles = this.$store.state.InformationsArticles
-                if((this.ConditonURL == 'Create' || this.NewAddVende ) && this.ValideInsert != true){
+                if((this.ConditonURL == 'Create' || this.ConditonURL == 'NouvelleAvoir' ) && this.ValideInsert != true){
                     InformationsArticles.Articles.forEach(element =>{
                         if(element.nameArticle != 'Sélectioner un client' && (element.Qté != '0' && element.Qté != '' && !isNaN(element.Qté) ) &&( element.Price != '0' && element.Price != '' && !isNaN(element.Price))&& this.AlertError != true){
                             if( this.ValideInsert == false){
