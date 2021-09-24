@@ -52,35 +52,37 @@
                 <div class="ClientAndLibillé">
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Client * :</h6>
-                            <input type="text" disabled>
+                            <input type="text"  v-model="ClinetName" disabled>
                     </div>
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Libellé *</h6>
-                            <input type="text">
+                            <input type="text" v-model="Libellé">
                     </div>
                 </div>
                 <div class="DateMontantEscopte">
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Date*</h6>
-                            <input type="date">
+                            <input type="date" v-model="DateRéglement">
                     </div>
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Montant *</h6>
                             <div class="Montant">
-                                <input type="text">
-                                <input type="text" placeholder="MAD">
+                                <input type="text" v-model="Montant"  @keyup="RestePartirgenerate(),CheckBoxTableClicked('AnotherCheckBoxAndInout')">
+                                <input type="text" placeholder="MAD" disabled>
                             </div>
+                            <span v-if="SubmitForm && (Montant == '' || Montant == 0)" style="color:red">Ce champ est obligatoire.</span>
+
                     </div>
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Escompte * :</h6>
                             <div class="Escompte">
-                                <input type="text">
-                                <input type="text" placeholder="MAD">
+                                <input type="text" v-model="Escompte" @keyup="RestePartirgenerate(),CheckBoxTableClicked('AnotherCheckBoxAndInout')">
+                                <input type="text" placeholder="MAD" disabled>
                             </div>
                     </div>
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Tva/Escompte</h6>
-                            <select>
+                            <select v-model="Tva" @change="RestePartirgenerate(),CheckBoxTableClicked('AnotherCheckBoxAndInout')">
                                 <option value="20,00%">20,00%</option>
                                 <option value="14,00%">14,00%</option>
                                 <option value="07,00%">07,00%</option>
@@ -91,21 +93,20 @@
                 </div>
             </div>
             <div class="CheckboxRadio">
-                <span>Reste à répartir : 12,00 MAD</span>
+                <span :style="TableClient[0].Clicked ? 'color: red !important' : 'color: #00a65a !important'">{{ResteApartire}}</span>
                 <div>
-                <input type="radio" id="huey" name="drone" value="huey"
-                        checked>
+                <input type="radio" id="huey" name="drone" value="huey" :checked="PasVentiler == true" :disabled="DisabledPasVentir == true" @click="PasVentiler = true,GénérerAvoir=false , PertesProfits=false,CheckBoxTableClicked('AnotherCheckBoxAndInout')">
                 <label for="Ne pas ventiler">Ne pas ventiler</label>
                 </div>
 
                 <div>
-                <input type="radio" id="dewey" name="drone" value="dewey">
+                <input type="radio" id="dewey" name="drone" value="dewey" :checked="GénérerAvoir == true"  :disabled="DisabledGénérerAvoir == true"  @click="PasVentiler = false,GénérerAvoir=true , PertesProfits=false,CheckBoxTableClicked('AnotherCheckBoxAndInout')">
                 <label for="Générer un avoir">Générer un avoir</label>
                 </div>
 
                 <div>
-                <input type="radio" id="louie" name="drone" value="louie">
-                <label for="Générer un avoir">Générer un avoir</label>
+                <input type="radio" id="louie" name="drone" value="louie" :checked="PertesProfits== true"  @click="PasVentiler = false,GénérerAvoir=false , PertesProfits=true,CheckBoxTableClicked('AnotherCheckBoxAndInout')">
+                <label for="Générer un avoir">Pertes et profits</label>
                 </div>
             </div>
         </div>
@@ -122,10 +123,10 @@
                 </div>
                 <div class="PopupNewArticle_Information__Failed">
                             <h6>Mode de paiement * :</h6>
-                            <select  v-model="ModePiament">
+                            <select  v-model="ModePaiment">
                                 <option v-for="(Mode,n) in ModePaimentOption"  :key="n" :value="Mode.Mode">{{Mode.Mode}}</option>
                             </select>
-                            <span v-if="SubmitForm && ModePiament== 'Veuillez sélectionner' " class="MessageErrorFiled ArticleErrorPoupFaild">Ce champ est obligatoire.</span>
+                            <span v-if="SubmitForm && ModePaiment== 'Veuillez sélectionner'" class="MessageErrorFiled ArticleErrorPoupFaild">Ce champ est obligatoire.</span>
 
                 </div>
                 <div class="PopupNewArticle_Information__Failed">
@@ -134,7 +135,6 @@
                                 <option v-for="(Trésorerie,n) in TrésorerieDestinationOptions" :key="n" :value="Trésorerie.Mode">{{Trésorerie.Mode}}</option>
                             </select>
                             <span v-if="SubmitForm && TrésorerieDestination== 'Veuillez sélectionner' " class="MessageErrorFiled ArticleErrorPoupFaild">Ce champ est obligatoire.</span>
-
                 </div>
             </div>
             <div class="NuméroAndDEvis">
@@ -159,9 +159,9 @@
         </p>
         <div class="EchéancesFactures">
             <div class="FactureAvoirMontant">
-                    <h2>Factures : 345,60 MAD</h2>
-                    <h2>Avoirs : 0,00 MAD</h2>
-                    <h2>Montant à règler : MAD</h2>
+                    <h2>Factures : {{Factures}}</h2>
+                    <h2>Avoirs :{{Avoirs}} </h2>
+                    <h2>Montant à règler : {{MontantRégler}}</h2>
             </div>
             <div class="Table">
                 <table>
@@ -175,15 +175,15 @@
                         <th>Solde du</th>
                         <th>Devise</th>
                     </tr>
-                    <tr>
-                        <td  class="CheckboxTable"><input type="Checkbox" ></td>
-                        <td>Faical Bahsus</td>
-                        <td>10/09/2019</td>
-                        <td>56.88</td>
-                        <td>Facture</td>
-                        <td>FAC-JDGET6353</td>
-                        <td>300,90</td>
-                        <td>MAD</td>
+                    <tr v-for="(Client,n) in TableClient" :key="n">
+                        <td  class="CheckboxTable"><input type="Checkbox" @click='ClickFromCheckBoxTable=true;CheckBoxTableClicked("FromTable")' ></td>
+                        <td>{{Client.Name}}</td>
+                        <td>{{Client.Echéance}}</td>
+                        <td><input type="text" v-model="Client.MontantAffecté"></td>
+                        <td>{{Client.TypePiéce}}</td>
+                        <td>{{Client.NuméroPiéce}}</td>
+                        <td>{{Client.SoldDu}}</td>
+                        <td>{{Client.Devise}}</td>
                     </tr>
                 </table>
             </div>
@@ -193,7 +193,7 @@
                 <i class="fas fa-comment-dots"></i>
                 Remarque
             </P>
-            <textarea>Your Remarque</textarea>
+            <textarea v-model="Remarque">Your Remarque</textarea>
         </div>
     </div>
     
@@ -290,35 +290,181 @@ export default {
   name: "Acompte",
   emits:['RemovePopupAddClient'],
   data: () => ({
-    SubmitForm:true,
-    NuméroFac : 'FAC-12345'
+    SubmitForm:false,
+    NuméroFac : 'FAC-12345',
+    ClinetName:'',
+    Libellé:'',
+    DateRéglement:'',
+    Montant:0,
+    Escompte:0,
+    Tva:"20,00%",
+    ResteApartire:'Reste à répartir : 0,00 MAD',
+    PasVentiler:true,
+    DisabledPasVentir:false,
+    GénérerAvoir:false,
+    DisabledGénérerAvoir:false,
+    PertesProfits:false,
+    DateEcheance:'',
+    Numero:'',
+    DeviseUtilisée:'MAD-Drham Marocain',
+    Factures:'0,00 MAD',
+    Avoirs:'0,00 MAD',
+    MontantRégler:'',
+    TableClient:[
+      {
+        Clicked: false,
+        Name:'',
+        Echéance:'',
+        MontantAffecté:'0,00',
+        TypePiéce:'Type',
+        NuméroPiéce:'',
+        SoldDu:'',
+        Devise:''
+      }
+    ],
+    Remarque:'',
+    ModePaiment:'Veuillez sélectionner',
+      ModePaimentOption:[ 
+        {
+            Mode:'Veuillez sélectionner'
+        },
+                {
+            Mode:'Virement'
+        },
+                {
+            Mode:'Chèque'
+        },
+                {
+            Mode:'Traite'
+        },
+                {
+            Mode:'Espèces'
+        },
+                {
+            Mode:'Affacturage'
+        },
+                        {
+            Mode:'Autres'
+        },
+
+    ],
+    TrésorerieDestination:'Veuillez sélectionner',
+    TrésorerieDestinationOptions:[
+            {
+                Mode:'Veuillez sélectionner'
+            },
+            {
+                Mode:'Banque'
+            },
+            {
+                Mode:'Caisee'
+            },
+            {
+                Mode:'Caisee Kbup'
+            },
+            {
+                Mode:'Affacturage'
+            },
+            {
+                Mode:'Compte courant dassociés'
+            },
+
+    ],
+    ClickFromCheckBoxTable:false,
   }),
   methods:{
       EnregistrerNewAcompte(){
         this.SubmitForm = true
-        // if(
-
-        // )
-        // {
-        //     this.$emit('NewAcompteSubmited')
-        // ////AXIOS NEW ACOMPTE HER
-        // }
-      }
-    },
+        if(
+            this.Montant != 0 && this.Montant != '' &&
+            this.DateRéglement!= '' &&
+            this.Libellé != '' &&
+            this.TrésorerieDestination != 'Veuillez sélectionner' &&
+            this.ModePaiment != 'Veuillez sélectionner' &&
+            this.DateEcheance != ''
+        )
+        {
+            console.log("Aright")
+            this.$emit('NewPopupregler')
+        ////AXIOS NEW ACOMPTE HER
+        }
+      },
       GetDataFromVuex(){
           console.log("work")
-    //     let Infomrations =this.$store.state.InformationVentes
-    //     let Articles =this.$store.state.InformationsArticles 
-    //         this.DateCompte=Infomrations.Informations_Piéce.Date_Devis
-    //         this.Libillé=`Acompte sur devis n° ${Infomrations.Informations_Piéce.Numéro}`
-    //         this.Solde=Articles.TotalGlobal.TotalTTC
-    //         this.MontantRégler=this.Solde * this.Quotité /100
-    //         this.ResteRégler= this.Solde-this.MontantRégler
-    //         this.DeviseUtilisée =Infomrations.Informations_Financiéres.Devise_utilisée
-    //         this.DateEcheance = Infomrations.Informations_Financiéres.DateEcheance
-    //   },
-
+        let Infomrations =this.$store.state.InformationVentes
+        let Articles =this.$store.state.InformationsArticles 
+        console.log(Infomrations)
+        console.log(Articles)
+        this.ClinetName = Infomrations.Informations_Piéce.Client_Name
+        this.NuméroFac  = Infomrations.Informations_Piéce.Numéro
+        this.Libellé = `réglement facture n° ${this.NuméroFac}`
+        this.DateRéglement = Infomrations.Informations_Piéce.DateFacture
+        this.DateEcheance = Infomrations.Informations_Piéce.DateFacture
+        this.DeviseUtilisée =Infomrations.Informations_Financiéres.Devise_utilisée
+        this.TableClient[0].Name = Infomrations.Informations_Piéce.Client_Name
+        this.TableClient[0].Echéance = this.DateEcheance 
+        this.TableClient[0].NuméroPiéce = Infomrations.Informations_Piéce.Numéro
+        this.TableClient[0].SoldDu = Articles?.TotalGlobal?.TotalTTC
+        this.TableClient[0].Devise = this.DeviseUtilisée.slice(0,3)
+        this.MontantRégler =this.DeviseUtilisée.slice(0,3)
+    },
+    RestePartirgenerate(){
+    if(this.TableClient[0].Clicked != true ){
+      let EscopteTva = parseFloat(this.Escompte) *(parseFloat(this.Tva) /100)
+      let reste = parseFloat(this.Montant) + parseFloat(this.Escompte) + EscopteTva
+      this.ResteApartire = `Reste à répartir :${reste} MAD`
+    }
   },
+  CheckBoxTableClicked(From){
+    if(From === "FromTable"){
+          if(this.TableClient[0].Clicked == false && this.ClickFromCheckBoxTable ){
+          let Articles =this.$store.state.InformationsArticles 
+          this.Factures= Articles?.TotalGlobal?.TotalTTC;
+          this.DisabledGénérerAvoir = true
+          if(this.PertesProfits == true){
+              this.TableClient[0].MontantAffecté = Articles.TotalGlobal.TotalTTC ;
+          }
+          else if(this.PasVentiler == true){
+            let EscopteTva = parseFloat(this.Escompte) *(parseFloat(this.Tva) /100)
+            let reste = parseFloat(this.Montant) + parseFloat(this.Escompte) + EscopteTva
+            this.TableClient[0].MontantAffecté = reste ;
+          }
+          this.TableClient[0].Clicked = true ;
+            let EscopteTva = parseFloat(this.Escompte) *(parseFloat(this.Tva) /100)
+            let NewResteApartire = parseFloat(this.Montant) + parseFloat(this.Escompte) + EscopteTva
+          this.ResteApartire = `Reste à répartir : -${(this.Factures - NewResteApartire).toFixed(2)} MAD`
+        }
+        else{
+          this.DisabledGénérerAvoir = false
+          this.TableClient[0].MontantAffecté= '0,00'
+          this.Factures= '0,00 MAD'
+          this.TableClient[0].Clicked = false
+          this.RestePartirgenerate()
+
+        }
+    }
+    else if(this.TableClient[0].Clicked == true && From === "AnotherCheckBoxAndInout" && this.ClickFromCheckBoxTable){
+          let Articles =this.$store.state.InformationsArticles 
+          this.Factures= Articles?.TotalGlobal?.TotalTTC;
+          this.DisabledGénérerAvoir = true
+          if(this.PertesProfits == true){
+              this.TableClient[0].MontantAffecté = Articles?.TotalGlobal?.TotalTTC ;
+          }
+          else if(this.PasVentiler == true){
+            let EscopteTva = parseFloat(this.Escompte) *(parseFloat(this.Tva) /100)
+            let reste = parseFloat(this.Montant) + parseFloat(this.Escompte) + EscopteTva
+            this.TableClient[0].MontantAffecté = reste ;
+          }
+          let EscopteTva = parseFloat(this.Escompte) *(parseFloat(this.Tva) /100)
+          let NewResteApartire = parseFloat(this.Montant) + parseFloat(this.Escompte) + EscopteTva
+          this.ResteApartire = `Reste à répartir : -${(this.Factures - NewResteApartire).toFixed(2)} MAD`
+          this.TableClient[0].Clicked = true ;
+    }
+
+
+  }
+  },
+
   mounted(){
       this.GetDataFromVuex()
   }

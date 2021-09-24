@@ -209,6 +209,9 @@
                 <v-alert v-if="UpdateSuccess" type="success" class="AlertError">
                      Le Facture a bien été modifié!
                 </v-alert>
+                <v-alert v-if="ReglementSuccess" type="success" class="AlertError">
+                     Le règlement a bien été enregistré!
+                </v-alert>
                 <InformationsProduit
                 :PagePath='PagePath'
                 :DataIfPageIsUPdating='DataIfPageIsUPdating'
@@ -229,7 +232,7 @@
                  <PopupNewClient v-if="PopupAddNewClient" @RemovePopupAddClient='PopupAddNewClient=false'  @SuccessNewClient='NewClientIsAdded' :LengthOfClientHave='LengthOfClientHave'   />
                 <PopupNewArticle  v-if="PopupNewArticle" @RemovePopupAddClient='PopupNewArticle=false' :LengthOfArticleHave='LengthOfArticleHave' @SuccessNewClient='SuccessNewClient'/>
                 <ChoiserArticles v-if="PopupChoiserLesArticles" @RemovePopupChoiserArticle='PopupChoiserLesArticles = false'  @GetAllThisArticles='GetAllThisArticles'/>
-                <Regler v-if="PopupRégler"  @RemovePopupRegler="PopupRégler = false"/>
+                <Regler v-if="PopupRégler"  @RemovePopupRegler="PopupRégler = false" @NewPopupregler="PopupRégler = false,ReglementSuccess=true"/>
             </div>
             <div class="EspaceAddArticles">
                 <AddArticles
@@ -342,7 +345,8 @@
             RemarqueDataIfPageIsUpdating : "Empty",
             LinkNewAvoir:'',
             NewAddVende : false,
-            PopupRégler : false
+            PopupRégler : false,
+            ReglementSuccess:false
         }
     },
     components: {
@@ -380,6 +384,7 @@
             this.PopupNewArticle = false
             this.PopupChoiserLesArticles  = false
             this.PopupRégler = false
+            this.ReglementSuccess=false
         },
         ActiveAlertConfirmation(){
             this.Alert = true;

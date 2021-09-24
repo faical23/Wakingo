@@ -263,7 +263,7 @@ export default {
         if(
             this.DateCompte!= '' &&
             this.Libillé != '' &&
-            this.DeviseUtilisée != 'Veuillez sélectionner' &&
+            this.TrésorerieDestination != 'Veuillez sélectionner' &&
             this.ModePiament != 'Veuillez sélectionner' &&
             this.DateEcheance != ''
         )

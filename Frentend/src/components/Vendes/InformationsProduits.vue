@@ -602,7 +602,7 @@
                     else if (this.PagePath.includes('NouvelleBonsDeLivraison')){
                         ArtcileInformations.Logistique.Dépot= this.Dépôt
                     }
-                    else if (this.PagePath.includes('NouvelleAvoir')){
+                    else if (this.PagePath.includes('NouvelleAvoir') || this.PagePath.includes('NouvelleFacture')){
                         ArtcileInformations.Informations_Piéce.DateFacture= this.InformationsPiéceDateDuDevis
                     }
 
