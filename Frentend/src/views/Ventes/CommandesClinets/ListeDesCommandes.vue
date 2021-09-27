@@ -91,7 +91,7 @@
                         <v-icon class="mdi-plus-thick">
                             mdi-plus-thick
                         </v-icon>
-                            Nouveau Commande
+                            Nouvelle Commande
                         </v-btn>
                     </router-link>
                     </div>
@@ -107,7 +107,7 @@
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
   import NaVBar from '../../../components/navbar/navbar.vue'
-  import Table from '../../../components/Table_F.vue'
+  import Table from '../../../components/Tables/Table_F.vue'
   import DatePicker from "../../../components/DatePicker.vue";
   export default {
     name: 'Home',

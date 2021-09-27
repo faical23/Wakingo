@@ -6,6 +6,14 @@ import listeDevis from '../views/Ventes/Devis&Proforma/ListeDesDevis.vue'
 import profile_card from '../components/navbar/profile_card.vue'
 import password from '../components/navbar/password.vue'
 import ListeCommandes from '../views/Ventes/CommandesClinets/ListeDesCommandes.vue'
+import ListeCommandesLivraison from '../views/Ventes/BonsLivraison/ListeDesBonsLivraison.vue'
+import ListeFactures from '../views/Ventes/Factures/ListeDesFacteurs.vue'
+import ListeAvoirs from '../views/Ventes/Avoirs/ListeDesAvoires.vue'
+import Reglement from '../views/Ventes/Réglements.vue'
+import Accomptes from '../views/Ventes/Acomptes.vue'
+import Diverses from '../views/Ventes/RecettesDivereses.vue'
+import récurrentes from '../views/Ventes/RecettesRécurrents.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -38,7 +46,43 @@ const routes = [
     path: '/Ventes/ListeCommandes',
     name: '/ListeCommandes',
     component: ListeCommandes
+  },
+  {
+    path: '/Ventes/Gestion_des_bons_de_livraison',
+    name: '/ListeCommandesLivraison',
+    component: ListeCommandesLivraison
+  },
+  {
+    path: '/Ventes/Gestion_des_Factures',
+    name: '/ListeFactures',
+    component: ListeFactures
+  },
+  {
+    path: '/Ventes/Liste_Des_Avoirs',
+    name: '/ListeAvoirs',
+    component: ListeAvoirs
+  },
+  {
+    path: '/Ventes/Reglement',
+    name: '/Reglement',
+    component: Reglement
+  },
+  {
+    path: '/Ventes/Accomptes',
+    name: '/Accomptes',
+    component: Accomptes
+  },
+  {
+    path: '/Ventes/Diverses',
+    name: '/Diverses',
+    component: Diverses
+  },
+  {
+    path: '/Ventes/récurrentes',
+    name: '/récurrentes',
+    component: récurrentes
   }
+  
 ]
 
 const router = new VueRouter({

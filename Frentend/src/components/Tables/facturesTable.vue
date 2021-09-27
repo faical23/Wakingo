@@ -1,12 +1,10 @@
 <template>
-
     <v-card class="tableDevis" id="tableDevis">
-
         <v-card-title class="table-title">
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
-            Liste des commandes clients   
+            Gestion des bons de livraison   
         </v-card-title>
         <div class="TableAffiche">
             <p>Affiche</p>
@@ -50,95 +48,108 @@
               <!-- <span v-html="printStuff"></span> -->
             </div>
           </v-flex>
-        </div>
-            <v-simple-table class="TableResultSearch">
+        </div> 
+              <v-simple-table>
                 <template v-slot:default>
-                <thead>
+                  <thead>
                     <tr>
-                     <th class="text-left">
+                       <th class="text-left">
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
-                    <th class="text-left">
-                        Date de la commande
-                    </th>
-                    <th class="text-left">
+                      <th class="text-left">
+                      Date du livraison
+                      </th>
+                      <th class="text-left">
                         Numéro
-                    </th>
-                    <th class="text-left">
-                        Client
-                    </th>
-                    <th class="text-left">
-                        Date de livraison
-                    </th>
-                    <th class="text-left">
+                      </th>
+                      <th class="text-left">
+                       Client
+                      </th>
+                      <th class="text-left">
+                        Total
+                      </th>
+                      <th class="text-left">
                         Etat
-                    </th>
-                    <th class="text-left">
+                      </th>
+                      <th class="text-left">
                         #
-                    </th>
-
+                      </th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr
+                  </thead>
+                  <tbody>
+                     <tr
                     v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
                     :key="(item.name,n)"
                     >
                     <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
-                    <td>{{ item.date }}</td>
-                    <td>{{ item.Numéro }}</td>
-                    <td>{{ item.client }}</td>
-                    <td>{{ item.dateLivraison }}</td>
-                    <td >
-                        <button v-if="item.etat == 'En cours'" class="BtnEtat EnCours">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Clôturer(e)'" class="BtnEtat Clôturer">{{item.etat}} </button>
-                        <button v-if="item.etat == 'En attente'" class="BtnEtat EnAttente">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Accepté(e)'" class="BtnEtat Accepté">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Annulé(e)'" class="BtnEtat Annulé">{{item.etat}} </button>
-
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
-                               <i class="fas fa-cog"></i>
-                                Action
+                      <td>{{ item.date }}</td>
+                      <td>
+                        <router-link to= "/Ventes/NouveauDevis/Proforma">
+                        {{ item.Numéro }}
+                        </router-link>
+                        </td>
+                      <td>{{ item.client }}</td>
+                      <td>{{ item.Total }}</td>
+                      
+                      <td>
+                         <v-chip v-if="item.etat == 'En retard'"
+                          label
+                          class="ma-2"
+                          color="red"
+                          text-color="white"
+                            
+                          >
+                         {{ item.etat }}
+                          </v-chip>
+                         <v-chip v-else
+                          label
+                          class="ma-2"
+                          color="orange"
+                          text-color="white"
+                            
+                          >
+                         {{ item.etat }}
+                          </v-chip>
+                        </td>
+                      <td>
+                        <v-col cols="2" class="btnnnn">
+                          <v-btn class="action-btn">
+                              <v-icon
+                                color="black"
+                                size="15"
+                                class="action-icon"
+                              >
+                                mdi-cog
+                              </v-icon>
+                            action
+                            </v-btn>
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" @click="ActionsRows('Refuser',item.Numéro)">
-                                   <i class="fas fa-user-minus"></i>
-                                    Refuser
-                                </a></li>
-                                <li><a class="dropdown-item"  @click="ActionsRows('Livrer',item.Numéro)">
-                                    <i class="fas fa-share"></i>
-                                Livrer</a></li>
-                                <li><a class="dropdown-item"  @click="ActionsRows('Facturer',item.Numéro)">
-                                    <i class="fas fa-share"></i>
-                                Facturer</a></li>
-                                <li><a class="dropdown-item"  @click="ActionsRows('Annuler',item.Numéro)">
-                                    <i class="fas fa-ban"></i>
-                                Annuler</a></li>
-                                <li><a class="dropdown-item"  @click="ActionsRows('Dupliquer',item.Numéro)">
-                                    <i class="far fa-copy"></i>
-                                Dupliquer</a></li>
+                            <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
+                                 <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                  <i class="fa fa-share"></i>
+                                Generer un revoir</a>
+                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                  <i class="fa fa-ban"></i>
+                                Annuler</a>
+                                 <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                  <i class="fa fa-copy"></i>
+                                Dupliquer</a>
                             </ul>
-                        </div>
-                    </td>
+                          </v-col>
+                      </td>
                     </tr>
-                </tbody>
+                  </tbody>
                 </template>
-            </v-simple-table>
-            <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
+              </v-simple-table>
+              <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
             <v-row>
             <v-col cols="2">
               <div>
                   <v-select
                   class="select"
-                    :items="items"
+                     :items="ListeDevis.etat"
                     label="Pour la séléction"
-                    item-text="name"
-                    v-model="ElementSelected"
-
-
                   ></v-select>
                   </div>
                 </v-col>
@@ -159,7 +170,7 @@
   //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
-   import DataTable from '../../backend/data.json'
+    import DataTable from '../../../backend/data.json'
   export default {
     props: {
    
@@ -230,7 +241,7 @@
       // Using autoTable plugin
       doc.autoTable({
         columns: columns,
-        body: this.ListeDevis,
+        body:this.ListeDevis,
         margin: { left: 0.5, top: 1.25 }
       });
       doc
@@ -313,6 +324,7 @@
 
 
 
+
 <style >
 .btnn{
     margin-top: 22px;
@@ -321,4 +333,6 @@
 .select{
     margin-left: 10px;
 }
+
+
 </style>

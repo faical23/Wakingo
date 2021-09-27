@@ -113,7 +113,7 @@
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
   import NaVBar from '../../../components/navbar/navbar.vue'
-  import Table from '../../../components/table.vue'
+  import Table from '../../../components/Tables/table.vue'
   import DatePicker from "../../../components/DatePicker.vue";
   export default {
     name: 'Home',

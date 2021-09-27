@@ -4,8 +4,18 @@
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
-            Liste des bons de livraison / proforma    
+            Gestion des bons de livraison   
         </v-card-title>
+        <div class="TableAffiche">
+            <p>Affiche</p>
+            <select name="" id="" v-model="NumberRowShow">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <p>élément</p>
+        </div>
         <div class="table-btn-group">
           <v-icon  class=" mdi-file-pdf-outline" color="black" >
                mdi-file-pdf-outline
@@ -39,30 +49,27 @@
             </div>
           </v-flex>
         </div> 
-              <v-simple-table  show-select>
+              <v-simple-table>
                 <template v-slot:default>
                   <thead>
                     <tr>
-                      <th class="text">
-                      Date du devis
-                      </th>
-                      <th class="text">
-                        Numéro
+                       <th class="text-left">
+                        <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
+                    </th>
+                      <th class="text-left">
+                      Date de la recette
                       </th>
                       <th class="text-left">
-                       Client
+                        Ventilation
                       </th>
                       <th class="text-left">
-                        Total	Devise
+                       Libellé
                       </th>
                       <th class="text-left">
-                        Référence
+                        Total TTC
                       </th>
                       <th class="text-left">
-                        Projet
-                      </th>
-                      <th class="text-left">
-                        Etat
+                        Statut
                       </th>
                       <th class="text-left">
                         #
@@ -70,10 +77,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr
-                      v-for="item in ListeDevis"
-                      :key="item.date"
+                     <tr
+                    v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
+                    :key="(item.name,n)"
                     >
+                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
                       <td>{{ item.date }}</td>
                       <td>
                         <router-link to= "/Ventes/NouveauDevis/Proforma">
@@ -82,9 +90,7 @@
                         </td>
                       <td>{{ item.client }}</td>
                       <td>{{ item.Total }}</td>
-                      <td>{{ item.Référence }}</td>
-                      <td>{{ item.projet }}</td>
-                      <td>
+                     <td>
                          <v-chip v-if="item.etat == 'Accepté(e)' "
                           label
                           class="ma-2"
@@ -103,19 +109,19 @@
                           >
                          {{ item.etat }}
                           </v-chip>
-                         <v-chip v-if="item.etat == 'En cours'"
+                         <v-chip v-if="item.etat == 'Annulé(e)'"
                           label
                           class="ma-2"
-                          color="pink"
+                          color="grey"
                           text-color="black"
                             
                           >
                          {{ item.etat }}
                           </v-chip>
-                         <v-chip v-if="item.etat == 'Annulé(e)'"
+                         <v-chip v-if="item.etat == 'En cours' "
                           label
                           class="ma-2"
-                          color="yellow"
+                          color="green"
                           text-color="white"
                             
                           >
@@ -155,12 +161,13 @@
                   </tbody>
                 </template>
               </v-simple-table>
+              <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
             <v-row>
             <v-col cols="2">
               <div>
                   <v-select
                   class="select"
-                    :items="items"
+                     :items="ListeDevis.etat"
                     label="Pour la séléction"
                   ></v-select>
                   </div>
@@ -169,6 +176,7 @@
                 <v-btn
                 color="primary"
                 class="btnn"
+                @click="EnvoyerElement()"
                 >Envoyer</v-btn>
             </v-col> 
             </v-row>   
@@ -178,9 +186,10 @@
 
 <script>
   import 'jspdf-autotable';
-   import axios from 'axios';
+  //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
+    import DataTable from '../../../backend/data.json'
   export default {
     props: {
    
@@ -193,19 +202,19 @@
         isOpen: false,
         selected: [],
          items: [
-          'Item 1',
-          'Item 2',
-          'Item 3',
-          'Item 4',
+          'Valider',
+          'Annuler',
+          'Cloturer',
+          'Supprimer',
       ],
       duplique: [
         'duplique'
       ],
-        heading: "Liste des bons de livraison / proforma",
-        ListeDevis:[],
-
-
-        // action:{value:"action"},
+    heading: "Liste des bons de livraison / proforma",
+    ListeDevis:[],
+    NumberRowShow:10,
+    CheckAll:false,
+    ElementSelected : ''
       }
     },
     methods: {
@@ -228,7 +237,7 @@
         newWin.print();
         newWin.close();
       },
-generatePDF() {
+    generatePDF() {
       const columns = [
         { title: "Date de Devis"},
          {title:"Numéro", body: "Numéro",}, 
@@ -251,7 +260,7 @@ generatePDF() {
       // Using autoTable plugin
       doc.autoTable({
         columns: columns,
-        body: this.ListeDevis,
+        body:this.ListeDevis,
         margin: { left: 0.5, top: 1.25 }
       });
       doc
@@ -269,19 +278,66 @@ generatePDF() {
           }
         })
       },
+      CheckedThisRow(n){
+          this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
+      },
+      CheckAllRows(){
+          if(this.CheckAll == false)
+          {
+            // this.CheckAll == true
+            this.ListeDevis.forEach(element =>{
+                  element.Select = true
+              })
+              this.CheckAll == true
+
+          }
+          else{
+                this.ListeDevis.forEach(element =>{
+                    element.Select = false
+                    console.log(element.Select)
+                })
+                this.CheckAll == false
+          }
+      },
+      EnvoyerElement(){
+          console.log(this.ElementSelected)
+          let MakeActionsInthisRows = [];
+          this.ListeDevis.forEach(element =>{
+              if(element.Select == true){
+                  MakeActionsInthisRows.push(element.Numéro)
+              }
+          })
+          /// AXIOS TO DO ACTION HEER
+          console.log(MakeActionsInthisRows)
+
+      },
+      ActionsRows(Conditon,Numéro){
+      if(Conditon == 'Refuser'){
+              ///AXIOS TO REFUSE
+        }
+        if(Conditon == 'Livrer'){
+              /// got to livrer
+          }
+            if(Conditon == 'Facturer'){
+              ///  go to facturer
+          }
+            if(Conditon == 'Annuler'){
+              ///AXIOS TO ANNULER
+          }
+            if(Conditon == 'Dupliquer'){
+              ///AXIOS TO DUPLIQUER
+          }
+          console.log(Conditon,Numéro)
+          
+      }
     },  
       mounted() {
-          axios.get('http://localhost:8888/ListeDevis').then((response) => {
-            this.ListeDevis = response.data
-            // console.log(this.ListeDevis)
-            
-            
-        })
-             
+        this.ListeDevis = DataTable.ListeDevis
     }
   }
 
 </script>
+
 
 
 
