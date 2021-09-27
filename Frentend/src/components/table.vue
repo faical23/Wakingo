@@ -39,12 +39,12 @@
             </div>
           </v-flex>
         </div> 
-              <v-simple-table>
+              <v-simple-table  show-select>
                 <template v-slot:default>
                   <thead>
                     <tr>
                       <th class="text">
-                       	Date du devis
+                      Date du devis
                       </th>
                       <th class="text">
                         Numéro
@@ -85,14 +85,50 @@
                       <td>{{ item.Référence }}</td>
                       <td>{{ item.projet }}</td>
                       <td>
-                         <v-chip
-                            label
-                            class="ma-2"
-                            color="blue"
-                            text-color="white"
+                         <v-chip v-if="item.etat == 'Accepté(e)' "
+                          label
+                          class="ma-2"
+                          color="blue"
+                          text-color="white"
                             
                           >
                           {{ item.etat }} 
+                          </v-chip>
+                         <v-chip v-if="item.etat == 'En attente'"
+                          label
+                          class="ma-2"
+                          color="orange"
+                          text-color="black"
+                            
+                          >
+                         {{ item.etat }}
+                          </v-chip>
+                         <v-chip v-if="item.etat == 'En cours'"
+                          label
+                          class="ma-2"
+                          color="pink"
+                          text-color="black"
+                            
+                          >
+                         {{ item.etat }}
+                          </v-chip>
+                         <v-chip v-if="item.etat == 'Annulé(e)'"
+                          label
+                          class="ma-2"
+                          color="yellow"
+                          text-color="white"
+                            
+                          >
+                         {{ item.etat }}
+                          </v-chip>
+                         <v-chip v-if="item.etat == 'Clôturer(e)'"
+                          label
+                          class="ma-2"
+                          color="blue"
+                          text-color="white"
+                            
+                          >
+                         {{ item.etat }}
                           </v-chip>
                         </td>
                       <td>
@@ -105,21 +141,14 @@
                               >
                                 mdi-cog
                               </v-icon>
-                          action
-                          </v-btn>
-                          <v-btn 
-                            @click="toggleSelect = !toggleSelect"
-                              
-                            >
-                              <v-icon size="15">mdi-arrow-down-drop-circle</v-icon>
+                            action
                             </v-btn>
-                            <v-select
-                              v-if="toggleSelect"
-                              :menu-props="{value: toggleSelect}"
-                              items="Duplique"
-                            >
-                              Duplique
-                            </v-select>
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
+                            </button>
+                            <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
+                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                Dupliquer</a>
+                            </ul>
                           </v-col>
                       </td>
                     </tr>
