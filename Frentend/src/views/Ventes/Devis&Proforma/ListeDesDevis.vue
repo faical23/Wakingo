@@ -2,6 +2,7 @@
   <div class="HomePage">
       <SideBar/>
       <div class="GlobalPage">
+
             <NaVBar/>
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
@@ -29,21 +30,23 @@
                      
                     </v-card-title>
                    
-                       <v-text>
+                      
                          
     <v-content>
         <v-form class="recherche_rapide_content" >
           <!-- <v-row> -->
              <!-- <v-spacer></v-spacer> -->
-             <v-icon class=" mdi-calendar-month">
+             <v-icon class="cal-icon">
                 mdi-calendar-month
               </v-icon>
               
             <v-col cols="2" >
               <h5>Date de livraison:</h5>
-              <DatePicker label="Start Date" @change="date=>(startDate=date)">from</DatePicker>
+              <DatePicker label="Start Date"  @change="date=>(startDate=date)">from</DatePicker>
           </v-col>
-              <v-icon>
+              <v-icon
+              class="cal-icon"
+              >
                 mdi-calendar-month
               </v-icon>
             <v-col cols="2" >
@@ -64,16 +67,22 @@
                 label="Tous"
               ></v-select>
             </v-col>
-            <v-col cols="3">
+            <v-col class="num" cols="2">
             <h5>Numéro:</h5>
              <v-text-field ></v-text-field>
             </v-col>
+            <v-col class="ref" cols="2">
+            <h5>Référence/Projet :</h5>
+             <v-text-field ></v-text-field>
+            </v-col>
+            
           <!-- </v-row> -->
           
         </v-form>
     </v-content>
   
-                       </v-text>  
+                      
+
                 </v-card>
                 
                 </div>
@@ -88,7 +97,7 @@
                         <v-icon class="mdi-plus-thick">
                             mdi-plus-thick
                         </v-icon>
-                        Nouveau bon/Perorma
+                            Nouveau Devis/performa
                         </v-btn>
                     </router-link>
                     </div>
@@ -103,13 +112,17 @@
 
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
-  import NaVBar from '../../../components/navbar.vue'
+  import NaVBar from '../../../components/navbar/navbar.vue'
   import Table from '../../../components/table.vue'
   import DatePicker from "../../../components/DatePicker.vue";
   export default {
     name: 'Home',
 
-
+ props: {
+   ninja:{
+     type: String
+   }
+ },
     data: () => ({
      
       items: [
@@ -120,7 +133,6 @@
       ],
       
     }),
-
     components: {
       SideBar,
       NaVBar,
@@ -133,5 +145,8 @@
 <style >
     div .btn{
         margin-left: 30% ;
+    }
+    .HomePage{
+      font-size: 20px;
     }
 </style>

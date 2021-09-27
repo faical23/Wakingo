@@ -1,12 +1,31 @@
+
+.tableDevis{
+    font-size: 1px;
+}
 .v-card.v-card--flat.v-sheet.theme--light {
-    height: 181px !important;
+    height: 144px !important;
     margin-bottom: 22px !important;
+    font-size: 16px;
+}
+.cal-icon{
+    margin-bottom: -21px;
+    margin-left: 3px;
+}
+.mdi-calendar-month {
+    margin-left: 3px;
+}
+.data-table-content{
+    font-size: 0px;
 }
 
 .recherche_rapide_content{
     height: auto !important;
     margin-bottom: 200px !important;
     display: flex;
+    .v-list {
+        margin-top: 39px;
+    }
+  
 }
 
 .v-card__title.text-p.blue.lighten-4.black--text {
@@ -39,9 +58,9 @@
         font-size: 25px;
         margin-right: 8px;
     }
-    .mdi-calendar-month{
-        margin-left: 23px;
-    }
+    // .mdi-calendar-month{
+    //     margin-left: 23px;
+    // }
     .bnt-nv-bon-de-livraison{
         background-color: #3c8dbc !important;
         color: white;
@@ -76,7 +95,47 @@
         display: flex;
     }
 
+    .duplique-btn{
+        padding: 0 0px;
+    }
+    .td.text-start{
+       padding: 0 67px;
+    }
 
+    .v-main__wrap {
+        .v-list {
+            margin-top: 41px;
+        }
+    }
     
-    
+    .v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+    padding: 0 44px;
+}
 
+.mdi-file-pdf{
+    size: 300px;
+}
+
+
+.ref{
+    .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
+        bottom: -1px;
+        content: "";
+        left: 0px;
+        margin-right: 10px;
+        position: absolute;
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+        width: 80%;
+    }
+}
+
+// .num{
+//     .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
+//         bottom: -1px;
+//         content: "";
+//         left: 0px;
+//         position: absolute;
+//         transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+//         width: 75%;
+//     }
+// }

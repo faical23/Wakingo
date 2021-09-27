@@ -7,7 +7,29 @@ import './assets/sass/style.scss'
 import excel from 'vue-excel-export'
 import jspdf from'jspdf'
 import pdf from 'vue-pdf'
+import print from "vue-html-to-paper"
+import Vuex from 'vuex'
+import html2canvas from 'html2canvas'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
+import VueAxios from 'vue-axios'
+import axios from 'axios'
 
+
+Vue.use(Vuex)
+
+const options = {
+  name: "_blank",
+  specs: ["fullscreen=yes", "titlebar=yes", "scrollbars=yes"],
+  styles: [
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+    "https://unpkg.com/kidlat-css/css/kidlat.css"
+  ]
+};
+
+Vue.use(VueAxios, axios)
+Vue.use(html2canvas)
+Vue.use(print ,options)
 Vue.use(excel)
 Vue.use(jspdf)
 Vue.use(pdf)
