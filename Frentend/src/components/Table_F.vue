@@ -1,12 +1,23 @@
 <template>
 
     <v-card class="tableDevis" id="tableDevis">
+
         <v-card-title class="table-title">
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
-            Liste des bons de livraison / proforma    
+            Liste des commandes clients   
         </v-card-title>
+        <div class="TableAffiche">
+            <p>Affiche</p>
+            <select name="" id="" v-model="NumberRowShow">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <p>élément</p>
+        </div>
         <div class="table-btn-group">
           <v-icon  class=" mdi-file-pdf-outline" color="black" >
                mdi-file-pdf-outline
@@ -40,60 +51,83 @@
             </div>
           </v-flex>
         </div>
-         <!-- <h1>{{ ListeDevis.id }}</h1> -->
-        <v-card-content class="data-table-content">
-                <v-data-table
-                id="data-table"
-                ref="printTable"
-                v-model="selected"
-                :headers="headers"
-                :items="ListeDevis"
-                :single-select="singleSelect"
-                stripe
-                show-select
-                class="data-table elevation-1"
-            >
-           
-              <!-- <template slot="items.iron" slot-scope="props"> -->
-                <!-- <v-col cols="2" class="btnnnn">
-               <v-btn class="action-btn">
-                  <v-icon
-                    color="black"
-                    size="15"
-                    class="action-icon"
-                  >
-                    mdi-cog
-                  </v-icon>
-                {{ props.item.iron}} 
-              </v-btn>
-                 <v-select
-                  :items="duplique"
-                   class="duplique-btn">
-                  </v-select> 
-              </v-col>
-             </template>
-              <template v-slot:[`items.etat`]="{ ListeDeviss }">
-              <v-chip
-                label
-                class="ma-2"
-                color="red"
-                text-color="white"
-                 
-              >
-              {{ ListeDeviss.etat }} 
-              </v-chip>
-             
-             </template>
-              -->
-            <!-- <template v-slot:[`item.calories`]="{ item }">
-               <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    > 
-                    {{ item.calories }}    
-               </router-link>
-               </template> -->
-             </v-data-table>
-            </v-card-content>
+            <v-simple-table class="TableResultSearch">
+                <template v-slot:default>
+                <thead>
+                    <tr>
+                     <th class="text-left">
+                        <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
+                    </th>
+                    <th class="text-left">
+                        Date de la commande
+                    </th>
+                    <th class="text-left">
+                        Numéro
+                    </th>
+                    <th class="text-left">
+                        Client
+                    </th>
+                    <th class="text-left">
+                        Date de livraison
+                    </th>
+                    <th class="text-left">
+                        Etat
+                    </th>
+                    <th class="text-left">
+                        #
+                    </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                    v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
+                    :key="(item.name,n)"
+                    >
+                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.Numéro }}</td>
+                    <td>{{ item.client }}</td>
+                    <td>{{ item.dateLivraison }}</td>
+                    <td >
+                        <button v-if="item.etat == 'En cours'" class="BtnEtat EnCours">{{item.etat}} </button>
+                        <button v-if="item.etat == 'Clôturer(e)'" class="BtnEtat Clôturer">{{item.etat}} </button>
+                        <button v-if="item.etat == 'En attente'" class="BtnEtat EnAttente">{{item.etat}} </button>
+                        <button v-if="item.etat == 'Accepté(e)'" class="BtnEtat Accepté">{{item.etat}} </button>
+                        <button v-if="item.etat == 'Annulé(e)'" class="BtnEtat Annulé">{{item.etat}} </button>
+
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+                               <i class="fas fa-cog"></i>
+                                Action
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" @click="ActionsRows('Refuser',item.Numéro)">
+                                   <i class="fas fa-user-minus"></i>
+                                    Refuser
+                                </a></li>
+                                <li><a class="dropdown-item"  @click="ActionsRows('Livrer',item.Numéro)">
+                                    <i class="fas fa-share"></i>
+                                Livrer</a></li>
+                                <li><a class="dropdown-item"  @click="ActionsRows('Facturer',item.Numéro)">
+                                    <i class="fas fa-share"></i>
+                                Facturer</a></li>
+                                <li><a class="dropdown-item"  @click="ActionsRows('Annuler',item.Numéro)">
+                                    <i class="fas fa-ban"></i>
+                                Annuler</a></li>
+                                <li><a class="dropdown-item"  @click="ActionsRows('Dupliquer',item.Numéro)">
+                                    <i class="far fa-copy"></i>
+                                Dupliquer</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    </tr>
+                </tbody>
+                </template>
+            </v-simple-table>
+            <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
             <v-row>
             <v-col cols="2">
               <div>
@@ -101,6 +135,10 @@
                   class="select"
                     :items="items"
                     label="Pour la séléction"
+                    item-text="name"
+                    v-model="ElementSelected"
+
+
                   ></v-select>
                   </div>
                 </v-col>
@@ -108,6 +146,7 @@
                 <v-btn
                 color="primary"
                 class="btnn"
+                @click="EnvoyerElement()"
                 >Envoyer</v-btn>
             </v-col> 
             </v-row>   
@@ -133,31 +172,19 @@
         isOpen: false,
         selected: [],
          items: [
-          'Item 1',
-          'Item 2',
-          'Item 3',
-          'Item 4',
+          'Valider',
+          'Annuler',
+          'Cloturer',
+          'Supprimer',
       ],
       duplique: [
         'duplique'
       ],
     heading: "Liste des bons de livraison / proforma",
-           
-        headers: [
-         {text: 'Date de Devis',value: 'date',},
-         {text: 'Numéro',value: 'Numéro',}, 
-         {text: 'Client',value: 'client',}, 
-         {text: 'Total',value: 'Total',}, 
-         {text: 'projet',value: 'projet',}, 
-         {text: 'Référence',value: 'Référence',}, 
-         {text: 'Etat',value: 'etat',}, 
-         {text: '#', value:"iron"}, 
-       
-        ],
-         ListeDevis:[],
-         iron:{iron:"action"},
-
-        // action:{value:"action"},
+    ListeDevis:[],
+    NumberRowShow:10,
+    CheckAll:false,
+    ElementSelected : ''
       }
     },
     methods: {
@@ -180,7 +207,7 @@
         newWin.print();
         newWin.close();
       },
-generatePDF() {
+    generatePDF() {
       const columns = [
         { title: "Date de Devis"},
          {title:"Numéro", body: "Numéro",}, 
@@ -221,6 +248,58 @@ generatePDF() {
           }
         })
       },
+      CheckedThisRow(n){
+          this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
+      },
+      CheckAllRows(){
+          if(this.CheckAll == false)
+          {
+            // this.CheckAll == true
+            this.ListeDevis.forEach(element =>{
+                  element.Select = true
+              })
+              this.CheckAll == true
+
+          }
+          else{
+                this.ListeDevis.forEach(element =>{
+                    element.Select = false
+                    console.log(element.Select)
+                })
+                this.CheckAll == false
+          }
+      },
+      EnvoyerElement(){
+          console.log(this.ElementSelected)
+          let MakeActionsInthisRows = [];
+          this.ListeDevis.forEach(element =>{
+              if(element.Select == true){
+                  MakeActionsInthisRows.push(element.Numéro)
+              }
+          })
+          /// AXIOS TO DO ACTION HEER
+          console.log(MakeActionsInthisRows)
+
+      },
+      ActionsRows(Conditon,Numéro){
+      if(Conditon == 'Refuser'){
+              ///AXIOS TO REFUSE
+        }
+        if(Conditon == 'Livrer'){
+              /// got to livrer
+          }
+            if(Conditon == 'Facturer'){
+              ///  go to facturer
+          }
+            if(Conditon == 'Annuler'){
+              ///AXIOS TO ANNULER
+          }
+            if(Conditon == 'Dupliquer'){
+              ///AXIOS TO DUPLIQUER
+          }
+          console.log(Conditon,Numéro)
+          
+      }
     },  
       mounted() {
         this.ListeDevis = DataTable.ListeDevis

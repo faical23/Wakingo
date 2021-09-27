@@ -1,0 +1,56 @@
+@charset "UTF-8";
+.TableAffiche {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+
+.TableAffiche select {
+  border: 1px solid black;
+  width: 80px;
+  margin: 0px 10px;
+  position: relative;
+  bottom: 8px;
+  padding: 5px 10px;
+}
+
+.TableResultSearch .dropdown-toggle {
+  color: white !important;
+}
+
+.TableResultSearch .dropdown-menu a {
+  padding: 5px 0px !important;
+}
+
+.TableResultSearch .dropdown-menu a i {
+  margin: 0px 10px;
+}
+
+.TableResultSearch .BtnEtat {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.TableResultSearch .EnCours {
+  background-color: #00c0ef;
+}
+
+.TableResultSearch .Accepté {
+  background-color: #00a65a;
+}
+
+.TableResultSearch .Clôturer {
+  background-color: #3c8dbc;
+}
+
+.TableResultSearch .Annulé {
+  background-color: #d2d6de;
+}
+
+.v-list-item__content:hover {
+  background-color: #00c0ef !important;
+  color: white;
+}

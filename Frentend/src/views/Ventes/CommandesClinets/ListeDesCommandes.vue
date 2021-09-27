@@ -2,7 +2,6 @@
   <div class="HomePage">
       <SideBar/>
       <div class="GlobalPage">
-
             <NaVBar/>
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">

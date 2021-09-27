@@ -698,6 +698,16 @@ textarea {
   font-size: 12px;
 }
 
+.TableAffiche {
+  display: flex;
+  align-items: center;
+}
+
+.TableAffiche select {
+  border: 1px solid black;
+  width: 1O0px;
+}
+
 .HomePage {
   display: flex;
 }

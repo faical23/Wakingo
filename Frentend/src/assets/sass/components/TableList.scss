@@ -1,0 +1,56 @@
+.TableAffiche{
+    display: flex;
+    align-items: center;
+    position: relative;
+    top:30px;
+    left:30px;
+    select{
+        border: 1px solid black;
+        width: 80px;
+        margin: 0px 10px;
+        position: relative;
+        bottom: 8px;
+        padding: 5px 10px;
+    }
+
+}
+.TableResultSearch{
+    .dropdown-toggle{
+        color: white !important;
+    }
+    .dropdown-menu{
+        a{
+            padding: 5px 0px !important;
+            i{
+                margin: 0px 10px ;
+            }
+        }
+    }
+    .BtnEtat{
+        
+        padding: 5px 10px;
+        border-radius:5px;
+        color:white;
+    }
+    .EnCours{
+        background-color:#00c0ef;
+    }
+    .Accepté{
+        background-color:#00a65a;
+    }
+    .Clôturer{
+        background-color:#3c8dbc;
+    }
+    .Annulé{
+        background-color:#d2d6de;
+
+    }
+
+}
+.v-list-item__content{
+    &:hover{
+        background-color:#00c0ef !important;
+        color:white;
+
+    }
+}

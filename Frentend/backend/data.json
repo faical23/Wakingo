@@ -1,8 +1,10 @@
 {
   "ListeDevis": [
     {
+      "Select":false,
       "id": 1,
       "date": "15/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
       "Total": "115",
@@ -10,24 +12,27 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "iron": "action",
-      "etat": "Accepté(e)"
+      "etat": "En cours"
       
     },
     {
+      "Select":false,
       "id": 2,
       "date": "8/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
       "Total": "115,20",
       "projet": "typicode",
       "Etat": "typicode",
       "Référence": "typicode",
-      
-      "etat": "En cours"
+      "etat": "Clôturer(e)"
     },
     {
+      "Select":false,
       "id": 3,
       "date": "1/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
       "Total": "115,20",
@@ -40,8 +45,10 @@
 
     },
     {
+      "Select":false,
       "id": 4,
       "date": "18/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
       "Total": "1,73",
@@ -49,12 +56,14 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "iron": "action",
-      "etat": "En attente"
+      "etat": "Annulé(e)"
      
     },
     {
+      "Select":false,
       "id": 1,
       "date": "15/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
       "Total": "115",
@@ -63,11 +72,12 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)"
-      
     },
     {
+      "Select":false,
       "id": 2,
       "date": "8/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
       "Total": "115,20",
@@ -78,8 +88,10 @@
       "etat": "En cours"
     },
     {
+      "Select":false,
       "id": 3,
       "date": "1/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
       "Total": "115,20",
@@ -92,8 +104,10 @@
 
     },
     {
+      "Select":false,
       "id": 4,
       "date": "18/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
       "Total": "1,73",
@@ -101,12 +115,14 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "iron": "action",
-      "etat": "En attente"
+      "etat": "Annulé(e)"
      
     },
     {
+      "Select":false,
       "id": 1,
       "date": "15/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
       "Total": "115",
@@ -118,8 +134,10 @@
       
     },
     {
+      "Select":false,
       "id": 2,
       "date": "8/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
       "Total": "115,20",
@@ -130,8 +148,10 @@
       "etat": "En cours"
     },
     {
+      "Select":false,
       "id": 3,
       "date": "1/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
       "Total": "115,20",
@@ -144,8 +164,10 @@
 
     },
     {
+      "Select":false,
       "id": 4,
       "date": "18/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
       "Total": "1,73",
@@ -153,12 +175,14 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "iron": "action",
-      "etat": "En attente"
+      "etat": "Annulé(e)"
      
     },
     {
+      "Select":false,
       "id": 1,
       "date": "15/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
       "Total": "115",
@@ -170,8 +194,10 @@
       
     },
     {
+      "Select":false,
       "id": 2,
       "date": "8/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
       "Total": "115,20",
@@ -182,8 +208,10 @@
       "etat": "En cours"
     },
     {
+      "Select":false,
       "id": 3,
       "date": "1/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
       "Total": "115,20",
@@ -196,8 +224,10 @@
 
     },
     {
+      "Select":false,
       "id": 4,
       "date": "18/09/2021",
+      "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
       "Total": "1,73",
@@ -205,7 +235,7 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "iron": "action",
-      "etat": "En attente"
+      "etat": "Annulé(e)"
      
     }
   ]
