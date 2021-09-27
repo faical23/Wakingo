@@ -50,7 +50,33 @@
   background-color: #d2d6de;
 }
 
+.v-sheet.v-list {
+  border: 1px solid black;
+  background: #fdfdfd;
+}
+
+.v-list-item__content {
+  width: 100%;
+}
+
 .v-list-item__content:hover {
   background-color: #00c0ef !important;
   color: white;
+}
+
+.SearchBydate {
+  display: flex;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+.SearchBydate input {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.SearchBydate label {
+  background-color: #e2e2e2;
+  padding: 10px 6px;
+  color: #888888;
 }

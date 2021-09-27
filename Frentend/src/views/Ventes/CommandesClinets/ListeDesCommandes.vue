@@ -33,42 +33,37 @@
                          
     <v-content>
         <v-form class="recherche_rapide_content" >
-          <!-- <v-row> -->
-             <!-- <v-spacer></v-spacer> -->
-             <v-icon class="cal-icon">
-                mdi-calendar-month
-              </v-icon>
-              
-            <v-col cols="2" >
+            <v-col cols="4" >
               <h5>Date de la commande :</h5>
-              <DatePicker label="Start Date"  @change="date=>(startDate=date)">from</DatePicker>
-          </v-col>
-              <v-icon
-              class="cal-icon"
-              >
-                mdi-calendar-month
-              </v-icon>
-            <v-col cols="2" >
-             <v-spacer>></v-spacer>
-              <DatePicker label="End Date" @change="date=>(endDate=date)"></DatePicker>
+              <div class="SearchBydate">
+                  <label for="">De</label>
+                  <input type="date" @change="SearchByFunction()" v-model="SearchByStartDateCommande" >
+                  <label for="">Au</label>
+                  <input type="date" @change="SearchByFunction()" v-model="SearchByEndDateCommande" >
+              </div>
+
             </v-col>
             <v-col cols="2">
             <h5>Etat:</h5>
               <v-select
-                :items="items"
+                :items="Etat"
                 label="Tous"
+                v-model="SearchByEtat"
+                @change="SearchByFunction()"
               ></v-select>
             </v-col>
             <v-col cols="2">
             <h5>Client:</h5>
               <v-select
-                :items="items"
+                :items="Client"
                 label="Tous"
+                v-model="SearchByClient"
+                 @change="SearchByFunction()"
               ></v-select>
             </v-col>
             <v-col class="num" cols="2">
             <h5>Numéro:</h5>
-             <v-text-field ></v-text-field>
+             <v-text-field  v-model="SearchByNumero" @keyup="SearchByFunction()"></v-text-field>
             </v-col>            
           <!-- </v-row> -->
           
@@ -95,7 +90,7 @@
                         </v-btn>
                     </router-link>
                     </div>
-                    <Table />
+                    <Table :ElementSearched='ElementSearched' />
             </div>
           </div>
       </div>
@@ -107,32 +102,62 @@
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
   import NaVBar from '../../../components/navbar/navbar.vue'
+<<<<<<< HEAD
   import Table from '../../../components/Tables/Table_F.vue'
   import DatePicker from "../../../components/DatePicker.vue";
+=======
+  import Table from '../../../components/Table_F.vue'
+  // import DatePicker from "../../../components/DatePicker.vue";
+>>>>>>> 688d5389cc058205482bdbf573d4c4c3aedcec98
   export default {
     name: 'Home',
 
  props: {
    ninja:{
-     type: String
+     type: String,
    }
  },
     data: () => ({
      
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
+      Client: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
       ],
+      Etat: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+      ],
+      SearchByStartDateCommande: '',
+      SearchByEndDateCommande : '',
+      SearchByEtat : '',
+      SearchByClient : '',
+      SearchByNumero :'',
+      ElementSearched:''
       
     }),
     components: {
       SideBar,
       NaVBar,
-      DatePicker,
+      // DatePicker,
       Table
     },
+    methods: {
+        SearchByFunction(){
+          let SearchBy = {
+              DateStartCommande :  this.SearchByStartDateCommande,
+              DateEndCommande :  this.SearchByEndDateCommande,
+              Etat :  this.SearchByEtat,
+              Client:  this.SearchByClient,
+              Numero :  this.SearchByNumero
+          }
+          this.ElementSearched = SearchBy
+          console.log(this.ElementSearched )
+        }
+    }
   }
 </script>
 

@@ -53,9 +53,18 @@
                 <template v-slot:default>
                   <thead>
                     <tr>
+<<<<<<< HEAD:Frentend/src/components/Tables/recurenteTable.vue
                        <th class="text-left">
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
+=======
+                      <th class="text">
+                      Date du devis
+                      </th>
+                      <th class="text">
+                        Numéro
+                      </th>
+>>>>>>> 688d5389cc058205482bdbf573d4c4c3aedcec98:Frentend/src/components/table.vue
                       <th class="text-left">
                       Date debut
                       </th>
@@ -110,7 +119,12 @@
   //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
+<<<<<<< HEAD:Frentend/src/components/Tables/recurenteTable.vue
     import DataTable from '../../../backend/data.json'
+=======
+    import DataTable from '../../backend/data.json'
+
+>>>>>>> 688d5389cc058205482bdbf573d4c4c3aedcec98:Frentend/src/components/table.vue
   export default {
     props: {
    
@@ -253,7 +267,18 @@
       }
     },  
       mounted() {
+<<<<<<< HEAD:Frentend/src/components/Tables/recurenteTable.vue
         this.ListeDevis = DataTable.ListeDevis
+=======
+        //   axios.get('http://localhost:8888/ListeDevis').then((response) => {
+        //     this.ListeDevis = response.data
+        //     // console.log(this.ListeDevis)
+            
+            
+        // })
+        this.ListeDevis = DataTable
+             
+>>>>>>> 688d5389cc058205482bdbf573d4c4c3aedcec98:Frentend/src/components/table.vue
     }
   }
 
