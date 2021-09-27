@@ -1,7 +1,6 @@
 <template>
 
     <v-card class="tableDevis" id="tableDevis">
-
         <v-card-title class="table-title">
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
@@ -50,6 +49,7 @@
               <!-- <span v-html="printStuff"></span> -->
             </div>
           </v-flex>
+
         </div>
             <v-simple-table class="TableResultSearch">
                 <template v-slot:default>
@@ -161,9 +161,7 @@
    import jsPdf from'jspdf';
    import DataTable from '../../backend/data.json'
   export default {
-    props: {
-   
-   },
+    props:['ElementSearched'],
     data() {
         
       return{
@@ -197,7 +195,7 @@
     });
 
     doc.save(pdfName + '.pdf');
-},
+        },
 
       printData(){
         var divToPrint = this.$ref.printTable
@@ -303,6 +301,11 @@
     },  
       mounted() {
         this.ListeDevis = DataTable.ListeDevis
+    },
+    watch:{
+        ElementSearched : function(){
+            console.log(this.ElementSearched)
+        }
     }
   }
 

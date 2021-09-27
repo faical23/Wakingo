@@ -33,8 +33,6 @@
                          
     <v-content>
         <v-form class="recherche_rapide_content" >
-
-              
             <v-col cols="4" >
               <h5>Date de la commande :</h5>
               <div class="SearchBydate">
@@ -48,7 +46,7 @@
             <v-col cols="2">
             <h5>Etat:</h5>
               <v-select
-                :items="items"
+                :items="Etat"
                 label="Tous"
                 v-model="SearchByEtat"
                 @change="SearchByFunction()"
@@ -57,7 +55,7 @@
             <v-col cols="2">
             <h5>Client:</h5>
               <v-select
-                :items="items"
+                :items="Client"
                 label="Tous"
                 v-model="SearchByClient"
                  @change="SearchByFunction()"
@@ -92,7 +90,7 @@
                         </v-btn>
                     </router-link>
                     </div>
-                    <Table />
+                    <Table :ElementSearched='ElementSearched' />
             </div>
           </div>
       </div>
@@ -112,21 +110,28 @@
  props: {
    ninja:{
      type: String,
-      SearchByStartDateCommande: 'a',
-      SearchByEndDateCommande : 'b',
-      SearchByEtat : 'c',
-      SearchByClient : 'd',
-      SearchByNumero :'e',
    }
  },
     data: () => ({
      
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
+      Client: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
       ],
+      Etat: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+      ],
+      SearchByStartDateCommande: '',
+      SearchByEndDateCommande : '',
+      SearchByEtat : '',
+      SearchByClient : '',
+      SearchByNumero :'',
+      ElementSearched:''
       
     }),
     components: {
@@ -137,12 +142,15 @@
     },
     methods: {
         SearchByFunction(){
-          console.log(this.SearchByStartDateCommande)
-          console.log(this.SearchByEndDateCommande)
-          console.log(this.SearchByEtat)
-          console.log(this.SearchByClient)
-          console.log(this.SearchByNumero)
-
+          let SearchBy = {
+              DateStartCommande :  this.SearchByStartDateCommande,
+              DateEndCommande :  this.SearchByEndDateCommande,
+              Etat :  this.SearchByEtat,
+              Client:  this.SearchByClient,
+              Numero :  this.SearchByNumero
+          }
+          this.ElementSearched = SearchBy
+          console.log(this.ElementSearched )
         }
     }
   }
