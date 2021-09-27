@@ -117,9 +117,10 @@
 
 <script>
   import 'jspdf-autotable';
-   import axios from 'axios';
+  //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
+   import DataTable from '../../backend/data.json'
   export default {
     props: {
    
@@ -222,12 +223,7 @@ generatePDF() {
       },
     },  
       mounted() {
-          axios.get('http://localhost:8888/ListeDevis').then((response) => {
-            this.ListeDevis = response.data
-            console.log(this.response)
-            
-        })
-             
+        this.ListeDevis = DataTable.ListeDevis
     }
   }
 

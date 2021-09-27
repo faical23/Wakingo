@@ -1,0 +1,212 @@
+{
+  "ListeDevis": [
+    {
+      "id": 1,
+      "date": "15/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. NOUREDDINE SADIK",
+      "Total": "115",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "Accepté(e)"
+      
+    },
+    {
+      "id": 2,
+      "date": "8/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. MOHAMED JASSIM ",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      
+      "etat": "En cours"
+    },
+    {
+      "id": 3,
+      "date": "1/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "M. YOUSSEF ELMOUDEN",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En cours"
+
+
+    },
+    {
+      "id": 4,
+      "date": "18/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "ESSAID CHASSE SA",
+      "Total": "1,73",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En attente"
+     
+    },
+    {
+      "id": 1,
+      "date": "15/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. NOUREDDINE SADIK",
+      "Total": "115",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "Accepté(e)"
+      
+    },
+    {
+      "id": 2,
+      "date": "8/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. MOHAMED JASSIM ",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      
+      "etat": "En cours"
+    },
+    {
+      "id": 3,
+      "date": "1/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "M. YOUSSEF ELMOUDEN",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En cours"
+
+
+    },
+    {
+      "id": 4,
+      "date": "18/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "ESSAID CHASSE SA",
+      "Total": "1,73",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En attente"
+     
+    },
+    {
+      "id": 1,
+      "date": "15/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. NOUREDDINE SADIK",
+      "Total": "115",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "Accepté(e)"
+      
+    },
+    {
+      "id": 2,
+      "date": "8/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. MOHAMED JASSIM ",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      
+      "etat": "En cours"
+    },
+    {
+      "id": 3,
+      "date": "1/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "M. YOUSSEF ELMOUDEN",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En cours"
+
+
+    },
+    {
+      "id": 4,
+      "date": "18/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "ESSAID CHASSE SA",
+      "Total": "1,73",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En attente"
+     
+    },
+    {
+      "id": 1,
+      "date": "15/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. NOUREDDINE SADIK",
+      "Total": "115",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "Accepté(e)"
+      
+    },
+    {
+      "id": 2,
+      "date": "8/09/2021",
+      "Numéro": "DEV-18092021-13",
+      "client": "M. MOHAMED JASSIM ",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      
+      "etat": "En cours"
+    },
+    {
+      "id": 3,
+      "date": "1/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "M. YOUSSEF ELMOUDEN",
+      "Total": "115,20",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En cours"
+
+
+    },
+    {
+      "id": 4,
+      "date": "18/09/2021",
+      "Numéro": "DEV-18092021",
+      "client": "ESSAID CHASSE SA",
+      "Total": "1,73",
+      "projet": "typicode",
+      "Etat": "typicode",
+      "Référence": "typicode",
+      "iron": "action",
+      "etat": "En attente"
+     
+    }
+  ]
+}

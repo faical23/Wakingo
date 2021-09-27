@@ -109,7 +109,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des commandes',
-                    Path:'/Ventes/Liste des commandes'
+                    Path:'/Ventes/ListeCommandes'
                   },
                   {
                     SecondChild : 'Nouvelle commande',
