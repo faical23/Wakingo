@@ -130,7 +130,7 @@
           { text: '#' , value:"iron", icon:'mdi-sort'},
         ],
         iron:{iron:"action"},
-        desserts: [
+        desserts:[
           {
             date: '01/01/2021',
             calories: 159,
