@@ -1,5 +1,4 @@
 <template>
-
     <v-card class="tableDevis" id="tableDevis">
         <v-card-title class="table-title">
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
@@ -39,61 +38,94 @@
               <!-- <span v-html="printStuff"></span> -->
             </div>
           </v-flex>
-        </div>
-         <!-- <h1>{{ ListeDevis.id }}</h1> -->
-        <v-card-content class="data-table-content">
-                <v-data-table
-                id="data-table"
-                ref="printTable"
-                v-model="selected"
-                :headers="headers"
-                :items="ListeDevis"
-                :single-select="singleSelect"
-                stripe
-                show-select
-                class="data-table elevation-1"
-            >
-           
-              <!-- <template slot="items.iron" slot-scope="props"> -->
-                <!-- <v-col cols="2" class="btnnnn">
-               <v-btn class="action-btn">
-                  <v-icon
-                    color="black"
-                    size="15"
-                    class="action-icon"
-                  >
-                    mdi-cog
-                  </v-icon>
-                {{ props.item.iron}} 
-              </v-btn>
-                 <v-select
-                  :items="duplique"
-                   class="duplique-btn">
-                  </v-select> 
-              </v-col>
-             </template>
-              <template v-slot:[`items.etat`]="{ ListeDeviss }">
-              <v-chip
-                label
-                class="ma-2"
-                color="red"
-                text-color="white"
-                 
-              >
-              {{ ListeDeviss.etat }} 
-              </v-chip>
-             
-             </template>
-              -->
-            <!-- <template v-slot:[`item.calories`]="{ item }">
-               <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    > 
-                    {{ item.calories }}    
-               </router-link>
-               </template> -->
-             </v-data-table>
-            </v-card-content>
+        </div> 
+              <v-simple-table>
+                <template v-slot:default>
+                  <thead>
+                    <tr>
+                      <th class="text">
+                       	Date du devis
+                      </th>
+                      <th class="text">
+                        Numéro
+                      </th>
+                      <th class="text-left">
+                       Client
+                      </th>
+                      <th class="text-left">
+                        Total	Devise
+                      </th>
+                      <th class="text-left">
+                        Référence
+                      </th>
+                      <th class="text-left">
+                        Projet
+                      </th>
+                      <th class="text-left">
+                        Etat
+                      </th>
+                      <th class="text-left">
+                        #
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="item in ListeDevis"
+                      :key="item.date"
+                    >
+                      <td>{{ item.date }}</td>
+                      <td>
+                        <router-link to= "/Ventes/NouveauDevis/Proforma">
+                        {{ item.Numéro }}
+                        </router-link>
+                        </td>
+                      <td>{{ item.client }}</td>
+                      <td>{{ item.Total }}</td>
+                      <td>{{ item.Référence }}</td>
+                      <td>{{ item.projet }}</td>
+                      <td>
+                         <v-chip
+                            label
+                            class="ma-2"
+                            color="blue"
+                            text-color="white"
+                            
+                          >
+                          {{ item.etat }} 
+                          </v-chip>
+                        </td>
+                      <td>
+                        <v-col cols="2" class="btnnnn">
+                          <v-btn class="action-btn">
+                              <v-icon
+                                color="black"
+                                size="15"
+                                class="action-icon"
+                              >
+                                mdi-cog
+                              </v-icon>
+                          action
+                          </v-btn>
+                          <v-btn 
+                            @click="toggleSelect = !toggleSelect"
+                              
+                            >
+                              <v-icon size="15">mdi-arrow-down-drop-circle</v-icon>
+                            </v-btn>
+                            <v-select
+                              v-if="toggleSelect"
+                              :menu-props="{value: toggleSelect}"
+                              items="Duplique"
+                            >
+                              Duplique
+                            </v-select>
+                          </v-col>
+                      </td>
+                    </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
             <v-row>
             <v-col cols="2">
               <div>
@@ -140,21 +172,9 @@
       duplique: [
         'duplique'
       ],
-    heading: "Liste des bons de livraison / proforma",
-           
-        headers: [
-         {text: 'Date de Devis',value: 'date',},
-         {text: 'Numéro',value: 'Numéro',}, 
-         {text: 'Client',value: 'client',}, 
-         {text: 'Total',value: 'Total',}, 
-         {text: 'projet',value: 'projet',}, 
-         {text: 'Référence',value: 'Référence',}, 
-         {text: 'Etat',value: 'etat',}, 
-         {text: '#', value:"iron"}, 
-       
-        ],
-         ListeDevis:[],
-         iron:{iron:"action"},
+        heading: "Liste des bons de livraison / proforma",
+        ListeDevis:[],
+
 
         // action:{value:"action"},
       }
@@ -224,7 +244,8 @@ generatePDF() {
       mounted() {
           axios.get('http://localhost:8888/ListeDevis').then((response) => {
             this.ListeDevis = response.data
-            console.log(this.response)
+            // console.log(this.ListeDevis)
+            
             
         })
              
@@ -246,4 +267,6 @@ generatePDF() {
 .select{
     margin-left: 10px;
 }
+
+
 </style>
