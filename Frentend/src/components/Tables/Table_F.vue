@@ -91,8 +91,8 @@
                       <td v-if="PathPage.includes('Accomptes')">{{item.Document}}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                      <td v-if="!PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')" ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
-                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')">{{ item.client }}</td>
+                      <!-- <td v-if="!PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')" ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td> -->
+                      <!-- <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')">{{ item.client }}</td> -->
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td> 
                       <td v-if="PathPage.includes('Accomptes')">{{item.Monatnt}}</td>
@@ -433,6 +433,21 @@
                    Name:'Valider',
                    Icons :'fas fa-check'
                },
+              {
+                   Name:'Editer',
+                   Icons :'fas fa-pencil'
+               },
+                    {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'Supprimer',
+                    Icons :'fas fa-trash-alt'
+                },
+            ]
+            this.ActionsRow = Actions
+          }
                 
           else if(this.PathPage.includes('Accomptes')){
               let Actions =[
@@ -471,8 +486,7 @@
                 },
             ]
             this.ActionsRow = Actions
-              ]
-              this.ActionsRow = Actions
+              
           }
           else if(this.PathPage.includes('Recurrentes')){
               let Actions =[

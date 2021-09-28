@@ -13,6 +13,8 @@ import Reglement from '../views/Ventes/Réglements.vue'
 import Accomptes from '../views/Ventes/Acomptes.vue'
 import Diverses from '../views/Ventes/RecettesDivereses.vue'
 import récurrentes from '../views/Ventes/RecettesRécurrents.vue'
+import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
+import Rapport_commercial from '../views/Ventes/RapportCommercial.vue'
 
 Vue.use(VueRouter)
 
@@ -81,7 +83,17 @@ const routes = [
     path: '/Ventes/Recurrentes',
     name: '/recurrentes',
     component: récurrentes
-  }
+  },
+  {
+    path: '/Ventes/regroupement_des_document',
+    name: '/regroupement_des_document',
+    component: regroupement
+  },
+  {
+    path: '/Ventes/Rapport_commercial',
+    name: '/Rapport_commercial',
+    component: Rapport_commercial
+  },
   
 ]
 

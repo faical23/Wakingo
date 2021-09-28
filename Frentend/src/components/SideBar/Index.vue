@@ -182,12 +182,12 @@
               {
                 FirstChild: 'Regroupment de documents',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Regroupment de documents'
+                Path:'/Ventes/regroupement_des_document'
               },
               {
                 FirstChild: 'Rapport commercial',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Rapport commercial'
+                Path:'/Ventes/Rapport_commercial'
               }
             ]
           },
