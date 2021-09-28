@@ -52,98 +52,13 @@
 
         </div>
             <v-simple-table class="TableResultSearch">
-                <!-- <template v-slot:default>
-                <thead>
-                    <tr>
-                     <th class="text-left">
-                        <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
-                    </th>
-                    <th class="text-left">
-                        Date de la commande
-                    </th>
-                    <th class="text-left">
-                        Numéro
-                    </th>
-                    <th class="text-left">
-                        Client
-                    </th>
-                    <th class="text-left">
-                        Date de livraison
-                    </th>
-                    <th class="text-left">
-                        Etat
-                    </th>
-                    <th class="text-left">
-                        #
-                    </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr
-                    v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
-                    :key="(item.name,n)"
-                    >
-                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
-                    <td>{{ item.date }}</td>
-                    <td>{{ item.Numéro }}</td>
-                    <td>{{ item.client }}</td>
-                    <td>{{ item.dateLivraison }}</td>
-                    <td >
-                        <button v-if="item.etat == 'En cours'" class="BtnEtat EnCours">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Clôturer(e)'" class="BtnEtat Clôturer">{{item.etat}} </button>
-                        <button v-if="item.etat == 'En attente'" class="BtnEtat EnAttente">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Accepté(e)'" class="BtnEtat Accepté">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Annulé(e)'" class="BtnEtat Annulé">{{item.etat}} </button>
-
-                    </td>
-                    <td>
-                          <v-btn class="action-btn">
-                              <v-icon
-                                color="black"
-                                size="15"
-                                class="action-icon"
-                              >
-                                mdi-cog
-                              </v-icon>
-                            action
-                            </v-btn>
-                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
-                            </button>
-                            <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-copy"></i>
-                                Dupliquer</a>
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-eye"></i>
-                                Appercu</a>
-                                
-                            </ul>
-                    </td>
-                    </tr>
-                </tbody>
-                </template> -->
                                 <template v-slot:default>
                   <thead>
                     <tr>
                        <th class="text-left">
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
-                      <th class="text-left">
-                      Date du livraison
-                      </th>
-                      <th class="text-left">
-                        Numéro
-                      </th>
-                      <th class="text-left">
-                       Client
-                      </th>
-                      <th class="text-left">
-                        Quantité livrée
-                      </th>
-                      <th class="text-left">
-                        Etat
-                      </th>
+                    <th  class="text-left" v-for="(HD,n) in HeaderTable" :key="n">{{HD}}</th>
                       <th class="text-left">
                         #
                       </th>
@@ -154,16 +69,18 @@
                     v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
                     :key="(item.name,n)"
                     >
-                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
-                      <td>{{ item.date }}</td>
-                      <td>
-                        <router-link to= "/Ventes/NouveauDevis/Proforma">
-                        {{ item.Numéro }}
-                        </router-link>
-                        </td>
-                      <td>{{ item.client }}</td>
-                      <td>{{ item.Total }}</td>
-                      
+                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td> 
+
+                    
+                      <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
+                      <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
+                      <td><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
+                      <td >{{ item.client }}</td>
+                      <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
+                      <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td> 
+
+
                       <td>
                          <v-chip v-if="item.etat == 'Clôturer(e)'"
                           label
@@ -172,7 +89,7 @@
                           text-color="white"
                             
                           >
-                         {{ item.etat }}
+                            {{ item.etat }}
                           </v-chip>
                          <v-chip v-else
                           label
@@ -181,9 +98,9 @@
                           text-color="white"
                             
                           >
-                         {{ item.etat }}
+                          {{ item.etat }}
                           </v-chip>
-                        </td>
+                      </td>  
                       <td>
                         <v-col cols="2" class="btnnnn">
                           <v-btn class="action-btn">
@@ -199,16 +116,13 @@
                             <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
                             </button>
                             <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-copy"></i>
-                                Dupliquer</a>
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-eye"></i>
-                                Appercu</a>
-                                
+                                <a   v-for="(Action,n) in ActionsRow" :key='n' class="dropdown-item"  @click="ActionsRows(Action.Name,item.Numéro)">
+                                  <i :class="Action.Icons"></i>
+                                {{Action.Name}}</a>
                             </ul>
                           </v-col>
                       </td>
+
                     </tr>
                   </tbody>
                 </template>
@@ -236,7 +150,6 @@
                 @click="EnvoyerElement()"
                 >Envoyer</v-btn>
             </v-col> 
-              props: {{PathPage}}
             </v-row>   
     </v-card>
 </template>
@@ -265,12 +178,46 @@
       duplique: [
         'duplique'
       ],
-    heading: "Liste des bons de livraison / proforma",
-    ListeDevis:[],
-    NumberRowShow:10,
-    CheckAll:false,
-    ElementSelected : '',
-    AddButton:''
+      HeaderTable:[],
+      ActionsRow:[
+        {
+          Name:'dupliquer',
+          Icons :'fas fa-copy'
+        },
+                {
+          Name:'Refuser',
+          Icons :'fas fa-user-times'
+        },
+                {
+          Name:'Livrer',
+          Icons :'fas fa-share'
+        },
+                {
+          Name:'Facturer',
+          Icons :'fas fa-share'
+        },
+                {
+          Name:'Annuler',
+          Icons :'fas fa-ban'
+        },
+                {
+          Name:'Aperçu',
+          Icons :'fas fa-eye'
+        },
+                {
+          Name:'Générer un avoir',
+          Icons :'fas fa-share'
+        },
+                {
+          Name:'Détail',
+          Icons :'fas fa-external-link-alt'
+        }
+      ],
+      heading: "Liste des bons de livraison / proforma",
+      ListeDevis:[],
+      NumberRowShow:10,
+      CheckAll:false,
+      ElementSelected : ''
       }
     },
     methods: {
@@ -367,28 +314,117 @@
           console.log(MakeActionsInthisRows)
 
       },
+      //// HER WE CAN UPDATE ACTIONS DROPDOWN FOR EVERY PATH PAGE
+      ActionsShowedInRow(){
+          if(this.PathPage.includes('ListeCommandes')){
+              let Actions =[
+                {
+                  Name:'Refuser',
+                  Icons :'fas fa-user-times'
+                },
+                        {
+                  Name:'Livrer',
+                  Icons :'fas fa-share'
+                },
+                        {
+                  Name:'Facturer',
+                  Icons :'fas fa-share'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Gestion_des_Factures')){
+              let Actions =[
+                {
+                  Name:'Générer un avoir',
+                  Icons :'fas fa-share'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Liste_Des_Avoirs')){
+              let Actions =[
+                {
+                  Name:'Détail',
+                  Icons :'fas fa-external-link-alt'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+      },
+      //// GET DATA TABLE
+      GetDataTable(){
+          if(this.PathPage.includes('ListeCommandes')){
+              let NewHeaderTable = ['Date de la commande','Numéro','Client','Date de la livraison','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('Gestion_des_Factures')){
+              let NewHeaderTable = ['Date de la Facture','Numéro','Client','Total','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('Liste_Des_Avoirs')){
+              let NewHeaderTable = [`Date de l'avoir`,'Numéro','Client','Total','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+      },
       ActionsRows(Conditon,Numéro){
-      if(Conditon == 'Refuser'){
-              ///AXIOS TO REFUSE
-        }
-        if(Conditon == 'Livrer'){
-              /// got to livrer
+        console.log(Conditon,Numéro)
+        if(Conditon == 'Refuser'){
+                ///AXIOS TO REFUSE
           }
-            if(Conditon == 'Facturer'){
-              ///  go to facturer
-          }
-            if(Conditon == 'Annuler'){
-              ///AXIOS TO ANNULER
-          }
-            if(Conditon == 'Dupliquer'){
-              ///AXIOS TO DUPLIQUER
-          }
-          console.log(Conditon,Numéro)
-          
+          if(Conditon == 'Livrer'){
+                /// got to livrer
+            }
+              if(Conditon == 'Facturer'){
+                ///  go to facturer
+            }
+              if(Conditon == 'Annuler'){
+                ///AXIOS TO ANNULER
+            }
+              if(Conditon == 'Dupliquer'){
+                ///AXIOS TO DUPLIQUER
+            }
+              if(Conditon == 'Aperçu'){
+                ///AXIOS TO DUPLIQUER
+            }
+            if(Conditon == 'Générer un avoir'){
+                ///AXIOS TO DUPLIQUER
+            }
+            if(Conditon == 'Détail'){
+                ///AXIOS TO DUPLIQUER
+            }          
       }
+
+      
     },  
       mounted() {
         this.ListeDevis = DataTable.ListeDevis
+        this.ActionsShowedInRow()
+        this.GetDataTable()
     },
     watch:{
         ElementSearched : function(){

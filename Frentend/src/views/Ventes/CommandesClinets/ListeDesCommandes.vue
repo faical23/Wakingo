@@ -45,23 +45,21 @@
             </v-col>
             <v-col cols="3">
             <h5>Etat:</h5>
-              <select name="" id="">
+              <select name="" id="" @change="SearchByFunction()" v-model="SearchByEtat ">
                 <option value="Tous">Tous</option>
-                <option value="Annulé">Annulé</option>
-                <option value="En cours">En cours</option>
-                <option value="Clôturé(e)">Clôturé(e)</option>
+                <option v-for="Etat,n in SearchByEtatArray" :key="n"  value="Etat">{{Etat}}</option>
               </select>
             </v-col>
             <v-col cols="3">
             <h5>Client:</h5>
-              <select name="" id="">
+              <select name="" id="" @change="SearchByFunction()" v-model="SearchByClient">
                 <option value="Tous">Tous</option>
                 <option v-for="(Client,n) in Clients" :key="n"  :value="Client" >{{Client}}</option>
               </select>
             </v-col>
             <v-col class="num" cols="2">
             <h5>Numéro:</h5>
-            <input type="text">
+            <input type="text" @keyup="SearchByFunction()" v-model="SearchByNumero">
             </v-col>            
           <!-- </v-row> -->
           
@@ -75,7 +73,7 @@
                 </div>
                 <div class="nouveau-bon">
                  <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
+                    to= "/Ventes/NouvelleCommande/Create"
                     >     
                     <v-btn
                         elevation="1"
@@ -128,12 +126,17 @@
       ],
       SearchByStartDateCommande: '',
       SearchByEndDateCommande : '',
-      SearchByEtat : '',
-      SearchByClient : '',
+      SearchByEtat : 'Tous',
+      SearchByClient : 'Tous',
       SearchByNumero :'',
       ElementSearched:'',
+<<<<<<< HEAD
       PathPage:''
       
+=======
+      PathPage:'',
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"]
+>>>>>>> f9b72db8aaa7708bb51ec74f46b53f629bb075c9
     }),
     components: {
       SideBar,
@@ -154,7 +157,6 @@
         },
         GethPagePath(){
           this.PathPage = this.$router.currentRoute.path
-          console.log(this.PathPage )
         }
     },
     created(){
