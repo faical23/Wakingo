@@ -196,8 +196,8 @@
   //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
-    import DataTable from '../../../backend/data.json'
-  export default {
+ import DataTable from '../../../backend/data.json'
+   export default {
     props: {
    
    },

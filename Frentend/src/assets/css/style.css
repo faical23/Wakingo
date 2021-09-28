@@ -701,11 +701,77 @@ textarea {
 .TableAffiche {
   display: flex;
   align-items: center;
+  position: relative;
+  top: 30px;
+  left: 30px;
 }
 
 .TableAffiche select {
   border: 1px solid black;
-  width: 1O0px;
+  width: 80px;
+  margin: 0px 10px;
+  position: relative;
+  bottom: 8px;
+  padding: 5px 10px;
+}
+
+.TableResultSearch .EnCours {
+  background-color: #00c0ef;
+}
+
+.TableResultSearch .Accepté {
+  background-color: #00a65a;
+}
+
+.TableResultSearch .Clôturer {
+  background-color: #3c8dbc;
+}
+
+.TableResultSearch .Annulé {
+  background-color: #d2d6de;
+}
+
+.v-sheet.v-list {
+  border: 1px solid black;
+  background: #fdfdfd;
+}
+
+.v-list-item__content {
+  width: 100%;
+  padding-left: 30px;
+}
+
+.v-list-item__content:hover {
+  background-color: #00c0ef !important;
+  color: white;
+}
+
+.SearchBydate {
+  display: flex;
+  align-items: center;
+}
+
+.SearchBydate input {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.SearchBydate label {
+  background-color: #e2e2e2;
+  padding: 10px 6px;
+  color: #888888;
+}
+
+#dropdownMenuButton1 {
+  background-color: #e5e5e5 !important;
+  color: black !important;
+}
+
+.recherche_rapide_content input, .recherche_rapide_content select {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 5px 10px;
+  width: 90%;
 }
 
 .HomePage {
@@ -1111,6 +1177,10 @@ textarea {
   margin-right: 8px;
 }
 
+.mdi-calendar-month {
+  margin-left: 10px;
+}
+
 .bnt-nv-bon-de-livraison {
   background-color: #3c8dbc !important;
   color: white;
@@ -1121,9 +1191,27 @@ textarea {
   margin-right: 8px;
 }
 
+.bnt-nv-avoir {
+  background-color: #3c8dbc !important;
+  color: white;
+  margin-left: 90px;
+}
+
+.bnt-nv-facture {
+  background-color: #3c8dbc !important;
+  color: white;
+  margin-left: 50px;
+}
+
+.bnt-nv-reglement {
+  background-color: #3c8dbc !important;
+  color: white;
+}
+
 .nouveau-bon {
-  margin-left: 83.5%;
-  margin-bottom: 24px;
+  margin-left: 86%;
+  margin-bottom: 22px;
+  margin-top: 22px;
 }
 
 .table-btn-group {
@@ -1172,6 +1260,17 @@ textarea {
   position: absolute;
   transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
   width: 80%;
+}
+
+.TableAfficheAccomptes {
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.v-menu__content.theme--light.menuable__content__active {
+  margin-top: 16px;
 }
 
 nav .v-toolbar {

@@ -170,7 +170,7 @@
   //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
-    import DataTable from '../../../backend/data.json'
+     import DataTable from '../../../backend/data.json'
   export default {
     props: {
    
@@ -195,7 +195,8 @@
     ListeDevis:[],
     NumberRowShow:10,
     CheckAll:false,
-    ElementSelected : ''
+    ElementSelected : '',
+    
       }
     },
     methods: {
