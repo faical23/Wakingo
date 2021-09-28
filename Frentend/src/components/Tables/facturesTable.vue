@@ -4,8 +4,18 @@
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
-            Liste des bons de livraison / proforma    
+            Gestion des bons de livraison   
         </v-card-title>
+        <div class="TableAffiche">
+            <p>Affiche</p>
+            <select name="" id="" v-model="NumberRowShow">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <p>élément</p>
+        </div>
         <div class="table-btn-group">
           <v-icon  class=" mdi-file-pdf-outline" color="black" >
                mdi-file-pdf-outline
@@ -43,23 +53,20 @@
                 <template v-slot:default>
                   <thead>
                     <tr>
-                      <th class="text">
-                      Date du devis
+                       <th class="text-left">
+                        <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
+                    </th>
+                      <th class="text-left">
+                      Date du livraison
                       </th>
-                      <th class="text">
+                      <th class="text-left">
                         Numéro
                       </th>
                       <th class="text-left">
                        Client
                       </th>
                       <th class="text-left">
-                        Total	Devise
-                      </th>
-                      <th class="text-left">
-                        Référence
-                      </th>
-                      <th class="text-left">
-                        Projet
+                        Total
                       </th>
                       <th class="text-left">
                         Etat
@@ -70,10 +77,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr
-                      v-for="item in ListeDevis"
-                      :key="item.date"
+                     <tr
+                    v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
+                    :key="(item.name,n)"
                     >
+                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
                       <td>{{ item.date }}</td>
                       <td>
                         <router-link to= "/Ventes/NouveauDevis/Proforma">
@@ -82,17 +90,25 @@
                         </td>
                       <td>{{ item.client }}</td>
                       <td>{{ item.Total }}</td>
-                      <td>{{ item.Référence }}</td>
-                      <td>{{ item.projet }}</td>
+                      
                       <td>
-                         <v-chip
-                            label
-                            class="ma-2"
-                            color="blue"
-                            text-color="white"
+                         <v-chip v-if="item.etat == 'En retard'"
+                          label
+                          class="ma-2"
+                          color="red"
+                          text-color="white"
                             
                           >
-                          {{ item.etat }} 
+                         {{ item.etat }}
+                          </v-chip>
+                         <v-chip v-else
+                          label
+                          class="ma-2"
+                          color="orange"
+                          text-color="white"
+                            
+                          >
+                         {{ item.etat }}
                           </v-chip>
                         </td>
                       <td>
@@ -105,33 +121,34 @@
                               >
                                 mdi-cog
                               </v-icon>
-                          action
-                          </v-btn>
-                          <v-btn 
-                            @click="toggleSelect = !toggleSelect"
-                              
-                            >
-                              <v-icon size="15">mdi-arrow-down-drop-circle</v-icon>
+                            action
                             </v-btn>
-                            <v-select
-                              v-if="toggleSelect"
-                              :menu-props="{value: toggleSelect}"
-                              items="Duplique"
-                            >
-                              Duplique
-                            </v-select>
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
+                            </button>
+                            <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
+                                 <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                  <i class="fa fa-share"></i>
+                                Generer un revoir</a>
+                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                  <i class="fa fa-ban"></i>
+                                Annuler</a>
+                                 <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
+                                  <i class="fa fa-copy"></i>
+                                Dupliquer</a>
+                            </ul>
                           </v-col>
                       </td>
                     </tr>
                   </tbody>
                 </template>
               </v-simple-table>
+              <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
             <v-row>
             <v-col cols="2">
               <div>
                   <v-select
                   class="select"
-                    :items="items"
+                     :items="ListeDevis.etat"
                     label="Pour la séléction"
                   ></v-select>
                   </div>
@@ -140,6 +157,7 @@
                 <v-btn
                 color="primary"
                 class="btnn"
+                @click="EnvoyerElement()"
                 >Envoyer</v-btn>
             </v-col> 
             </v-row>   
@@ -152,8 +170,7 @@
   //  import axios from 'axios';
    import html2canvas from 'html2canvas';
    import jsPdf from'jspdf';
-    import DataTable from '../../backend/data.json'
-
+    import DataTable from '../../../backend/data.json'
   export default {
     props: {
    
@@ -166,19 +183,19 @@
         isOpen: false,
         selected: [],
          items: [
-          'Item 1',
-          'Item 2',
-          'Item 3',
-          'Item 4',
+          'Valider',
+          'Annuler',
+          'Cloturer',
+          'Supprimer',
       ],
       duplique: [
         'duplique'
       ],
-        heading: "Liste des bons de livraison / proforma",
-        ListeDevis:[],
-
-
-        // action:{value:"action"},
+    heading: "Liste des bons de livraison / proforma",
+    ListeDevis:[],
+    NumberRowShow:10,
+    CheckAll:false,
+    ElementSelected : ''
       }
     },
     methods: {
@@ -201,7 +218,7 @@
         newWin.print();
         newWin.close();
       },
-generatePDF() {
+    generatePDF() {
       const columns = [
         { title: "Date de Devis"},
          {title:"Numéro", body: "Numéro",}, 
@@ -224,7 +241,7 @@ generatePDF() {
       // Using autoTable plugin
       doc.autoTable({
         columns: columns,
-        body: this.ListeDevis,
+        body:this.ListeDevis,
         margin: { left: 0.5, top: 1.25 }
       });
       doc
@@ -242,20 +259,66 @@ generatePDF() {
           }
         })
       },
+      CheckedThisRow(n){
+          this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
+      },
+      CheckAllRows(){
+          if(this.CheckAll == false)
+          {
+            // this.CheckAll == true
+            this.ListeDevis.forEach(element =>{
+                  element.Select = true
+              })
+              this.CheckAll == true
+
+          }
+          else{
+                this.ListeDevis.forEach(element =>{
+                    element.Select = false
+                    console.log(element.Select)
+                })
+                this.CheckAll == false
+          }
+      },
+      EnvoyerElement(){
+          console.log(this.ElementSelected)
+          let MakeActionsInthisRows = [];
+          this.ListeDevis.forEach(element =>{
+              if(element.Select == true){
+                  MakeActionsInthisRows.push(element.Numéro)
+              }
+          })
+          /// AXIOS TO DO ACTION HEER
+          console.log(MakeActionsInthisRows)
+
+      },
+      ActionsRows(Conditon,Numéro){
+      if(Conditon == 'Refuser'){
+              ///AXIOS TO REFUSE
+        }
+        if(Conditon == 'Livrer'){
+              /// got to livrer
+          }
+            if(Conditon == 'Facturer'){
+              ///  go to facturer
+          }
+            if(Conditon == 'Annuler'){
+              ///AXIOS TO ANNULER
+          }
+            if(Conditon == 'Dupliquer'){
+              ///AXIOS TO DUPLIQUER
+          }
+          console.log(Conditon,Numéro)
+          
+      }
     },  
       mounted() {
-        //   axios.get('http://localhost:8888/ListeDevis').then((response) => {
-        //     this.ListeDevis = response.data
-        //     // console.log(this.ListeDevis)
-            
-            
-        // })
-        this.ListeDevis = DataTable
-             
+        this.ListeDevis = DataTable.ListeDevis
     }
   }
 
 </script>
+
 
 
 

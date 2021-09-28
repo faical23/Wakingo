@@ -58,23 +58,39 @@
         font-size: 25px;
         margin-right: 8px;
     }
-    // .mdi-calendar-month{
-    //     margin-left: 23px;
-    // }
+    .mdi-calendar-month{
+        margin-left: 10px;
+    }
     .bnt-nv-bon-de-livraison{
         background-color: #3c8dbc !important;
         color: white;
         // float: right;
-
+        
         .mdi-plus-thick{
             font-size: 21px;
             margin-right: 8px;
-
+            
         }
     }
+    .bnt-nv-avoir{
+        background-color: #3c8dbc !important;
+        color: white;
+        margin-left: 90px;
+    }
+    .bnt-nv-facture{
+        background-color: #3c8dbc !important;
+        color: white;
+        margin-left: 50px;
+    }
+    .bnt-nv-reglement{
+        background-color: #3c8dbc !important;
+        color: white;
+        // margin-left: 83%;
+    }
     .nouveau-bon{
-        margin-left: 83.5%;
-        margin-bottom: 24px;
+        margin-left: 86%;
+        margin-bottom: 22px;
+        margin-top: 22px;
     }
 
     .table-btn-group{
@@ -129,13 +145,16 @@
     }
 }
 
-// .num{
-//     .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
-//         bottom: -1px;
-//         content: "";
-//         left: 0px;
-//         position: absolute;
-//         transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-//         width: 75%;
-//     }
-// }
+.TableAfficheAccomptes{
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.v-menu__content.theme--light.menuable__content__active {
+    margin-top: 16px;
+}
+
+
+
