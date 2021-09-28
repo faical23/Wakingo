@@ -268,7 +268,8 @@
       // Using autoTable plugin
       doc.autoTable({
         columns: columns,
-        body:this.ListeDevis,
+        body:this.listeDevis(),
+        
         margin: { left: 0.5, top: 1.25 }
       });
       doc
@@ -341,6 +342,7 @@
     },  
       mounted() {
         this.ListeDevis = DataTable.ListeDevis
+        console.log(DataTable.ListeDevis)
     }
   }
 
