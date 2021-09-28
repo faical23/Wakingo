@@ -78,8 +78,8 @@ const routes = [
     component: Diverses
   },
   {
-    path: '/Ventes/récurrentes',
-    name: '/récurrentes',
+    path: '/Ventes/Recurrentes',
+    name: '/recurrentes',
     component: récurrentes
   }
   

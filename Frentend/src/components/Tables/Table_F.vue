@@ -1,7 +1,7 @@
 <template>
 
     <v-card class="tableDevis" id="tableDevis">
-        <v-card-title class="table-title">
+        <v-card-title class="table-title" >
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
@@ -17,7 +17,7 @@
             </select>
             <p>élément</p>
         </div>
-        <div class="table-btn-group">
+        <div class="table-btn-group" v-if="!PathPage.includes('Accomptes')" >
           <v-icon  class=" mdi-file-pdf-outline" color="black" >
                mdi-file-pdf-outline
           </v-icon>
@@ -51,7 +51,7 @@
           </v-flex>
 
         </div>
-            <v-simple-table class="TableResultSearch">
+            <v-simple-table class="TableResultSearch" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''">
                                 <template v-slot:default>
                   <thead>
                     <tr>
@@ -73,15 +73,32 @@
 
                     
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Accomptes')">{{item.DateAcompte}}</td>
+                      <td v-if="PathPage.includes('Accomptes')">{{item.Libellé}}</td>
+                      <td v-if="PathPage.includes('Accomptes')">{{item.Document}}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                      <td><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
-                      <td >{{ item.client }}</td>
+                      <td v-if="!PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')" ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
+                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')">{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td> 
+                      <td v-if="PathPage.includes('Accomptes')">{{item.Monatnt}}</td>
+                      <td v-if="PathPage.includes('Accomptes')">{{item.DateEcheance}}</td>
+                      <td v-if="PathPage.includes('Diverses')">{{item.dateReccette}}</td>
+
+                      <td v-if="PathPage.includes('Recurrentes')">{{item.DateDébut}}</td>
+                      <td v-if="PathPage.includes('Recurrentes')">{{item.DateFin}}</td>
+                      <td v-if="PathPage.includes('Diverses') || PathPage.includes('Recurrentes')">{{item.Ventiation}}</td>
+                      <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.libelle}}</td>
+                      <td v-if="PathPage.includes('Recurrentes')">{{item.Fréquence}}</td>
+                      <td v-if="PathPage.includes('Recurrentes')">{{item.Prochaine_exécution}}</td>
+                      <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.TotatlTTC}}</td>
+                      <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.Status}}</td>
 
 
-                      <td>
+
+
+                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')">
                          <v-chip v-if="item.etat == 'Clôturer(e)'"
                           label
                           class="ma-2"
@@ -169,50 +186,50 @@
         singleSelect: false,
         isOpen: false,
         selected: [],
-         items: [
+        items: [
           'Valider',
           'Annuler',
           'Cloturer',
           'Supprimer',
-      ],
-      duplique: [
-        'duplique'
-      ],
-      HeaderTable:[],
-      ActionsRow:[
-        {
-          Name:'dupliquer',
-          Icons :'fas fa-copy'
-        },
-                {
-          Name:'Refuser',
-          Icons :'fas fa-user-times'
-        },
-                {
-          Name:'Livrer',
-          Icons :'fas fa-share'
-        },
-                {
-          Name:'Facturer',
-          Icons :'fas fa-share'
-        },
-                {
-          Name:'Annuler',
-          Icons :'fas fa-ban'
-        },
-                {
-          Name:'Aperçu',
-          Icons :'fas fa-eye'
-        },
-                {
-          Name:'Générer un avoir',
-          Icons :'fas fa-share'
-        },
-                {
-          Name:'Détail',
-          Icons :'fas fa-external-link-alt'
-        }
-      ],
+        ],
+        duplique: [
+          'duplique'
+        ],
+        HeaderTable:[],
+        ActionsRow:[
+          {
+            Name:'dupliquer',
+            Icons :'fas fa-copy'
+          },
+                  {
+            Name:'Refuser',
+            Icons :'fas fa-user-times'
+          },
+                  {
+            Name:'Livrer',
+            Icons :'fas fa-share'
+          },
+                  {
+            Name:'Facturer',
+            Icons :'fas fa-share'
+          },
+                  {
+            Name:'Annuler',
+            Icons :'fas fa-ban'
+          },
+                  {
+            Name:'Aperçu',
+            Icons :'fas fa-eye'
+          },
+                  {
+            Name:'Générer un avoir',
+            Icons :'fas fa-share'
+          },
+                  {
+            Name:'Détail',
+            Icons :'fas fa-external-link-alt'
+          }
+        ],
       heading: "Liste des bons de livraison / proforma",
       ListeDevis:[],
       NumberRowShow:10,
@@ -375,6 +392,50 @@
               ]
               this.ActionsRow = Actions
           }
+          else if(this.PathPage.includes('Accomptes')){
+              let Actions =[
+                {
+                  Name:'Valider',
+                  Icons :'fas fa-check'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'Supprimer',
+                    Icons :'fas fa-trash-alt'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Diverses')){
+              let Actions =[
+                {
+                  Name:'Détail',
+                  Icons :'fas fa-external-link-alt'
+                },
+                {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Recurrentes')){
+              let Actions =[
+                {
+                  Name:'Editer',
+                  Icons :'fas fa-edit'
+                },
+
+                {
+                    Name:'Supprimer',
+                    Icons :'fas fa-trash-alt'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
       },
       //// GET DATA TABLE
       GetDataTable(){
@@ -382,12 +443,24 @@
               let NewHeaderTable = ['Date de la commande','Numéro','Client','Date de la livraison','Etat']
               this.HeaderTable = NewHeaderTable
           }
-          if(this.PathPage.includes('Gestion_des_Factures')){
+          else if(this.PathPage.includes('Gestion_des_Factures')){
               let NewHeaderTable = ['Date de la Facture','Numéro','Client','Total','Etat']
               this.HeaderTable = NewHeaderTable
           }
-          if(this.PathPage.includes('Liste_Des_Avoirs')){
+          else if(this.PathPage.includes('Liste_Des_Avoirs')){
               let NewHeaderTable = [`Date de l'avoir`,'Numéro','Client','Total','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          else if(this.PathPage.includes('Accomptes')){
+              let NewHeaderTable = [`Date d'acompte`,'Libellé','Document','Client','Montant',`Date d'cheance`,'Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+         else if(this.PathPage.includes('Diverses')){
+              let NewHeaderTable = [`Date de la recette`,'Ventilation','Libellé','TotalTTC','Status']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Recurrentes')){
+              let NewHeaderTable = ['Date début','Date fin','Ventilation','Libellé','Fréquence','Prochaine exécution','TotalTTC','Status']
               this.HeaderTable = NewHeaderTable
           }
       },

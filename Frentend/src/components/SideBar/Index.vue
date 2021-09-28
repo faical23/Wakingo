@@ -177,7 +177,7 @@
               {
                 FirstChild: 'Recettes récurrents',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/récurrentes'
+                Path:'/Ventes/Recurrentes'
               },
               {
                 FirstChild: 'Regroupment de documents',

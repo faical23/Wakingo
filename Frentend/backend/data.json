@@ -6,8 +6,12 @@
       "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
-      
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
       "Total": "115",
@@ -16,8 +20,15 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
-      
+      "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"      
     },
     {
       "Select":false,
@@ -25,6 +36,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -33,7 +49,16 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "etat": "Clôturer(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
     },
     {
       "Select":false,
@@ -41,6 +66,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -50,7 +80,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En attente",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+    
+      "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
 
 
     },
@@ -60,6 +99,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -69,7 +113,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Annulé(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
      
     },
     {
@@ -78,6 +131,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
@@ -87,7 +145,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
     },
     {
       "Select":false,
@@ -95,6 +162,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -104,7 +176,16 @@
       "Référence": "typicode",
       
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
     },
     {
       "Select":false,
@@ -112,6 +193,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -121,7 +207,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
 
 
     },
@@ -131,6 +226,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -140,7 +240,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Annulé(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
      
     },
     {
@@ -149,6 +258,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
@@ -158,7 +272,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
       
     },
     {
@@ -167,6 +290,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -176,7 +304,16 @@
       "Référence": "typicode",
       
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
     },
     {
       "Select":false,
@@ -184,6 +321,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -193,7 +335,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
 
 
     },
@@ -203,6 +354,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -212,7 +368,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En attente",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
      
     },
     {
@@ -221,6 +386,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
@@ -230,7 +400,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
       
     },
     {
@@ -239,6 +418,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -248,7 +432,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
     },
     {
       "Select":false,
@@ -256,6 +449,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -265,7 +463,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
 
 
     },
@@ -275,6 +482,11 @@
       "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
       "dateAvoir": "15/09/2021",
+      "Libellé":"Acompte sur commande n° CDV-22052021-3",
+      "Document":"Commande n°CDV-2205615-13",
+      "DateAcompte":"18/09/2019",
+      "Monatnt": 60.65,
+      "DateEcheance":"15/04/2115",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -284,7 +496,16 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Annulé(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      
+            "Ventiation":"Récupération TVA",
+      "TotatlTTC":115.80,
+      "Status":"Clôturé(e)",
+      "dateReccette": "15/09/2021",
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+            "Fréquence":"Chaque 12 jours",
+      "Prochaine_exécution":"ABCDE",
+      "DateFin" : "15/09/2012",
+      "DateDébut":"23/09/2018"
      
     }
   ]

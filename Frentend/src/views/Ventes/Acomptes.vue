@@ -2,12 +2,11 @@
   <div class="HomePage">
       <SideBar/>
       <div class="GlobalPage">
-
             <NaVBar/>
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                       <h2>Gestion des acomptes clients </h2>
+                       <h2>Gestion des acomptes clients</h2>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
@@ -34,45 +33,34 @@
                          
     <v-content>
         <v-form class="recherche_rapide_content" >
-          <!-- <v-row> -->
-             <!-- <v-spacer></v-spacer> -->
-             <v-icon class="cal-icon">
-                mdi-calendar-month
-              </v-icon>
-              
-            <v-col cols="2" >
-              <h5>Date de livraison:</h5>
-              <DatePicker label="Start Date"  @change="date=>(startDate=date)">from</DatePicker>
-          </v-col>
-              <v-icon
-              class="cal-icon"
-              >
-                mdi-calendar-month
-              </v-icon>
-            <v-col cols="2" >
-             <v-spacer>></v-spacer>
-              <DatePicker label="End Date" @change="date=>(endDate=date)"></DatePicker>
+            <v-col cols="4" >
+              <h5>Date du acomptes :</h5>
+              <div class="SearchBydate">
+                  <label for="">De</label>
+                  <input type="date" @change="SearchByFunction()" v-model="SearchByStartDateCommande" >
+                  <label for="">Au</label>
+                  <input type="date" @change="SearchByFunction()" v-model="SearchByEndDateCommande" >
+              </div>
+
             </v-col>
-            <v-col cols="2">
+            <v-col cols="3">
             <h5>Etat:</h5>
-              <v-select
-                :items="items"
-                label="Tous"
-              ></v-select>
+              <select name="" id="" @change="SearchByFunction()" v-model="SearchByEtat ">
+                <option value="Tous">Tous</option>
+                <option v-for="Etat,n in SearchByEtatArray" :key="n"  value="Etat">{{Etat}}</option>
+              </select>
             </v-col>
-            <v-col cols="2">
+            <v-col cols="3">
             <h5>Client:</h5>
-              <v-select
-                :items="items"
-                label="Tous"
-              ></v-select>
+              <select name="" id="" @change="SearchByFunction()" v-model="SearchByClient">
+                <option value="Tous">Tous</option>
+                <option v-for="(Client,n) in Clients" :key="n"  :value="Client" >{{Client}}</option>
+              </select>
             </v-col>
-            
-            <v-col class="ref" cols="4">
+            <v-col class="num" cols="2">
             <h5>Libellé :</h5>
-             <v-text-field ></v-text-field>
-            </v-col>
-            
+            <input type="text" @keyup="SearchByFunction()" v-model="SearchByLibellé">
+            </v-col>            
           <!-- </v-row> -->
           
         </v-form>
@@ -83,10 +71,8 @@
                 </v-card>
                 
                 </div>
-                <div class="nouveau-bon">
-                
-                    </div>
-                    <Table />
+
+                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage' />
             </div>
           </div>
       </div>
@@ -98,32 +84,66 @@
 <script>
   import SideBar from '../../components/SideBar/Index.vue'
   import NaVBar from '../../components/navbar/navbar.vue'
-  import Table from '../../components/Tables/accomptesTable.vue'
-  import DatePicker from "../../components/DatePicker.vue";
+  import Table from '../../components/Tables/Table_F.vue'
   export default {
     name: 'Home',
 
  props: {
    ninja:{
-     type: String
+     type: String,
    }
  },
     data: () => ({
      
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
+      Clients: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD'
       ],
-      
+      SearchByStartDateCommande: '',
+      SearchByEndDateCommande : '',
+      SearchByEtat : 'Tous',
+      SearchByClient : 'Tous',
+      SearchByLibellé:'',
+      ElementSearched:'',
+      PathPage:'',
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"]
     }),
     components: {
       SideBar,
       NaVBar,
-      DatePicker,
       Table
     },
+    methods: {
+        SearchByFunction(){
+          let SearchBy = {
+              DateStartCommande :  this.SearchByStartDateCommande,
+              DateEndCommande :  this.SearchByEndDateCommande,
+              Etat :  this.SearchByEtat,
+              Client:  this.SearchByClient,
+              Libellé :  this.SearchByLibellé
+          }
+          this.ElementSearched = SearchBy
+          console.log(this.ElementSearched )
+        },
+        GethPagePath(){
+          this.PathPage = this.$router.currentRoute.path
+        }
+    },
+    created(){
+        this.PathPage = this.$router.currentRoute.path
+        this.GethPagePath()
+    }
+
   }
 </script>
 

@@ -2,17 +2,16 @@
   <div class="HomePage">
       <SideBar/>
       <div class="GlobalPage">
-
             <NaVBar/>
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                       <h2>Gestion des devis / Proforma </h2>
+                       <h2>Gestion des recettes récurrentes</h2>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
-                            <span  class="RoutlinkZone">Gestion des devis / Proforma</span>
+                            <span  class="RoutlinkZone">Gestion des recettes récurrentes</span>
                         </div>
                         <div >
                         
@@ -34,48 +33,35 @@
                          
     <v-content>
         <v-form class="recherche_rapide_content" >
-          <!-- <v-row> -->
-             <!-- <v-spacer></v-spacer> -->
-             <v-icon class="cal-icon">
-                mdi-calendar-month
-              </v-icon>
-              
-            <v-col cols="2" >
-              <h5>Date de livraison:</h5>
-              <DatePicker label="Start Date"  @change="date=>(startDate=date)">from</DatePicker>
-          </v-col>
-              <v-icon
-              class="cal-icon"
-              >
-                mdi-calendar-month
-              </v-icon>
-            <v-col cols="2" >
-             <v-spacer>></v-spacer>
-              <DatePicker label="End Date" @change="date=>(endDate=date)"></DatePicker>
+            <v-col cols="4" >
+              <h5>Date de la recette :</h5>
+              <div class="SearchBydate">
+                  <label for="">De</label>
+                  <input type="date" @change="SearchByFunction()" v-model="SearchByStartDateCommande" >
+                  <label for="">Au</label>
+                  <input type="date" @change="SearchByFunction()" v-model="SearchByEndDateCommande" >
+              </div>
+
             </v-col>
-            <v-col cols="2">
+            <v-col cols="3">
             <h5>Etat:</h5>
-              <v-select
-                :items="items"
-                label="Tous"
-              ></v-select>
+              <select name="" id="" @change="SearchByFunction()" v-model="SearchByEtat ">
+                <option value="Tous">Tous</option>
+                <option v-for="Etat,n in SearchByEtatArray" :key="n"  value="Etat">{{Etat}}</option>
+              </select>
             </v-col>
-            <v-col cols="2">
-            <h5>Client:</h5>
-              <v-select
-                :items="items"
-                label="Tous"
-              ></v-select>
-            </v-col>
-            <v-col class="num" cols="2">
-            <h5>Numéro:</h5>
-             <v-text-field ></v-text-field>
-            </v-col>
-            <v-col class="ref" cols="2">
-            <h5>Référence/Projet :</h5>
-             <v-text-field ></v-text-field>
+            <v-col cols="3">
+                    <h5>Ventilation :</h5>
+                    <select name="" id="" @change="SearchByFunction()" v-model="SearchByVentilation" >
+                      <option value="Tous">Tous</option>
+                      <option v-for="(Ventilation,n) in Ventilations" :key="n"  :value="Ventilation" >{{Ventilation}}</option>
+                    </select>
             </v-col>
             
+            <v-col class="num" cols="2">
+            <h5>Libellé :</h5>
+            <input type="text" @keyup="SearchByFunction()" v-model="SearchByLibellé">
+            </v-col>            
           <!-- </v-row> -->
           
         </v-form>
@@ -86,22 +72,19 @@
                 </v-card>
                 
                 </div>
-                <div class="nouveau-bon">
-                 <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    >     
-                    <v-btn
-                        elevation="1"
-                        class="bnt-nv-reglement  white--text" 
-                        >
-                        <v-icon class="mdi-plus-thick">
-                            mdi-plus-thick
-                        </v-icon>
-                        Nouvelle recette récurrente
-                        </v-btn>
-                    </router-link>
+                 <div class="nouveau-bon">
+  
+                        <v-btn
+                            elevation="1"
+                            class="bnt-nv-bon-de-livraison  white--text" 
+                            >
+                            <v-icon class="mdi-plus-thick">
+                                mdi-plus-thick
+                            </v-icon>
+                                Nouveelle recettes récurrente
+                            </v-btn>
                     </div>
-                    <Table />
+                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage' />
             </div>
           </div>
       </div>
@@ -113,32 +96,66 @@
 <script>
   import SideBar from '../../components/SideBar/Index.vue'
   import NaVBar from '../../components/navbar/navbar.vue'
-  import Table from '../../components/Tables/recurenteTable.vue'
-  import DatePicker from "../../components/DatePicker.vue";
+  import Table from '../../components/Tables/Table_F.vue'
   export default {
     name: 'Home',
 
  props: {
    ninja:{
-     type: String
+     type: String,
    }
  },
     data: () => ({
      
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
+      Ventilations: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD'
       ],
-      
+      SearchByStartDateCommande: '',
+      SearchByEndDateCommande : '',
+      SearchByEtat : 'Tous',
+      SearchByVentilation : 'Tous',
+      SearchByLibellé:'',
+      ElementSearched:'',
+      PathPage:'',
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"]
     }),
     components: {
       SideBar,
       NaVBar,
-      DatePicker,
       Table
     },
+    methods: {
+        SearchByFunction(){
+          let SearchBy = {
+              DateStartCommande :  this.SearchByStartDateCommande,
+              DateEndCommande :  this.SearchByEndDateCommande,
+              Etat :  this.SearchByEtat,
+              Client:  this.SearchByClient,
+              Libellé :  this.SearchByLibellé
+          }
+          this.ElementSearched = SearchBy
+          console.log(this.ElementSearched )
+        },
+        GethPagePath(){
+          this.PathPage = this.$router.currentRoute.path
+        }
+    },
+    created(){
+        this.PathPage = this.$router.currentRoute.path
+        this.GethPagePath()
+    }
+
   }
 </script>
 
