@@ -129,7 +129,8 @@
                        <th class="text-left">
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
-                      <th class="text-left">
+                    <th  class="text-left" v-for="(HD,n) in HeaderTable" :key="n">{{HD}}</th>
+                      <!-- <th class="text-left">
                       Date du livraison
                       </th>
                       <th class="text-left">
@@ -143,7 +144,7 @@
                       </th>
                       <th class="text-left">
                         Etat
-                      </th>
+                      </th> -->
                       <th class="text-left">
                         #
                       </th>
@@ -154,16 +155,16 @@
                     v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
                     :key="(item.name,n)"
                     >
-                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
+                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td> 
+
                       <td>{{ item.date }}</td>
                       <td>
                         <router-link to= "/Ventes/NouveauDevis/Proforma">
                         {{ item.Numéro }}
                         </router-link>
-                        </td>
+                      </td>
                       <td>{{ item.client }}</td>
-                      <td>{{ item.Total }}</td>
-                      
+                      <td>{{ item.Total }}</td> 
                       <td>
                          <v-chip v-if="item.etat == 'Clôturer(e)'"
                           label
@@ -183,7 +184,7 @@
                           >
                          {{ item.etat }}
                           </v-chip>
-                        </td>
+                      </td>  
                       <td>
                         <v-col cols="2" class="btnnnn">
                           <v-btn class="action-btn">
@@ -199,13 +200,9 @@
                             <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
                             </button>
                             <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-copy"></i>
-                                Dupliquer</a>
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-eye"></i>
-                                Appercu</a>
-                                
+                                <a   v-for="(Action,n) in ActionsRow" :key='n' class="dropdown-item"  @click="ActionsRows(Action.Name,item.Numéro)">
+                                  <i :class="Action.Icons"></i>
+                                {{Action.Name}}</a>
                             </ul>
                           </v-col>
                       </td>
@@ -236,7 +233,6 @@
                 @click="EnvoyerElement()"
                 >Envoyer</v-btn>
             </v-col> 
-              props: {{PathPage}}
             </v-row>   
     </v-card>
 </template>
@@ -265,11 +261,46 @@
       duplique: [
         'duplique'
       ],
-    heading: "Liste des bons de livraison / proforma",
-    ListeDevis:[],
-    NumberRowShow:10,
-    CheckAll:false,
-    ElementSelected : ''
+      HeaderTable:[],
+      ActionsRow:[
+        {
+          Name:'dupliquer',
+          Icons :'fas fa-copy'
+        },
+                {
+          Name:'Refuser',
+          Icons :'fas fa-user-times'
+        },
+                {
+          Name:'Livrer',
+          Icons :'fas fa-share'
+        },
+                {
+          Name:'Facturer',
+          Icons :'fas fa-share'
+        },
+                {
+          Name:'Annuler',
+          Icons :'fas fa-ban'
+        },
+                {
+          Name:'Aperçu',
+          Icons :'fas fa-eye'
+        },
+                {
+          Name:'Générer un avoir',
+          Icons :'fas fa-share'
+        },
+                {
+          Name:'Détail',
+          Icons :'fas fa-external-link-alt'
+        }
+      ],
+      heading: "Liste des bons de livraison / proforma",
+      ListeDevis:[],
+      NumberRowShow:10,
+      CheckAll:false,
+      ElementSelected : ''
       }
     },
     methods: {
@@ -366,28 +397,109 @@
           console.log(MakeActionsInthisRows)
 
       },
+      //// HER WE CAN UPDATE ACTIONS DROPDOWN FOR EVERY PATH PAGE
+      ActionsShowedInRow(){
+          if(this.PathPage.includes('ListeCommandes')){
+              let Actions =[
+                {
+                  Name:'Refuser',
+                  Icons :'fas fa-user-times'
+                },
+                        {
+                  Name:'Livrer',
+                  Icons :'fas fa-share'
+                },
+                        {
+                  Name:'Facturer',
+                  Icons :'fas fa-share'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Gestion_des_Factures')){
+              let Actions =[
+                {
+                  Name:'Générer un avoir',
+                  Icons :'fas fa-share'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Liste_Des_Avoirs')){
+              let Actions =[
+                {
+                  Name:'Détail',
+                  Icons :'fas fa-external-link-alt'
+                },
+                        {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+      },
+      //// GET DATA TABLE
+      GetDataTable(){
+          if(this.PathPage.includes('ListeCommandes')){
+              let NewHeaderTable = ['Date de la commande','Numéro','Client','Date de la livraison','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+      },
       ActionsRows(Conditon,Numéro){
-      if(Conditon == 'Refuser'){
-              ///AXIOS TO REFUSE
-        }
-        if(Conditon == 'Livrer'){
-              /// got to livrer
+        console.log(Conditon,Numéro)
+        if(Conditon == 'Refuser'){
+                ///AXIOS TO REFUSE
           }
-            if(Conditon == 'Facturer'){
-              ///  go to facturer
-          }
-            if(Conditon == 'Annuler'){
-              ///AXIOS TO ANNULER
-          }
-            if(Conditon == 'Dupliquer'){
-              ///AXIOS TO DUPLIQUER
-          }
-          console.log(Conditon,Numéro)
-          
+          if(Conditon == 'Livrer'){
+                /// got to livrer
+            }
+              if(Conditon == 'Facturer'){
+                ///  go to facturer
+            }
+              if(Conditon == 'Annuler'){
+                ///AXIOS TO ANNULER
+            }
+              if(Conditon == 'Dupliquer'){
+                ///AXIOS TO DUPLIQUER
+            }
+              if(Conditon == 'Aperçu'){
+                ///AXIOS TO DUPLIQUER
+            }
+            if(Conditon == 'Générer un avoir'){
+                ///AXIOS TO DUPLIQUER
+            }
+            if(Conditon == 'Détail'){
+                ///AXIOS TO DUPLIQUER
+            }          
       }
+
+      
     },  
       mounted() {
         this.ListeDevis = DataTable.ListeDevis
+        this.ActionsShowedInRow()
+        this.GetDataTable()
     },
     watch:{
         ElementSearched : function(){
