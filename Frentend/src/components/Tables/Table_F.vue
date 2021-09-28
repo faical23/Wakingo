@@ -157,14 +157,13 @@
                     >
                     <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td> 
 
-                      <td>{{ item.date }}</td>
-                      <td>
-                        <router-link to= "/Ventes/NouveauDevis/Proforma">
-                        {{ item.Numéro }}
-                        </router-link>
-                      </td>
+                    
+                      <td >{{ item.date }}</td>
+                      <td><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
                       <td>{{ item.client }}</td>
                       <td>{{ item.Total }}</td> 
+
+
                       <td>
                          <v-chip v-if="item.etat == 'Clôturer(e)'"
                           label
@@ -173,7 +172,7 @@
                           text-color="white"
                             
                           >
-                         {{ item.etat }}
+                            {{ item.etat }}
                           </v-chip>
                          <v-chip v-else
                           label
@@ -182,7 +181,7 @@
                           text-color="white"
                             
                           >
-                         {{ item.etat }}
+                          {{ item.etat }}
                           </v-chip>
                       </td>  
                       <td>
@@ -206,6 +205,7 @@
                             </ul>
                           </v-col>
                       </td>
+
                     </tr>
                   </tbody>
                 </template>
