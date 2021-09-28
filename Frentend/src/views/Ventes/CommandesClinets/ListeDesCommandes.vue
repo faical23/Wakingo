@@ -43,27 +43,25 @@
               </div>
 
             </v-col>
-            <v-col cols="2">
+            <v-col cols="3">
             <h5>Etat:</h5>
-              <v-select
-                :items="Etat"
-                label="Tous"
-                v-model="SearchByEtat"
-                @change="SearchByFunction()"
-              ></v-select>
+              <select name="" id="">
+                <option value="Tous">Tous</option>
+                <option value="Annulé">Annulé</option>
+                <option value="En cours">En cours</option>
+                <option value="Clôturé(e)">Clôturé(e)</option>
+              </select>
             </v-col>
-            <v-col cols="2">
+            <v-col cols="3">
             <h5>Client:</h5>
-              <v-select
-                :items="Client"
-                label="Tous"
-                v-model="SearchByClient"
-                 @change="SearchByFunction()"
-              ></v-select>
+              <select name="" id="">
+                <option value="Tous">Tous</option>
+                <option v-for="(Client,n) in Clients" :key="n"  :value="Client" >{{Client}}</option>
+              </select>
             </v-col>
             <v-col class="num" cols="2">
             <h5>Numéro:</h5>
-             <v-text-field  v-model="SearchByNumero" @keyup="SearchByFunction()"></v-text-field>
+            <input type="text">
             </v-col>            
           <!-- </v-row> -->
           
@@ -90,7 +88,7 @@
                         </v-btn>
                     </router-link>
                     </div>
-                    <Table :ElementSearched='ElementSearched' />
+                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage' />
             </div>
           </div>
       </div>
@@ -102,13 +100,7 @@
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
   import NaVBar from '../../../components/navbar/navbar.vue'
-<<<<<<< HEAD
   import Table from '../../../components/Tables/Table_F.vue'
-  import DatePicker from "../../../components/DatePicker.vue";
-=======
-  import Table from '../../../components/Table_F.vue'
-  // import DatePicker from "../../../components/DatePicker.vue";
->>>>>>> 688d5389cc058205482bdbf573d4c4c3aedcec98
   export default {
     name: 'Home',
 
@@ -119,30 +111,32 @@
  },
     data: () => ({
      
-      Client: [
+      Clients: [
         'AAAA',
         'BBBB',
         'CCCC',
         'DDDD',
-      ],
-      Etat: [
         'AAAA',
         'BBBB',
         'CCCC',
         'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD'
       ],
       SearchByStartDateCommande: '',
       SearchByEndDateCommande : '',
       SearchByEtat : '',
       SearchByClient : '',
       SearchByNumero :'',
-      ElementSearched:''
+      ElementSearched:'',
+      PathPage:'AAAA'
       
     }),
     components: {
       SideBar,
       NaVBar,
-      // DatePicker,
       Table
     },
     methods: {
@@ -156,8 +150,17 @@
           }
           this.ElementSearched = SearchBy
           console.log(this.ElementSearched )
+        },
+        GethPagePath(){
+          this.PathPage = this.$router.currentRoute.path
+          console.log(this.PathPage )
         }
+    },
+    created(){
+        this.PathPage = this.$router.currentRoute.path
+        this.GethPagePath()
     }
+
   }
 </script>
 
