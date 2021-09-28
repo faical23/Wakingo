@@ -130,13 +130,8 @@
       SearchByClient : 'Tous',
       SearchByNumero :'',
       ElementSearched:'',
-<<<<<<< HEAD
-      PathPage:''
-      
-=======
       PathPage:'',
       SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"]
->>>>>>> f9b72db8aaa7708bb51ec74f46b53f629bb075c9
     }),
     components: {
       SideBar,

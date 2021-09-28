@@ -93,7 +93,7 @@
                         </v-btn>
                     </router-link>
                     </div>
-                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage' :AddButton='AddButton'/>
+                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage'/>
             </div>
           </div>
       </div>

@@ -16,7 +16,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"12"
       
     },
     {
@@ -33,7 +35,9 @@
       "Etat": "typicode",
       "Référence": "typicode",
       "etat": "Clôturer(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"42"
     },
     {
       "Select":false,
@@ -50,7 +54,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En attente",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"19"
 
 
     },
@@ -69,7 +75,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Annulé(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"33"
      
     },
     {
@@ -87,7 +95,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"15"
     },
     {
       "Select":false,
@@ -104,7 +114,9 @@
       "Référence": "typicode",
       
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"3"
     },
     {
       "Select":false,
@@ -121,7 +133,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"1"
 
 
     },
@@ -140,7 +154,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Annulé(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"11"
      
     },
     {
@@ -158,7 +174,9 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"9"
       
     },
     {
@@ -176,7 +194,9 @@
       "Référence": "typicode",
       
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "devis":"DH",
+      "quantité":"6"
     },
     {
       "Select":false,
@@ -193,7 +213,8 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "quantité":"12"
 
 
     },
@@ -212,7 +233,8 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En attente",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "quantité":"1"
      
     },
     {
@@ -230,7 +252,8 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Accepté(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "quantité":"72"
       
     },
     {
@@ -248,7 +271,8 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "quantité":"20"
     },
     {
       "Select":false,
@@ -265,7 +289,8 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "quantité":"22"
 
 
     },
@@ -284,7 +309,8 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "Annulé(e)",
-      "libelle":"Acompte sur devis n° DEV-23092021-20"
+      "libelle":"Acompte sur devis n° DEV-23092021-20",
+      "quantité":"6"
      
     }
   ]

@@ -72,13 +72,19 @@
                     <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td> 
 
                     
-                      <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('ListeCommandes') || PathPage.includes('ListeDevies') || PathPage.includes('Gestion_des_bons_de_livraison') || PathPage.includes('Reglement')">{{ item.date }}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                      <td><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
+                       <td><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
                       <td >{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
-                      <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td> 
+                      <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs') || PathPage.includes('ListeDevies')">{{ item.Total }}</td> 
+                      <td v-if="PathPage.includes('ListeDevies')"> {{ item.devis }}</td>
+                      <td v-if="PathPage.includes('ListeDevies')"> {{ item.Référence }}</td>
+                      <td v-if="PathPage.includes('ListeDevies')"> {{ item.projet }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_bons_de_livraison')"> {{ item.quantité }}</td>
+                      <td v-if="PathPage.includes('Reglement')"> {{ item.Total }}</td>
+                      <td v-if="PathPage.includes('Reglement')"> {{ item.quantité}}</td>
 
 
                       <td>
@@ -375,6 +381,50 @@
               ]
               this.ActionsRow = Actions
           }
+          if(this.PathPage.includes('ListeDevies')){
+            let Actions =[
+               {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+            ]
+            this.ActionsRow = Actions
+          }
+          if(this.PathPage.includes('Gestion_des_bons_de_livraison')){
+            let Actions =[
+               {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+               {
+                    Name:'apercu',
+                    Icons :'fas fa-eye'
+                },
+            ]
+            this.ActionsRow = Actions
+          }
+          if(this.PathPage.includes('Reglement')){
+            let Actions =[
+              {
+                   Name:'Valider',
+                   Icons :'fas fa-check'
+               },
+                
+                {
+                  Name:'Annuler',
+                  Icons :'fas fa-ban'
+                },
+                {
+                Name:'dupliquer',
+                Icons :'fas fa-copy'
+                },
+                {
+                  Name:'Générer un avoir',
+                  Icons :'fas fa-trash'
+                },
+            ]
+            this.ActionsRow = Actions
+          }
       },
       //// GET DATA TABLE
       GetDataTable(){
@@ -388,6 +438,18 @@
           }
           if(this.PathPage.includes('Liste_Des_Avoirs')){
               let NewHeaderTable = [`Date de l'avoir`,'Numéro','Client','Total','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('ListeDevies')){
+              let NewHeaderTable = [`Date de devis`,'Numéro','Client','Total', 'Devise' ,'Référence' ,'Projet','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('Gestion_des_bons_de_livraison')){
+              let NewHeaderTable = [`Date de livraison`,'Numéro','Client','Quantité livrée','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('Reglement')){
+              let NewHeaderTable = [`Date de réglement`,'Numéro','Client','Montant ', 'écart de réglement','Etat']
               this.HeaderTable = NewHeaderTable
           }
       },
