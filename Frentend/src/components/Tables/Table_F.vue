@@ -52,77 +52,6 @@
 
         </div>
             <v-simple-table class="TableResultSearch">
-                <!-- <template v-slot:default>
-                <thead>
-                    <tr>
-                     <th class="text-left">
-                        <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
-                    </th>
-                    <th class="text-left">
-                        Date de la commande
-                    </th>
-                    <th class="text-left">
-                        Numéro
-                    </th>
-                    <th class="text-left">
-                        Client
-                    </th>
-                    <th class="text-left">
-                        Date de livraison
-                    </th>
-                    <th class="text-left">
-                        Etat
-                    </th>
-                    <th class="text-left">
-                        #
-                    </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr
-                    v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
-                    :key="(item.name,n)"
-                    >
-                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
-                    <td>{{ item.date }}</td>
-                    <td>{{ item.Numéro }}</td>
-                    <td>{{ item.client }}</td>
-                    <td>{{ item.dateLivraison }}</td>
-                    <td >
-                        <button v-if="item.etat == 'En cours'" class="BtnEtat EnCours">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Clôturer(e)'" class="BtnEtat Clôturer">{{item.etat}} </button>
-                        <button v-if="item.etat == 'En attente'" class="BtnEtat EnAttente">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Accepté(e)'" class="BtnEtat Accepté">{{item.etat}} </button>
-                        <button v-if="item.etat == 'Annulé(e)'" class="BtnEtat Annulé">{{item.etat}} </button>
-
-                    </td>
-                    <td>
-                          <v-btn class="action-btn">
-                              <v-icon
-                                color="black"
-                                size="15"
-                                class="action-icon"
-                              >
-                                mdi-cog
-                              </v-icon>
-                            action
-                            </v-btn>
-                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
-                            </button>
-                            <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-copy"></i>
-                                Dupliquer</a>
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                  <i class="fa fa-eye"></i>
-                                Appercu</a>
-                                
-                            </ul>
-                    </td>
-                    </tr>
-                </tbody>
-                </template> -->
                                 <template v-slot:default>
                   <thead>
                     <tr>
@@ -130,21 +59,6 @@
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
                     <th  class="text-left" v-for="(HD,n) in HeaderTable" :key="n">{{HD}}</th>
-                      <!-- <th class="text-left">
-                      Date du livraison
-                      </th>
-                      <th class="text-left">
-                        Numéro
-                      </th>
-                      <th class="text-left">
-                       Client
-                      </th>
-                      <th class="text-left">
-                        Quantité livrée
-                      </th>
-                      <th class="text-left">
-                        Etat
-                      </th> -->
                       <th class="text-left">
                         #
                       </th>
@@ -158,10 +72,13 @@
                     <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td> 
 
                     
-                      <td >{{ item.date }}</td>
+                      <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
+                      <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
                       <td><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
-                      <td>{{ item.client }}</td>
-                      <td>{{ item.Total }}</td> 
+                      <td >{{ item.client }}</td>
+                      <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
+                      <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td> 
 
 
                       <td>
@@ -463,6 +380,14 @@
       GetDataTable(){
           if(this.PathPage.includes('ListeCommandes')){
               let NewHeaderTable = ['Date de la commande','Numéro','Client','Date de la livraison','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('Gestion_des_Factures')){
+              let NewHeaderTable = ['Date de la Facture','Numéro','Client','Total','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+          if(this.PathPage.includes('Liste_Des_Avoirs')){
+              let NewHeaderTable = [`Date de l'avoir`,'Numéro','Client','Total','Etat']
               this.HeaderTable = NewHeaderTable
           }
       },

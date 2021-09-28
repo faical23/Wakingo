@@ -3,8 +3,11 @@
     {
       "Select":false,
       "id": 1,
+      "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
+      
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
       "Total": "115",
@@ -19,7 +22,9 @@
     {
       "Select":false,
       "id": 2,
+      "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -33,7 +38,9 @@
     {
       "Select":false,
       "id": 3,
+      "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -50,7 +57,9 @@
     {
       "Select":false,
       "id": 4,
+      "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -66,7 +75,9 @@
     {
       "Select":false,
       "id": 1,
+      "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
@@ -81,7 +92,9 @@
     {
       "Select":false,
       "id": 2,
+      "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -96,7 +109,9 @@
     {
       "Select":false,
       "id": 3,
+      "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -113,7 +128,9 @@
     {
       "Select":false,
       "id": 4,
+      "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -129,7 +146,9 @@
     {
       "Select":false,
       "id": 1,
+      "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
@@ -145,7 +164,9 @@
     {
       "Select":false,
       "id": 2,
+      "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -160,7 +181,9 @@
     {
       "Select":false,
       "id": 3,
+      "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -177,7 +200,9 @@
     {
       "Select":false,
       "id": 4,
+      "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",
@@ -193,7 +218,9 @@
     {
       "Select":false,
       "id": 1,
+      "DateDeFacture":"17/08/2021",
       "date": "15/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. NOUREDDINE SADIK",
@@ -209,7 +236,9 @@
     {
       "Select":false,
       "id": 2,
+      "DateDeFacture":"17/08/2021",
       "date": "8/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021-13",
       "client": "M. MOHAMED JASSIM ",
@@ -224,7 +253,9 @@
     {
       "Select":false,
       "id": 3,
+      "DateDeFacture":"17/08/2021",
       "date": "1/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "M. YOUSSEF ELMOUDEN",
@@ -241,7 +272,9 @@
     {
       "Select":false,
       "id": 4,
+      "DateDeFacture":"17/08/2021",
       "date": "18/09/2021",
+      "dateAvoir": "15/09/2021",
       "dateLivraison": "15/09/2021",
       "Numéro": "DEV-18092021",
       "client": "ESSAID CHASSE SA",

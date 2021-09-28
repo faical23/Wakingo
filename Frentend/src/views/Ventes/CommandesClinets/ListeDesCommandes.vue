@@ -47,9 +47,7 @@
             <h5>Etat:</h5>
               <select name="" id="" @change="SearchByFunction()" v-model="SearchByEtat ">
                 <option value="Tous">Tous</option>
-                <option value="Annulé">Annulé</option>
-                <option value="En cours">En cours</option>
-                <option value="Clôturé(e)">Clôturé(e)</option>
+                <option v-for="Etat,n in SearchByEtatArray" :key="n"  value="Etat">{{Etat}}</option>
               </select>
             </v-col>
             <v-col cols="3">
@@ -131,8 +129,8 @@
       SearchByClient : 'Tous',
       SearchByNumero :'',
       ElementSearched:'',
-      PathPage:''
-      
+      PathPage:'',
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"]
     }),
     components: {
       SideBar,
@@ -153,7 +151,6 @@
         },
         GethPagePath(){
           this.PathPage = this.$router.currentRoute.path
-          console.log(this.PathPage)
         }
     },
     created(){
