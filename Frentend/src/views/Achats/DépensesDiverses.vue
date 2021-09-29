@@ -95,7 +95,7 @@
                         </template>
                         <v-card>
                           <v-card-title>
-                            <span class="text-h5">Nouvelle dépense diverse</span>
+                            <span class="text-h5">Nouvelle dépense diverse <span class="enAttente">En attente</span></span>
                           </v-card-title>
                           <hr>
                           <v-card-text>
@@ -122,7 +122,7 @@
                                 <div class="libellé_dialog">
                                   <v-col cols="5">
                                   <label for="libellé">libellé:</label>
-                                  <input  class="Ventilation" type="text" name="libellé" >
+                                  <input  class="libele" type="text" name="libellé" >
                                   </v-col>
                                 </div>
 
@@ -147,11 +147,11 @@
                               </div>
                             </v-container>
                               <template>
-                                <v-simple-table>
+                                <v-simple-table class="diverse_table">
                                   <template v-slot:default>
                                     <thead>
-                                      <tr>
-                                        <th class="text-left">
+                                      <tr class="td_grid">
+                                        <th class="Té">
                                           Qté.
                                         </th>
                                         <th class="text-left">
@@ -169,18 +169,62 @@
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr
-                                        v-for="item in desserts"
-                                        :key="item.name"
-                                      >
-                                        <td>{{ item.name }}</td>
-                                        <td>{{ item.calories }}</td>
+                                       <tr class="qte_container">
+                                          <td class="Quantité">
+                                              <input  class="qte_input" type="text" placeholder="00">
+                                              <select class="qte_select">
+                                                  <optgroup  class="qte_select" label="Unité">
+                                                      <option value="Unité(s)">Unité(s)</option>
+                                                      <option value="Douzaine(s)">Douzaine(s)</option>
+                                                  </optgroup>
+                                                  <optgroup  label="Poids">
+                                                      <option value="t">t</option>
+                                                      <option value="kg">kg</option>
+                                                      <option value="g">g</option>
+                                                  </optgroup>
+                                                  <optgroup  label="Temps de travail">
+                                                      <option value="Jour(s)">Jour(s)</option>
+                                                      <option value="Heure(s)">Heure(s)</option>
+                                                  </optgroup>
+                                                  <optgroup  label="Longueur/distance">
+                                                      <option value="Km">Km</option>
+                                                      <option value="m">m</option>
+                                                      <option value="cm">cm</option>
+                                                  </optgroup>
+                                                  <optgroup  label="Volume">
+                                                      <option value="Liters(s)">Liters(s)</option>
+                                                  </optgroup>
+                                              </select>
+                                              
+                                          </td>
+                                          <td class="Quantité">
+                                              <input type="text" class="prix_input" placeholder="00" >
+                                              <input type="text" class="prix_input" placeholder="MADD" disabled>
+                                          </td>
+                                          <td>
+                                              <select class="tva_select">
+                                                  <option value="20,00%">20,00%</option>
+                                                  <option value="14,00%">14,00%</option>
+                                                  <option value="10,00%">10,00%</option>
+                                                  <option value="7,00%">7,00%</option>
+                                                  <option value="0,00%">0,00%</option>
+                                              </select>
+                                          </td>
+                                          <td class="Quantité">
+                                              <input type="text" class="prix_input" placeholder="00">
+                                              <input type="text" class="prix_input" placeholder="MAD">
+                                          </td>
                                       </tr>
                                     </tbody>
                                   </template>
                                 </v-simple-table>
                               </template>
-                            <small>*indicates required field</small>
+                              <div class="checkbox_popup">
+                                 <input type="checkbox">
+                                 <p>Deja payé ? </p>
+                              </div>
+                              
+                            <small class="OBLIGATOIR">*Champs obligatoir !</small>
                           </v-card-text>
                           <v-card-actions>
                             <v-spacer></v-spacer>

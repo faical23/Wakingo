@@ -204,7 +204,7 @@
           <g></g>
           <g></g>
         </svg>
-        Firmer
+        Fermer
       </button>
       <button class="Btn__Enregistrer" @click='EnregistrerNewClient()'>
         <svg

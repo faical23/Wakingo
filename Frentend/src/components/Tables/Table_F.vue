@@ -79,12 +79,12 @@
                       <td v-if="!PathPage.includes('depenses_diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('Diverses') && !PathPage.includes('DepensesRecurrents') ">{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs') || PathPage.includes('ListeDevies')">{{ item.Total }}</td> 
-                      <td v-if="PathPage.includes('ListeDevies')"> {{ item.devis }}</td>
+                      <!-- <td v-if="PathPage.includes('ListeDevies')"> {{ item.devis }}</td>
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.Référence }}</td>
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.projet }}</td>
                       <td v-if="PathPage.includes('Gestion_des_bons_de_livraison')"> {{ item.quantité }}</td>
                       <td v-if="PathPage.includes('Reglement')"> {{ item.Total }}</td>
-                      <td v-if="PathPage.includes('Reglement')"> {{ item.quantité}}</td>
+                      <td v-if="PathPage.includes('Reglement')"> {{ item.quantité}}</td> -->
                       <!-- <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td> -->
                       <td v-if="PathPage.includes('Accomptes')">{{item.DateAcompte}}</td>
                       <td v-if="PathPage.includes('Accomptes')">{{item.Libellé}}</td>
@@ -317,16 +317,16 @@
      
     },
 
-      makePDF(){
-        window.html2canvas = html2canvas;
-        var doc = new jsPdf();
-        doc.html(document.querySelector(".data-table"), {
-          callback : function(pdf){
-            pdf.save("mypdf.pdf");
-            doc.setFontSize(12)
-          }
-        })
-      },
+      // makePDF(){
+      //   window.html2canvas = html2canvas;
+      //   var doc = new jsPdf();
+      //   doc.html(document.querySelector(".data-table"), {
+      //     callback : function(pdf){
+      //       pdf.save("mypdf.pdf");
+      //       doc.setFontSize(12)
+      //     }
+      //   })
+      // },
       CheckedThisRow(n){
           this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
       },
