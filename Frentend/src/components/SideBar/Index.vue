@@ -198,7 +198,7 @@
               {
                 FirstChild : 'Dépenses diverses' ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Achat/Dépenses diverses'
+                Path : '/Achat/depenses_diverses'
               },
               {
                 FirstChild : 'Dépenses récurrents',

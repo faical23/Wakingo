@@ -40,7 +40,7 @@
         color="black"
         >mdi-file-pdf-outline</v-icon>
         </v-btn>
-        <v-btn @click="printData()"
+        <v-btn @click="printForm()"
        >
         imprimer
         </v-btn>
@@ -52,7 +52,7 @@
 
         </div>
             <v-simple-table class="TableResultSearch" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''" ref="printTable" id="table_f">
-                                <template v-slot:default>
+                    <template v-slot:default>
                   <thead>
                     <tr>
                        <th class="text-left">
@@ -72,11 +72,11 @@
                     <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td> 
 
                     
-                      <td v-if="PathPage.includes('ListeCommandes') || PathPage.includes('ListeDevies') || PathPage.includes('Gestion_des_bons_de_livraison') || PathPage.includes('Reglement')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('ListeCommandes') || PathPage.includes('ListeDevies') || PathPage.includes('Gestion_des_bons_de_livraison') || PathPage.includes('Reglement') || PathPage.includes('depenses_diverses') ">{{ item.date }}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                       <td><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
-                      <td >{{ item.client }}</td>
+                       <td v-if="!PathPage.includes('depenses_diverses')"><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
+                      <td v-if="!PathPage.includes('depenses_diverses')" >{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs') || PathPage.includes('ListeDevies')">{{ item.Total }}</td> 
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.devis }}</td>
@@ -91,8 +91,8 @@
                       <td v-if="PathPage.includes('Accomptes')">{{item.Document}}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                      <!-- <td v-if="!PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')" ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td> -->
-                      <!-- <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')">{{ item.client }}</td> -->
+                      <td v-if="!PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses')" ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
+                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses')">{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td> 
                       <td v-if="PathPage.includes('Accomptes')">{{item.Monatnt}}</td>
@@ -107,6 +107,9 @@
                       <td v-if="PathPage.includes('Recurrentes')">{{item.Prochaine_exécution}}</td>
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.TotatlTTC}}</td>
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.Status}}</td>
+                      <td v-if="PathPage.includes('depenses_diverses')">{{item.Ventiation_depense}}</td>
+                      <td v-if="PathPage.includes('depenses_diverses')">{{ item.Libellé }}</td>
+                      <td v-if="PathPage.includes('depenses_diverses')">{{ item.TotatlTTC }}</td>
 
 
 
@@ -282,6 +285,81 @@
     header: 'PrintJS - Print Form With Customized Header'
  })
 },
+    generatePDF() {
+      const columns = [
+        { title: "Date de Devis"},
+         {title:"Numéro", body: "Numéro",}, 
+         {title:"Client",value: 'client',}, 
+         {title:"Total",value: 'Total',}, 
+         {title:"projet",value: 'projet',}, 
+         {title:"Référence",value: 'Référence',}, 
+         {title:"Etat",value: 'etat',}, 
+         {title:"#" ,value:"iron"},
+      ];
+      const doc = new jsPdf({
+        orientation: "portrait",
+        unit: "in",
+        format: "letter"
+      });
+      // text is placed using x, y coordinates
+      doc.setFontSize(16).text(this.heading, 0.5, 1.0);
+      // create a line under heading 
+      doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
+      // Using autoTable plugin
+      doc.autoTable({
+        columns: columns,
+        body: this.ListeDevis,
+        margin: { left: 0.5, top: 1.25 }
+      });
+      doc
+        .save(`${this.heading}.pdf`);
+       
+     
+    },
+
+      makePDF(){
+        window.html2canvas = html2canvas;
+        var doc = new jsPdf();
+        doc.html(document.querySelector(".data-table"), {
+          callback : function(pdf){
+            pdf.save("mypdf.pdf");
+            doc.setFontSize(12)
+          }
+        })
+      },
+      CheckedThisRow(n){
+          this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
+      },
+      CheckAllRows(){
+          if(this.CheckAll == false)
+          {
+            // this.CheckAll == true
+            this.ListeDevis.forEach(element =>{
+                  element.Select = true
+              })
+              this.CheckAll == true
+
+          }
+          else{
+                this.ListeDevis.forEach(element =>{
+                    element.Select = false
+                    console.log(element.Select)
+                })
+                this.CheckAll == false
+          }
+      },
+      EnvoyerElement(){
+          console.log(this.ElementSelected)
+          let MakeActionsInthisRows = [];
+          this.ListeDevis.forEach(element =>{
+              if(element.Select == true){
+                  MakeActionsInthisRows.push(element.Numéro)
+              }
+          })
+          /// AXIOS TO DO ACTION HEER
+          console.log(MakeActionsInthisRows)
+
+      },
       //// HER WE CAN UPDATE ACTIONS DROPDOWN FOR EVERY PATH PAGE
       ActionsShowedInRow(){
           if(this.PathPage.includes('ListeCommandes')){
@@ -477,6 +555,10 @@
           }
         else if(this.PathPage.includes('Recurrentes')){
               let NewHeaderTable = ['Date début','Date fin','Ventilation','Libellé','Fréquence','Prochaine exécution','TotalTTC','Status']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('depenses_diverses')){
+              let NewHeaderTable = ['Date de dépence','Ventilation','Libellé','TotalTTC','Status']
               this.HeaderTable = NewHeaderTable
           }
       },

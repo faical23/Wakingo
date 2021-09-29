@@ -157,7 +157,65 @@
 }
 
 
+.npuveau_bon{
+    .v-dialog{
+        margin: 30px auto;
+    }
+    .row.justify-center {
+        margin: 0 769px;
+    }
+}
 
+.SearchBydate2 {
+    align-items: center;
+    position: relative;
+    // bottom: 5px; 
+  }
+  
+  
+ 
+    .date_input_diverse{
+        border: 1px solid black;
+        padding: 5px 10px;
+    }
+    .Ventilation{
+        border: 1px solid black;
+        padding: 5px 10px;
+    }
+    .depense_second_section{
+        // display: flex;
+        // .input{
+            //     border: 1px solid black;
+            //     padding: 5px 10px;
+            // }
+        }
+        .popup-container{
+            display: flex;
+        }
+        .fournisseur_projet{
+            display: flex;
+        }
+        .projet{
+            border: 1px solid black;
+            padding: 5px 10px;
+            // max-width: 51%;
+        }
+        .v-dialog > .v-card > .v-card__text {
+            padding: 0 0px 0px;
+        }
+        .libellé_dialog{
+            margin-bottom: 3px;
+        }
+        .dialog_table_div{
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    //     .dialog_table{
+    //         width: 100%;
+    //  max-width: 100%;
+    //  margin-bottom: 20px;
+    //      }
 
 
 

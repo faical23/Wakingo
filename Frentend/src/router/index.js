@@ -15,6 +15,7 @@ import Diverses from '../views/Ventes/RecettesDivereses.vue'
 import récurrentes from '../views/Ventes/RecettesRécurrents.vue'
 import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
 import Rapport_commercial from '../views/Ventes/RapportCommercial.vue'
+import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 
 Vue.use(VueRouter)
 
@@ -93,6 +94,11 @@ const routes = [
     path: '/Ventes/Rapport_commercial',
     name: '/Rapport_commercial',
     component: Rapport_commercial
+  },
+  {
+    path: '/Achat/depenses_diverses',
+    name: '/Dépenses_diverses',
+    component: Dépenses_diverses
   },
   
 ]

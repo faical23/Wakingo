@@ -25,6 +25,7 @@
       "quantité":"12",
       
       "Ventiation":"Récupération TVA",
+      "Ventiation_depense":"Autres charges",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
       "dateReccette": "15/09/2021",
@@ -55,6 +56,7 @@
       "etat": "Clôturer(e)",
       "devis":"DH",
       "quantité":"42",
+      "Ventiation_depense":"Autres charges",
       
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
@@ -88,6 +90,7 @@
       "etat": "En attente",
       "devis":"DH",
       "quantité":"19",
+      "Ventiation_depense":"Autres charges",
     
       "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
@@ -123,6 +126,7 @@
       "etat": "Annulé(e)",
       "devis":"DH",
       "quantité":"33",
+      "Ventiation_depense":"Autres charges",
       
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
@@ -157,6 +161,7 @@
       "etat": "Accepté(e)",
       "devis":"DH",
       "quantité":"15",
+      "Ventiation_depense":"Autres charges",
       
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
@@ -190,6 +195,7 @@
       "etat": "En cours",
       "devis":"DH",
       "quantité":"3",
+      "Ventiation_depense":"Autres charges",
       
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
@@ -223,6 +229,7 @@
       "etat": "En cours",
       "devis":"DH",
       "quantité":"1",
+      "Ventiation_depense":"Autres charges",
       
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
@@ -258,6 +265,7 @@
       "etat": "Annulé(e)",
       "devis":"DH",
       "quantité":"11",
+      "Ventiation_depense":"Autres charges",
       
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
