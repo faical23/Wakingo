@@ -32,7 +32,7 @@
            </v-btn>
         </export-excel>
         
-        <v-btn @click="generatePDF()" :data="ListeDevis">
+        <v-btn @click="printForm()" >
           Pdf
 
         <v-icon
@@ -51,7 +51,7 @@
           </v-flex>
 
         </div>
-            <v-simple-table class="TableResultSearch" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''">
+            <v-simple-table class="TableResultSearch" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''" ref="printTable" id="table_f">
                                 <template v-slot:default>
                   <thead>
                     <tr>
@@ -189,7 +189,8 @@
   import 'jspdf-autotable';
   import html2canvas from 'html2canvas';
   import jsPdf from'jspdf';
-  import DataTable from '../../../backend/data.json'
+  import DataTable from '../../../backend/data.json';
+  import printJS from 'print-js';
   export default {
     props:['ElementSearched','PathPage'],
     data() {
@@ -251,6 +252,9 @@
       }
     },
     methods: {
+
+     
+
       createPDF () {
     let pdfName = 'mes-enfants'; 
     var doc = new jsPdf();
@@ -270,80 +274,14 @@
         newWin.print();
         newWin.close();
       },
-    generatePDF() {
-      const columns = [
-        { title: "Date de Devis"},
-         {title:"Numéro", body: "Numéro",}, 
-         {title:"Client",value: 'client',}, 
-         {title:"Total",value: 'Total',}, 
-         {title:"projet",value: 'projet',}, 
-         {title:"Référence",value: 'Référence',}, 
-         {title:"Etat",value: 'etat',}, 
-         {title:"#" ,value:"iron"},
-      ];
-      const doc = new jsPdf({
-        orientation: "portrait",
-        unit: "in",
-        format: "letter"
-      });
-      // text is placed using x, y coordinates
-      doc.setFontSize(16).text(this.heading, 0.5, 1.0);
-      // create a line under heading 
-      doc.setLineWidth(0.01).line(0.5, 1.1, 8.0, 1.1);
-      // Using autoTable plugin
-      doc.autoTable({
-        columns: columns,
-        body: this.ListeDevis,
-        margin: { left: 0.5, top: 1.25 }
-      });
-      doc
-        .save(`${this.heading}.pdf`);
-     
-    },
-
-      makePDF(){
-        window.html2canvas = html2canvas;
-        var doc = new jsPdf();
-        doc.html(document.querySelector(".data-table"), {
-          callback : function(pdf){
-            pdf.save("mypdf.pdf");
-            doc.setFontSize(12)
-          }
-        })
-      },
-      CheckedThisRow(n){
-          this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
-      },
-      CheckAllRows(){
-          if(this.CheckAll == false)
-          {
-            // this.CheckAll == true
-            this.ListeDevis.forEach(element =>{
-                  element.Select = true
-              })
-              this.CheckAll == true
-
-          }
-          else{
-                this.ListeDevis.forEach(element =>{
-                    element.Select = false
-                    console.log(element.Select)
-                })
-                this.CheckAll == false
-          }
-      },
-      EnvoyerElement(){
-          console.log(this.ElementSelected)
-          let MakeActionsInthisRows = [];
-          this.ListeDevis.forEach(element =>{
-              if(element.Select == true){
-                  MakeActionsInthisRows.push(element.Numéro)
-              }
-          })
-          /// AXIOS TO DO ACTION HEER
-          console.log(MakeActionsInthisRows)
-
-      },
+      printForm() {
+    printJS({
+    printable: 'table_f',
+    type: 'html',
+    targetStyles: ['*'],
+    header: 'PrintJS - Print Form With Customized Header'
+ })
+},
       //// HER WE CAN UPDATE ACTIONS DROPDOWN FOR EVERY PATH PAGE
       ActionsShowedInRow(){
           if(this.PathPage.includes('ListeCommandes')){
