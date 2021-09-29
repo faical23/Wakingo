@@ -159,7 +159,7 @@
             <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
             <v-row>
             <v-col cols="2">
-              <div>
+              <div class="DrowDownEnvoyer">
                   <v-select
                   class="select"
                      :items="items"
