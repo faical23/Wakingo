@@ -51,15 +51,18 @@
     border: 1px solid black;
     background: #fdfdfd;
 }
-.v-list-item__content{
-    width:100%;
-    padding-left: 30px;
-    &:hover{
-        background-color:#00c0ef !important;
-        color:white;
-
+.DrowDownEnvoyer{
+    .v-list-item__content{
+        width:100%;
+        padding-left: 30px;
+        &:hover{
+            background-color:#00c0ef !important;
+            color:white;
+    
+        }
     }
 }
+
 .SearchBydate{
     display:flex;
     align-items:center;
