@@ -1,0 +1,79 @@
+.PopupRecetteRecurrente{
+    .PopupNewClient__Right__Filed{
+        padding: 20px 0px !important;
+    }
+    .PopupNewClient__information{
+        display: block;
+        .ThreeFirstFaild{
+            display: flex;
+            .PopupNewClient__Right__Filed{
+                width: 100%;
+                .Fréquence{
+                    display: flex;
+                }
+            }
+        }
+        .VentilationClientProjet{
+            display: flex;
+            .PopupNewClient__Right__Filed{
+                width: 100%;
+            }
+        }
+        .QtéMontantTva{
+            width:100%;
+            margin: 30px 0px;
+            table{
+                th,td{
+                    border: 1px solid #e5e5e5;
+                    padding: 10px 0px;
+                    width: 100%;
+                    background-color:white;
+                }
+                td{
+                    padding: 10px 0px;
+                }
+                .HTorTTC{
+                    border: 1px solid #3d3d3d;
+                    padding:5px 4px;
+                    width: 50%;
+                }
+                .Qté{
+                    width: 25%;
+                    text-align:center;
+                    padding: 3px 0px;
+                    input,select{
+                        border: 1px solid black;
+                        width: 80%;
+                        padding:8px 5px;
+                        display:block;
+                    }
+                }
+                .Price{
+                    width: 100%;
+                    text-align:center;
+                    padding: 3px 0px;
+                    display:flex;
+                    input,select{
+                        border: 1px solid black;
+                        padding:8px 5px;
+                        width: 60% !important;
+                    }
+                }
+                .TVA,.TTC{
+                    width: 25%;
+                    input,select{
+                        border: 1px solid black;
+                        padding:8px 5px;
+                        width: 70%;
+                        margin:0px auto;
+                    }
+                    margin:0px auto;
+                }
+                .TTC{
+                    width:100%;
+                    display:flex;
+                }
+            }
+        }
+    }
+}

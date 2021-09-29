@@ -177,7 +177,7 @@
           x="0px"
           y="0px"
           width="10px"
-          height="10x"
+          height="10px"
           viewBox="0 0 348.333 348.334"
           style="enable-background: new 0 0 348.333 348.334"
           xml:space="preserve"

@@ -203,7 +203,7 @@
               {
                 FirstChild : 'Dépenses récurrents',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Achat/Dépenses récurrents'
+                Path : '/Achat/DepensesRecurrents'
               }
             ]
           },

@@ -1,9 +1,13 @@
 <template>
   <div class="HomePage">
+      <div   v-if='PopupNouvelleRecette' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
+
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
-            <div class="NouvelleDevisProforma">
+            <NouvelleRecette v-if='PopupNouvelleRecette' :PageName='PageName' @RemovePopupNouvelleRecette='PopupNouvelleRecette = false' @GetNouvelleRecurrente='GetNouvelleRecurrente' />
+
+            <div  class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
                        <h2>Gestion des recettes récurrentes</h2>
@@ -19,6 +23,9 @@
                         
                     </div>
                 </div>
+                  <v-alert v-if="SuccessNewRecette" type="success" class="AlertError">
+                      La recette réccurente a bien été ajoutée!
+                </v-alert>
                 <div class="card">
                     <v-card flat dense >
                     <v-card-title dense class=" recherche_rapide_title text-p  black--text">
@@ -76,7 +83,8 @@
   
                         <v-btn
                             elevation="1"
-                            class="bnt-nv-bon-de-livraison  white--text" 
+                            class="bnt-nv-bon-de-livraison  white--text"
+                            @click="PopupNouvelleRecette = true"
                             >
                             <v-icon class="mdi-plus-thick">
                                 mdi-plus-thick
@@ -84,19 +92,17 @@
                                 Nouveelle recettes récurrente
                             </v-btn>
                     </div>
-                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage' />
+                    <Table :ElementSearched='ElementSearched' :PathPage='PathPage' :NouvelleRecette="DataNouvelleRecette" />
             </div>
           </div>
-      </div>
-    
-  
-                
+      </div>         
 </template>
 
 <script>
   import SideBar from '../../components/SideBar/Index.vue'
   import NaVBar from '../../components/navbar/navbar.vue'
   import Table from '../../components/Tables/Table_F.vue'
+  import NouvelleRecette from '../../components/NouvelleRecetteRecurrente.vue'
   export default {
     name: 'Home',
 
@@ -106,7 +112,7 @@
    }
  },
     data: () => ({
-     
+      PageName:'Recettes Récurrente',
       Ventilations: [
         'AAAA',
         'BBBB',
@@ -128,12 +134,17 @@
       SearchByLibellé:'',
       ElementSearched:'',
       PathPage:'',
-      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"]
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"],
+      PopupNouvelleRecette : false,
+      DataNouvelleRecette :'',
+      SuccessNewRecette : false,
     }),
     components: {
       SideBar,
       NaVBar,
-      Table
+      Table,
+      NouvelleRecette,
+     
     },
     methods: {
         SearchByFunction(){
@@ -149,6 +160,11 @@
         },
         GethPagePath(){
           this.PathPage = this.$router.currentRoute.path
+        },
+        GetNouvelleRecurrente(Data){
+          this.DataNouvelleRecette = Data
+          this.PopupNouvelleRecette = false
+          this.SuccessNewRecette = true
         }
     },
     created(){

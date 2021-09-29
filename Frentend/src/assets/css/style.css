@@ -781,6 +781,99 @@ textarea {
   width: 90%;
 }
 
+.PopupRecetteRecurrente .PopupNewClient__Right__Filed {
+  padding: 20px 0px !important;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information {
+  display: block;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .ThreeFirstFaild {
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .ThreeFirstFaild .PopupNewClient__Right__Filed {
+  width: 100%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .ThreeFirstFaild .PopupNewClient__Right__Filed .Fréquence {
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .VentilationClientProjet {
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .VentilationClientProjet .PopupNewClient__Right__Filed {
+  width: 100%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva {
+  width: 100%;
+  margin: 30px 0px;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table th, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table td {
+  border: 1px solid #e5e5e5;
+  padding: 10px 0px;
+  width: 100%;
+  background-color: white;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table td {
+  padding: 10px 0px;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .HTorTTC {
+  border: 1px solid #3d3d3d;
+  padding: 5px 4px;
+  width: 50%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Qté {
+  width: 25%;
+  text-align: center;
+  padding: 3px 0px;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Qté input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Qté select {
+  border: 1px solid black;
+  width: 80%;
+  padding: 8px 5px;
+  display: block;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Price {
+  width: 100%;
+  text-align: center;
+  padding: 3px 0px;
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Price input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Price select {
+  border: 1px solid black;
+  padding: 8px 5px;
+  width: 60% !important;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TVA, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC {
+  width: 25%;
+  margin: 0px auto;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TVA input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TVA select, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC select {
+  border: 1px solid black;
+  padding: 8px 5px;
+  width: 70%;
+  margin: 0px auto;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC {
+  width: 100%;
+  display: flex;
+}
+
 .HomePage {
   display: flex;
 }
@@ -1278,6 +1371,107 @@ textarea {
 
 .v-menu__content.theme--light.menuable__content__active {
   margin-top: 16px;
+}
+
+.lancer_recherche {
+  color: #ffffff !important;
+  background-color: #3c8dbc !important;
+  margin-left: 170px;
+  margin-top: 44px;
+}
+
+.card3 {
+  border-top-color: #3c8dbc;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #3c8dbc;
+  margin-top: 100px;
+  padding: 20px;
+  padding-bottom: 143px;
+}
+
+.card3 .recherche_rapide_content {
+  height: auto !important;
+  margin-bottom: 0px !important;
+  display: flex;
+}
+
+.card3 .Documents_à_inclure {
+  display: flex;
+  margin-top: 20px;
+}
+
+.card3 .Documents_à_inclure i {
+  color: #3c8dbc;
+  margin-right: 5px;
+}
+
+.card3 .Documents_à_inclure h5 {
+  font-size: 14px;
+  color: #3c8dbc;
+}
+
+.card3 .Documents_à_inclure .boxs {
+  display: flex;
+  margin: 0  20px;
+}
+
+.card3 .Documents_à_inclure .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.card3 .boxs {
+  display: flex;
+}
+
+.card3 .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button.bnt-nv-bon-de-livraison.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+  margin-left: 77px;
+  margin-top: 28px;
+}
+
+.card2 {
+  border-top-color: #3c8dbc;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #3c8dbc;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.card2 .recherche_rapide_content {
+  height: auto !important;
+  margin-bottom: 0px !important;
+  display: flex;
+}
+
+.card2 .Documents_à_inclure {
+  display: flex;
+  margin-top: 20px;
+}
+
+.card2 .Documents_à_inclure h5 {
+  font-size: 14px;
+}
+
+.card2 .Documents_à_inclure .boxs {
+  display: flex;
+  margin: 0  20px;
+}
+
+.card2 .Documents_à_inclure .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.card2 .boxs {
+  display: flex;
+}
+
+.card2 .boxs input[type="checkbox"] {
+  margin-right: 10px;
 }
 
 nav .v-toolbar {
