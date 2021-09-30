@@ -214,7 +214,7 @@
               {
                 FirstChild : 'Comptes de trésorerie',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Comptes de trésorerie'
+                Path:'/Tresorerie/ComptesTresorerie'
               },
               {
                 FirstChild : 'Trésorerie pévisionnelle',

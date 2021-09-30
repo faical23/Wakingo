@@ -7,6 +7,7 @@ import NouvelleCommande from '../views/Ventes/CommandesClinets/NouvelleCommandes
 import NouvelleBonLivraison from '../views/Ventes/BonsLivraison/NouvelleBonLivraison.vue'
 import NouvelleFacture from '../views/Ventes/Factures/NouvelleFacteurs.vue'
 import NouvelleAvoir from '../views/Ventes/Avoirs/NouvelleAvoir.vue'
+import CompteTresorerie from '../views/Trésorerie/ComptesDeTrésorerie.vue'
 
 Vue.use(VueRouter)
 
@@ -68,6 +69,11 @@ const routes = [
     path: '/Ventes/ListeDevies',
     name: 'listeDevis',
     component: listeDevis
+  },
+  {
+    path: '/Tresorerie/ComptesTresorerie',
+    name: 'CompteTresorerie',
+    component: CompteTresorerie
   },
 ]
 
