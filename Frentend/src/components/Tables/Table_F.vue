@@ -197,7 +197,7 @@
   import DataTable from '../../../backend/data.json';
   import printJS from 'print-js';
   export default {
-    props:['ElementSearched','PathPage','NouvelleRecette'],
+    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis'],
     data() {
         
       return{
@@ -607,6 +607,11 @@
         NouvelleRecette: function(){
           console.log('DATA IS :',this.NouvelleRecette)
           this.ListeDevis.push(this.NouvelleRecette)
+          console.log("Old data" ,this.ListeDevis)
+        },
+        NouvellDepenseDevis: function(){
+          console.log('DATA IS :',this.NouvellDepenseDevis)
+          this.ListeDevis.push(this.NouvellDepenseDevis)
           console.log("Old data" ,this.ListeDevis)
         }
     }

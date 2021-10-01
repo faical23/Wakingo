@@ -182,10 +182,10 @@
           <g>
             <path
               d="M336.559,68.611L231.016,174.165l105.543,105.549c15.699,15.705,15.699,41.145,0,56.85
-                                c-7.844,7.844-18.128,11.769-28.407,11.769c-10.296,0-20.581-3.919-28.419-11.769L174.167,231.003L68.609,336.563
-                                c-7.843,7.844-18.128,11.769-28.416,11.769c-10.285,0-20.563-3.919-28.413-11.769c-15.699-15.698-15.699-41.139,0-56.85
-                                l105.54-105.549L11.774,68.611c-15.699-15.699-15.699-41.145,0-56.844c15.696-15.687,41.127-15.687,56.829,0l105.563,105.554
-                                L279.721,11.767c15.705-15.687,41.139-15.687,56.832,0C352.258,27.466,352.258,52.912,336.559,68.611z"
+                c-7.844,7.844-18.128,11.769-28.407,11.769c-10.296,0-20.581-3.919-28.419-11.769L174.167,231.003L68.609,336.563
+                c-7.843,7.844-18.128,11.769-28.416,11.769c-10.285,0-20.563-3.919-28.413-11.769c-15.699-15.698-15.699-41.139,0-56.85
+                l105.54-105.549L11.774,68.611c-15.699-15.699-15.699-41.145,0-56.844c15.696-15.687,41.127-15.687,56.829,0l105.563,105.554
+                L279.721,11.767c15.705-15.687,41.139-15.687,56.832,0C352.258,27.466,352.258,52.912,336.559,68.611z"
             />
           </g>
           <g></g>
@@ -224,8 +224,8 @@
             <path
               style=""
               d="M31.923,9.14L13.417,27.642c-0.496,0.494-1.299,0.494-1.793,0L0.37,16.316
-                                        c-0.494-0.496-0.494-1.302,0-1.795l2.689-2.687c0.496-0.495,1.299-0.495,1.793,0l7.678,7.729L27.438,4.654
-                                        c0.494-0.494,1.297-0.494,1.795,0l2.689,2.691C32.421,7.84,32.421,8.646,31.923,9.14z"
+                c-0.494-0.496-0.494-1.302,0-1.795l2.689-2.687c0.496-0.495,1.299-0.495,1.793,0l7.678,7.729L27.438,4.654
+                c0.494-0.494,1.297-0.494,1.795,0l2.689,2.691C32.421,7.84,32.421,8.646,31.923,9.14z"
             />
           </g>
           <g></g>
@@ -284,22 +284,22 @@ export default {
           if(
                 this.DateDébut != '' && this.FréquenceNumber != '' && this.Libellé != ''
                 && this.QtéNumber != 0 && this.Price != 0){
-            let Frequence =  `Chaque ${this.FréquenceNumber} ${this.FréquenceType}`
-            let NouvelleRécurrente ={
-                DateDébut:this.DateDébut,
-                DateFin:this.DateFin,
-                Fréquence:Frequence,
-                libelle:this.Libellé,
-                Ventiation:this.VentilationSelect,
-                Client:this.ClientSelect,
-                Projet:this.ProjetSelect,
-                QtéNumber:this.QtéNumber,
-                QtéType:this.QtéType,
-                PriceType:this.PriceType,
-                Price:this. Price,
-                Tva:this.Tva,
-                TotatlTTC:this.TotatlTTC,
-                Status:'Active'
+              let Frequence =  `Chaque ${this.FréquenceNumber} ${this.FréquenceType}`
+              let NouvelleRécurrente ={
+                  DateDébut:this.DateDébut,
+                  DateFin:this.DateFin,
+                  Fréquence:Frequence,
+                  libelle:this.Libellé,
+                  Ventiation:this.VentilationSelect,
+                  Client:this.ClientSelect,
+                  Projet:this.ProjetSelect,
+                  QtéNumber:this.QtéNumber,
+                  QtéType:this.QtéType,
+                  PriceType:this.PriceType,
+                  Price:this. Price,
+                  Tva:this.Tva,
+                  TotatlTTC:this.TotatlTTC,
+                  Status:'Active'
 
                 }
             this.$emit('GetNouvelleRecurrente',NouvelleRécurrente)
