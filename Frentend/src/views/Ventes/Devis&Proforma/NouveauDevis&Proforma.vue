@@ -289,9 +289,6 @@
     import   Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
-
-
-    import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
     data(){

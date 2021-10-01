@@ -231,7 +231,7 @@
 
 
     // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
-    import NaVBar from '../../../components/navbar.vue'
+    import NaVBar from '../../../components/navbar/navbar.vue'
   export default {
     name: 'Home',
     data(){
