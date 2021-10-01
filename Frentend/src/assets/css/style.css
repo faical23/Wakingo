@@ -298,7 +298,7 @@ textarea {
 
 .SideBare .v-list-item__title {
   font-size: 13px !important;
-  color: #d9d9d9 !important ;
+  color: #d9d9d9 !important !important;
 }
 
 .SideBare .list-item__icon:first-child {
@@ -887,6 +887,7 @@ textarea {
 .PopupChoiserArticle .PopupNewClient__btns {
   margin-bottom: 50px;
 }
+
 .theme--light.v-application {
   background-color: #ecf0f5;
 }
@@ -1223,6 +1224,7 @@ textarea {
 .NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left h2 {
   font-size: 24px;
   font-weight: 500;
+  padding-bottom: 10px;
   color: #222d32;
 }
 
@@ -1637,14 +1639,49 @@ textarea {
   background-color: #367fa9;
 }
 
-.v-card.v-card--flat.v-sheet.theme--light {
- /* .v-card.v-card--flat.v-sheet.theme--light uto !important; */
-  margin-bottom: 22px !important;
+.mode_section {
+  margin: 10px;
 }
+
+.mode_section .mode_paiement_div {
+  display: flex;
+}
+
+.mode_section .mode_paiement_div i {
+  color: #017c9b;
+  font-size: inherit;
+  margin-top: 3px;
+}
+
+.mode_section .mode_paiement_div .mode {
+  color: #017c9b;
+}
+
+.mode_section h4 {
+  margin-left: 5px;
+  margin-bottom: -14px;
+}
+
+.mode_section .input_section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.mode_section .input_section .numero {
+  margin-top: 10px;
+}
+
+.outlined {
+  border: 1px solid black;
+  padding: 8px;
+}
+
 .tableDevis {
   font-size: 1px;
 }
-
 
 .v-card.v-card--flat.v-sheet.theme--light {
   height: 144px !important;
