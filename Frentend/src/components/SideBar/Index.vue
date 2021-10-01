@@ -99,7 +99,7 @@
                   },
                   {
                     SecondChild : 'Nouveau devis&Proforma',
-                    Path:'/Ventes/NouveauDevis/Proforma'
+                    Path:'/Ventes/NouveauDevis/Proforma/Create'
                   }
                 ]
               },
@@ -113,7 +113,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle commande',
-                    Path:'/Ventes/Nouvelle commande'
+                    Path:'/Ventes/NouvelleCommande/Create'
                   }
                 ]
               },
@@ -127,7 +127,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle  Bons de livraison',
-                    Path:'/Ventes/Nouvelle  Bons de livraison'
+                    Path:'/Ventes/NouvelleBonsDeLivraison/Create'
                   }
                 ]
               },
@@ -141,7 +141,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle Factures',
-                    Path:'/Nouvelle Factures'
+                    Path:'/Ventes/NouvelleFacture/Create'
                   }
                 ]
               },
@@ -154,9 +154,9 @@
                     Path:'/Ventes/Liste_Des_Avoirs'
                   },
                   {
-                    SecondChild : 'Nouvelle avoir',
-                     path:'/Ventes/Nouvelle avoir'
-                  }
+                    SecondChild : 'Nouvelle Avoirs',
+                    Path:'/Ventes/NouvelleAvoir/Create'
+                  },
                 ]
               },
               {
@@ -203,7 +203,7 @@
               {
                 FirstChild : 'Dépenses récurrents',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Achat/Dépenses récurrents'
+                Path : '/Achat/DepensesRecurrents'
               }
             ]
           },
@@ -450,4 +450,3 @@
     }
   }
 </script>
-
