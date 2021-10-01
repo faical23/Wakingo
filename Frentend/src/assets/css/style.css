@@ -44,6 +44,10 @@ nav .v-toolbar {
   position: absolute;
 }
 
+.ArticleFailedError {
+  top: 40px;
+}
+
 .AlertError {
   background-color: #dd4b39 !important;
   margin-top: 30px;
@@ -1197,6 +1201,20 @@ textarea {
   padding-bottom: 0px !important;
 }
 
+.NouvelleDevisProforma .ValideOrAnnulerBtnsOrlinks {
+  display: flex;
+}
+
+.NouvelleDevisProforma .ValideOrAnnulerBtnsOrlinks button {
+  display: flex;
+  align-items: center;
+  margin: 0px 5px !important;
+}
+
+.NouvelleDevisProforma .ValideOrAnnulerBtnsOrlinks svg {
+  margin: 0px 5px !important;
+}
+
 .NouvelleDevisProforma .NouvelleDevisProforma__Header {
   display: flex;
   justify-content: space-between;
@@ -1329,6 +1347,21 @@ textarea {
   width: 40%;
 }
 
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TauxChange,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TauxChange,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .TauxChange,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .TauxChange {
+  display: flex;
+  width: 50%;
+}
+
+.NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .TauxChange input,
+.NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .TauxChange input,
+.NouvelleDevisProforma .Logistique .InformationPiéce__Field .TauxChange input,
+.NouvelleDevisProforma .Options .InformationPiéce__Field .TauxChange input {
+  width: 100%;
+}
+
 .NouvelleDevisProforma .InformationPiéce .InformationPiéce__Field .Port,
 .NouvelleDevisProforma .InformationFinanciéres .InformationPiéce__Field .Port,
 .NouvelleDevisProforma .Logistique .InformationPiéce__Field .Port,
@@ -1372,6 +1405,10 @@ textarea {
 .NouvelleDevisProforma .Options .InformationPiéce__Field .AficheLesPhoto h5 {
   margin: 0px !important;
   padding: 0px !important;
+}
+
+.NouvelleDevisProforma .PiéceAttachée p {
+  padding: 20px 0px;
 }
 
 .NouvelleDevisProforma .DeleteRow {

@@ -1,6 +1,5 @@
 <template>
   <div class="InformationsProduit">
-
         <v-card class="SwitchOptions">
                 <v-toolbar
                 >
@@ -16,7 +15,7 @@
                         :key="n"
                         @click='SwitchOptionsToAnother(item.Option)'
 
-                    >
+                    > 
                         <i :class="item.Icon"></i>
                         {{ item.Option }}
                     </v-tab >
@@ -34,7 +33,7 @@
                         <div v-show="SelectOptions == 'Informations piéce'" class="InformationPiéce">
                             <div class="InformationPiéce__Field SearchClient">
                                     <h5>Client* :</h5>
-                                        <button class="SearchClientButton"    :style="DataIsSubmited && ClientSelected == 'Sélectioner un cient' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
+                                        <button class="SearchClientButton"    :style="DataIsSubmited && InformationsPiéceCilent == '' ? 'border :1px solid rgb(170, 6, 6) !important' : ''" @click='ScrollSearchClient ? ScrollSearchClient = false : ScrollSearchClient = true '>Sélectioner un cient<i class="fas fa-sort-down"></i></button>
                                         <div class="PlaceClientAndSearch" v-if="ScrollSearchClient">
                                             <input type="text">
                                             <ul>
@@ -43,7 +42,7 @@
                                             </ul>
                                                 <li class="PlaceClientAndSearch_NewCient" @click="NewClient()">+ Nouveau client</li>
                                         </div>
-                                        <span v-if="DataIsSubmited && ClientSelected == 'Sélectioner un cient'" class="MessageErrorFiled">Vous devez selectionner un élément.</span>
+                                        <span v-if="DataIsSubmited && InformationsPiéceCilent == ''" class="MessageErrorFiled">Vous devez selectionner un élément.</span>
 
                             </div>
                             <div class="InformationPiéce__Field">
@@ -52,7 +51,7 @@
                                     <span v-if="DataIsSubmited && InformationsPiéceNémuro == ''" class="MessageErrorFiled">Ce champ est obligatoire.</span>
                             </div>
                             <div class="InformationPiéce__Field">
-                                    <h5>Date du devis* :</h5>
+                                    <h5>{{InformationsPiéceDateName}}</h5>
                                     <input type="date" v-model="InformationsPiéceDateDuDevis" />
                             </div>
                             <div class="InformationPiéce__Field">
@@ -69,7 +68,7 @@
 
                         </div>
                         <div v-if="SelectOptions == 'Informations financiéres'" class="InformationFinanciéres">
-                            <div class="InformationPiéce__Field">
+                            <div class="InformationPiéce__Field"  v-if="PagePath !== '/Ventes/NouvelleCommande/Create'" >
                                     <h5>Date d'échéance :</h5>
                                     <input type="date" v-model="InformationsfinanciéresDateDécheance" />
                             </div>
@@ -99,11 +98,18 @@
                             </div>
                             <div class="InformationPiéce__Field">
                                     <h5>Devise utilisée* :</h5>
-                                    <select name="pets" id="pet-select"  v-model="InformationsfinanciéresDeviseUtilisée">
+                                    <select name="pets" id="pet-select"  v-model="InformationsfinanciéresDeviseUtilisée" @change="CheckDevisUtilisé()">
                                         <option value="MAD-Drham Marocain">MAD-Drham Marocain</option>
                                         <option value="EUR-Euro">EUR-Euro</option>
                                         <option value="USD-Dollar américan">USD-Dollar américan</option>
                                     </select>
+                            </div>
+                            <div v-if="DeviseNotMad"  class="InformationPiéce__Field">
+                                    <h5>Taux de change :</h5>
+                                    <div  class="TauxChange" >
+                                        <input type="text" v-model="InformationsfinanciéresTauxChange" />
+                                        <input type="text" value="MAD" disabled>
+                                    </div>
                             </div>
                         </div>
                         <div v-if="SelectOptions == 'Échéancier'" class="Échéancier" >
@@ -209,10 +215,18 @@
                                         <option value="Proforma-modéle corporate">Proforma-modéle corporate</option>
                                     </select>
                                     <div class="AficheLesPhoto">
-                                        <input type="Checkbox" checked="true">
-                                        <h5>Aficher les photo d'article</h5>
+                                        <input type="Checkbox" checked="true" v-model="OptionsAficherphotoArticle" @click="this.OptionsAfficherphotoArticle  ? this.OptionsAfficherphotoArticle = false : this.OptionsAfficherphotoArticle = true">
+                                        <h5>Afficher les photo d'article</h5>
+                                    </div>
+                                    <div class="AficheLesPhoto">
+                                        <input type="Checkbox" checked="true" v-model="OptionsAfficherLesPrixArticle" @click="this.OptionsAfficherLesPrixArticle  ? this.OptionsAfficherLesPrixArticle = false : this.OptionsAfficherLesPrixArticle = true">
+                                        <h5>Afficher les prix</h5>
                                     </div>
                             </div>
+                        </div>
+                        <div v-if="SelectOptions == 'Piéce Attachée'"  class="PiéceAttachée">
+                            <input type="file" ref="PiéceAttachéeFile">
+                            <p>veuillez sélectionner un fichier pdf de moins de 1 Mo.</p>
                         </div>
                     </v-card-text>
                     </v-card>
@@ -244,9 +258,14 @@
                 Option:'Logistique' ,
                 Icon:'fas fa-truck'
             },
+            
             {
                 Option:'Documents associés' ,
                 Icon:'fas fa-link'
+            },
+            {
+                Option:'Piéce Attachée' ,
+                Icon:'fas fa-file-contract'
             },
             {
                 Option:'Options' ,
@@ -262,6 +281,7 @@
         InformationsPiéceNDeRéférence:'',
         InformationsPiéceVendeur:'',
         ScrollSearchClient:false,
+        InformationsPiéceDateName:'',
         Clients:[
             {
                 ClientName:"CLT1 - ESSAID CHASSE SA"
@@ -305,12 +325,13 @@
         ],
         ClientSelected:'Sélectioner un cient',
         // informations financiérs
-        InformationsfinanciéresDateDécheance:'',
+        InformationsfinanciéresDateDécheance:"2021-08-05",
         InformationsfinanciéresRemiseGlobal:0,
         InformationsfinanciéresRemiseGlobalType:'%',
         InformationsfinanciéresPort:0,
         InformationsfinanciéresTVAPort:'20,00%',
         InformationsfinanciéresDeviseUtilisée:'MAD-Drham Marocain',
+        InformationsfinanciéresTauxChange : 0,
         //échéancier
         EchéancierRow:[
             {
@@ -330,15 +351,26 @@
         LogistiqueAdresseFacturation:'',
         ///// Options
         OptionsModèlePDF:'Devis de vente-modéle corporate',
-        OptionsAficherphotoArticle:true,
+        OptionsAfficherphotoArticle:true,
+        OptionsAfficherLesPrixArticle:true,
         DataIsSubmited:false,
-        CheckIfExportData:''
+        CheckIfExportData:'',
+        DeviseNotMad : false,
 
       }
     },
-    props:['ConfirmationSelectionerClient','NameOfNewClientAdded','Numero'],
+    props:['PagePath','ConfirmationSelectionerClient','NameOfNewClientAdded','Numero'],
     emits:['AlertSelectionerClient','AddNewClient','SendRemiseAndPortToArticleSpace'],
     methods:{
+        RemoveElementFromSlideIngormation(){
+            if(this.PagePath === '/Ventes/NouveauDevis/Proforma/Create'){
+                this.items.splice(5,1)
+                this.InformationsPiéceDateName ="Date de Devis * "
+            }
+            else if(this.PagePath === '/Ventes/NouvelleCommande/Create'){
+                this.InformationsPiéceDateName ="Date de la commande * "
+            }
+        },
         SwitchOptionsToAnother(item){
             this.SelectOptions = item
             console.log(this.SelectOptions)
@@ -386,9 +418,6 @@
         DeleteRowEchéance(row){
            this.EchéancierRow.splice(row,1); 
         },
-        GetAllData(){
-            this.DataIsSubmited = true;
-        },
         GetTodayDate(){
             let GetDate = new Date();
             let Year = GetDate.getFullYear()
@@ -405,6 +434,23 @@
         NewClient(){
             this.$emit('AddNewClient',this.Clients);
             this.ScrollSearchClient = false
+        },
+        CheckDevisUtilisé(){
+            
+            if (this.InformationsfinanciéresDeviseUtilisée === "EUR-Euro") {
+                this.DeviseNotMad = true
+                this.InformationsfinanciéresTauxChange = 10.80
+            }
+            else if(this.InformationsfinanciéresDeviseUtilisée === "USD-Dollar américan"){
+                this.DeviseNotMad = true
+                this.InformationsfinanciéresTauxChange =9.60
+            }
+            else{
+                this.DeviseNotMad = false
+            }
+        },
+        CheckBoxAfficherImage(){
+            this.OptionsAfficherphotoArticle  ? this.OptionsAfficherphotoArticle = false : this.OptionsAfficherphotoArticle = true
         },
         SendRemiseAndPortToArticleSpace(){
             let RemisAndPort ={
@@ -431,17 +477,18 @@
                     "Informations_Piéce":{
                         "Client_Name" :  this.InformationsPiéceCilent,
                         "Numéro" :   this.InformationsPiéceNémuro,
-                        "Date_Devis" :   this.InformationsPiéceDateDuDevis,
+                        // "Date_Devis" :   this.InformationsPiéceDateDuDevis,
                         "N_De_référence" :   this.InformationsPiéceNDeRéférence,
                         "Vendeur" :   this.InformationsPiéceVendeur,
                     },
                     "Informations_Financiéres":{
-                        "Date_déchéance" :  this.InformationsfinanciéresDateDécheance,
+                        // "Date_déchéance" :  this.InformationsfinanciéresDateDécheance,
                         "Remise_global" :   this.InformationsfinanciéresRemiseGlobal,
                         "Type_remise global" :   this. InformationsfinanciéresRemiseGlobalType,
                         "Port" :   this.  InformationsfinanciéresPort,
                         "TVA/Port" :   this.InformationsfinanciéresTVAPort,
                         "Devise_utilisée" :   this.InformationsfinanciéresDeviseUtilisée,
+                        "TauxChange_If_DeviseUtilisée_Not_MAD":this.InformationsfinanciéresTauxChange
                     },
                     "écheancier":{
                         "Echéancier" :this.EchéancierRow
@@ -452,16 +499,31 @@
                         "AdresseFacturation":this.LogistiqueAdresseFacturation
                     },
                     "Options":{
-                        "Modèle_PDF":this.OptionsModèlePDF
+                        "Modèle_PDF":this.OptionsModèlePDF,
+                        "AfficherPhotoArticle " : this.OptionsAfficherphotoArticle ,
                     }
                 }
-                this.$store.commit('GetInformationVentes',FacturesInformation,)
-                // console.log(FacturesInformation)
+                    if(this.PagePath === '/Ventes/NouveauDevis/Proforma/Create'){
+                        FacturesInformation.Informations_Piéce.Date_Devis = this.InformationsPiéceDateDuDevis
+                        FacturesInformation.Informations_Financiéres.DateEcheance = this.InformationsfinanciéresDateDécheance
+                    }
+                    else if(this.PagePath === '/Ventes/NouvelleCommande/Create'){
+                        FacturesInformation.Informations_Piéce.Date_de_commande = this.InformationsPiéceDateDuDevis
+                        FacturesInformation.Options.AfficherPrixArticle = this.InformationsPiéceDateDuDevis
+                        FacturesInformation.PiéceAttachée = this.$refs.PiéceAttachéeFile
+                    }
+
+                this.$store.commit('GetInformationVentes',FacturesInformation)
+                this.DataIsSubmited = true;
+            },
+            '$store.state.Réinitialiser': function() {
+                this.$forceUpdate();
+                console.log('reinitaliser from informations article')
             }
     },
     mounted(){
         this.GetTodayDate()
-        
+        this.RemoveElementFromSlideIngormation()
     },
   }
 </script>

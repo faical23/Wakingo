@@ -2,6 +2,17 @@
     width: 100%;
     padding: 20px;
     padding-bottom: 0px !important;
+    .ValideOrAnnulerBtnsOrlinks{
+      display: flex;
+      button{
+        display: flex;
+        align-items: center;
+        margin: 0px 5px !important;
+      }
+      svg{
+        margin: 0px 5px !important;
+      }
+    }
     .NouvelleDevisProforma__Header {
       display: flex;
       justify-content: space-between;
@@ -96,6 +107,13 @@
             width: 40%;
           }
         }
+        .TauxChange{
+          display: flex;
+          width: 50%;
+          input {
+            width: 100%;
+          }
+        }
         .Port {
           width: 60%;
         }
@@ -129,6 +147,11 @@
             padding: 0px !important;
           }
         }
+      }
+    }
+    .PiéceAttachée{
+      p{
+        padding: 20px 0px;
       }
     }
     .DeleteRow {

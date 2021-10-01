@@ -20,6 +20,15 @@
          Remarque:''
     }),
     emits:[],
+    watch:{
+        '$store.state.InsertVendreData': function() {
+            this.$store.commit('GetRemarqueArticles',this.Remarque)
+        },
+        '$store.state.Réinitialiser': function() {
+            this.$forceUpdate();
+            console.log('reinitaliser from articles')
+        }
+    }
   }
     
 </script>
