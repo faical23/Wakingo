@@ -127,7 +127,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle  Bons de livraison',
-                    Path:'/Ventes/Nouvelle  Bons de livraison'
+                    Path:'/Ventes/NouvelleBonsDeLivraison/Create'
                   }
                 ]
               },
@@ -141,7 +141,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle Factures',
-                    Path:'/Nouvelle Factures'
+                    Path:'/Ventes/NouvelleFacture/Create'
                   }
                 ]
               },
@@ -154,9 +154,9 @@
                     Path:'/Ventes/Liste_Des_Avoirs'
                   },
                   {
-                    SecondChild : 'Nouvelle avoir',
-                     path:'/Ventes/Nouvelle avoir'
-                  }
+                    SecondChild : 'Nouvelle Avoirs',
+                    Path:'/Ventes/NouvelleAvoir/Create'
+                  },
                 ]
               },
               {
