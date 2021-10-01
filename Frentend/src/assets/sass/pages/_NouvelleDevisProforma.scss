@@ -320,4 +320,40 @@
         background-color: #367fa9;
       }
     }
-  }
+}
+    
+
+.mode_section{
+    margin: 10px;
+    .mode_paiement_div{
+        display: flex;
+        i{
+            color: #017c9b;
+            font-size: inherit;
+            margin-top: 3px;
+        }
+    
+        .mode{
+            color: #017c9b;
+        }
+    }
+    h4{
+        margin-left: 5px;
+        margin-bottom: -14px;
+    }
+    .input_section{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        .numero{
+            margin-top: 10px;
+        }
+    }
+}
+.outlined{
+    border: 1px solid black;
+    padding: 8px;
+    // padding: 13px 18px;
+}

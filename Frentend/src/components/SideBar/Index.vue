@@ -109,7 +109,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des commandes',
-                    Path:'/Ventes/Liste des commandes'
+                    Path:'/Ventes/ListeCommandes'
                   },
                   {
                     SecondChild : 'Nouvelle commande',
@@ -123,7 +123,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Bons de livraison',
-                    Path:'/Ventes/Liste des Bons de livraison'
+                    Path:'/Ventes/Gestion_des_bons_de_livraison'
                   },
                   {
                     SecondChild : 'Nouvelle  Bons de livraison',
@@ -137,7 +137,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Factures',
-                    Path:'/Ventes/Liste des Factures'
+                    Path:'/Ventes/Gestion_des_Factures'
                   },
                   {
                     SecondChild : 'Nouvelle Factures',
@@ -151,7 +151,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Avoirs',
-                    Path:'/Ventes/Liste des Avoirs'
+                    Path:'/Ventes/Liste_Des_Avoirs'
                   },
                   {
                     SecondChild : 'Nouvelle avoir',
@@ -162,32 +162,32 @@
               {
                 FirstChild: 'Réglements',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Réglements'
+                Path:'/Ventes/Reglement'
               },
               {
                 FirstChild: 'Acomptes',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Acomptes'
+                Path:'/Ventes/Accomptes'
               },
               {
                 FirstChild: 'Recettes diverses',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Recettes diverses'
+                Path:'/Ventes/Diverses'
               },
               {
                 FirstChild: 'Recettes récurrents',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Recettes récurrents'
+                Path:'/Ventes/Recurrentes'
               },
               {
                 FirstChild: 'Regroupment de documents',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Regroupment de documents'
+                Path:'/Ventes/regroupement_des_document'
               },
               {
                 FirstChild: 'Rapport commercial',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Ventes/Rapport commercial'
+                Path:'/Ventes/Rapport_commercial'
               }
             ]
           },
@@ -198,12 +198,12 @@
               {
                 FirstChild : 'Dépenses diverses' ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Achat/Dépenses diverses'
+                Path : '/Achat/depenses_diverses'
               },
               {
                 FirstChild : 'Dépenses récurrents',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Achat/Dépenses récurrents'
+                Path : '/Achat/DepensesRecurrents'
               }
             ]
           },

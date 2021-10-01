@@ -1,0 +1,48 @@
+
+.lancer_recherche  {
+    color: #ffffff !important;
+    background-color: #3c8dbc !important;
+    margin-left: 170px;
+    margin-top: 44px;
+}
+.card3{
+    border-top-color: #3c8dbc;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #3c8dbc;
+    margin-top: 100px;
+    padding:20px;
+    padding-bottom: 143px;
+    .recherche_rapide_content {
+        height: auto !important;
+        margin-bottom: 0px !important;
+        display: flex;
+    }
+    .Documents_à_inclure{
+        display: flex;
+        margin-top: 20px;
+        i{
+            color: #3c8dbc;
+            margin-right: 5px;
+        }
+        h5{
+            font-size: 14px;
+            color: #3c8dbc;
+        }
+        .boxs{
+            display: flex;
+            margin: 0  20px ;
+            input[type="checkbox"] {
+                margin-right: 10px;
+            }
+        }
+    }
+    .boxs{
+        display: flex;
+        // margin: 0  20px ;
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+}
+
+}

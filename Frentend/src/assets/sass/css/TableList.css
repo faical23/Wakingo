@@ -1,0 +1,83 @@
+@charset "UTF-8";
+.TableAffiche {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+
+.TableAffiche select {
+  border: 1px solid black;
+  width: 80px;
+  margin: 0px 10px;
+  position: relative;
+  bottom: 8px;
+  padding: 5px 10px;
+}
+
+.TableResultSearch .EnCours {
+  background-color: #00c0ef;
+}
+
+.TableResultSearch .Accepté {
+  background-color: #00a65a;
+}
+
+.TableResultSearch .Clôturer {
+  background-color: #3c8dbc;
+}
+
+.TableResultSearch .Annulé {
+  background-color: #d2d6de;
+}
+
+.v-sheet.v-list {
+  border: 1px solid black;
+  background: #fdfdfd;
+}
+
+.v-list-item__content {
+  width: 100%;
+  padding-left: 30px;
+}
+
+.v-list-item__content:hover {
+  background-color: #00c0ef !important;
+  color: white;
+}
+
+.SearchBydate {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 5px;
+}
+
+.SearchBydate input {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.SearchBydate label {
+  background-color: #f3f3f3;
+  padding: 10px 6px;
+  color: black;
+}
+
+#dropdownMenuButton1 {
+  background-color: #e5e5e5 !important;
+  color: black !important;
+}
+
+.recherche_rapide_content h5 {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.recherche_rapide_content input, .recherche_rapide_content select {
+  border: 1px solid #9b9b9b;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 90%;
+}

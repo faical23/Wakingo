@@ -1,0 +1,130 @@
+
+
+.theme--light.v-application {
+    background-color: #ecf0f5;
+}
+
+.profil-card{
+    .card-profil-information-container{
+        padding: 31px;
+        h3{
+            font-size: 24px;
+            font-family: 'Source Sans Pro',sans-serif;
+            margin: 10px 132px
+        }
+        .emplacement{
+            margin: 13px 353px;
+        }
+      
+        .card-profil-information{
+            margin-top: 15px;
+            background-color: #ffffff;
+            // padding: 100px;
+            border: #3c8dbc;
+            padding: 20px;
+            margin: 0px 132px;
+            hr{
+                        
+                border: 1px solid #e5e5e585;
+                margin-top: 13px;
+            }
+           
+            .infos{
+                display: flex;
+                p{
+                   
+                    margin-bottom: 30px;
+                    font-size: 12px;
+                }
+                .password-container{
+                    display: grid;
+                    // grid-template-columns: 1fr;
+                    // grid-template-rows: repeat(5, 1fr);
+                    // grid-column-gap: 0px;
+                    // grid-row-gap: 0px;
+                    .v-input__control {
+                        margin-top: -31px;
+                    }
+                    .enregistrer-password{
+                        // margin: 77px;
+                        .v-btn{
+                            margin-left: 195px;
+                            margin-top: -44px;
+                            height: 35px;
+                        }
+                    }
+                }
+              
+                .information-de-connexion{
+                    margin: 10px 0;
+
+                    h5{
+                        margin-top: 10px;
+                        color: #0073b7;
+                    }
+                    hr{
+                        margin: 3px 0 15px 0;
+                        border: 1px solid #e5e5e5;;
+                    }
+                    h4{
+                        margin: 15px 6px; 
+                        font-size: 14px;
+                    }
+                    .tt{
+                        border: 4px #3c8dbc;
+                    }
+                }
+                .adress{
+                    margin: 0 45px;
+                    h5{
+                        margin-top: 18px;
+                        color: #0073b7;
+                        
+                    }
+                    h4{
+                        margin: 14px 0;
+                    }
+                    hr{
+                        
+                        border: 1px solid #e5e5e5;
+                        margin-top: 5px;
+                    }
+                    .code-postale-div{
+                        margin-top: -54px;
+                    }
+                    .pays-div{
+                     margin-top: -47px;
+                 }
+                }
+            }
+           
+        }
+        
+    }
+}
+.enregistrer{
+    .v-btn{
+        margin-left: 84%;
+        .mdi-check-bold{
+            margin: 5px;
+        }
+    }
+    hr{
+                        
+        border: 1px solid #e5e5e585;
+        margin-bottom: 13px;
+    }
+}
+.check-password{
+    margin: 5px;
+}
+.danger{
+    color: red;
+   
+    // font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.v-text-field--outlined .v-label {
+    // top: 18px;
+    font-size: 12px;
+}
+

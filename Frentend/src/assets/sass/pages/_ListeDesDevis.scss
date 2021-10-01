@@ -1,12 +1,31 @@
+
+.tableDevis{
+    font-size: 1px;
+}
 .v-card.v-card--flat.v-sheet.theme--light {
-    height: &uto !important;
+    height: 144px !important;
     margin-bottom: 22px !important;
+    font-size: 16px;
+}
+.cal-icon{
+    margin-bottom: -21px;
+    margin-left: 3px;
+}
+.mdi-calendar-month {
+    margin-left: 3px;
+}
+.data-table-content{
+    font-size: 0px;
 }
 
 .recherche_rapide_content{
     height: auto !important;
     margin-bottom: 200px !important;
     display: flex;
+    .v-list {
+        margin-top: 39px;
+    }
+  
 }
 
 .v-card__title.text-p.blue.lighten-4.black--text {
@@ -40,22 +59,38 @@
         margin-right: 8px;
     }
     .mdi-calendar-month{
-        margin-left: 23px;
+        margin-left: 10px;
     }
     .bnt-nv-bon-de-livraison{
         background-color: #3c8dbc !important;
         color: white;
         // float: right;
-
+        
         .mdi-plus-thick{
             font-size: 21px;
             margin-right: 8px;
-
+            
         }
     }
+    .bnt-nv-avoir{
+        background-color: #3c8dbc !important;
+        color: white;
+        margin-left: 90px;
+    }
+    .bnt-nv-facture{
+        background-color: #3c8dbc !important;
+        color: white;
+        margin-left: 50px;
+    }
+    .bnt-nv-reglement{
+        background-color: #3c8dbc !important;
+        color: white;
+        // margin-left: 83%;
+    }
     .nouveau-bon{
-        margin-left: 83.5%;
-        margin-bottom: 24px;
+        text-align: end;
+        margin-bottom: 22px;
+        margin-top: 22px;
     }
 
     .table-btn-group{
@@ -76,6 +111,204 @@
         display: flex;
     }
 
+    .duplique-btn{
+        padding: 0 0px;
+    }
+    .td.text-start{
+       padding: 0 67px;
+    }
 
+    .v-main__wrap {
+        .v-list {
+            margin-top: 41px;
+        }
+    }
     
-    
+    .v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+    padding: 0 44px;
+}
+
+.mdi-file-pdf{
+    size: 300px;
+}
+
+
+.ref{
+    .v-text-field > .v-input__control > .v-input__slot:before, .v-text-field > .v-input__control > .v-input__slot:after {
+        bottom: -1px;
+        content: "";
+        left: 0px;
+        margin-right: 10px;
+        position: absolute;
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+        width: 80%;
+    }
+}
+
+.TableAfficheAccomptes{
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.v-menu__content.theme--light.menuable__content__active {
+    margin-top: 16px;
+}
+
+
+.npuveau_bon{
+    .v-dialog{
+        margin: 30px auto;
+    }
+    .row.justify-center {
+        margin: 0 769px;
+    }
+}
+
+.SearchBydate2 {
+    align-items: center;
+    position: relative;
+    // bottom: 5px; 
+  }
+  
+  
+ 
+    .date_input_diverse{
+        border: 1px solid black;
+        padding: 5px 10px;
+    }
+    .Ventilation{
+        border: 1px solid black;
+        padding: 13px 18px;
+    }
+    .depense_second_section{
+        // display: flex;
+        // .input{
+            //     border: 1px solid black;
+            //     padding: 5px 10px;
+            // }
+        }
+        .popup-container{
+            display: flex;
+        }
+        .fournisseur_projet{
+            display: flex;
+        }
+        .projet{
+            border: 1px solid black;
+            padding: 13px 18px;
+            // max-width: 51%;
+        }
+        .v-dialog > .v-card > .v-card__text {
+            padding: 0 0px 0px;
+        }
+        .libellé_dialog{
+            margin-bottom: 3px;
+        }
+        .dialog_table_div{
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        .t-body{
+            background-color: #e6e6e673;
+        }
+        .diverse_table{
+            font-size: 14px;
+        //    margin-left: 10px;
+        .Quantité{
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         grid-template-rows: 1fr;
+         grid-column-gap: 0px;
+         grid-row-gap: 13px;
+         margin-top: 5px;
+         font-size: 14px;
+         .qte_input, .prix_input{
+             width: 60px;
+                    border: 1px solid black;
+                }
+                .qte_select{
+                    border: 1px solid black;
+                }
+            }
+            .prix_input{
+                width: 60px;
+                border: 1px solid black;
+                padding: 5px 10px;
+            }
+            .prix_select{
+                border: 1px solid black;
+                padding: 5px 10px;
+            }
+            
+            td{
+                padding: 0px 16px;  
+            }
+        }
+        .qte_container{
+            display: flex;
+            background-color: #e6e6e673;
+            padding: 21px;
+        }
+        .v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+            padding: 0px 16px;
+        }
+        
+        
+        .td_grid{
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         grid-template-rows: 1fr;
+         grid-column-gap: 0px;
+         grid-row-gap: 10px;
+         margin-top: 5px;
+        }
+
+        .tva_select{
+            border: 1px solid black;
+            padding: 16px 2px;
+            margin-top: 4px;
+        }
+
+        .OBLIGATOIR{
+            margin-top: 100px;
+        }
+        .Té{
+            margin-right: 224px;
+        }
+
+        .libele{
+            border: 1px solid black;
+            padding: 13px 66px
+        }
+
+        label{
+            font-size: 17px;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        // .enAttente{
+        //     background-color: #f0ad4 ;
+        //     color: white;
+        // }
+
+        .enAttente{
+            background-color: #f39c12;
+            color: white;
+            padding: 7px 18px;
+        }
+        .checkbox_popup{
+            display: flex;
+            margin-top: 20px;
+            input{
+                width: 30px;
+                padding: 30px;
+                margin-bottom: 26px;
+                font-size: 26px;
+                color: black;
+            }
+        }
+

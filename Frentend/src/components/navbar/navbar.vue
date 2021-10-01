@@ -1,15 +1,14 @@
 <template>
+  
    <nav>
      <div class="navbar">
       <v-toolbar flat app  dense >
-          <v-app-bar-nav-icon class="white--text"></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon  class="white--text"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase white--text">
             
               <h5 class="">KPUB</h5>
                 
           </v-toolbar-title>
-        
-
           <v-spacer></v-spacer>
           
           
@@ -28,10 +27,8 @@
         <v-tab flat
           :color="index"
           class="white--text ma-5 "
-          
           v-bind="attrs"
-          v-on="on"
-          
+          v-on="on" 
         >
         <v-icon
           color="white"
@@ -47,7 +44,8 @@
            <!-- settings btn  -->
         <v-tab flat
           :color="index"
-          class="white--text ma-5 "  
+          class="white--text ma-5"  
+          
         >
         <v-icon
           color="white"
@@ -78,9 +76,7 @@
         <v-list-item
           v-for="item in items"
           :key="item"
-          link
-         
-        >
+          link>
          
               <v-icon small>
                   {{ item.icon }}
@@ -92,7 +88,12 @@
 
             <v-list-item-content>
                   <v-list-item-title >
-                    <span class="item">{{ item.text }}</span>
+                    <router-link to="/Ventes/Mon-Compte">
+                       <span class="item">{{ item.text0 }}</span>
+                    </router-link>
+                    <router-link to="/Ventes/Mon-mot-de-passe">
+                       <span class="item">{{ item.text1 }}</span> 
+                    </router-link>
                     <span class="config">{{ item.text2 }}</span>
                   </v-list-item-title>
             </v-list-item-content>
@@ -134,13 +135,14 @@
          
            
      data: () => ({
+       checkbox:'',
       btns: [
         [ 'lg'],
       ],
       
       items: [
-        { text: 'Mon compte', icon: 'mdi-account' },
-        { text: 'Mot de passe', icon: 'mdi-lock' },
+        { text0: 'Mon compte', icon: 'mdi-account' },
+        { text1: 'Mot de passe', icon: 'mdi-lock' },
         { text2: 'config', icon2: 'mdi-cog' },
      
       ],
