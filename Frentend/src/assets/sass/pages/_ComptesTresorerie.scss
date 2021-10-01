@@ -1,0 +1,19 @@
+.BtnsTésorerie{
+    display: flex;
+    padding: 20px 10px;
+    button{
+        background-color: #3c8dbc;
+        display: flex;
+        align-items: center;
+        padding: 10px 25px;
+        border-radius:5px;
+        margin: 0px 5px !important;
+        color: #fff;
+        i{
+            margin: 0px 5px;
+        }
+        &:hover{
+            background-color:#2475a3;
+        }
+      }
+}

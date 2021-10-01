@@ -20,11 +20,16 @@
             </div>
             <div class="BtnsTésorerie">
                 <button>
+                    <i class="fas fa-university"></i>
                     Ajouter un nouveau compte
                 </button>
                 <button>
-                    Ajouter un nouveau compte
+                    <i class="fas fa-sync-alt"></i>
+                     Transferts compte à compte
                 </button>
+            </div>
+            <div class="TableZone">
+                <Table/>
             </div>
       </div>
 
@@ -34,58 +39,21 @@
 <script>
     import SideBar from '../../components/SideBar/Index.vue'
     import NaVBar from '../../components/navbar.vue'
+    import Table from '../../components/Tésorerie/Table.vue'
+
   export default {
     name: 'Home',
     data(){
         return{
             PagePath:'',
-            // Alert:false,
-            // ConfirmationSelectionerClient : false,
-            // PopupAddNewClient:false,
-            // PopupNewArticle:false,
-            // LengthOfClientHave:'',
-            // NameOfNewClientAdded:'',
-            // LengthOfArticleHave:'',
-            // DataNewArticleAdded:'',
-            // PopupChoiserLesArticles :false,
-            // DataChoiserArticles:'',
-            // DataRemisAndPort:"",
-            // Numero:'',
-            // AlertError:false,
-            // AlertSuccess : false,
-            // AlertAnnuler : false,
-            // AlertValidé:false,
-            // Articles:'AA',
-            // InformtionArticle:'BB',
-            // RemarqueArticle : 'CC',
-            // DisplayBtnEnregistrer : true,
-            // ValideInsert : false,
-            // Update : false,
-            // UpdateSuccess : false,
-            // ConditonURL :'',
-            // CodeURLIfUpdate : '',
-            // DataIfPageIsUPdating:'Empty',
-            // ArticlesDataIfPageIsUPdating : "Empty",
-            // RemarqueDataIfPageIsUpdating : "Empty",
-            // LinkToNewCommande:'',
-            // LinkToNewFacture:'',
-            // NewAddVende : false,
-            // Remproser : false,
-            // RemproserSuccess:false
+
         }
     },
     components: {
     SideBar,
-    // InformationsProduit,
     NaVBar,
-    // AlertConfirmation,
-    // PopupNewClient,
-    // AddArticles,
-    // Remarque,
-    // PopupNewArticle,
-    // ChoiserArticles,
-    // PopupRemproser
-    //   AlertErrorFailed
+    Table
+
     },
     methods:{
       
