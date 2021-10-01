@@ -302,9 +302,9 @@ export default {
                   Status:'Active'
 
                 }
-            this.$emit('GetNouvelleRecurrente',NouvelleRécurrente)
-            /// AXIOS HER TO ADD NOUVELLE RECURRENTE TO THE BACKEND 
-            /// BUT U SHOULD TO CHECK FIRST IF WE ARE IN THE DEPENCES PAGE OR RECETTES PAGE
+              this.$emit('GetNouvelleRecurrente',NouvelleRécurrente)
+              /// AXIOS HER TO ADD NOUVELLE RECURRENTE TO THE BACKEND 
+              /// BUT U SHOULD TO CHECK FIRST IF WE ARE IN THE DEPENCES PAGE OR RECETTES PAGE
           }
           else{
               console.log("some faild empty")
