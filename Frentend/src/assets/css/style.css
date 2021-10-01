@@ -1192,6 +1192,208 @@ textarea {
   display: flex;
 }
 
+.Acompte .PopupNewClient__information, .Régler .PopupNewClient__information {
+  display: block !important;
+  margin: 5px 0px !important;
+}
+
+.Acompte .PopupNewClient__information input, .Acompte .PopupNewClient__information textarea, .Régler .PopupNewClient__information input, .Régler .PopupNewClient__information textarea {
+  margin: 10px 0px;
+}
+
+.Acompte .PopupNewClient__information textarea, .Régler .PopupNewClient__information textarea {
+  width: 100% !important;
+  height: 100px;
+}
+
+.Acompte .PopupNewClient__information .DateAndLibillé, .Acompte .PopupNewClient__information .SoldQualitéMontantReste, .Acompte .PopupNewClient__information .DateModeTrésorie, .Acompte .PopupNewClient__information .NuméroAndDEvis, .Régler .PopupNewClient__information .DateAndLibillé, .Régler .PopupNewClient__information .SoldQualitéMontantReste, .Régler .PopupNewClient__information .DateModeTrésorie, .Régler .PopupNewClient__information .NuméroAndDEvis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  position: relative;
+}
+
+.Acompte .PopupNewClient__information input, .Acompte .PopupNewClient__information select, .Acompte .PopupNewClient__information textarea, .Régler .PopupNewClient__information input, .Régler .PopupNewClient__information select, .Régler .PopupNewClient__information textarea {
+  border: 1px solid #d4d4d4;
+  padding: 8px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 12px !important;
+  position: relative;
+}
+
+.Acompte .PopupNewClient__information .Qualité, .Régler .PopupNewClient__information .Qualité {
+  width: 70%;
+  display: flex;
+}
+
+.Acompte .PopupNewClient__information .PopupNewArticle_Information__Failed, .Régler .PopupNewClient__information .PopupNewArticle_Information__Failed {
+  width: 100%;
+}
+
+.Acompte .PopupNewClient__information P, .Régler .PopupNewClient__information P {
+  padding: 5px 0px;
+  color: #367fa9;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.Acompte .PopupNewClient__information i, .Régler .PopupNewClient__information i {
+  font-size: 25px;
+}
+
+.Acompte .PopupNewClient__information .MessageErrorFiled, .Régler .PopupNewClient__information .MessageErrorFiled {
+  bottom: -20px;
+}
+
+.Acompte .PopupNewClient__information .Solde, .Acompte .PopupNewClient__information .ResteRégler, .Acompte .PopupNewClient__information .DeviseUtilisée, .Régler .PopupNewClient__information .Solde, .Régler .PopupNewClient__information .ResteRégler, .Régler .PopupNewClient__information .DeviseUtilisée {
+  cursor: no-drop;
+  background-color: #dfdfdf;
+}
+
+.Régler {
+  width: 1000px;
+  height: 900px;
+  overflow-y: scroll;
+  transform: translate(40%, 5%);
+}
+
+.Régler .PopupNewClient__information {
+  display: block;
+}
+
+.Régler .PopupNewClient__information .ClientAndLibillé, .Régler .PopupNewClient__information .DateMontantEscopte {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Régler .PopupNewClient__information .SelcetANdInputs, .Régler .PopupNewClient__information .Remarque {
+  width: 100%;
+}
+
+.Régler .PopupNewClient__information .SelcetANdInputs input, .Régler .PopupNewClient__information .SelcetANdInputs select, .Régler .PopupNewClient__information .SelcetANdInputs textarea, .Régler .PopupNewClient__information .Remarque input, .Régler .PopupNewClient__information .Remarque select, .Régler .PopupNewClient__information .Remarque textarea {
+  border: 1px solid #d4d4d4;
+  padding: 8px 10px;
+  width: 90%;
+  border-radius: 2px;
+  font-size: 12px !important;
+  position: relative;
+}
+
+.Régler .PopupNewClient__information .CheckboxRadio {
+  text-align: center;
+  width: 40%;
+}
+
+.Régler .PopupNewClient__information .CheckboxRadio div {
+  padding: 10px 0px;
+}
+
+.Régler .PopupNewClient__information .CheckboxRadio div label {
+  padding: 0px 3px;
+}
+
+.Régler .PopupNewClient__information .CheckboxRadio div input {
+  width: 10%;
+}
+
+.Régler .PopupNewClient__information .CheckboxRadio span {
+  font-size: 17px;
+  font-weight: bold;
+  color: #07b407;
+}
+
+.Régler .PopupNewClient__information .Montant, .Régler .PopupNewClient__information .Escompte {
+  width: 70%;
+  display: flex;
+}
+
+.Régler .PopupNewClient__information .ClientAndLibillé {
+  margin-bottom: 0px;
+}
+
+.Régler .PopupNewClient__information .ClientAndLibillé input {
+  width: 90% !important;
+}
+
+.Régler .PopupNewClient__information .ClientAndLibillé .PopupNewArticle_Information__Failed {
+  width: 100%;
+}
+
+.Régler .PopupNewClient__information P {
+  padding: 5px 0px;
+  color: #367fa9;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.Régler .PopupNewClient__information .InformationsRèglement {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.Régler .PopupNewClient__information h6 {
+  padding: 5px 0px;
+}
+
+.Régler .PopupNewClient__information .PopupNewClient__information .NuméroAndDEvis {
+  margin: 0px 10px;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures {
+  margin: 20px 0px 0px;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures .FactureAvoirMontant {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: start;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures table th {
+  background-color: white;
+  color: #222d32;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures table td,
+.Régler .PopupNewClient__information .EchéancesFactures table th {
+  border: 1px solid #d9d9d9 !important;
+  padding: 10px;
+  text-align: start;
+  width: 15%;
+  font-size: 15px;
+  text-align: center;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures table td {
+  padding: 10px 8px !important;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures table .CheckboxTable {
+  width: 5%;
+}
+
+.Régler .PopupNewClient__information .EchéancesFactures table .CheckboxTable input {
+  cursor: pointer;
+}
+
+.Régler .DétailsPaiement {
+  width: 70% !important;
+}
+
 .HomePage {
   display: flex;
 }
@@ -2094,6 +2296,112 @@ button.bnt-nv-bon-de-livraison.white--text.v-btn.v-btn--is-elevated.v-btn--has-b
 
 .card2 .boxs input[type="checkbox"] {
   margin-right: 10px;
+}
+
+.BtnsTésorerie {
+  display: flex;
+  padding: 20px 10px;
+}
+
+.BtnsTésorerie button {
+  background-color: #3c8dbc;
+  display: flex;
+  align-items: center;
+  padding: 10px 25px;
+  border-radius: 5px;
+  margin: 0px 5px !important;
+  color: #fff;
+}
+
+.BtnsTésorerie button i {
+  margin: 0px 5px;
+}
+
+.BtnsTésorerie button:hover {
+  background-color: #2475a3;
+}
+
+.TableAffiche {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+
+.TableAffiche select {
+  border: 1px solid black;
+  width: 80px;
+  margin: 0px 10px;
+  position: relative;
+  bottom: 8px;
+  padding: 5px 10px;
+}
+
+.TableResultSearch .EnCours {
+  background-color: #00c0ef;
+}
+
+.TableResultSearch .Accepté {
+  background-color: #00a65a;
+}
+
+.TableResultSearch .Clôturer {
+  background-color: #3c8dbc;
+}
+
+.TableResultSearch .Annulé {
+  background-color: #d2d6de;
+}
+
+.v-sheet.v-list {
+  border: 1px solid black;
+  background: #fdfdfd;
+}
+
+.DrowDownEnvoyer .v-list-item__content {
+  width: 100%;
+  padding-left: 30px;
+}
+
+.DrowDownEnvoyer .v-list-item__content:hover {
+  background-color: #00c0ef !important;
+  color: white;
+}
+
+.SearchBydate {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 5px;
+}
+
+.SearchBydate input {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.SearchBydate label {
+  background-color: #f3f3f3;
+  padding: 10px 6px;
+  color: black;
+}
+
+#dropdownMenuButton1 {
+  background-color: #e5e5e5 !important;
+  color: black !important;
+}
+
+.recherche_rapide_content h5 {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.recherche_rapide_content input, .recherche_rapide_content select {
+  border: 1px solid #9b9b9b;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 90%;
 }
 
 nav .v-toolbar {

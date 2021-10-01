@@ -22,14 +22,15 @@
 @import "components/Profil_card";
 @import "components/TableList";
 @import "components/PopupRecetteRecurrente";
-
-
+@import "components/PopupAcompte";
+@import "components/PopupRégler";
 // 5 - Pages;
 @import "pages/home";
 @import "pages/NouvelleDevisProforma";
 @import "pages/ListeDesDevis";
 @import "pages/regroupement_de_document";
 @import "pages/rapport_commercial";
+@import "pages/ComptesTresorerie";
 
 // 6- layout
 @import "layout/navbar";
