@@ -19,10 +19,19 @@
 @import "components/RemarqueSection";
 @import "components/PopupNewArticle";
 @import "components/ChoiserArticle";
+@import "components/Profil_card";
+@import "components/TableList";
+@import "components/PopupRecetteRecurrente";
+
 
 // 5 - Pages;
 @import "pages/home";
 @import "pages/NouvelleDevisProforma";
 @import "pages/ListeDesDevis";
+@import "pages/regroupement_de_document";
+@import "pages/rapport_commercial";
+
+// 6- layout
+@import "layout/navbar";
 
 

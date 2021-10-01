@@ -6,7 +6,7 @@
     transition="scale-transition"
     offset-y
     full-width
- 
+  
   >
     <template v-slot:activator="{ on }">
         <!-- <p>from</p> -->

@@ -298,7 +298,7 @@ textarea {
 
 .SideBare .v-list-item__title {
   font-size: 13px !important;
-  color: #d9d9d9 !important !important;
+  color: #d9d9d9 !important ;
 }
 
 .SideBare .list-item__icon:first-child {
@@ -887,6 +887,309 @@ textarea {
 .PopupChoiserArticle .PopupNewClient__btns {
   margin-bottom: 50px;
 }
+.theme--light.v-application {
+  background-color: #ecf0f5;
+}
+
+.profil-card .card-profil-information-container {
+  padding: 31px;
+}
+
+.profil-card .card-profil-information-container h3 {
+  font-size: 24px;
+  font-family: 'Source Sans Pro',sans-serif;
+  margin: 10px 132px;
+}
+
+.profil-card .card-profil-information-container .emplacement {
+  margin: 13px 353px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information {
+  margin-top: 15px;
+  background-color: #ffffff;
+  border: #3c8dbc;
+  padding: 20px;
+  margin: 0px 132px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information hr {
+  border: 1px solid #e5e5e585;
+  margin-top: 13px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos {
+  display: flex;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos p {
+  margin-bottom: 30px;
+  font-size: 12px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .password-container {
+  display: grid;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .password-container .v-input__control {
+  margin-top: -31px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .password-container .enregistrer-password .v-btn {
+  margin-left: 195px;
+  margin-top: -44px;
+  height: 35px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .information-de-connexion {
+  margin: 10px 0;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .information-de-connexion h5 {
+  margin-top: 10px;
+  color: #0073b7;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .information-de-connexion hr {
+  margin: 3px 0 15px 0;
+  border: 1px solid #e5e5e5;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .information-de-connexion h4 {
+  margin: 15px 6px;
+  font-size: 14px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .information-de-connexion .tt {
+  border: 4px #3c8dbc;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .adress {
+  margin: 0 45px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .adress h5 {
+  margin-top: 18px;
+  color: #0073b7;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .adress h4 {
+  margin: 14px 0;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .adress hr {
+  border: 1px solid #e5e5e5;
+  margin-top: 5px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .adress .code-postale-div {
+  margin-top: -54px;
+}
+
+.profil-card .card-profil-information-container .card-profil-information .infos .adress .pays-div {
+  margin-top: -47px;
+}
+
+.enregistrer .v-btn {
+  margin-left: 84%;
+}
+
+.enregistrer .v-btn .mdi-check-bold {
+  margin: 5px;
+}
+
+.enregistrer hr {
+  border: 1px solid #e5e5e585;
+  margin-bottom: 13px;
+}
+
+.check-password {
+  margin: 5px;
+}
+
+.danger {
+  color: red;
+}
+
+.v-text-field--outlined .v-label {
+  font-size: 12px;
+}
+
+.TableAffiche {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+
+.TableAffiche select {
+  border: 1px solid black;
+  width: 80px;
+  margin: 0px 10px;
+  position: relative;
+  bottom: 8px;
+  padding: 5px 10px;
+}
+
+.TableResultSearch .EnCours {
+  background-color: #00c0ef;
+}
+
+.TableResultSearch .Accepté {
+  background-color: #00a65a;
+}
+
+.TableResultSearch .Clôturer {
+  background-color: #3c8dbc;
+}
+
+.TableResultSearch .Annulé {
+  background-color: #d2d6de;
+}
+
+.v-sheet.v-list {
+  border: 1px solid black;
+  background: #fdfdfd;
+}
+
+.DrowDownEnvoyer .v-list-item__content {
+  width: 100%;
+  padding-left: 30px;
+}
+
+.DrowDownEnvoyer .v-list-item__content:hover {
+  background-color: #00c0ef !important;
+  color: white;
+}
+
+.SearchBydate {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 5px;
+}
+
+.SearchBydate input {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.SearchBydate label {
+  background-color: #f3f3f3;
+  padding: 10px 6px;
+  color: black;
+}
+
+#dropdownMenuButton1 {
+  background-color: #e5e5e5 !important;
+  color: black !important;
+}
+
+.recherche_rapide_content h5 {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.recherche_rapide_content input, .recherche_rapide_content select {
+  border: 1px solid #9b9b9b;
+  border-radius: 4px;
+  padding: 8px 10px;
+  width: 90%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__Right__Filed {
+  padding: 20px 0px !important;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information {
+  display: block;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .ThreeFirstFaild {
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .ThreeFirstFaild .PopupNewClient__Right__Filed {
+  width: 100%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .ThreeFirstFaild .PopupNewClient__Right__Filed .Fréquence {
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .VentilationClientProjet {
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .VentilationClientProjet .PopupNewClient__Right__Filed {
+  width: 100%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva {
+  width: 100%;
+  margin: 30px 0px;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table th, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table td {
+  border: 1px solid #e5e5e5;
+  padding: 10px 0px;
+  width: 100%;
+  background-color: white;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table td {
+  padding: 10px 0px;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .HTorTTC {
+  border: 1px solid #3d3d3d;
+  padding: 5px 4px;
+  width: 50%;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Qté {
+  width: 25%;
+  text-align: center;
+  padding: 3px 0px;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Qté input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Qté select {
+  border: 1px solid black;
+  width: 80%;
+  padding: 8px 5px;
+  display: block;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Price {
+  width: 100%;
+  text-align: center;
+  padding: 3px 0px;
+  display: flex;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Price input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .Price select {
+  border: 1px solid black;
+  padding: 8px 5px;
+  width: 60% !important;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TVA, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC {
+  width: 25%;
+  margin: 0px auto;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TVA input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TVA select, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC input, .PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC select {
+  border: 1px solid black;
+  padding: 8px 5px;
+  width: 70%;
+  margin: 0px auto;
+}
+
+.PopupRecetteRecurrente .PopupNewClient__information .QtéMontantTva table .TTC {
+  width: 100%;
+  display: flex;
+}
 
 .HomePage {
   display: flex;
@@ -920,7 +1223,6 @@ textarea {
 .NouvelleDevisProforma .NouvelleDevisProforma__Header .NouvelleDevisProforma__Header__Left h2 {
   font-size: 24px;
   font-weight: 500;
-  padding-bottom: 10px;
   color: #222d32;
 }
 
@@ -1336,14 +1638,41 @@ textarea {
 }
 
 .v-card.v-card--flat.v-sheet.theme--light {
-  height: .v-card.v-card--flat.v-sheet.theme--light uto !important;
+ /* .v-card.v-card--flat.v-sheet.theme--light uto !important; */
   margin-bottom: 22px !important;
+}
+.tableDevis {
+  font-size: 1px;
+}
+
+
+.v-card.v-card--flat.v-sheet.theme--light {
+  height: 144px !important;
+  margin-bottom: 22px !important;
+  font-size: 16px;
+}
+
+.cal-icon {
+  margin-bottom: -21px;
+  margin-left: 3px;
+}
+
+.mdi-calendar-month {
+  margin-left: 3px;
+}
+
+.data-table-content {
+  font-size: 0px;
 }
 
 .recherche_rapide_content {
   height: auto !important;
   margin-bottom: 200px !important;
   display: flex;
+}
+
+.recherche_rapide_content .v-list {
+  margin-top: 39px;
 }
 
 .v-card__title.text-p.blue.lighten-4.black--text {
@@ -1379,7 +1708,7 @@ textarea {
 }
 
 .mdi-calendar-month {
-  margin-left: 23px;
+  margin-left: 10px;
 }
 
 .bnt-nv-bon-de-livraison {
@@ -1392,9 +1721,27 @@ textarea {
   margin-right: 8px;
 }
 
+.bnt-nv-avoir {
+  background-color: #3c8dbc !important;
+  color: white;
+  margin-left: 90px;
+}
+
+.bnt-nv-facture {
+  background-color: #3c8dbc !important;
+  color: white;
+  margin-left: 50px;
+}
+
+.bnt-nv-reglement {
+  background-color: #3c8dbc !important;
+  color: white;
+}
+
 .nouveau-bon {
-  margin-left: 83.5%;
-  margin-bottom: 24px;
+  text-align: end;
+  margin-bottom: 22px;
+  margin-top: 22px;
 }
 
 .table-btn-group {
@@ -1413,4 +1760,318 @@ textarea {
 
 .btnnnn {
   display: flex;
+}
+
+.duplique-btn {
+  padding: 0 0px;
+}
+
+.td.text-start {
+  padding: 0 67px;
+}
+
+.v-main__wrap .v-list {
+  margin-top: 41px;
+}
+
+.v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+  padding: 0 44px;
+}
+
+.mdi-file-pdf {
+  size: 300px;
+}
+
+.ref .v-text-field > .v-input__control > .v-input__slot:before, .ref .v-text-field > .v-input__control > .v-input__slot:after {
+  bottom: -1px;
+  content: "";
+  left: 0px;
+  margin-right: 10px;
+  position: absolute;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  width: 80%;
+}
+
+.TableAfficheAccomptes {
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.v-menu__content.theme--light.menuable__content__active {
+  margin-top: 16px;
+}
+
+.npuveau_bon .v-dialog {
+  margin: 30px auto;
+}
+
+.npuveau_bon .row.justify-center {
+  margin: 0 769px;
+}
+
+.SearchBydate2 {
+  align-items: center;
+  position: relative;
+}
+
+.date_input_diverse {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.Ventilation {
+  border: 1px solid black;
+  padding: 13px 18px;
+}
+
+.popup-container {
+  display: flex;
+}
+
+.fournisseur_projet {
+  display: flex;
+}
+
+.projet {
+  border: 1px solid black;
+  padding: 13px 18px;
+}
+
+.v-dialog > .v-card > .v-card__text {
+  padding: 0 0px 0px;
+}
+
+.libellé_dialog {
+  margin-bottom: 3px;
+}
+
+.dialog_table_div {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.t-body {
+  background-color: #e6e6e673;
+}
+
+.diverse_table {
+  font-size: 14px;
+}
+
+.diverse_table .Quantité {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 13px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.diverse_table .Quantité .qte_input, .diverse_table .Quantité .prix_input {
+  width: 60px;
+  border: 1px solid black;
+}
+
+.diverse_table .Quantité .qte_select {
+  border: 1px solid black;
+}
+
+.diverse_table .prix_input {
+  width: 60px;
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.diverse_table .prix_select {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.diverse_table td {
+  padding: 0px 16px;
+}
+
+.qte_container {
+  display: flex;
+  background-color: #e6e6e673;
+  padding: 21px;
+}
+
+.v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+  padding: 0px 16px;
+}
+
+.td_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 10px;
+  margin-top: 5px;
+}
+
+.tva_select {
+  border: 1px solid black;
+  padding: 16px 2px;
+  margin-top: 4px;
+}
+
+.OBLIGATOIR {
+  margin-top: 100px;
+}
+
+.Té {
+  margin-right: 224px;
+}
+
+.libele {
+  border: 1px solid black;
+  padding: 13px 66px;
+}
+
+label {
+  font-size: 17px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.enAttente {
+  background-color: #f39c12;
+  color: white;
+  padding: 7px 18px;
+}
+
+.checkbox_popup {
+  display: flex;
+  margin-top: 20px;
+}
+
+.checkbox_popup input {
+  width: 30px;
+  padding: 30px;
+  margin-bottom: 26px;
+  font-size: 26px;
+  color: black;
+}
+
+.lancer_recherche {
+  color: #ffffff !important;
+  background-color: #3c8dbc !important;
+  margin-left: 170px;
+  margin-top: 44px;
+}
+
+.card3 {
+  border-top-color: #3c8dbc;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #3c8dbc;
+  margin-top: 100px;
+  padding: 20px;
+  padding-bottom: 143px;
+}
+
+.card3 .recherche_rapide_content {
+  height: auto !important;
+  margin-bottom: 0px !important;
+  display: flex;
+}
+
+.card3 .Documents_à_inclure {
+  display: flex;
+  margin-top: 20px;
+}
+
+.card3 .Documents_à_inclure i {
+  color: #3c8dbc;
+  margin-right: 5px;
+}
+
+.card3 .Documents_à_inclure h5 {
+  font-size: 14px;
+  color: #3c8dbc;
+}
+
+.card3 .Documents_à_inclure .boxs {
+  display: flex;
+  margin: 0  20px;
+}
+
+.card3 .Documents_à_inclure .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.card3 .boxs {
+  display: flex;
+}
+
+.card3 .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button.bnt-nv-bon-de-livraison.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+  margin-left: 77px;
+  margin-top: 28px;
+}
+
+.card2 {
+  border-top-color: #3c8dbc;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #3c8dbc;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.card2 .recherche_rapide_content {
+  height: auto !important;
+  margin-bottom: 0px !important;
+  display: flex;
+}
+
+.card2 .Documents_à_inclure {
+  display: flex;
+  margin-top: 20px;
+}
+
+.card2 .Documents_à_inclure h5 {
+  font-size: 14px;
+}
+
+.card2 .Documents_à_inclure .boxs {
+  display: flex;
+  margin: 0  20px;
+}
+
+.card2 .Documents_à_inclure .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.card2 .boxs {
+  display: flex;
+}
+
+.card2 .boxs input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+nav .v-toolbar {
+  height: 55px !important;
+  background-color: #3c8dbc !important;
+}
+
+.ch {
+  margin-top: 23px;
+}
+
+.v-menu__content {
+  box-shadow: none;
+}
+
+.NouvelleDevisProforma__Header {
+  margin-bottom: -31px;
 }

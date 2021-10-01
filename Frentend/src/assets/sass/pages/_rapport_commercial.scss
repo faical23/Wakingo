@@ -1,0 +1,40 @@
+button.bnt-nv-bon-de-livraison.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+    margin-left: 77px;
+    margin-top: 28px;
+}
+.card2{
+    border-top-color: #3c8dbc;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #3c8dbc;
+    margin-top: 100px;
+    padding:20px;
+    .recherche_rapide_content {
+        height: auto !important;
+        margin-bottom: 0px !important;
+        display: flex;
+    }
+    .Documents_à_inclure{
+        display: flex;
+        margin-top: 20px;
+        h5{
+            font-size: 14px;
+            // margin-left: 10px;
+        }
+        .boxs{
+            display: flex;
+            margin: 0  20px ;
+            input[type="checkbox"] {
+                margin-right: 10px;
+            }
+        }
+    }
+    .boxs{
+        display: flex;
+        // margin: 0  20px ;
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+}
+
+}

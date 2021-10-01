@@ -284,13 +284,11 @@
     import InformationsProduit from '../../../components/Vendes/InformationsProduits.vue'
     import AlertConfirmation from '../../../components/Vendes/AlertConfirmation.vue'
     import PopupNewClient from '../../../components/Vendes/NewClient.vue'
+    import NaVBar from '../../../components/navbar/navbar.vue'
     import AddArticles from '../../../components/Vendes/EspaceArticle.vue'
-    import Remarque from '../../../components/Vendes/Remarque.vue'
+    import   Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
-
-
-    import NaVBar from '../../../components/navbar.vue'
   export default {
     name: 'Home',
     data(){
