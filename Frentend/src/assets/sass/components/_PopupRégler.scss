@@ -1,0 +1,119 @@
+.Régler{
+    width: 1000px;
+    height:900px;
+    overflow-y: scroll;
+    transform: translate(40% ,5%);
+    .PopupNewClient__information{
+        display: block;
+        .ClientAndLibillé,.DateMontantEscopte{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .SelcetANdInputs,.Remarque {
+            width: 100%;
+            input,select,textarea{
+                border: 1px solid #d4d4d4;
+                padding: 8px 10px;
+                width:90%;
+                border-radius:2px;
+                font-size: 12px !important;
+                position: relative;
+            }
+        }
+        .CheckboxRadio{
+            text-align: center;
+            width:40%;
+            div{
+                padding:10px 0px;
+                label{
+                    padding: 0px 3px;
+                }
+                input{
+                    width:10%;
+                }
+            }
+            span{
+                font-size:17px;
+                font-weight:bold;
+                color:rgb(7, 180, 7);
+            }
+        }
+
+        .Montant,.Escompte{
+            width: 70%;
+            display:flex;
+        }
+        .ClientAndLibillé{
+            margin-bottom: 0px;
+            input{
+                width: 90% !important;
+            }
+            .PopupNewArticle_Information__Failed{
+                width: 100%;
+            }
+        }
+        P{
+            padding: 5px 0px;
+            color: #367fa9;
+            border-bottom: 1px solid rgb(160, 160, 160);
+        }
+        .InformationsRèglement{
+            margin: 20px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        h6{
+            padding:5px 0px;
+        }
+        .PopupNewClient__information .NuméroAndDEvis{
+            margin: 0px 10px;
+        }
+        .EchéancesFactures{
+            margin: 20px 0px 0px;
+            .FactureAvoirMontant{
+                width: 80%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin:30px auto;
+            }
+                table {
+                  border-collapse: collapse;
+                  width: 100%;
+                  text-align: start;
+                  th {
+                    background-color: white;
+                    color: $TextColor-100;
+                    font-weight: 500;
+                    font-size: 16px;
+                  }
+                  td,
+                  th {
+                    border: 1px solid #d9d9d9 !important;
+                    padding: 10px;
+                    text-align: start;
+                    width: 15%;
+                    font-size:15px;
+                    text-align: center;
+                  }
+                  td {
+                    padding: 10px 8px !important;
+                  }
+
+                  .CheckboxTable{
+                      width: 5%;
+                      input{
+                          cursor: pointer;
+                      }
+                  }
+            }
+
+        }
+    }
+    .DétailsPaiement{
+        width:70% !important;
+    }
+}
