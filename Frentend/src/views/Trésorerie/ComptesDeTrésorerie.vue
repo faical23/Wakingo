@@ -29,7 +29,7 @@
                 </button>
             </div>
             <div class="TableZone">
-                <Table/>
+                <Table :ElementSearched='ElementSearched' :PathPage='PathPage' :NouvelleRecette="DataNouvelleRecette" />
             </div>
       </div>
 
@@ -40,28 +40,80 @@
     import SideBar from '../../components/SideBar/Index.vue'
     import NaVBar from '../../components/navbar.vue'
     import Table from '../../components/Tésorerie/Table.vue'
-
   export default {
     name: 'Home',
-    data(){
-        return{
-            PagePath:'',
-
+ props: {
+   ninja:{
+     type: String,
+   }
+ },
+    data: () => ({
+      PageName:'Recettes Récurrente',
+      Ventilations: [
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD',
+        'AAAA',
+        'BBBB',
+        'CCCC',
+        'DDDD'
+      ],
+      SearchByStartDateCommande: '',
+      SearchByEndDateCommande : '',
+      SearchByEtat : 'Tous',
+      SearchByVentilation : 'Tous',
+      SearchByLibellé:'',
+      ElementSearched:'',
+      PathPage:'',
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"],
+      PopupNouvelleRecette : false,
+      DataNouvelleRecette :'',
+      SuccessNewRecette : false,
+    }),
+    components: {
+      SideBar,
+      NaVBar,
+      Table,
+     
+    },
+    methods: {
+        SearchByFunction(){
+          let SearchBy = {
+              DateStartCommande :  this.SearchByStartDateCommande,
+              DateEndCommande :  this.SearchByEndDateCommande,
+              Etat :  this.SearchByEtat,
+              Client:  this.SearchByClient,
+              Libellé :  this.SearchByLibellé
+          }
+          this.ElementSearched = SearchBy
+          console.log(this.ElementSearched )
+        },
+        GethPagePath(){
+          this.PathPage = this.$router.currentRoute.path
+        },
+        GetNouvelleRecurrente(Data){
+          this.DataNouvelleRecette = Data
+          this.PopupNouvelleRecette = false
+          this.SuccessNewRecette = true
         }
     },
-    components: {
-    SideBar,
-    NaVBar,
-    Table
-
-    },
-    methods:{
-      
-    },
-    watch: {
-
-    },
-    created() {
-    },
+    created(){
+        this.PathPage = this.$router.currentRoute.path
+        this.GethPagePath()
+    }
   }
 </script>
+
+<style >
+    div .btn{
+        margin-left: 30% ;
+    }
+    .HomePage{
+      font-size: 20px;
+    }
+</style>
