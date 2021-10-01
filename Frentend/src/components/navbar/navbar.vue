@@ -1,7 +1,7 @@
 <template>
   
    <nav>
-     <div class="navbar">
+     <!-- <div class="navbar"> -->
       <v-toolbar flat app  dense >
           <v-app-bar-nav-icon  class="white--text"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase white--text">
@@ -123,7 +123,7 @@
    
   
       </v-toolbar>
-     </div>
+     <!-- </div> -->
    </nav>
 </template>
 
