@@ -228,11 +228,8 @@
     import Remarque from '../../../components/Vendes/Remarque.vue'
     import PopupNewArticle from '../../../components/Vendes/NewArticle.vue'
     import ChoiserArticles from '../../../components/Vendes/ChoiserArticles.vue'
-
-
-    // import AlertErrorFailed from '../../../components/Vendes/AlertFailedEmty.vue'
     import NaVBar from '../../../components/navbar/navbar.vue'
-  export default {
+    export default {
     name: 'Home',
     data(){
         return{

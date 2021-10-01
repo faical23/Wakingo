@@ -99,7 +99,7 @@
                   },
                   {
                     SecondChild : 'Nouveau devis&Proforma',
-                    Path:'/Ventes/NouveauDevis/Proforma/Create'
+                    Path:'/Ventes/NouveauDevis/Proforma'
                   }
                 ]
               },
@@ -113,7 +113,7 @@
                   },
                   {
                     SecondChild : 'Nouvelle commande',
-                    Path:'/Ventes/NouvelleCommande/Create'
+                    Path:'/Ventes/Nouvelle commande'
                   }
                 ]
               },
@@ -203,7 +203,7 @@
               {
                 FirstChild : 'Dépenses récurrents',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Achat/DepensesRecurrents'
+                Path : '/Achat/Dépenses récurrents'
               }
             ]
           },

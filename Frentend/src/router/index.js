@@ -17,7 +17,6 @@ import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
 import Rapport_commercial from '../views/Ventes/RapportCommercial.vue'
 import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 import DépensesRecurrents from '../views/Achats/DépensesRécurrents.vue'
-import NouvelleCommande from '../views/Ventes/CommandesClinets/NouvelleCommandes.vue'
 
 Vue.use(VueRouter)
 
@@ -28,12 +27,9 @@ const routes = [
     component: TableauDeBord
   },
   {
-    path: '/Ventes/NouveauDevis/Proforma/Create',
+    path: '/Ventes/NouveauDevis/Proforma',
     name: 'NouvelleDevis',
-    component: NouvelleDevis,
-    children: [
-      { path: '/Ventes/NouveauDevis/Proforma/update/:Id', component: NouvelleDevis}
-    ]
+    component: NouvelleDevis
   },
   {
     path: '/Ventes/ListeDevies',
@@ -111,15 +107,6 @@ const routes = [
     component: DépensesRecurrents
   },
   
-    {
-      path: '/Ventes/NouvelleCommande/Create',
-    name: 'NouvelleCommande',
-    component: NouvelleCommande,
-
-    children: [
-      { path: '/Ventes/NouvelleCommande/update/:Id', component: NouvelleDevis}
-    ]
-  }
 ]
 
 const router = new VueRouter({
