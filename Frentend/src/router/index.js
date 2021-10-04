@@ -22,6 +22,8 @@ import CompteTresorerie from '../views/Trésorerie/ComptesDeTrésorerie.vue'
 import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
 import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 import DépensesRecurrents from '../views/Achats/DépensesRécurrents.vue'
+import ListeEncaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
+import ListeDécaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,16 @@ const routes = [
     path: '/Tresorerie/ComptesTresorerie',
     name: 'CompteTresorerie',
     component: CompteTresorerie
+  },
+  {
+    path: '/Tresorerie/ListeEncaissements',
+    name: 'ListeEncaissements',
+    component: ListeEncaissements
+  },
+  {
+    path: '/Tresorerie/ListeDecaissements',
+    name: 'ListeDécaissements',
+    component: ListeDécaissements
   },
   {
     path: '/Ventes/NouvelleBonsDeLivraison/Create',

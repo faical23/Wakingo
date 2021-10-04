@@ -214,7 +214,7 @@
               {
                 FirstChild : 'Comptes de trésorerie',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Comptes de trésorerie'
+                Path:'/Tresorerie/ComptesTresorerie'
               },
               {
                 FirstChild : 'Trésorerie pévisionnelle',
@@ -224,12 +224,12 @@
                             {
                 FirstChild : 'Liste des encaissements',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Liste des encaissements'
+                Path:'/Tresorerie/ListeEncaissements'
               },
               {
                 FirstChild : 'Liste des décaissements',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Liste des décaissements'
+                Path : '/Tresorerie/ListeDecaissements'
               },
                 {
                 FirstChild : 'Remise en banque',

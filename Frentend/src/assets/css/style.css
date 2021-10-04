@@ -48,6 +48,10 @@ nav .v-toolbar {
   top: 40px;
 }
 
+.Alert {
+  margin: 0px 20px;
+}
+
 .AlertError {
   background-color: #dd4b39 !important;
   margin-top: 30px;
@@ -298,7 +302,7 @@ textarea {
 
 .SideBare .v-list-item__title {
   font-size: 13px !important;
-  color: #d9d9d9 !important ;
+  color: #d9d9d9 !important !important;
 }
 
 .SideBare .list-item__icon:first-child {
@@ -1394,6 +1398,67 @@ textarea {
   width: 70% !important;
 }
 
+.PopupNewCompte .PopupNewCompte__information {
+  margin: 20px 20px;
+}
+
+.PopupNewCompte .PopupNewCompte__information input, .PopupNewCompte .PopupNewCompte__information textarea, .PopupNewCompte .PopupNewCompte__information select {
+  border: 1px solid black;
+  border: radius 5px;
+  padding: 10px 5px;
+  width: 100%;
+}
+
+.PopupNewCompte .PopupNewCompte__information .IntituléNuméroType, .PopupNewCompte .PopupNewCompte__information .SoldeDate, .PopupNewCompte .PopupNewCompte__information .DécouvrtDate, .PopupNewCompte .PopupNewCompte__information .TeleEmail, .PopupNewCompte .PopupNewCompte__information .InformationPersonnele, .PopupNewCompte .PopupNewCompte__information .PostaleVille {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.PopupNewCompte .PopupNewCompte__information .SoldeDate, .PopupNewCompte .PopupNewCompte__information .DécouvrtDate {
+  width: 70%;
+}
+
+.PopupNewCompte .PopupNewCompte__information .InputPrice {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewCompte .PopupNewCompte__information .InputPrice input {
+  width: 40%;
+}
+
+.PopupNewCompte .PopupNewCompte__information .TeleEmail input {
+  width: 100%;
+}
+
+.PopupNewCompte .PopupNewCompte__information textarea {
+  height: 150px;
+  width: 100%;
+}
+
+.PopupNewCompte .PopupNewCompte__information .PostaleVille input {
+  width: 90%;
+  margin-left: auto;
+}
+
+.PopupNewCompte .PopupNewCompte__information .Pays input {
+  width: 100%;
+}
+
+.PopupNewCompte p {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  color: #3c8dbc;
+  border-bottom: 1px solid #3c8dbc;
+}
+
+.PopupNewCompte p i {
+  margin-right: 10px;
+}
+
 .HomePage {
   display: flex;
 }
@@ -2402,6 +2467,17 @@ button.bnt-nv-bon-de-livraison.white--text.v-btn.v-btn--is-elevated.v-btn--has-b
   border-radius: 4px;
   padding: 8px 10px;
   width: 90%;
+}
+
+.table-btn-group {
+  display: flex;
+  align-items: center;
+}
+
+.table-btn-group input {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0px 10px;
 }
 
 nav .v-toolbar {
