@@ -22,6 +22,9 @@ import CompteTresorerie from '../views/Trésorerie/ComptesDeTrésorerie.vue'
 import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
 import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 import DépensesRecurrents from '../views/Achats/DépensesRécurrents.vue'
+import Trésorerie_prévisionnelle from '../views/Trésorerie/TrésoreriePrévisionelle.vue'
+import RapprochementBancaire from '../views/Trésorerie/RapprochementBancaires.vue'
+import RemiseBanque from '../views/Trésorerie/RemiseEnBanque.vue'
 
 Vue.use(VueRouter)
 
@@ -145,6 +148,22 @@ const routes = [
     component: Dépenses_diverses
   },
   {
+    path: '/Tresorerie/Tresorerie_previsionnelle',
+    name: '/Trésorerie_prévisionnelle',
+    component: Trésorerie_prévisionnelle
+  },
+  {
+    path: '/Tresorerie/RemiseEnBanque',
+    name: '/Remise_En_Banque',
+    component: RemiseBanque
+  },
+  {
+    
+    path: '/Tresorerie/Rapprochement_bancaire',
+    name: '/Rapprochement_bancaire',
+    component: RapprochementBancaire
+  },
+  {
     path: '/Achat/DepensesRecurrents',
     name: '/Achat/DepensesRecurrents',
     component: DépensesRecurrents
@@ -154,6 +173,7 @@ const routes = [
       path: '/Ventes/NouvelleCommande/Create',
     name: 'NouvelleCommande',
     component: NouvelleCommande,
+    
 
     children: [
       { path: '/Ventes/NouvelleCommande/update/:Id', component: NouvelleDevis}

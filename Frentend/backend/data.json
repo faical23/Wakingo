@@ -34,7 +34,9 @@
       "Prochaine_exécution":"ABCDE",
       "DateFin" : "15/09/2012",
       "EcartReglement":"12,00",
-      "DateDébut":"23/09/2018"
+      "DateDébut":"23/09/2018",
+      "solde_initial":130,
+      "Entre_dargent": "entre"
     },
     {
       "Select":false,
@@ -58,7 +60,7 @@
       "devis":"DH",
       "quantité":"42",
       "Ventiation_depense":"Autres charges",
-      
+      "Entre_dargent": "entre",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -67,6 +69,7 @@
             "Fréquence":"Chaque 12 jours",
       "Prochaine_exécution":"ABCDE",
       "DateFin" : "15/09/2012",
+      "solde_initial": "130",
       "EcartReglement":"12,00",
       "DateDébut":"23/09/2018"
     },
@@ -92,8 +95,9 @@
       "etat": "En attente",
       "devis":"DH",
       "quantité":"19",
+      "solde_initial": "130",
       "Ventiation_depense":"Autres charges",
-    
+      "Entre_dargent": "entre",
       "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -130,7 +134,8 @@
       "devis":"DH",
       "quantité":"33",
       "Ventiation_depense":"Autres charges",
-      
+      "solde_initial": "130",
+      "Entre_dargent": "entre",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -165,8 +170,9 @@
       "etat": "Accepté(e)",
       "devis":"DH",
       "quantité":"15",
+      "Entre_d'argent": "entre",
       "Ventiation_depense":"Autres charges",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -196,12 +202,12 @@
       "projet": "typicode",
       "Etat": "typicode",
       "Référence": "typicode",
-      
+      "solde_initial": "130",
       "etat": "En cours",
       "devis":"DH",
       "quantité":"3",
       "Ventiation_depense":"Autres charges",
-      
+      "Entre_dargent": "entre",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -236,7 +242,7 @@
       "devis":"DH",
       "quantité":"1",
       "Ventiation_depense":"Autres charges",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -246,6 +252,7 @@
       "Prochaine_exécution":"ABCDE",
       "DateFin" : "15/09/2012",
       "EcartReglement":"12,00",
+      "Entre_dargent": "entre",
       "DateDébut":"23/09/2018"
 
 
@@ -273,7 +280,7 @@
       "devis":"DH",
       "quantité":"11",
       "Ventiation_depense":"Autres charges",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -283,6 +290,7 @@
       "Prochaine_exécution":"ABCDE",
       "DateFin" : "15/09/2012",
       "EcartReglement":"12,00",
+      "Entre_dargent": "entre",
       "DateDébut":"23/09/2018"
      
     },
@@ -308,7 +316,7 @@
       "etat": "Accepté(e)",
       "devis":"DH",
       "quantité":"9",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -339,7 +347,7 @@
       "projet": "typicode",
       "Etat": "typicode",
       "Référence": "typicode",
-      
+      "solde_initial": "130",
       "etat": "En cours",
       "devis":"DH",
       "quantité":"6",
@@ -376,7 +384,7 @@
       "iron": "action",
       "etat": "En cours",
       "quantité":"12",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -411,7 +419,7 @@
       "iron": "action",
       "etat": "En attente",
       "quantité":"1",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -445,7 +453,7 @@
       "iron": "action",
       "etat": "Accepté(e)",
       "quantité":"72",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -479,7 +487,7 @@
       "iron": "action",
       "etat": "En cours",
       "quantité":"20",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -512,7 +520,7 @@
       "iron": "action",
       "etat": "En cours",
       "quantité":"22",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",
@@ -547,7 +555,7 @@
       "iron": "action",
       "etat": "Annulé(e)",
       "quantité":"6",
-      
+      "solde_initial": "130",
             "Ventiation":"Récupération TVA",
       "TotatlTTC":115.80,
       "Status":"Clôturé(e)",

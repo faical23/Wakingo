@@ -1,0 +1,105 @@
+.card_rapp_bancaire{
+    background: #ffffff;
+    margin-top: 50px;
+    border: 1px solid #3c8dbc;
+    
+    .v-card.v-card--flat.v-sheet.theme--light {
+        height: 243px !important;
+        // height: auto;
+        margin-bottom: 22px !important;
+        font-size: 16px;
+        height: auto;
+    }
+    .v-card__title {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: 0.0125em;
+        line-height: 1rem;
+        background-color: #3c8dbc;
+        word-break: break-all;
+        .fa-info-circle:before {
+            content: "\f05a";
+            margin-right: 10px;
+            font-size: 23px;
+        }
+    }
+
+   
+}
+
+.info_section{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    // grid-row-gap: 0px;
+    padding: 10px;
+    // grid-row-gap: 10px;
+
+.First_section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-column-gap: 10px;
+    
+
+}
+.chekbox_div_section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.Second_section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+    grid-column-gap: 50px;
+    input{
+        border-color: #3c763d;
+        background-color: #EEEEEE;
+        width: 92%;   
+     }
+    //  input:disabled{
+    //     cursor: not-allowed;
+    //     pointer-events: all !important;
+    //  }
+        div{
+            margin-top: 10px;
+            span{
+                padding: 9px 4px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1;
+                color: #555;
+                text-align: center;
+                background-color: #eee;
+                border: 1px solid #3c763d;
+                border-radius: 4px;
+                width: 40px;
+            }
+        }
+    .solde{
+        display: flex;
+        border-color: #3c763d;
+    }
+}
+}
+.disable{
+    cursor: not-allowed;
+}
+.chekbox_div{
+    display: flex;
+    margin-top: 30px;
+    input{
+        width: 6%;
+    }
+}

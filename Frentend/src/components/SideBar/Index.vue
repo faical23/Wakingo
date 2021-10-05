@@ -219,7 +219,7 @@
               {
                 FirstChild : 'Trésorerie pévisionnelle',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Trésorerie pévisionnelle'
+                Path : '/Tresorerie/Tresorerie_previsionnelle'
               },
                             {
                 FirstChild : 'Liste des encaissements',
@@ -234,12 +234,12 @@
                 {
                 FirstChild : 'Remise en banque',
                 Icons : 'mdi-account-multiple-outline',
-                Path:'/Remise en banque'
+                Path:'/Tresorerie/RemiseEnBanque'
               },
               {
                 FirstChild : 'Rapprochement bancaire',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Rapprochement bancaire'
+                Path : '/Tresorerie/Rapprochement_bancaire'
               },
               {
                 FirstChild : 'Transferts compte à compte',

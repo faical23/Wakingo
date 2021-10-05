@@ -5,7 +5,7 @@
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
-            Liste des commandes clients   
+            {{  }} 
         </v-card-title>
         <div class="TableAffiche">
             <p>Affiche</p>
@@ -197,7 +197,7 @@
   import DataTable from '../../../backend/data.json';
   import printJS from 'print-js';
   export default {
-    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis'],
+    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis' , 'NouvellRecetteDevis'],
     data() {
         
       return{
@@ -318,16 +318,6 @@
      
     },
 
-      // makePDF(){
-      //   window.html2canvas = html2canvas;
-      //   var doc = new jsPdf();
-      //   doc.html(document.querySelector(".data-table"), {
-      //     callback : function(pdf){
-      //       pdf.save("mypdf.pdf");
-      //       doc.setFontSize(12)
-      //     }
-      //   })
-      // },
       CheckedThisRow(n){
           this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
       },
@@ -612,6 +602,11 @@
         NouvellDepenseDevis: function(){
           console.log('DATA IS :',this.NouvellDepenseDevis)
           this.ListeDevis.push(this.NouvellDepenseDevis)
+          console.log("Old data" ,this.ListeDevis)
+        },
+        NouvellRecetteDevis: function(){
+          console.log('DATA IS :',this.NouvellRecetteDevis)
+          this.ListeDevis.push(this.NouvellRecetteDevis)
           console.log("Old data" ,this.ListeDevis)
         }
     }

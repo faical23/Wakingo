@@ -1,5 +1,5 @@
 <template>
-    <v-card class="tableDevis" id="tableDevis">
+    <v-card class="TableResultTresorerie" id="tableDevis">
         <v-card-title class="table-title">
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
@@ -16,7 +16,7 @@
             </select>
             <p>élément</p>
         </div>
-        <div class="table-btn-group">
+        <div class="table-btn-group-tresorerie">
           <v-icon  class=" mdi-file-pdf-outline" color="black" >
                mdi-file-pdf-outline
           </v-icon>
@@ -49,145 +49,41 @@
             </div>
           </v-flex>
         </div> 
-              <v-simple-table>
+          <div class="searchBar">
+            <label for="recherche">Recherche:</label>
+            <input type="text">
+          </div>
+              <v-simple-table class="">
                 <template v-slot:default>
                   <thead>
                     <tr>
                        <th class="text-left">
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
-                      <th class="text-left">
-                      Date du devis
-                      </th>
-                      <th class="text-left">
-                        Numéro
-                      </th>
-                      <th class="text-left">
-                       Client
-                      </th>
-                      <th class="text-left">
-                        Total	Devise
-                      </th>
-                      <th class="text-left">
-                        Référence
-                      </th>
-                      <th class="text-left">
-                        Projet
-                      </th>
-                      <th class="text-left">
-                        Etat
-                      </th>
-                      <th class="text-left">
-                        #
-                      </th>
+                    <th  class="text-left" v-for="(HD,n) in HeaderTable" :key="n">{{HD}}</th>
                     </tr>
                   </thead>
-                  <tbody>
+                   <tbody>
                      <tr
                     v-for="(item,n) in ListeDevis.slice(0,NumberRowShow)"
                     :key="(item.name,n)"
                     >
-                    <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>
-                      <td>{{ item.date }}</td>
-                      <td>
-                        <router-link to= "/Ventes/NouveauDevis/Proforma">
-                        {{ item.Numéro }}
-                        </router-link>
-                        </td>
-                      <td>{{ item.client }}</td>
-                      <td>{{ item.Total }}</td>
-                      <td>{{ item.Référence }}</td>
-                      <td>{{ item.projet }}</td>
-                      <td>
-                         <v-chip v-if="item.etat == 'Accepté(e)' "
-                          label
-                          class="ma-2"
-                          color="blue"
-                          text-color="white"
-                            
-                          >
-                          {{ item.etat }} 
-                          </v-chip>
-                         <v-chip v-if="item.etat == 'En attente'"
-                          label
-                          class="ma-2"
-                          color="orange"
-                          text-color="black"
-                            
-                          >
-                         {{ item.etat }}
-                          </v-chip>
-                         <v-chip v-if="item.etat == 'Annulé(e)'"
-                          label
-                          class="ma-2"
-                          color="grey"
-                          text-color="black"
-                            
-                          >
-                         {{ item.etat }}
-                          </v-chip>
-                         <v-chip v-if="item.etat == 'En cours' "
-                          label
-                          class="ma-2"
-                          color="green"
-                          text-color="white"
-                            
-                          >
-                         {{ item.etat }}
-                          </v-chip>
-                         <v-chip v-if="item.etat == 'Clôturer(e)'"
-                          label
-                          class="ma-2"
-                          color="blue"
-                          text-color="white"
-                            
-                          >
-                         {{ item.etat }}
-                          </v-chip>
-                        </td>
-                      <td>
-                        <v-col cols="2" class="btnnnn">
-                          <v-btn class="action-btn">
-                              <v-icon
-                                color="black"
-                                size="15"
-                                class="action-icon"
-                              >
-                                mdi-cog
-                              </v-icon>
-                            action
-                            </v-btn>
-                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >  
-                            </button>
-                            <ul class="dropdown-menu"  outlined aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item"  @click="ActionsRows('Dupliquer')">
-                                Dupliquer</a>
-                            </ul>
-                          </v-col>
-                      </td>
+                    <!-- <td colspan="7" valign="top" v-if="HeaderTable = ['']">test</td> -->
+                    <!-- <td><input type="checkbox" :checked="item.Select" @click="CheckedThisRow(n)"></td>  -->
+                    
+                   <!-- <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.solde_initial }}</td>
+                   <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.date }}</td>
+                   <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.Etat }}</td>
+                   <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.Référence }}</td>
+                   <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.Entre_dargent }}</td>
+                   <td v-if="PathPage.includes('EcartReglement')">{{ item.solde_initial }}</td>
+                   <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.quantité }}</td>
+                   <td v-if="PathPage.includes('Tresorerie_previsionnelle')">{{ item.quantité }}</td> -->
                     </tr>
                   </tbody>
                 </template>
               </v-simple-table>
               <p>Affichage de l'élément 1 à {{ NumberRowShow }} sur {{ListeDevis.length}} éléments</p>
-            <v-row>
-            <v-col cols="2">
-              <div>
-                  <v-select
-                  class="select"
-                     :items="ListeDevis.etat"
-                    label="Pour la séléction"
-                  ></v-select>
-                  </div>
-                </v-col>
-            <v-col cols="2">
-                <v-btn
-                color="primary"
-                class="btnn"
-                @click="EnvoyerElement()"
-                >Envoyer</v-btn>
-            </v-col> 
-            </v-row>   
         </v-card>
 </template>
 
@@ -199,9 +95,7 @@
    import jsPdf from'jspdf';
     import DataTable from '../../../backend/data.json'
   export default {
-    props: {
-   
-   },
+    props:['ElementSearched','PathPage'],
     data() {
         
       return{
@@ -218,6 +112,7 @@
       duplique: [
         'duplique'
       ],
+    HeaderTable:[],
     heading: "Liste des bons de livraison / proforma",
     ListeDevis:[],
     NumberRowShow:10,
@@ -320,29 +215,18 @@
           console.log(MakeActionsInthisRows)
 
       },
-      ActionsRows(Conditon,Numéro){
-      if(Conditon == 'Refuser'){
-              ///AXIOS TO REFUSE
-        }
-        if(Conditon == 'Livrer'){
-              /// got to livrer
-          }
-            if(Conditon == 'Facturer'){
-              ///  go to facturer
-          }
-            if(Conditon == 'Annuler'){
-              ///AXIOS TO ANNULER
-          }
-            if(Conditon == 'Dupliquer'){
-              ///AXIOS TO DUPLIQUER
-          }
-          console.log(Conditon,Numéro)
-          
-      }
+     GetDataTable(){
+       if(this.PathPage.includes('Tresorerie_previsionnelle')){
+         let NewHeader = ['Solde initial', 'Date', 'Type','Référence','Entrées d argent','Sorties d argent','Solde final']
+          this.HeaderTable = NewHeader
+       }
+     }
     },  
       mounted() {
         this.ListeDevis = DataTable.ListeDevis
         console.log(DataTable.ListeDevis)
+        this.GetDataTable()
+        this.ActionsShowedInRow()
     }
   }
 

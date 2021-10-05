@@ -1,0 +1,50 @@
+.card_tresorerie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgb(60 141 188);
+    border-radius: .25rem;
+    margin-top: 44px;
+    margin-bottom: 32px;
+    .v-card.v-card--flat.v-sheet.theme--light {
+        height: 94px !important;
+        margin-bottom: 22px !important;
+        font-size: 16px;
+    }
+    .recherche_rapide_content_provisionelle{
+        height: auto !important;
+        margin-bottom: 200px !important;
+        display: flex;
+        .v-list {
+            margin-top: 39px;
+        }
+        select {
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            padding: 8px 10px;
+            width: 90%;
+        }
+    }
+}
+.TableResultTresorerie{
+    .v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+        padding: 0px 80px;
+    }
+}
+.searchBar{
+    margin-right: 124px;
+    margin-bottom: 37px;
+    label{
+        margin-right: 10px;
+    }
+    input[type="text"] {
+        border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        padding: 8px 10px;
+        width: 15%;
+    }
+}

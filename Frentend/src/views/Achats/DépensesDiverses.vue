@@ -135,7 +135,7 @@
                               </div>
                             </v-container>
                               <template>
-                                <v-simple-table class="diverse_table">
+                                <v-simple-table class="diverse_table" style=" margin: 0px 20px;">
                                   <template v-slot:default>
                                     <thead>
                                       <tr class="td_grid">
@@ -268,7 +268,7 @@
                       </v-dialog>
                     </v-row>
                   </div>
-                     <div class="nouveau-bon">
+                     <div class="nouveau-bon2">
                     <v-btn
                             elevation="1"
                             class="bnt-nv-bon-de-livraison  white--text"
@@ -279,8 +279,8 @@
                             </v-icon>
                                  Nouvelle dépense diverse
                             </v-btn>
-                    </div>
                     <Table :ElementSearched='ElementSearched' :PathPage='PathPage' :NouvellDepenseDevis='DataNouvellDepenseDevis' />
+                    </div>
             </div>
           </div>
       <!-- </div> -->
