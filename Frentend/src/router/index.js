@@ -23,7 +23,7 @@ import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
 import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 import DépensesRecurrents from '../views/Achats/DépensesRécurrents.vue'
 import ListeEncaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
-import ListeDécaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
+import ListeDécaissements from '../views/Trésorerie/ListeDesDécaissements.vue'
 import TransfertsCompteAcompte from '../views/Trésorerie/TransfertsCompteDeCompte.vue'
 Vue.use(VueRouter)
 

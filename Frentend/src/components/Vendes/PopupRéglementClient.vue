@@ -1,7 +1,7 @@
 <template>
   <div class="PopupNewClient Régler">
     <div class="PopupNewClient__title">
-      <p>Règlement client / Facture n° {{NuméroFac}}</p>
+      <p>Règlement client</p>
       <svg
       @click="$emit('RemovePopupRegler')"
         version="1.1"
@@ -52,7 +52,10 @@
                 <div class="ClientAndLibillé">
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Client * :</h6>
-                            <input type="text"  v-model="ClinetName" disabled>
+                            <select>
+                                <option value="Séectionner un client">Séectionner un client</option>
+                                <option v-for="Client in ClientData" :key="Client" :value="Client.Name">{{Client.Name}}</option>
+                            </select>
                     </div>
                     <div class="PopupNewArticle_Information__Failed">
                             <h6>Libellé *</h6>
@@ -310,6 +313,26 @@ export default {
     Factures:'0,00 MAD',
     Avoirs:'0,00 MAD',
     MontantRégler:'',
+    ClientData:[
+      {
+        HasReglement:false,
+        Name:"Faical Bahsis"
+      },
+      {HasReglement:false,
+        Name:"Faical Bahsis"
+      },
+      {
+        HasReglement:true,
+        Name:"Faical Bahsis"
+      },
+            {
+                      HasReglement:true,
+        Name:"Faical Bahsis"
+      },      {
+                HasReglement:true,
+        Name:"Faical Bahsis"
+      }
+    ],
     TableClient:[
       {
         Clicked: false,

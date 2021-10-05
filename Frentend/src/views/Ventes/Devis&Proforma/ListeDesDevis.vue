@@ -80,7 +80,7 @@
                 </div>
                 <div class="nouveau-bon">
                  <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
+                    to= "/Ventes/NouveauDevis/Proforma/Create"
                     >     
                     <v-btn
                         elevation="1"

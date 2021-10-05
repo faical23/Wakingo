@@ -1,6 +1,8 @@
 <template>
   <div class="HomePage">
+      <div   v-if='ShowPopupNewReglement' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
       <SideBar/>
+      <PoupNewReglement v-if="ShowPopupNewReglement" @RemovePopupRegler='ShowPopupNewReglement = false' />
       <div class="GlobalPage">
 
             <NaVBar/>
@@ -74,20 +76,17 @@
                 </v-card>
                 
                 </div>
-                <div class="nouveau-bon">
-                 <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    >     
+                <div class="nouveau-bon">    
                     <v-btn
                         elevation="1"
                         class="bnt-nv-bon-de-livraison  white--text" 
+                        @click="ShowPopupNewReglement = true"
                         >
                         <v-icon class="mdi-plus-thick">
                             mdi-plus-thick
                         </v-icon>
-                            Nouveau Devis/performa
+                            Nouveau réglement client
                         </v-btn>
-                    </router-link>
                     </div>
                     <Table :ElementSearched='ElementSearched' :PathPage='PathPage'/>
             </div>
@@ -102,7 +101,7 @@
   import SideBar from '../../components/SideBar/Index.vue'
   import NaVBar from '../../components/navbar/navbar.vue'
   import Table from '../../components/Tables/Table_F.vue'
-  // import DatePicker from "../../../components/DatePicker.vue";
+  import PoupNewReglement from '../../components/Vendes/PopupRéglementClient.vue'
   export default {
     name: 'Home',
 
@@ -133,13 +132,14 @@
       SearchByClient : '',
       SearchByNumero :'',
       ElementSearched:'',
-      PathPage:''
-      
+      PathPage:'',
+      ShowPopupNewReglement:false
     }),
     components: {
       SideBar,
       NaVBar,
-      Table
+      Table,
+      PoupNewReglement
     },
     methods: {
         SearchByFunction(){

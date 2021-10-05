@@ -11,7 +11,7 @@
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
-                            <span  class="RoutlinkZone">Liste Les encaissements</span>
+                            <span  class="RoutlinkZone">Liste Les décaissements</span>
                         </div>
                         <div >
                         
