@@ -24,7 +24,7 @@ import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 import DépensesRecurrents from '../views/Achats/DépensesRécurrents.vue'
 import ListeEncaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
 import ListeDécaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
-
+import TransfertsCompteAcompte from '../views/Trésorerie/TransfertsCompteDeCompte.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,6 +32,11 @@ const routes = [
     path: '/',
     name: 'TableauDeBord',
     component: TableauDeBord
+  },
+  {
+    path: '/Tresorerie/TransfertsCompteAcompte',
+    name: 'CompteTresorerie',
+    component: TransfertsCompteAcompte
   },
   {
     path: '/Tresorerie/ComptesTresorerie',

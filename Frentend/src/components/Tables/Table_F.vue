@@ -318,16 +318,6 @@
      
     },
 
-      // makePDF(){
-      //   window.html2canvas = html2canvas;
-      //   var doc = new jsPdf();
-      //   doc.html(document.querySelector(".data-table"), {
-      //     callback : function(pdf){
-      //       pdf.save("mypdf.pdf");
-      //       doc.setFontSize(12)
-      //     }
-      //   })
-      // },
       CheckedThisRow(n){
           this.ListeDevis[n].Select ? this.ListeDevis[n].Select = false : this.ListeDevis[n].Select = true
       },

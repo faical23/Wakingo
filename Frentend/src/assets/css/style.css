@@ -1459,6 +1459,34 @@ textarea {
   margin-right: 10px;
 }
 
+.PopupNewCompte__information .Date_De_A, .PopupNewCompte__information .Montant_Mode_Référence {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.PopupNewCompte__information .Date_De_A input, .PopupNewCompte__information .Date_De_A select, .PopupNewCompte__information .Date_De_A textarea, .PopupNewCompte__information .Montant_Mode_Référence input, .PopupNewCompte__information .Montant_Mode_Référence select, .PopupNewCompte__information .Montant_Mode_Référence textarea {
+  width: 100%;
+}
+
+.PopupNewCompte__information .PriceZone {
+  width: 30%;
+}
+
+.PopupNewCompte__information .PriceZone .Price {
+  display: flex;
+  align-items: center;
+}
+
+.PopupNewCompte__information .PriceZone .Price input {
+  width: 100%;
+}
+
+.PopupNewCompte__information .Mode {
+  width: 30%;
+}
+
 .HomePage {
   display: flex;
 }

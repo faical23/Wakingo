@@ -1,0 +1,54 @@
+{
+    "Transfert": [
+      {
+        "Select":false,
+        "Id":1,
+        "Date":"20/05/2019",
+        "De":"Affacturage",
+        "A":"Caisse",
+        "Référence":"434378",
+        "Montant":"1.222,00",
+        "Etat":"En attente"
+      },
+      {
+        "Select":false,
+        "Id":2,
+        "Date":"20/05/2019",
+        "De":"Affacturage",
+        "A":"Caisse",
+        "Référence":"434378",
+        "Montant":"1.222,00",
+        "Etat":"En attente"
+      },
+      {
+        "Select":false,
+        "Id":3,
+        "Date":"20/05/2019",
+        "De":"Affacturage",
+        "A":"Caisse",
+        "Référence":"434378",
+        "Montant":"1.222,00",
+        "Etat":"En attente"
+      },
+      {
+        "Select":false,
+        "Id":4,
+        "Date":"20/05/2019",
+        "De":"Affacturage",
+        "A":"Caisse",
+        "Référence":"434378",
+        "Montant":"1.222,00",
+        "Etat":"En attente"
+      },
+      {
+        "Select":false,
+        "Id":5,
+        "Date":"20/05/2019",
+        "De":"Affacturage",
+        "A":"Caisse",
+        "Référence":"434378",
+        "Montant":"1.222,00",
+        "Etat":"En attente"
+      }
+    ]
+  }

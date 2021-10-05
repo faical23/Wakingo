@@ -244,7 +244,7 @@
               {
                 FirstChild : 'Transferts compte à compte',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Transferts compte à compte'
+                Path : '/Tresorerie/TransfertsCompteAcompte'
               },
 
             ]
