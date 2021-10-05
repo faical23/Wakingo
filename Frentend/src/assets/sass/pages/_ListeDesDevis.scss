@@ -175,18 +175,18 @@
     align-items: center;
     position: relative;
     // bottom: 5px; 
-  }
-  
-  
- 
-    .date_input_diverse{
-        border: 1px solid black;
-        padding: 5px 10px;
-    }
-    .Ventilation{
-        border: 1px solid black;
-        padding: 13px 18px;
-    }
+}
+
+
+
+.date_input_diverse{
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+.Ventilation{
+    border: 1px solid black;
+    padding: 13px 18px;
+}
         .popup-container{
             display: flex;
         }
@@ -214,17 +214,17 @@
         }
         .diverse_table{
             font-size: 14px;
-        //    margin-left: 10px;
-        .Quantité{
-         display: grid;
-         grid-template-columns: repeat(4, 1fr);
-         grid-template-rows: 1fr;
-         grid-column-gap: 0px;
-         grid-row-gap: 13px;
-         margin-top: 5px;
-         font-size: 14px;
-         .qte_input, .prix_input{
-             width: 60px;
+            //    margin-left: 10px;
+            .Quantité{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: 1fr;
+                grid-column-gap: 0px;
+                grid-row-gap: 13px;
+                margin-top: 5px;
+                font-size: 14px;
+                .qte_input, .prix_input{
+                    width: 60px;
                     border: 1px solid black;
                 }
                 .qte_select{
@@ -263,13 +263,13 @@
          grid-row-gap: 10px;
          margin-top: 5px;
         }
-
+        
         .tva_select{
             border: 1px solid black;
             padding: 16px 2px;
             margin-top: 4px;
         }
-
+        
         .OBLIGATOIR{
             margin-top: 100px;
         }
@@ -281,15 +281,15 @@
             border: 1px solid black;
             padding: 13px 66px
         }
-
+        
         label{
             font-size: 17px;
             color: black;
             margin-bottom: 10px;
         }
-
+        
         // .enAttente{
-        //     background-color: #f0ad4 ;
+            //     background-color: #f0ad4 ;
         //     color: white;
         // }
 
@@ -309,4 +309,11 @@
                 color: black;
             }
         }
-
+        
+        
+        .TableResultSearchDepense{
+        
+            .v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th {
+                padding: 0px 70px;
+            }
+        }

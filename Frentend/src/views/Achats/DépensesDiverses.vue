@@ -96,7 +96,7 @@
                                <label for="Ventilation-select">Ventilation *</label>
                                <select name="Ventilation"  class="Ventilation" v-model="Ventilation">
                                   <option value="">Veillez séléctioner</option>
-                                  <option v-for="ventilation,V in Ventilations" :key="V" value="ventilations">{{ ventilation }}</option>
+                                  <option v-for="ventilation,V in Ventilations" :key="V" >{{ ventilation }}</option>
                               </select>
                               <P v-if="Add &&  (Ventilation == '')" class="MessageErrorFiled">champs obligatoire</P>
                               </v-col>
@@ -143,9 +143,10 @@
                                           Qté.
                                         </th>
                                         <th class="text-left">
-                                          <select name="projet"  class="projet" v-model="typePrix" @change="CalculteTTC()">
-                                          <option value="">P.U HT</option>
-                                          <option value="">P.U TTC</option>
+                                          <select name="projet"  class="projet" placeholder="P.U.HT" v-model="typePrix" @change="CalculteTTC()">
+                                            
+                                          <option value="">P.U.HT</option>
+                                          <option value="">P.U.TTC</option>
                                        </select>
                                         </th>
                                         <th class="text-left">
@@ -210,12 +211,12 @@
                                 </v-simple-table>
                               </template>
                               <div class="checkbox_popup">
-                                 <input type="checkbox">
-                                 <p @click="isShow = !isShow">Deja payé ? </p>
+                                 <input v-model="checked" type="checkbox">
+                                 <p >Deja payé ? </p>
                               </div>
                               
                             <small class="OBLIGATOIR">*Champs obligatoir !</small>
-                            <div v-show="isShow" class="mode_section">
+                            <div v-if="checked" class="mode_section">
                               <div class="mode_paiement_div">
                                 <i class="fas fa-credit-card"></i>
                                 <h4 class="mode">Détails du paiement</h4>
@@ -293,6 +294,7 @@
   import SideBar from '../../components/SideBar/Index.vue'
   import NaVBar from '../../components/navbar/navbar.vue'
   import Table from '../../components/Tables/Table_F.vue'
+  // import Table from '../../components/Tables/depense_table.vue'
   export default {
     name: 'Home',
     emits:['NouvellDepenseDevis'],
@@ -304,6 +306,7 @@
  },
     data: () => ({
        isShow: true,
+       checked: false,
 
       Ventilations: [
         '112 frais préliminaire',
@@ -345,11 +348,11 @@
         Ventilation:'',
         fournisseur:'',
         projet:'',
-        qte:0,
+        qte:'',
         typePrix:'P.U.HT',
         Tva:'20,00%',
         TTC:'',
-        prix:0,
+        prix:'',
         TotatlTTC:'',
         QtéType:'Unité(s)',
         DataNouvellDepenseDevis:'',
@@ -383,6 +386,7 @@
           Ventiation_depense:this.Ventilation,
           Libellé:this.libellé,
           TotatlTTC:this.TotatlTTC,
+          etat:'En attente'
 
         }
         this.DataNouvellDepenseDevis = NouvelleDepense 

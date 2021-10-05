@@ -89,14 +89,14 @@
                               <div class="SearchBydate2">
                                 <v-col cols="3">
                                   <label for="">Date</label>
-                                  <input class="date_input_diverse" type="date" @change="SearchByFunction()" v-model="date" >
+                                  <input class="date_input_diverse" type="date"  v-model="date" >
                                   <P v-if="Add && (date == '')" class="MessageErrorFiled">champs obligatoire</P>
                                 </v-col>
                               <v-col cols="6">
                                <label for="Ventilation-select">Ventilation *</label>
                                <select name="Ventilation"  class="Ventilation" v-model="Ventilation">
                                   <option value="">Veillez séléctioner</option>
-                                  <option v-for="ventilation,V in Ventilations" :key="V" value="ventilations">{{ ventilation }}</option>
+                                  <option v-for="ventilation,V in Ventilations" :key="V">{{ ventilation }}</option>
                               </select>
                               <P v-if="Add &&  (Ventilation == '')" class="MessageErrorFiled">champs obligatoire</P>
                               </v-col>
@@ -210,12 +210,12 @@
                                 </v-simple-table>
                               </template>
                               <div class="checkbox_popup">
-                                 <input type="checkbox">
-                                 <p @click="isShow = !isShow">Deja payé ? </p>
+                                 <input v-model="checked" type="checkbox">
+                                 <p>Deja payé ? </p>
                               </div>
                               
                             <small class="OBLIGATOIR">*Champs obligatoir !</small>
-                            <div v-show="isShow" class="mode_section">
+                            <div v-if="checked" class="mode_section">
                               <div class="mode_paiement_div">
                                 <i class="fas fa-credit-card"></i>
                                 <h4 class="mode">Détails du paiement</h4>
@@ -302,6 +302,7 @@
  },
     data: () => ({
        isShow: true,
+       checked: false,
 
       Ventilations: [
         '112 frais préliminaire',
@@ -377,10 +378,11 @@
         this.date !='' &&  this.libellé != '' &&  this.Ventilation != '' &&  this.fournisseur != '' && this.qte != 0 &&  this.prix != 0
       ){ 
         let NouvellRecetteDevis ={
-          date:this.date , 
-          Ventiation_depense:this.Ventilation,
+          DateDeFacture:this.date , 
+          Ventiation:this.Ventilation,
           Libellé:this.libellé,
           TotatlTTC:this.TotatlTTC,
+          etat:"EN attente"
 
         }
         this.DataNouvellRecetteDevis = NouvellRecetteDevis 

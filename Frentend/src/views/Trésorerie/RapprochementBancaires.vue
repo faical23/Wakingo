@@ -18,20 +18,29 @@
                         </div>
                         
                     <div>
-                         <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    >     
+                             
                     <v-btn
                         elevation="1"
                         class="bnt-nv-bon-de-livraison  white--text" 
+                        @click="lancerRapprochement"
                         >
                         <i class="fas fa-play-circle"></i>
-                            Générer le rapport
+                            Lancer le rapprochement
                         </v-btn>
-                    </router-link>
                     </div>
                     </div>
                 </div>
+                <div  v-if="Lancer && (CompteBancaire = '' || 'Veillez séléctionner' || soldeRelevé == '' || 0) ">
+                    <v-alert
+                        class="alert"
+                        dense
+                        outlined
+                        type="error"
+                        >
+                        <i class="fas fa-ban" style="color:red"></i>
+                        Le formulaire contient des erreurs<strong> (Champs obligatoires non remplis ou incorrects) </strong> 
+                    </v-alert>
+                    </div>
                 <div class="card_rapp_bancaire">
                     <v-card flat dense >
                         <v-card-title dense class="recherche_rapide_rapp_bancaire text-p  white--text">
@@ -47,11 +56,12 @@
                                 <label for="">Date du rapprochement :</label>
                                 <input type="date"  v-model="dateRapprochement" > 
                             </div>
-                            <div>
+                            <div class="CompteBancaire">
                                 <label for="Compte bancaire">Compte bancaire :</label>
-                            <select name="" id="">
+                            <select v-model="CompteBancaire" name="" id="">
                                 <option value="Veillez séléctionner">Veillez séléctionner</option>
                             </select>
+                            <small v-if=" Lancer && (CompteBancaire = '' || 'Veillez séléctionner') " class="MessageErrorFiled">Vous devez selectionner un élément</small>
                             </div>
                             <div>
                                 <label>Libellé  :</label>
@@ -73,12 +83,13 @@
                                 <div>
                                  <label for="">Solde du relevé  :</label>
                             <div class="solde">
-                                <input  placeholder="0,00" type="text">
+                                <input v-model="soldeRelevé" placeholder="0,00" type="text">
                                 <div>
                                      <span>MAD</span>
                                 </div>
-                                </div>
                             </div>
+                                 <small v-if=" Lancer && (soldeRelevé == '' || 0 ) " class="MessageErrorFiled">Vous devez spécifier un montant correcte.</small>
+                                </div>
                                 <div>
                                  <label for="">Solde des lignes non rapprochées :</label>
                             <div class="solde">
@@ -116,9 +127,10 @@
                     <v-btn
                         elevation="1"
                         class="bnt-nv-bon-de-livraison  white--text" 
+                        @click="lancerRapprochement"
                         >
                         <i class="fas fa-play-circle"></i>
-                            Générer le rapport
+                            Lancer le rapprochement
                         </v-btn>
                     </router-link>
                     </div>
@@ -140,14 +152,18 @@
       },
     data() {
         return{
-
+            Lancer : false,
+            CompteBancaire:'',
+            soldeRelevé:'',
             dateRapprochement: '',
             rapprochement: this.dateRapprochement
         }
     
   },
          methods:{
-            
+            lancerRapprochement(){
+                this.Lancer = true
+            }
          }
   }
 </script>

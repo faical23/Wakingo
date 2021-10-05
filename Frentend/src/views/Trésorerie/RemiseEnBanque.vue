@@ -17,21 +17,29 @@
                         <div >
                         </div>
                         
-                    <div>
-                         <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    >     
+                    <div>    
                     <v-btn
                         elevation="1"
-                        class="bnt-nv-bon-de-livraison  white--text" 
+                        class="bnt-nv-bon-de-livraison  white--text"
+                         @click="lancerRecherche()" 
                         >
                         <i class="fas fa-play-circle"></i>
                            Lancer la recherche
                         </v-btn>
-                    </router-link>
                     </div>
                     </div>
                 </div>
+                    <div  v-if="lancer && (ModePaiement = '' || 'Veillez séléctionner' || compteBancaire == '' || 'Veillez séléctionner') ">
+                    <v-alert
+                        class="alert"
+                        dense
+                        outlined
+                        type="error"
+                        >
+                        <i class="fas fa-ban" style="color:red"></i>
+                        Le formulaire contient des erreurs<strong> (Champs obligatoires non remplis ou incorrects) </strong> 
+                    </v-alert>
+                    </div>
                 <div class="card_rapp_bancaire">
                     <v-card flat dense >
                         <v-card-title dense class="recherche_rapide_rapp_bancaire text-p  white--text">
@@ -49,22 +57,24 @@
                             </div>
                             <div>
                                 <label for="Compte bancaire">Compte bancaire :</label>
-                            <select name="" id="">
+                            <select v-model="compteBancaire" name="" id="">
                                 <option value="Veillez séléctionner">Veillez séléctionner</option>
                             </select>
+                            <small v-if="lancer && (compteBancaire = '' || 'Veillez séléctionner')" class="MessageErrorFiled">Vous devez selectionner un élément</small>
                             </div>
                             <div>
                                 <label>Mode de paiement  :</label>
-                               <select name="" id="">
+                               <select v-model="ModePaiement"  aria-placeholder="Veillez séléctionner" name="" id="">
                                 <option value="Veillez séléctionner">Veillez séléctionner</option>
                                 <option value="" v-for="(mode,m) in modePaement" :key="m">{{ mode }}</option>
                             </select>
+                            <small v-if="lancer && (ModePaiement = '' || 'Veillez séléctionner')" class="MessageErrorFiled">Vous devez selectionner un élément</small>
                             </div>
                         </div>
                     <div class="chekbox_div_section">
                                 <div class="chekbox_div">
                                     <input type="checkbox" name="" id="">
-                                    <label for="Règlement pour cette banque uniquement">Règlement pour cette banque uniquemen</label>
+                                    <label for="Règlement pour cette banque uniquement">Règlement pour cette banque uniquement</label>
                                 </div>
                                 </div>        
                         </div> 
@@ -76,18 +86,15 @@
                 </v-card>
                 
                 </div>
-                <div class="nouveau-bon">
-                 <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    >     
+                <div class="nouveau-bon">    
                     <v-btn
                         elevation="1"
                         class="bnt-nv-bon-de-livraison  white--text" 
+                        @click="lancerRecherche()"
                         >
                         <i class="fas fa-play-circle"></i>
                             Lancer la recherche
                         </v-btn>
-                    </router-link>
                     </div>
             </div>
           </div>
@@ -107,7 +114,10 @@
       },
     data() {
         return{
+            compteBancaire:'',
+            ModePaiement:'',
             dateRapprochement: '',
+            lancer: false,
             rapprochement: this.dateRapprochement,
             modePaement:[
                 'Cheque',
@@ -118,7 +128,9 @@
     
   },
          methods:{
-            
+            lancerRecherche(){
+                this.lancer = true
+            }
          }
   }
 </script>
