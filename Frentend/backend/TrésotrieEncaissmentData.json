@@ -1,0 +1,81 @@
+{
+    "Trésorie": [
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      },
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      },
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      },
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      },
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      },
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      },
+      {
+        "Id":1,
+        "date":"30/09/2021",
+        "MoyenPaiment":"Chéque",
+        "Monatnt":"12,00",
+        "Devise":"MAD",
+        "Compte":"Banque",
+        "Référence":"Acompte sur devis n° DEV-23092021-22",
+        "Numéro":"21312321321",
+        "Etat":"En attande"
+      }
+    ]
+  }

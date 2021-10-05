@@ -1,0 +1,60 @@
+.PopupNewCompte{
+    .PopupNewCompte__information{
+        margin: 20px 20px;
+        input,textarea,select{
+            border:1px solid black;
+            border: radius 5px;
+            padding:10px 5px;
+            width:100%;
+        }
+        .IntituléNuméroType,.SoldeDate,.DécouvrtDate,.TeleEmail,.InformationPersonnele,.PostaleVille{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin:10px 0px;
+        }
+        .SoldeDate,.DécouvrtDate{
+            width:70%;
+        }
+        .InputPrice{
+            display: flex;
+            align-items: center;
+            input{
+                width:40%;
+            }
+        }
+        .TeleEmail{
+            input{
+                width: 100%;
+            }
+        }
+        textarea{
+            height:150px;
+            width:100%;
+        }
+        .PostaleVille{
+            // text-align: end;
+            input{
+                width:90%;
+                margin-left: auto;
+            }
+        }
+        .Pays{
+            // text-align: end;
+            input{
+                width: 100%;
+            }
+        }
+    }
+    p{
+        display: flex;
+        align-items: center;
+        padding: 10px 0px;
+        color: #3c8dbc;
+        i{
+            margin-right: 10px;
+        }
+        border-bottom: 1px solid #3c8dbc;
+    }
+
+}

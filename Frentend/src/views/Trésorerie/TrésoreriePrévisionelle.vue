@@ -1,17 +1,26 @@
 <template>
   <div class="HomePage">
+<<<<<<< HEAD
+=======
+      <div   v-if='Alert || PopupAddNewClient || PopupNewArticle || PopupChoiserLesArticles || Remproser' class="BackGourndBlackGlobalPage" @click="DeleteAllPopup()"></div>
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
       <SideBar/>
       <div class="GlobalPage">
             <NaVBar/>
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
+<<<<<<< HEAD
                        <h2>Trésorerie prévisionnelle </h2>
                        <small>Cette page vous permet de connaître et anticiper votre trésorerie</small>
+=======
+                        <h2>Comptes de trésorerie</h2>
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
+<<<<<<< HEAD
                             <span  class="RoutlinkZone">Trésorerie prévisionnelle</span>
                         </div>
                         <div >
@@ -76,12 +85,45 @@
   export default {
     name: 'Home',
 
+=======
+                            <router-link to="/" class="RoutlinkZone">Comptes de trésorerie</router-link>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="BtnsTésorerie">
+                <button>
+                    <i class="fas fa-university"></i>
+                    Ajouter un nouveau compte
+                </button>
+                <button>
+                    <i class="fas fa-sync-alt"></i>
+                     Transferts compte à compte
+                </button>
+            </div>
+            <div class="TableZone" style="margin:20px !important">
+                <Table :ElementSearched='ElementSearched' :PathPage='PathPage' :NouvelleRecette="DataNouvelleRecette" />
+            </div>
+      </div>
+
+  </div>
+</template>
+
+<script>
+    import SideBar from '../../components/SideBar/Index.vue'
+    import NaVBar from '../../components/navbar/navbar.vue'
+    import Table from '../../components/Tésorerie/Table.vue'
+  export default {
+    name: 'Home',
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
  props: {
    ninja:{
      type: String,
    }
  },
     data: () => ({
+<<<<<<< HEAD
        isShow: true,
 
       Ventilations: [
@@ -104,6 +146,10 @@
       ],
      
       Clients: [
+=======
+      PageName:'Recettes Récurrente',
+      Ventilations: [
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
         'AAAA',
         'BBBB',
         'CCCC',
@@ -117,6 +163,7 @@
         'CCCC',
         'DDDD'
       ],
+<<<<<<< HEAD
         dialog: false,
         Add:false,
         date:'',
@@ -144,10 +191,24 @@
       PathPage:'',
       SearchByEtatArray : ["En retard","Annulé(e)","Accepté(e)","En attente"]
       
+=======
+      SearchByStartDateCommande: '',
+      SearchByEndDateCommande : '',
+      SearchByEtat : 'Tous',
+      SearchByVentilation : 'Tous',
+      SearchByLibellé:'',
+      ElementSearched:'',
+      PathPage:'',
+      SearchByEtatArray : ["Annulé(e)","En cours","Clôturé(e)"],
+      PopupNouvelleRecette : false,
+      DataNouvelleRecette :'',
+      SuccessNewRecette : false,
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
     }),
     components: {
       SideBar,
       NaVBar,
+<<<<<<< HEAD
       Table
     },
     methods: {
@@ -199,13 +260,27 @@
           this.PathPage = this.$router.currentRoute.path
           console.log(this.PathPage)
         }
+=======
+      Table,
+     
+    },
+    methods: {
+        GethPagePath(){
+          this.PathPage = this.$router.currentRoute.path
+        },
+
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
     },
     created(){
         this.PathPage = this.$router.currentRoute.path
         this.GethPagePath()
+<<<<<<< HEAD
     },
     
 
+=======
+    }
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
   }
 </script>
 

@@ -1,0 +1,25 @@
+.PopupNewCompte__information{
+    .Date_De_A,.Montant_Mode_Référence{
+        margin: 20px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input,select,textarea{
+            width: 100%;
+        }
+    }
+    .PriceZone{
+        width: 30%;
+        .Price{
+            display: flex;
+            align-items: center;
+            input{
+                width: 100%;
+            }
+        }
+    }
+    .Mode{
+        width: 30%;
+    }
+
+}

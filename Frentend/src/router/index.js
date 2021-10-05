@@ -22,10 +22,16 @@ import CompteTresorerie from '../views/Trésorerie/ComptesDeTrésorerie.vue'
 import regroupement from '../views/Ventes/RegroupmentDeDocuments.vue'
 import Dépenses_diverses from '../views/Achats/DépensesDiverses.vue'
 import DépensesRecurrents from '../views/Achats/DépensesRécurrents.vue'
+<<<<<<< HEAD
 import Trésorerie_prévisionnelle from '../views/Trésorerie/TrésoreriePrévisionelle.vue'
 import RapprochementBancaire from '../views/Trésorerie/RapprochementBancaires.vue'
 import RemiseBanque from '../views/Trésorerie/RemiseEnBanque.vue'
 
+=======
+import ListeEncaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
+import ListeDécaissements from '../views/Trésorerie/ListeDesDécaissements.vue'
+import TransfertsCompteAcompte from '../views/Trésorerie/TransfertsCompteDeCompte.vue'
+>>>>>>> c78323e9e52c962977ea623165a1e70c3f210692
 Vue.use(VueRouter)
 
 const routes = [
@@ -35,9 +41,24 @@ const routes = [
     component: TableauDeBord
   },
   {
+    path: '/Tresorerie/TransfertsCompteAcompte',
+    name: 'CompteTresorerie',
+    component: TransfertsCompteAcompte
+  },
+  {
     path: '/Tresorerie/ComptesTresorerie',
     name: 'CompteTresorerie',
     component: CompteTresorerie
+  },
+  {
+    path: '/Tresorerie/ListeEncaissements',
+    name: 'ListeEncaissements',
+    component: ListeEncaissements
+  },
+  {
+    path: '/Tresorerie/ListeDecaissements',
+    name: 'ListeDécaissements',
+    component: ListeDécaissements
   },
   {
     path: '/Ventes/NouvelleBonsDeLivraison/Create',

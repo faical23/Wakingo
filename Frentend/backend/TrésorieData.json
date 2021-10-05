@@ -1,0 +1,40 @@
+{
+    "Trésorie": [
+      {
+        "Id":1,
+        "IntituléDeCompte":"Affacturage",
+        "NumeroCompte":"9363324247",
+        "TypDecompte":"Tiers payant",
+        "SoldeOuverture":"0,00"
+      },
+      {
+        "Id":1,
+        "IntituléDeCompte":"Affacturage",
+        "NumeroCompte":"9363324247",
+        "TypDecompte":"Tiers payant",
+        "SoldeOuverture":"0,00"
+      },
+      {
+        "Id":1,
+        "IntituléDeCompte":"Affacturage",
+        "NumeroCompte":"9363324247",
+        "TypDecompte":"Tiers payant",
+        "SoldeOuverture":"0,00"
+      },
+      {
+        "Id":1,
+        "IntituléDeCompte":"Affacturage",
+        "NumeroCompte":"9363324247",
+        "TypDecompte":"Tiers payant",
+        "SoldeOuverture":"0,00"
+      },
+      {
+        "Id":1,
+        "IntituléDeCompte":"Affacturage",
+        "NumeroCompte":"9363324247",
+        "TypDecompte":"Tiers payant",
+        "SoldeOuverture":"0,00"
+      }
+
+    ]
+  }

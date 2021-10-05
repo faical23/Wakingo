@@ -114,3 +114,12 @@
         width:90%;
     }
 }
+.table-btn-group{
+    display: flex;
+    align-items: center;
+    input{
+        border: 1px solid black;
+        padding: 5px;
+        margin: 0px 10px;
+    }
+}

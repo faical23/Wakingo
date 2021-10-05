@@ -75,7 +75,7 @@
                 </div>
                 <div class="nouveau-bon">
                  <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
+                    to= "/Ventes/Gestion_des_bons_de_livraison"
                     >     
                     <v-btn
                         elevation="1"
@@ -84,7 +84,7 @@
                         <v-icon class="mdi-plus-thick">
                             mdi-plus-thick
                         </v-icon>
-                            Nouveau Devis/performa
+                            Nouvelle bon livraison
                         </v-btn>
                     </router-link>
                     </div>
