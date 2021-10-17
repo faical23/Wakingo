@@ -51,7 +51,7 @@
           </v-flex>
 
         </div>
-            <v-simple-table class="TableResultSearch" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''" ref="printTable" id="table_f">
+            <v-simple-table class="TableResultTresorerie" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''" ref="printTable" id="table_f">
                     <template v-slot:default>
                   <thead>
                     <tr>
@@ -74,11 +74,11 @@
                       <td v-if="PathPage.includes('ListeCommandes') || PathPage.includes('ListeDevies') || PathPage.includes('Gestion_des_bons_de_livraison') || PathPage.includes('Reglement') || PathPage.includes('depenses_diverses') ">{{ item.date }}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                       <td v-if="!PathPage.includes('Diverses') && !PathPage.includes('depenses_diverses')  && !PathPage.includes('Recurrentes') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents') "><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
-                      <td v-if="!PathPage.includes('depenses_diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('Diverses') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents') ">{{ item.client }}</td>
+                       <td v-if="!PathPage.includes('Diverses') && !PathPage.includes('depenses_diverses')  && !PathPage.includes('Recurrentes') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents')  &&  !PathPage.includes('Articles')"><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
+                      <td v-if="!PathPage.includes('depenses_diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('Diverses') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Articles') ">{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs') || PathPage.includes('ListeDevies')">{{ item.Total }}</td> 
-                      <td v-if="PathPage.includes('ListeDevies')"> {{ item.devis }}</td>
+                      <td v-if="PathPage.includes('famille_client')"> {{ item.devis }}</td>
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.Référence }}</td>
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.projet }}</td>
                      
@@ -89,12 +89,12 @@
                      <!-- <td v-if="PathPage.includes('Reglement')"> {{ item.quantité}}</td> -->
                       <!-- <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td> -->
                       <td v-if="PathPage.includes('Accomptes')">{{item.DateAcompte}}</td>
-                      <td v-if="PathPage.includes('Accomptes')">{{item.Libellé}}</td>
+                      <td v-if="PathPage.includes('Accomptes') && PathPage.includes('Articles') ">{{item.Libellé}}</td>
                       <td v-if="PathPage.includes('Accomptes')">{{item.Document}}</td>
                       <!-- <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td> -->
                       <!-- <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td> -->
-                      <td v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses') && !PathPage.includes('DepensesRecurrents') " ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
-                      <td  v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses')&& !PathPage.includes('DepensesRecurrents') ">{{ item.client }}</td>
+                      <td v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses') && !PathPage.includes('DepensesRecurrents')&&  !PathPage.includes('Articles')  " ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
+                      <td  v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses')&& !PathPage.includes('DepensesRecurrents')  && !PathPage.includes('Articles')">{{ item.client }}</td>
                       <!-- <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td>  -->
                       <!-- <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td>  -->
                       <td v-if="PathPage.includes('Accomptes')">{{item.Monatnt}}</td>
@@ -104,20 +104,27 @@
                       <td v-if="PathPage.includes('Recurrentes') || PathPage.includes('DepensesRecurrents')">{{item.DateDébut}}</td>
                       <td v-if="PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents')">{{item.DateFin}}</td>
                       <td v-if="PathPage.includes('Diverses') || PathPage.includes('Recurrentes') || PathPage.includes('DepensesRecurrents')" >{{item.Ventiation}}</td>
-                      <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents')">{{item.libelle}}</td>
+                      <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents') && PathPage.includes('Articles') ">{{item.libelle}}</td>
                       <td v-if="PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents')">{{item.Fréquence}}</td>
                       <td v-if="PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents')">{{item.Prochaine_exécution}}</td>
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.TotatlTTC}}</td>
                       <!-- <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.Status}}</td> -->
                       <td v-if="PathPage.includes('depenses_diverses')">{{item.Ventiation_depense}}</td>
-                      <td v-if="PathPage.includes('depenses_diverses')">{{ item.Libellé }}</td>
+                      <td v-if="PathPage.includes('Articles')">{{item.code}}</td>
+                      <td v-if="PathPage.includes('depenses_diverses') && PathPage.includes('Articles') ">{{ item.Libellé }}</td>
                       <td v-if="PathPage.includes('depenses_diverses')">{{ item.TotatlTTC }}</td>
 
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes') || PathPage.includes('DepensesRecurrents')">{{item.Status}}</td>
 
+                      <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.lib }}</td>
+                      <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.famille }}</td>
+                      <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.Type }}</td>
+                      <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.Monatnt }}</td>
+                      <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.quantité }}</td>
 
 
-                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes')">
+
+                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') &&  !PathPage.includes('Articles')">
                          <v-chip v-if="item.etat == 'Clôturer(e)'"
                           label
                           class="ma-2"
@@ -197,7 +204,7 @@
   import DataTable from '../../../backend/data.json';
   import printJS from 'print-js';
   export default {
-    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis' , 'NouvellRecetteDevis'],
+    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis' , 'NouvellRecetteDevis','CreatNewArticle'],
     data() {
         
       return{
@@ -511,6 +518,23 @@
               ]
               this.ActionsRow = Actions
           }
+          else if(this.PathPage.includes('Articles')){
+              let Actions =[
+                {
+                  Name:'Editer',
+                  Icons :'fas fa-edit'
+                },
+               {
+                    Name:'Consulter',
+                    Icons :'fas fa-eye'
+                },
+                {
+                    Name:'Supprimer',
+                    Icons :'fas fa-trash-alt'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
       },
       //// GET DATA TABLE
       GetDataTable(){
@@ -552,6 +576,10 @@
           }
         else if(this.PathPage.includes('depenses_diverses')){
               let NewHeaderTable = ['Date de dépence','Ventilation','Libellé','TotalTTC','Status']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Articles')){
+              let NewHeaderTable = ['Code','Libellé','famille','Type','Prix revient', 'Prix de vente(HT)']
               this.HeaderTable = NewHeaderTable
           }
       },
@@ -607,6 +635,11 @@
         NouvellRecetteDevis: function(){
           console.log('DATA IS :',this.NouvellRecetteDevis)
           this.ListeDevis.push(this.NouvellRecetteDevis)
+          console.log("Old data" ,this.ListeDevis)
+        },
+         CreatNewArticle: function(){
+          console.log('DATA IS :',this.CreatNewArticle)
+          this.ListeDevis.push(this.CreatNewArticle)
           console.log("Old data" ,this.ListeDevis)
         }
     }

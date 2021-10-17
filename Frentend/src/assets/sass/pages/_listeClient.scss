@@ -1,0 +1,48 @@
+.dialog_container{
+    display: flex;
+    input , select{
+        border: 1px solid #d2d6de;
+        padding: 13px 66px;
+    }
+    label{
+        margin-top:4px;
+        margin-top: 27px;
+
+    }
+    select{
+        border: 1px solid #d2d6de;
+        padding: 13px 108px
+    }
+    input[type="radio"] {
+        top: 8px;
+        left: 9px;
+        width: 26px;
+        height: 16px;
+        border-radius: 100%;
+        background: white;
+    }
+}
+
+.f-sec {
+    margin-right: 67px;
+}
+.post_div{
+    display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+input{
+    border: 1px solid #d2d6de;
+    padding: 6px 0px;
+}
+}
+small{
+    margin-bottom: 20px;
+}
+.MessageErrorFiledClient {
+    color: #dd4b39;
+    display: block;
+    padding: 3px 0px;
+    position: absolute;
+}

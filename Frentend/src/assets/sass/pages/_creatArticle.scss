@@ -1,0 +1,218 @@
+.NouvelleDevisProforma .SwitchOptions {
+    margin: 0px 0px;
+    height: 632px !important;
+    .v-card.v-card--flat.v-sheet.theme--light {
+        height: 632px !important;
+    }
+
+
+.InformationGeneral{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    .firstPart{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        .CodeArticle{
+            label{
+                font-weight: 700;
+            }
+            input{
+                    border: 1px solid #d2d6de;
+                    border-radius: 4px;
+                    padding: 8px 9px;
+                    width: 59%;
+            }
+         }
+        .libeleArticle{
+            label{ font-weight: 700; margin-left: -138px;}
+            input{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 9px;
+                width: 114%;
+                margin-left: -138px;
+            }
+         }
+         .TypeARTICLE{ 
+             padding-left: 147px;
+             margin-top: -8px;
+             font-weight: 700;
+            }
+            .activation_gestion_stock{
+                margin-top: 20px;
+                .nePas{
+                    margin-left: 10px;
+                    font-weight: 700;
+                    
+                }
+                
+                input{
+                    margin-top: 10px;
+                }
+                label{
+                    margin-left: 10px;
+                    font-weight: 700;
+                }
+            }
+            .tracabilite{
+                margin-top: 30px;
+                font-weight: 700;
+                select{
+                    border: 1px solid #d2d6de;
+                    border-radius: 4px;
+                    padding: 8px 9px;
+                    width: 71%;
+                }
+                label{
+                    font-weight: 700;
+                }
+            }
+        }
+        .radioPart{
+            margin-top: -8px;
+            margin-left: -141px;
+            label{
+                margin-left: 15px;
+            }
+        }
+        
+    .SecondPart{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        .Gamme1 , .Gamme2{
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 9px;
+                width: 73%;
+            }
+        }
+        .FCM{
+            margin-top: 10px;
+            label{
+                margin-top: 10px;
+                font-weight: 700;
+            }
+            select{
+                border: 1px solid #d2d6de;
+                        border-radius: 4px;
+                        padding: 8px 9px;
+                        width: 173%;
+            }
+        }
+    }
+}
+.priceDiv{
+    margin-top: 30px;
+    .prix{
+        display: flex;
+        .fa-credit-card{
+            color: #0073b7 !important;
+        }
+        h5{
+            color: #0073b7 !important;
+            margin-left: 6px;
+            margin-bottom: -14px;
+            margin-top: -2px;
+        }
+    }
+    .price_classe{
+        display: flex;
+        width: 163%;
+        .first_price_part{
+           display: flex;
+           
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 71px;
+                width: 54%;
+            }
+            input{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 9px;
+                width: 16%;
+            }
+        }
+        .PDV {
+            margin-right: 52px;
+            .prix_ventee{
+                margin-left: 31px;
+            }
+        }
+        .second_price_part{
+            display: flex;
+            margin-left: 30px;
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 71px;
+                width: 60%;
+            }
+            input{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 9px;
+                width: 20%;
+            }
+        }
+        .third_price_part{
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 71px;
+                width: 197%;
+            }
+        }
+    }
+    }
+    .logistique{
+            .Logistique_Class{
+                margin-top: 30px;
+                display: flex;
+            .fa-truck{
+                color: #0073b7 !important;
+            }
+            h5{
+                color: #0073b7 !important;
+                margin-left: 6px;
+                margin-bottom: -14px;
+                margin-top: -2px;
+                
+            }
+        }
+        .select_section_logistique{
+            display: flex;
+            margin-left: -41px;
+            .log {
+                margin: 0 44px;
+                width: 219px;
+                .KG{
+                    display: flex;
+                    input{
+                        border: 1px solid #d2d6de;
+                        border-radius: 4px;
+                        width: 33px;
+                        padding: 0 4px;
+                    }
+                }
+            }
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 10px;
+                width: 126%;
+            }
+        }
+    }
+}

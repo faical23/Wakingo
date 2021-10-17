@@ -29,6 +29,12 @@ import RemiseBanque from '../views/Trésorerie/RemiseEnBanque.vue'
 import ListeEncaissements from '../views/Trésorerie/ListeDesEncaissements.vue'
 import ListeDécaissements from '../views/Trésorerie/ListeDesDécaissements.vue'
 import TransfertsCompteAcompte from '../views/Trésorerie/TransfertsCompteDeCompte.vue'
+import ListeClients from '../views/Contact/Client/ListeDesClient.vue'
+import ListeFournisseur from '../views/Contact/Fournisseurs/ListeDesFournisseurs.vue'
+import familleFrounisseur from '../views/Contact/FamillesDeFournisseurs.vue'
+import familleClient from '../views/Contact/FamillesDeClient.vue'
+import cataloguArticles from '../views/Catalogue/Articles.vue'
+import NewArticle from '../views/Catalogue/creatArticle.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -185,6 +191,36 @@ const routes = [
     path: '/Achat/DepensesRecurrents',
     name: '/Achat/DepensesRecurrents',
     component: DépensesRecurrents
+  },
+  {
+    path: '/Contacts/Liste_Clients',
+    name: '/Contacts/Liste_Clients',
+    component: ListeClients
+  },
+  {
+    path: '/Contacts/Liste_fournisseurs',
+    name: '/Contacts/Liste_fournisseurs',
+    component: ListeFournisseur
+  },
+  {
+    path: '/Contacts/famille_client',
+    name: '/Contacts/famille_client',
+    component: familleClient
+  },
+  {
+    path: '/Contacts/famille_foursnisseur',
+    name: '/Contacts/famille_foursnisseur',
+    component: familleFrounisseur
+  },
+  {
+    path: '/Catalogue/Articles',
+    name: '/Catalogue/Articles',
+    component: cataloguArticles
+  },
+  {
+    path: '/Catalogue/NewArticle',
+    name: '/Catalogue/NewArticle',
+    component: NewArticle
   },
   
     {

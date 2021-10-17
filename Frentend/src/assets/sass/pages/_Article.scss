@@ -1,0 +1,96 @@
+
+button.creatArticle.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+    background-color: #00acd6;
+    margin-top: 26px;
+    margin-left: 10px;
+    padding-right: 38px;
+}
+button.mettreAjour.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+    background-color: #e08e0b;
+    margin-top: 26px;
+    margin-left: 10px;
+}
+button.importArticle.white--text.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+    background-color: #00a65a;
+    margin-top: 26px;
+    margin-left: 10px;
+}
+.Article_popup_container{
+    padding: 16px
+    hr{
+        color: black;
+    }
+    .first_part_article{
+        display: flex;
+        input{
+            border: 1px solid #d2d6de;
+            border-radius: 4px;
+            padding: 8px 10px;
+            width: 80%;
+        }
+        .libelle{
+            width: 122%;
+            border: 1px solid #d2d6de;
+            border-radius: 4px;
+            padding: 8px 10px;
+        }
+    }
+    .checkbox_div_new_article{
+        display: flex;
+        margin-top: 20px;
+        input{
+            margin-right: 8px;
+        }
+    }
+    .second_part_article{
+        display: flex;
+        .Prix_achat{
+            .prix{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 10px;
+                width: 51%;
+            }
+            input , select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 8px 9px;
+                width: 17%;
+            }
+            select{
+                padding: 10px 9px;
+            }
+        }
+    }
+    .third_part_article{
+        display: flex;
+        select{
+            border: 1px solid #d2d6de;
+            width: 153%;
+            
+        }
+        .select_part{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            grid-row-gap: 0px;
+            margin-right: 100px;
+        }
+    }
+    .Description{
+        textarea{
+            border: 1px solid #d2d6de;
+            padding: 20px;
+        }
+    }
+}
+.MessageErrorFiledClientUnite{
+
+    color: #dd4b39;
+    display: block;
+    padding: 55px 0px;
+    position: absolute;
+}
+.priceDiv{
+    display: flow-root;
+}

@@ -1,17 +1,17 @@
 <template>
   <div class="HomePage">
       <SideBar/>
-      <div class="GlobalPage"  style="overflow-y: initial;">
+      <div class="GlobalPage">
           <NaVBar/>
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                       <h2>Familles de fournisseurs</h2>
+                       <h2>Familles de clients</h2>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
-                            <span  class="RoutlinkZone">Liste des familles de fournisseurs</span>
+                            <span  class="RoutlinkZone">Liste des familles de clients</span>
                         </div>
                         <div >
                         </div>
@@ -19,16 +19,16 @@
                     </div>
                     </div>
                 </div>
-                 <v-alert v-if="successAlert == true" :value="successAlert " type="success">
-                          Le fournisseur a bien été ajouté!
-                        </v-alert>
-                        <v-alert v-if="errorAlert == true" type="error">
-                         We're so sorry , something went wrong , please check you informations and try again , thank you!
-                        </v-alert>
+                        <v-alert v-if="successAlert == true" :value="successAlert " type="success">
+                            Le fournisseur a bien été ajouté!
+                            </v-alert>
+                            <v-alert v-if="errorAlert == true" type="error">
+                            We're so sorry , something went wrong , please check you informations and try again , thank you!
+                            </v-alert>
                 <div class="card4">
                     <v-card flat dense >
                          <v-card-title dense class=" text-p  black--text">
-                           Liste des familles de fournisseurs
+                            Liste des familles de clients
                          </v-card-title>
                          <hr>
                         <v-content>
@@ -42,12 +42,12 @@
                         @click="dialog = true"
                         >
                         <i class="fas fa-plus"></i>
-                            Ajouter une famille de fournisseurs
+                            Ajouter une famille de clients
                         </v-btn>
                         
                     </router-link>
                     </div>
-                       <Table :PathPage='PathPage' :NouveauFamilleFournisseur='DataFamilleFournisseur'/> 
+                       <Table :PathPage='PathPage' :NouveauFamilleClient='DataFamilleClient'/> 
                         </v-content>
                     </v-card>
                      <v-row justify="center">
@@ -58,11 +58,11 @@
                       >
                         <v-card>
                           <v-card-title>
-                            <span class="text-h5">Nouvelle famille de Fournisseurs </span>
+                            <span class="text-h5">Nouvelle famille de clients </span>
                           </v-card-title>
                           <hr>
                           <v-card-text>
-                            <v-container class="dialog_container">
+                           <v-container class="dialog_container">
                                 <div class="nv-famille-client">
                                     <label for="">Libellé * :</label>
                                     <div>
@@ -71,7 +71,8 @@
                                     </div>
                                     <label for="">Grille de tarif :</label>    
                                     <select v-model="tarif" :style="enregistrer && (Libellé == '') ? 'border-color: #3c763d;' : '' " name="" id="">
-                                        <option value="">Veillez selectionner</option>
+                                        <!-- <option>Veillez selectionner</option> -->
+                                        <option>cc</option>
                                     </select>
                                     <label for="">Échéancier de paiement :</label>
                                     <select v-model="Échéancier" :style="enregistrer && (Libellé == '') ? 'border-color: #3c763d;' : '' "  name="" id="">
@@ -107,7 +108,7 @@
                             <v-btn
                               color="blue darken-1"
                               text
-                              @click='NouvelleFamilleFournisseur()'
+                              @click='NouveauFamilleClient()'
                             >
                               Enregister
                             </v-btn>
@@ -138,7 +139,7 @@
         },
       
       data: () => ({
-          PathPage:'',
+             PathPage:'',
           dialog: false,
           enregistrer:false,
           Libellé:'',
@@ -146,7 +147,7 @@
           Échéancier:'',
           Mode:'',
           livraison:'',
-          DataFamilleFournisseur:'',
+          DataFamilleClient:'',
           ModePaiement:[
               'Cheque',
               'Virement',
@@ -165,25 +166,25 @@
           successAlert:false,
           errorAlert:false,
 
-
     }),
     methods: {
          GethPagePath(){
           this.PathPage = this.$router.currentRoute.path
           console.log(this.PathPage )
         },
-    NouvelleFamilleFournisseur(){
+    NouveauFamilleClient(){
         this.enregistrer = true
         if( this.Libellé !='' && this.tarif != 'veillez selectinonner' && this.Échéancier != 'veillez selectinonner' && this.Mode != 'veillez selectinonner' && this.livraison != 'veillez selectinonner' )
         {
-            let NouvelleFamilleFournisseur ={
-                libelle:this.Libellé,
-                echeance:this.Échéancier,
-                modePaiement:this.Mode
+            let NouveauFamilleClient ={
+                 libelle:this.Libellé,
+                 echeance:this.Échéancier,
+                 modePaiement:this.Mode,
+                 tarif:this.tarif,
             }
-            this.DataFamilleFournisseur = NouvelleFamilleFournisseur
-             this.successAlert = true
-              this.errorAlert = false
+                 this.successAlert = true
+                  this.errorAlert = false
+            this.DataFamilleClient = NouveauFamilleClient
         }
         else{
              this.errorAlert = true

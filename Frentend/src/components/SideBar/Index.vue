@@ -259,7 +259,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des client',
-                    Path:'/Clinet/Liste des client'
+                    Path:'/Contacts/Liste_Clients'
                   },
                   {
                     SecondChild : 'Nouveau Client',
@@ -270,7 +270,7 @@
               {
                 FirstChild : 'Familles de client',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Clinet/Familles de client'
+                Path : '/Contacts/famille_client'
               },
               {
                 FirstChild : 'Fournisseurs' ,
@@ -278,7 +278,7 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Fournisseurs',
-                    Path:'/Clinet/Liste des Fournisseurs'
+                    Path:'/Contacts/Liste_fournisseurs'
                   },
                   {
                     SecondChild : 'Nouveau Fournisseurs',
@@ -289,7 +289,7 @@
                 {
                 FirstChild : 'Familles de Fournisseurs',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Clinet/Familles de Fournisseurs'
+                Path : '/Contacts/famille_foursnisseur'
               },
             ]
           },
