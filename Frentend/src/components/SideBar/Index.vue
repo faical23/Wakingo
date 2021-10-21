@@ -305,17 +305,17 @@
               {
                 FirstChild : "Familles d'articles",
                 Icons : 'mdi-account-multiple-outline',
-                Path : "/Catalogue/Familles d'articles"
+                Path : "/Catalogue/FamilleArticle"
               },
               {
                 FirstChild : "Catégories d'articles" ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : "/Catalogue/Catégories d'articles"
+                Path : "/Catalogue/CategorieArticle"
               },
               {
                 FirstChild : 'Marques',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Catalogue/Marques'
+                Path : '/Catalogue/marque'
               }
               ,
               {
@@ -332,12 +332,12 @@
               {
                 FirstChild : 'Gestion des commerciaux' ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Force de vente/Gestion des commerciaux'
+                Path : '/force_de_vente/Gestion_des_commerciaux'
               },
               {
                 FirstChild : 'Commission par commercial',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/Force de vente/Commission par commercial'
+                Path : '/force de vente/commition_par_commercial'
               }
             ]
           },

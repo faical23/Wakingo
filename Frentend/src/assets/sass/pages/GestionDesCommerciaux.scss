@@ -1,0 +1,145 @@
+.card_gestion_des_commercisux{
+    border-top-color: #3c8dbc;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #3c8dbc;
+    margin-top: 50px;
+    padding-bottom: 143px;
+    h5{
+        margin-bottom: -22px;
+    }
+    
+}
+button.nouveau_commercial.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.elevation-1.v-size--default {
+    margin-left: 103px;
+    background-color: #3c8dbc;
+    color: rgb(255, 255, 255);
+    .fa-plus{
+        margin-right: 3px;
+    }
+
+}
+
+.commerciaux_container{
+    .code_commercial{
+        display: flex;
+        margin-bottom: 20px;
+        .code_commercial_div{
+            margin-right: 30px;
+        }
+        input{
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            padding: 8px 10px;
+            width: 102%;
+            margin-right: 39px;
+
+        }
+        .libelle_commerciaux{
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            padding: 8px 10px;
+             width: 182%;
+
+        }
+    }
+    .commercial_checkbox{
+        label{
+            margin-left:6px;
+        }
+    }
+    .depot_div_commercial{
+        display: flex;
+        select{
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            padding: 8px 10px;
+            width: 495%;
+        }
+        .user_class_commercial{
+            select{
+                border: 1px solid #9b9b9b;
+                border-radius: 4px;
+                padding: 8px 10px;
+                width: 291%;
+            }
+            margin-right: 231px;
+        }
+    }
+    .regle_div_commercial{
+        margin-top: 10px;
+        display: flex;
+        .remise{
+            input{
+                border: 1px solid #9b9b9b;
+                border-radius: 4px;
+                padding: 8px 10px;
+                width: 13%;
+            }
+        }
+        .commision_class_commercial{
+            select{
+                border: 1px solid #9b9b9b;
+                border-radius: 4px;
+                padding: 8px 10px;
+                width: 125%;
+            }
+            margin-right: 91px;
+        }
+    }
+    .cordonee_commercial_title{
+        display: flex;
+        margin-top:15px;
+        color: #3c8dbc;
+        h5{
+            margin-left: 5px;
+        }
+            i{
+                margin-top: 4px;
+            }
+        }
+}
+
+.adressETcordonee{
+    display: flex;
+    margin-bottom: 10px;
+    input{
+        border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        padding: 8px 10px;
+        width: 93%;
+        margin: 2px 4px;
+    }
+    
+}
+.adress_container_commercial{
+    .flex_part{
+        display: flex;
+        textarea{
+         border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        }
+    }
+    .two_inputs_commercial{
+        display: flex;
+        margin-left: 20px;
+        margin-top: 33px;
+        input{
+        border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        padding: 8px 10px;
+        width: 80%;
+        }
+    }
+    .pays_commercial_input{
+        margin-top: 10px;
+        input{
+        border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        padding: 8px 10px;
+        width: 182%;
+        }
+
+    }
+}

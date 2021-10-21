@@ -6,12 +6,12 @@
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                       <h2>Marques</h2>
+                       <h2>Catégories d'articles</h2>
                     </div>
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
-                            <span  class="RoutlinkZone">Marques</span>
+                            <span  class="RoutlinkZone">Liste Catégories d'articles</span>
                         </div>
                         <div >
                         </div>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                         <v-alert v-if="successAlert == true" :value="successAlert " type="success">
-                            La Marque d'articles a bien été ajouté!
+                            La Catégories d'articles a bien été ajouté!
                             </v-alert>
                             <v-alert v-if="errorAlert == true" type="error">
                             We're so sorry , something went wrong , please check you informations and try again , thank you!
@@ -28,7 +28,7 @@
                 <div class="card4">
                     <v-card flat dense >
                          <v-card-title dense class=" text-p  black--text">
-                            Liste des Marques
+                            Liste Catégories d'articles
                          </v-card-title>
                          <hr>
                         <v-content>
@@ -42,12 +42,12 @@
                         @click="dialog = true"
                         >
                         <i class="fas fa-plus"></i>
-                            Ajouter une  Marque
+                            Ajouter une  Catégories d'articles
                         </v-btn>
                         
                     </router-link>
                     </div>
-                       <Table :PathPage='PathPage' :NouvelleMarque='DataNouvelleMarque'/> 
+                       <Table :PathPage='PathPage' :NouveauCategorieArticle='DataNouveauCategorieArticle'/> 
                         </v-content>
                     </v-card>
                      <v-row justify="center">
@@ -66,10 +66,20 @@
                                 <div class="code_famille_article">
                                   <div>
                                     <label for="">Libellé * :</label><br>
-                                    <input class="marque" v-model="Libellé" type="text" >
+                                    <input v-model="Libellé" type="text" >
                                   <small v-if="enregistrer && (Libellé == '')"  class="MessageErrorFiledClient">Ce champ est obligatoire.</small>
                                   </div>
+                                  <div class="CategorieMere">
+                                    <label for="">Catégorie mère :</label><br>
+                                    <select v-model="CategorieMere" name="" id="">
+                                        <option> veillez séléctionner</option>
+                                        <option v-for="item in CategoriesMere" :key="item">{{ item }}</option>
+                                    </select>
+                                    <small v-if="enregistrer && (CategoriesMere == '' || CategoriesMere == 'veillez séléctionner' )"  class="MessageErrorFiledClient">Ce champ est obligatoire.</small>
                                   </div>
+                                </div>
+                                <label for="">Description :</label><br>
+                                <textarea name="" id="" cols="40" rows="7"></textarea>
                                 <small>* champs obligatoire</small>
                                 
                             </v-container>
@@ -89,7 +99,7 @@
                             <v-btn
                               color="blue darken-1"
                               text
-                              @click='NouvelleMarque()'
+                              @click='NouveauCategorieArticle()'
                             >
                               Enregister
                             </v-btn>
@@ -124,7 +134,17 @@
           dialog: false,
           enregistrer:false,
           Libellé:'',
-          DataNouvelleMarque:'',
+          CategorieMere:'',
+          livraison:'',
+          DataNouveauCategorieArticle:'',
+          CategoriesMere:[
+              'Cheque',
+              'Virement',
+              'Traite',
+              'Espece',
+              'Affacturage',
+              'Antres'
+          ],
           successAlert:false,
           errorAlert:false,
 
@@ -134,16 +154,17 @@
           this.PathPage = this.$router.currentRoute.path
           console.log(this.PathPage )
         },
-    NouvelleMarque(){
+    NouveauCategorieArticle(){
         this.enregistrer = true
-        if( this.Libellé !='')
+        if( this.Libellé !='' && this.CategorieMere !== 'veillez séléctionner')
         {
-            let NouvelleMarque ={
-                 marque:this.Libellé,
+            let NouveauCategorieArticle ={
+                 libelle:this.Libellé,
+                 categorie:this.CategorieMere
             }
                  this.successAlert = true
                   this.errorAlert = false
-                this.DataNouvelleMarque = NouvelleMarque
+                this.DataNouveauCategorieArticle = NouveauCategorieArticle
         }
         else{
              this.errorAlert = true

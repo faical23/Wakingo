@@ -16,19 +16,6 @@
                         </div>
                         <div >
                         </div>
-                    <div>
-                         <!-- <router-link
-                    to= ""
-                    >     
-                    <v-btn
-                        elevation="1"
-                        class="lancer_recherchexx   " 
-                        >
-                        <i class="fas fa-play-circle"></i>
-                            Lancer la recherche
-                        </v-btn>
-                    </router-link> -->
-                    </div>
                     </div>
                 </div>
                 <div class="card3">

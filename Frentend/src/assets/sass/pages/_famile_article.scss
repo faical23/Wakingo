@@ -1,0 +1,132 @@
+.dialoguecontainer{
+    font-weight: 700;
+    .code_famille_article{
+        display: flex;
+        margin-bottom: 20px;
+        input{
+            border: 1px solid #d2d6de;
+            border-radius: 4px;
+            width: 330px;
+            padding: 10px 9px;
+        }
+        .marque{
+            border: 1px solid #d2d6de;
+            border-radius: 4px;
+            width: 430px;
+            padding: 10px 9px;
+        }
+        .CODE{
+            padding-right: 20px;
+        }
+        .CategorieMere{
+            padding-left: 20px;
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 9px 10px;
+                width: 208%;
+            }
+        }
+    }
+    textarea{
+        border: 1px solid #d2d6de;
+        border-radius: 4px;
+        width: 680px;
+    }
+    .Complement{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        .titre_complement{
+            display: flex;
+            .fa-info-circle{
+                color: #0073b7 !important;
+            }
+            h5{
+                color: #0073b7 !important;
+                margin-left: 6px;
+                margin-bottom: -14px;
+                margin-top: -2px;
+            }
+        }
+        .info_area_famille_article_container{
+            display: flex;
+            margin-bottom: 20px;
+            .disabled_area {
+                margin-right: -242px;
+            }
+            .info_area_famille_article{
+                display: flex;
+                .marge{
+                    .ONE{
+                            border: 1px solid #d2d6de;
+                            border-radius: 4px;
+                            padding: 8px 26px;
+                            width: 26%;
+                    }
+                    .TWO{
+                            border: 1px solid #d2d6de;
+                            border-radius: 4px;
+                            padding: 7px 5px;
+                            width: 6%;
+                    }
+                }
+            }
+            .Garantie{
+                .ONE{
+                        border: 1px solid #d2d6de;
+                        border-radius: 4px;
+                        padding: 8px 26px;
+                        width: 26%;
+                }
+                .TWO{
+                        border: 1px solid #d2d6de;
+                        border-radius: 4px;
+                        padding: 7px 5px;
+                        width: 12%;
+                }
+            }
+            .tva_famille_article{
+                select{
+                    border: 1px solid #d2d6de;
+                    border-radius: 4px;
+                    padding: 9px 10px;
+                    width: 146%;
+                }
+            }
+        }
+        .fournisseur_principal{
+            select{
+                border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 9px 10px;
+                width: 100%;
+            }
+
+        }
+    }
+    .gestion_du_stock{
+        .titre_gestion_stock{
+            display: flex;
+            .fa-archive{
+                color: #0073b7 !important;
+            }
+            h5{
+                color: #0073b7 !important;
+                margin-left: 6px;
+                margin-bottom: -14px;
+                margin-top: -2px;
+            }
+        }
+        .activer_gs{
+            label{
+                margin-left: 6px;
+            }
+        }
+        select{
+            border: 1px solid #d2d6de;
+                border-radius: 4px;
+                padding: 9px 10px;
+                width: 100%; 
+        }
+    }
+    }

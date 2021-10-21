@@ -35,6 +35,11 @@ import familleFrounisseur from '../views/Contact/FamillesDeFournisseurs.vue'
 import familleClient from '../views/Contact/FamillesDeClient.vue'
 import cataloguArticles from '../views/Catalogue/Articles.vue'
 import NewArticle from '../views/Catalogue/creatArticle.vue'
+import FamilleArticle from '../views/Catalogue/FamillesDarticles.vue'
+import CategorieArticle from '../views/Catalogue/CatégoriesDarticles.vue'
+import marque from '../views/Catalogue/Marques.vue'
+import gestion_commerciaux from '../views/ForceDeVente/GestionDesCommerciaux.vue'
+import commition from '../views/ForceDeVente/CommissionParCommercial.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -221,6 +226,31 @@ const routes = [
     path: '/Catalogue/NewArticle',
     name: '/Catalogue/NewArticle',
     component: NewArticle
+  },
+  {
+    path: '/Catalogue/FamilleArticle',
+    name: '/Catalogue/FamilleArticle',
+    component: FamilleArticle
+  },
+  {
+    path: '/Catalogue/CategorieArticle',
+    name: '/Catalogue/CategorieArticle',
+    component: CategorieArticle
+  },
+  {
+    path: '/Catalogue/marque',
+    name: '/Catalogue/marque',
+    component: marque
+  },
+  {
+    path: '/force_de_vente/Gestion_des_commerciaux',
+    name: '/force de vente/Gestion_des_commerciaux',
+    component: gestion_commerciaux
+  },
+  {
+    path: '/force de vente/commition_par_commercial',
+    name: '/force de vente/commition_par_commercial',
+    component: commition
   },
   
     {

@@ -43,7 +43,11 @@
       "famille":"CARTE DE VISITE",
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "Type":"produit",
-      "code":"ART1"
+      "code":"ART1",
+      "suiviStock":"activé",
+      "description":"",
+      "categorie":"carte de visite",
+      "marque":""
     },
     {
       "Select":false,
@@ -85,7 +89,9 @@
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "Type":"produit",
       "famille":"CARTE DE VISITE",
-      "code":"ART2"
+      "code":"ART2",
+      "suiviStock":"activé",
+      "categorie":"carte de visite"
     },
     {
       "Select":false,
@@ -128,7 +134,8 @@
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "Type":"produit",
       "famille":"CARTE DE VISITE",
-      "code":"ART2"
+      "code":"ART2",
+      "suiviStock":"Désactivé"
 
 
     },
@@ -173,7 +180,9 @@
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "famille":"CARTE DE VISITE",
       "Type":"produit",
-      "code":"ART3"
+      "code":"ART3",
+      "suiviStock":"activé",
+      "categorie":"carte de visite"
      
     },
     {
@@ -217,7 +226,8 @@
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "famille":"CARTE DE VISITE",
       "Type":"produit",
-      "code":"ART1"
+      "code":"ART1",
+      "suiviStock":"activé"
     },
     {
       "Select":false,
@@ -259,7 +269,9 @@
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "famille":"CARTE DE VISITE",
       "Type":"produit",
-      "code":"ART1"
+      "code":"ART1",
+      "suiviStock":"activé",
+      "categorie":"carte de visite"
     },
     {
       "Select":false,
@@ -302,7 +314,9 @@
       "famille":"CARTE DE VISITE",
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "Type":"produit",
-      "code":"ART1"
+      "code":"ART1",
+      "suiviStock":"Désactivé",
+      "categorie":"carte de visite"
       
 
 
@@ -348,7 +362,9 @@
       "famille":"CARTE DE VISITE",
       "lib":"CARTE VISITE RECTO(8.5x5)",
       "Type":"produit",
-      "code":"ART1"
+      "code":"ART1",
+      "suiviStock":"activé",
+      "categorie":"carte de visite"
       
      
     }

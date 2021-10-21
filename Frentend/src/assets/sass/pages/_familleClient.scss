@@ -31,6 +31,14 @@ button.list-btn.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--defa
     min-width: 39px;
     padding: 0 10px;
 }
+button.eye-btn.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default {
+      background-color: #008d4c;
+      color: white;
+      height: 36px;
+    min-width: 39px;
+    padding: 0 10px;
+    margin-left: 4px;
+}
 button.edit-btn.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default {
     background-color: #00acd6;
     color: white;
@@ -66,7 +74,4 @@ button.delete-btn.v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--de
         margin-top: 18px;
         margin-left: 28px;
     }
-}
-.GlobalPage{
-    
 }

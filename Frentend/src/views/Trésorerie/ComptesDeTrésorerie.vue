@@ -8,29 +8,25 @@
             <div class="NouvelleDevisProforma">
                 <div class="NouvelleDevisProforma__Header">
                     <div class="NouvelleDevisProforma__Header__Left">
-                        <h2>Comptes de trésorerie</h2>
+                        <h2>Gestion des commerciaux</h2>
                     </div>
 
                     <div class="NouvelleDevisProforma__Header__Right">
                         <div class="RouteLink">
                             <router-link to="/" class="RoutlinkZone"> <i class="far fa-home-alt"></i> Tableau de bord</router-link> >
-                            <router-link to="/" class="RoutlinkZone">Comptes de trésorerie</router-link>
+                            <router-link to="/" class="RoutlinkZone">Gestion des commerciaux</router-link>
                         </div>
 
                     </div>
                 </div>
             </div>
             <v-alert v-if="SuccessNewCompte" type="success" class="Alert">
-                Le compte a bien été ajouté!
+                Le commercial a bien été ajouté!
             </v-alert>
             <div class="BtnsTésorerie">
                 <button @click="PopupNewCompteSHow = true">
                     <i class="fas fa-university"></i>
-                    Ajouter un nouveau compte
-                </button>
-                <button>
-                    <i class="fas fa-sync-alt"></i>
-                     Transferts compte à compte
+                    Ajouter un commercial
                 </button>
             </div>
             <div class="TableZone" style="margin:20px !important">
@@ -71,11 +67,6 @@
         GethPagePath(){
           this.PathPage = this.$router.currentRoute.path
         },
-        NewCompteSaved(Data){
-            this.NewCompteAdded = Data
-            this.PopupNewCompteSHow = false
-            this.SuccessNewCompte = true
-        }
 
     },
     created(){
