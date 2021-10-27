@@ -337,7 +337,7 @@
               {
                 FirstChild : 'Commission par commercial',
                 Icons : 'mdi-account-multiple-outline',
-                Path : '/force de vente/commition_par_commercial'
+                Path : '/force_de_vente/commition_par_commercial'
               }
             ]
           },
@@ -348,7 +348,7 @@
               {
                 FirstChild : 'Mouvements de stock' ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : 'Gestion de stock/Mouvements de stock'
+                Path : '/Gestion_de_stock/Mouvement_stock'
               },
               {
                 FirstChild : 'Entrées de marchandises',
@@ -356,11 +356,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Entrées',
-                    Path:'/Gestion de stock/Liste des Entrées'
+                    Path:'/Gestion_de_stock/Liste_entree'
                   },
                   {
                     SecondChild : "Nouveau bon d'entrée",
-                    Path:"/Gestion de stock/Nouveau bon d'entrée"
+                    Path:"/Gestion_de_stock/Nv_entree"
                   }
                 ]
               },
@@ -370,11 +370,11 @@
                 Child:[
                   {
                     SecondChild : 'Liste des sortie',
-                    Path:'/Gestion de stock/Liste des sortie'
+                    Path:'/Gestion_de_stock/Liste_des_sorties'
                   },
                   {
                     SecondChild : "Nouveau bon d'entrée",
-                    Path:"/Gestion de stock/Nouveau bon sortie"
+                    Path:"/Gestion_de_stock/Nv_bon_de_sortie"
                   }
                 ]
               },
@@ -384,18 +384,18 @@
                 Child:[
                   {
                     SecondChild : 'Liste des Inventaires',
-                    Path:'/Gestion de stock/Liste des Inventaires'
+                    Path:'/Gestion_de_stock/Liste_des_inventaires'
                   },
                   {
                     SecondChild : "Saisie d'inventaires",
-                    Path:"/Gestion de stock/Saisie d'inventaires"
+                    Path:"/Gestion_de_stock/Nv_inventaires"
                   }
                 ]
               },
               {
                 FirstChild : 'Dépots' ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : 'Gestion de stock/Dépots'
+                Path : '/Gestion_de_stock/Gestion_des_depots'
               },
 
             ]
@@ -407,12 +407,12 @@
               {
                 FirstChild : 'Rapport commercial' ,
                 Icons : 'mdi-account-multiple-outline',
-                Path : 'Rapports & Relevés/Rapport commercial'
+                Path : '/Ventes/Rapport_commercial'
               },
               {
                 FirstChild : 'Relvé des ventes',
                 Icons : 'mdi-account-multiple-outline',
-                Path : 'Rapports & Relevés/Relvé des ventes'
+                Path : '/Rapport_et_relevé/Relevé_de_vente'
               }
             ]
           }

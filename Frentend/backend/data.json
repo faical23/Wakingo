@@ -20,7 +20,7 @@
       "Référence": "typicode",
       "iron": "action",
       "etat": "En cours",
-      
+      "Portable":"060000000",
       "devis":"DH",
       "quantité":"12",
       
@@ -47,7 +47,12 @@
       "suiviStock":"activé",
       "description":"",
       "categorie":"carte de visite",
-      "marque":""
+      "marque":"",
+      "depot":"depot",
+      "remise":"1",
+      "commition":"commition",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
     },
     {
       "Select":false,
@@ -91,7 +96,13 @@
       "famille":"CARTE DE VISITE",
       "code":"ART2",
       "suiviStock":"activé",
-      "categorie":"carte de visite"
+      "categorie":"carte de visite",
+      "depot":"depot",
+      "remise":"1",
+      "Portable":"060000000",
+      "commition":"commition",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
     },
     {
       "Select":false,
@@ -135,7 +146,13 @@
       "Type":"produit",
       "famille":"CARTE DE VISITE",
       "code":"ART2",
-      "suiviStock":"Désactivé"
+      "suiviStock":"Désactivé",
+      "depot":"depot",
+      "remise":"1",
+      "Portable":"060000000",
+      "commition":"commition",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
 
 
     },
@@ -161,6 +178,7 @@
       "etat": "Annulé(e)",
       "devis":"DH",
       "quantité":"33",
+      "Portable":"060000000",
       "Ventiation_depense":"Autres charges",
       "solde_initial": "130",
       "Entre_dargent": "entre",
@@ -182,8 +200,12 @@
       "Type":"produit",
       "code":"ART3",
       "suiviStock":"activé",
-      "categorie":"carte de visite"
-     
+      "categorie":"carte de visite",
+      "depot":"depot",
+      "remise":"1",
+      "commition":"commition",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
     },
     {
       "Select":false,
@@ -207,6 +229,7 @@
       "etat": "Accepté(e)",
       "devis":"DH",
       "quantité":"15",
+      "Portable":"060000000",
       "Entre_d'argent": "entre",
       "Ventiation_depense":"Autres charges",
       "solde_initial": "130",
@@ -227,7 +250,12 @@
       "famille":"CARTE DE VISITE",
       "Type":"produit",
       "code":"ART1",
-      "suiviStock":"activé"
+      "suiviStock":"activé",
+      "depot":"depot",
+      "remise":"1",
+      "commition":"commition",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
     },
     {
       "Select":false,
@@ -251,6 +279,7 @@
       "etat": "En cours",
       "devis":"DH",
       "quantité":"3",
+      "Portable":"060000000",
       "Ventiation_depense":"Autres charges",
       "Entre_dargent": "entre",
             "Ventiation":"Récupération TVA",
@@ -271,7 +300,12 @@
       "Type":"produit",
       "code":"ART1",
       "suiviStock":"activé",
-      "categorie":"carte de visite"
+      "depot":"depot",
+      "remise":"1",
+      "commition":"commition",
+      "categorie":"carte de visite",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
     },
     {
       "Select":false,
@@ -316,7 +350,13 @@
       "Type":"produit",
       "code":"ART1",
       "suiviStock":"Désactivé",
-      "categorie":"carte de visite"
+      "categorie":"carte de visite",
+      "depot":"depot",
+      "remise":"1",
+      "commition":"commition",
+      "Portable":"060000000",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
       
 
 
@@ -364,7 +404,13 @@
       "Type":"produit",
       "code":"ART1",
       "suiviStock":"activé",
-      "categorie":"carte de visite"
+      "categorie":"carte de visite",
+      "depot":"depot",
+      "remise":"1",
+      "commition":"commition",
+      "Portable":"060000000",
+      "article":"ART23 - A3 Adhésif + Découpe",
+      "unite":"Unité(s)"
       
      
     }

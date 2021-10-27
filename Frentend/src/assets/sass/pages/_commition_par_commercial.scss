@@ -1,0 +1,44 @@
+.card_commition_par_commercial{
+    .v-card.v-card--flat.v-sheet.theme--light {
+        height: 144px !important;
+        margin-bottom: 2px !important;
+        font-size: 16px;
+    }
+    border: 1px solid #3c8dbc;
+    margin-top: 51px;
+    .commition_par_commercial_container{
+        display: flex;
+        .SearchBydate_com{
+            input{
+             border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            padding: 8px 10px;
+            width: 110%;
+            }
+        }
+        input{
+        border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        padding: 8px 10px;
+        width: 110%;
+        }
+         select{
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            padding: 11px 10px;
+            width: 232%;
+         }
+         .jusquau{
+            margin: 0px 40px;
+         }
+         .commition_calcul_btn{
+             .fa-play-circle{
+                 color: white;
+             }
+             background-color: #3c8dbc;
+             color: white;
+             margin-left: 221px;
+             margin-top: 46px;
+         }
+    }
+}

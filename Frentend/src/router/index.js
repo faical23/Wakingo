@@ -40,6 +40,16 @@ import CategorieArticle from '../views/Catalogue/CatégoriesDarticles.vue'
 import marque from '../views/Catalogue/Marques.vue'
 import gestion_commerciaux from '../views/ForceDeVente/GestionDesCommerciaux.vue'
 import commition from '../views/ForceDeVente/CommissionParCommercial.vue'
+import Mouvement_stock from '../views/GestionDeStock/MouVementsDeStock.vue'
+import Liste_entree from '../views/GestionDeStock/EntréesDeMarchandises/ListeDesEntrées.vue'
+import Nv_entree from '../views/GestionDeStock/EntréesDeMarchandises/NouveauBonDentrée.vue'
+import Liste_des_sorties from '../views/GestionDeStock/SortieDesMarchandises/ListeDesSortie.vue'
+import Nv_bon_de_sortie from '../views/GestionDeStock/SortieDesMarchandises/NouveauBonSortie.vue'
+import Liste_des_inventaires from '../views/GestionDeStock/Inventaires/ListeDesInventaires.vue'
+import Nv_inventaires from '../views/GestionDeStock/Inventaires/SaisieDinventaires.vue'
+import Gestion_des_depots from '../views/GestionDeStock/Dépots.vue'
+import Rapport_Commercial from '../views/Rapports&Relevés/RapportCommercial.vue'
+import Relevé_de_vente from '../views/Rapports&Relevés/RelvéDesVentes.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -172,6 +182,11 @@ const routes = [
     component: Rapport_commercial
   },
   {
+    path: '/Ventes/Rapport_commercial',
+    name: '/Rapport_commercial',
+    component: Rapport_Commercial
+  },
+  {
     path: '/Achat/depenses_diverses',
     name: '/Dépenses_diverses',
     component: Dépenses_diverses
@@ -248,13 +263,58 @@ const routes = [
     component: gestion_commerciaux
   },
   {
-    path: '/force de vente/commition_par_commercial',
-    name: '/force de vente/commition_par_commercial',
+    path: '/force_de_vente/commition_par_commercial',
+    name: '/force_de_vente/commition_par_commercial',
     component: commition
+  },
+  {
+    path: '/Gestion_de_stock/Mouvement_stock',
+    name: '/Gestion_de_stock/Mouvement_stock',
+    component: Mouvement_stock
+  },
+  {
+    path: '/Gestion_de_stock/Liste_entree',
+    name: '/Gestion_de_stock/Liste_entree',
+    component: Liste_entree
+  },
+  {
+    path: '/Gestion_de_stock/Nv_entree',
+    name: '/Gestion_de_stock/Nv_entree',
+    component: Nv_entree
+  },
+  {
+    path: '/Gestion_de_stock/Liste_des_sorties',
+    name: '/Gestion_de_stock/Liste_des_sorties',
+    component: Liste_des_sorties
+  },
+  {
+    path: '/Gestion_de_stock/Liste_des_inventaires',
+    name: '/Gestion_de_stock/Liste_des_inventaires',
+    component: Liste_des_inventaires
+  },
+  {
+    path: '/Gestion_de_stock/Nv_inventaires',
+    name: '/Gestion_de_stock/Nv_inventaires',
+    component: Nv_inventaires
+  },
+  {
+    path: '/Gestion_de_stock/Gestion_des_depots',
+    name: '/Gestion_de_stock/Gestion_des_depots',
+    component: Gestion_des_depots
+  },
+  {
+    path: '/Rapport_et_relevé/Relevé_de_vente',
+    name: '/Rapport_et_relevé/Relevé_de_vente',
+    component: Relevé_de_vente
+  },
+  {
+    path: '/Gestion_de_stock/Nv_bon_de_sortie',
+    name: '/Gestion_de_stock/Nv_bon_de_sortie',
+    component: Nv_bon_de_sortie
   },
   
     {
-      path: '/Ventes/NouvelleCommande/Create',
+    path: '/Ventes/NouvelleCommande/Create',
     name: 'NouvelleCommande',
     component: NouvelleCommande,
     

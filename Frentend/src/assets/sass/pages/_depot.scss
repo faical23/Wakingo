@@ -1,0 +1,95 @@
+.depot_text_area{
+    textarea{
+        border: 1px solid #9b9b9b;
+       border-radius: 4px;
+       margin-bottom: 20px;
+       }
+
+}
+.depot{
+    .v-card.v-card--flat.v-sheet.theme--light {
+        height: auto !important;
+        margin-bottom: 22px !important;
+        font-size: 16px;
+    }
+}
+.v-dialog:not(.v-dialog--fullscreen) {
+    max-height: auto;
+}
+
+.information_general_depot{
+
+    .depot_flex_div {
+        display: flex;
+        justify-content: space-between;
+        input {
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            height: 33px;
+            padding: 17px 18px;
+        }
+    }
+    .depot_flex_div_2{
+        display: flex;
+        input {
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            height: 33px;
+            padding: 17px 73px;
+            margin-bottom: 20px;
+        }
+        .name {
+            margin-right: 50px;
+        }
+    }
+    .cordonee_depot_title{
+        display: flex;
+        margin-top:15px;
+        color: #3c8dbc;
+        margin-bottom: -19px;
+        h5{
+            margin-left: 5px;
+        }
+            i{
+                margin-top: 4px;
+            }
+        }
+}
+.Emplacements{
+    .ctn{
+
+        background-color: #f9f9f9;
+    }
+    
+    input{
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            height: 33px;
+            padding: 20px 23px;
+            margin: 0 10px;
+            // background-color: #f9f9f9;
+         }
+        label{
+            margin:10px;
+            margin-bottom: 0px;
+        }
+        .depot_second_tab{
+            display: flex;
+        }
+        .x{
+            height: 36px;
+            min-width: 36px;
+            padding: 0px 15px;
+            margin-left: 35px;
+            color: white;
+            font-family: inherit;
+        }
+        
+    }
+    .Emplacements .y {
+        background-color: #00acd6;
+        color: white;
+        margin-top: 20px;
+        margin-left: 492px;
+    
+    }

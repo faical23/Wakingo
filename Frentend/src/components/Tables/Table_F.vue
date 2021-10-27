@@ -1,11 +1,29 @@
 <template>
 
     <v-card class="tableDevis" id="tableDevis">
-        <v-card-title class="table-title" >
+        <v-card-title class="table-title" v-if=" PathPage.includes('Mouvement_stock') && !PathPage.includes('Gestion_des_commerciaux') " >
             <v-icon  class="mdi-clipboard-list-outline" color="white" >
               mdi-file-pdf-outline
             </v-icon>
-            {{  }} 
+            Liste des mouvements de stock 
+        </v-card-title>
+        <v-card-title class="table-title" v-if=" PathPage.includes('Liste_entree')" >
+            <v-icon  class="mdi-clipboard-list-outline" color="white" >
+              mdi-file-pdf-outline
+            </v-icon>
+            Liste des bons d'entrée
+        </v-card-title>
+        <v-card-title class="table-title" v-if=" PathPage.includes('Liste_des_sorties')" >
+            <v-icon  class="mdi-clipboard-list-outline" color="white" >
+              mdi-file-pdf-outline
+            </v-icon>
+            Liste des bons de sortie
+        </v-card-title>
+        <v-card-title class="table-title" v-if=" PathPage.includes('Liste_des_inventaires')" >
+            <v-icon  class="mdi-clipboard-list-outline" color="white" >
+              mdi-file-pdf-outline
+            </v-icon>
+             Liste des inventaires
         </v-card-title>
         <div class="TableAffiche">
             <p>Affiche</p>
@@ -17,7 +35,13 @@
             </select>
             <p>élément</p>
         </div>
-        <div class="table-btn-group" v-if="!PathPage.includes('Accomptes')" >
+        <div class="table-btn-group" v-if="PathPage.includes('Gestion_des_depots')">
+          <div>
+            <label for="">Recherche :</label>
+            <input type="text">
+          </div>
+        </div>
+        <div class="table-btn-group" v-if="!PathPage.includes('Accomptes') && !PathPage.includes('Gestion_des_depots')" >
           <v-icon  class=" mdi-file-pdf-outline" color="black" >
                mdi-file-pdf-outline
           </v-icon>
@@ -51,6 +75,7 @@
           </v-flex>
 
         </div>
+
             <v-simple-table class="TableResultTresorerie" :style="PathPage.includes('Accomptes') ? 'margin:60px 0px ;' : ''" ref="printTable" id="table_f">
                     <template v-slot:default>
                   <thead>
@@ -58,8 +83,9 @@
                        <th class="text-left">
                         <input type="checkbox" v-model="CheckAll" @click="CheckAllRows()">
                     </th>
-                    <th  class="text-left" v-for="(HD,n) in HeaderTable" :key="n">{{HD}}</th>
-                      <th class="text-left">
+                    <th  class="text-left" v-for="(HD,n) in HeaderTable" :key="n">{{HD}}</th> 
+                    <!-- -->
+                      <th v-if="!PathPage.includes('Mouvement_stock')" class="text-left">
                         #
                       </th>
                     </tr>
@@ -74,8 +100,8 @@
                       <td v-if="PathPage.includes('ListeCommandes') || PathPage.includes('ListeDevies') || PathPage.includes('Gestion_des_bons_de_livraison') || PathPage.includes('Reglement') || PathPage.includes('depenses_diverses') ">{{ item.date }}</td>
                       <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td>
                       <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td>
-                       <td v-if="!PathPage.includes('Diverses') && !PathPage.includes('depenses_diverses')  && !PathPage.includes('Recurrentes') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents')  &&  !PathPage.includes('Articles')"><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
-                      <td v-if="!PathPage.includes('depenses_diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('Diverses') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Articles') ">{{ item.client }}</td>
+                       <td v-if="!PathPage.includes('Diverses') && !PathPage.includes('depenses_diverses')  && !PathPage.includes('Recurrentes') && !PathPage.includes('Accomptes') && !PathPage.includes('Gestion_des_commerciaux') && !PathPage.includes('DepensesRecurrents')  && !PathPage.includes('Liste_entree') && !PathPage.includes('Liste_des_inventaires') && !PathPage.includes('Gestion_des_depots') && !PathPage.includes('Mouvement_stock') && !PathPage.includes('Articles')"><router-link to= "/Ventes/NouveauDevis/Proforma" > <p v-if="PathPage.includes('Reglement')">réglement n°</p>{{ item.Numéro }}</router-link></td>
+                      <td v-if="!PathPage.includes('depenses_diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('Diverses') && !PathPage.includes('Mouvement_stock') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Gestion_des_commerciaux') && !PathPage.includes('Accomptes') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Articles') && !PathPage.includes('Gestion_des_depots') && !PathPage.includes('Liste_entree') && !PathPage.includes('Liste_des_inventaires') && !PathPage.includes('Liste_des_sorties')">{{ item.client }}</td>
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs') || PathPage.includes('ListeDevies')">{{ item.Total }}</td> 
                       <td v-if="PathPage.includes('famille_client')"> {{ item.devis }}</td>
@@ -85,18 +111,11 @@
                       <td v-if="PathPage.includes('Gestion_des_bons_de_livraison')"> {{ item.quantité }}</td>
                       <td v-if="PathPage.includes('Reglement')"> {{ item.Total }}</td>
                       <td v-if="PathPage.includes('Reglement')"> {{ item.EcartReglement }}</td>
-
-                     <!-- <td v-if="PathPage.includes('Reglement')"> {{ item.quantité}}</td> -->
-                      <!-- <td v-if="PathPage.includes('ListeCommandes')">{{ item.date }}</td> -->
                       <td v-if="PathPage.includes('Accomptes')">{{item.DateAcompte}}</td>
                       <td v-if="PathPage.includes('Accomptes') && PathPage.includes('Articles') ">{{item.Libellé}}</td>
                       <td v-if="PathPage.includes('Accomptes')">{{item.Document}}</td>
-                      <!-- <td v-if="PathPage.includes('Gestion_des_Factures')">{{ item.DateDeFacture }}</td> -->
-                      <!-- <td v-if="PathPage.includes('Liste_Des_Avoirs')">{{ item.dateAvoir}}</td> -->
-                      <td v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses') && !PathPage.includes('DepensesRecurrents')&&  !PathPage.includes('Articles')  " ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
-                      <td  v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses')&& !PathPage.includes('DepensesRecurrents')  && !PathPage.includes('Articles')">{{ item.client }}</td>
-                      <!-- <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td>  -->
-                      <!-- <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs')">{{ item.Total }}</td>  -->
+                      <td v-if="!PathPage.includes('Reglement')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Accomptes') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('Gestion_des_commerciaux') && !PathPage.includes('depenses_diverses') && !PathPage.includes('Mouvement_stock') && !PathPage.includes('DepensesRecurrents') && !PathPage.includes('Liste_des_sorties') && !PathPage.includes('Gestion_des_depots') &&  !PathPage.includes('Articles') && !PathPage.includes('Liste_des_inventaires') && !PathPage.includes('Liste_entree') " ><router-link to= "/Ventes/NouveauDevis/Proforma">{{ item.Numéro }}</router-link></td>
+                      <td  v-if="!PathPage.includes('Reglement') && !PathPage.includes('Gestion_des_depots')  &&  !PathPage.includes('Liste_Des_Avoirs')  && !PathPage.includes('Gestion_des_Factures')  && !PathPage.includes('Mouvement_stock') && !PathPage.includes('Gestion_des_bons_de_livraison')  && !PathPage.includes('ListeCommandes') && !PathPage.includes('ListeDevies') && !PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') && !PathPage.includes('depenses_diverses')&& !PathPage.includes('DepensesRecurrents')  &&  !PathPage.includes('Liste_des_sorties') && !PathPage.includes('Liste_entree') && !PathPage.includes('Liste_des_inventaires') && !PathPage.includes('Articles') && !PathPage.includes('Gestion_des_commerciaux')">{{ item.client }}</td>
                       <td v-if="PathPage.includes('Accomptes')">{{item.Monatnt}}</td>
                       <td v-if="PathPage.includes('Accomptes')">{{item.DateEcheance}}</td>
                       <td v-if="PathPage.includes('Diverses')">{{item.dateReccette}}</td>
@@ -108,7 +127,6 @@
                       <td v-if="PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents')">{{item.Fréquence}}</td>
                       <td v-if="PathPage.includes('Recurrentes')|| PathPage.includes('DepensesRecurrents')">{{item.Prochaine_exécution}}</td>
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.TotatlTTC}}</td>
-                      <!-- <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.Status}}</td> -->
                       <td v-if="PathPage.includes('depenses_diverses')">{{item.Ventiation_depense}}</td>
                       <td v-if="PathPage.includes('Articles')">{{item.code}}</td>
                       <td v-if="PathPage.includes('depenses_diverses') && PathPage.includes('Articles') ">{{ item.Libellé }}</td>
@@ -122,9 +140,54 @@
                       <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.Monatnt }}</td>
                       <td v-if="PathPage.includes('Catalogue/Articles') ">{{ item.quantité }}</td>
 
+                      <td v-if="PathPage.includes('Gestion_des_commerciaux') ">{{ item.code }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_commerciaux') ">{{ item.libelle }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_commerciaux') ">{{ item.client }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_commerciaux') ">{{ item.depot }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_commerciaux') ">{{ item.remise }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_commerciaux') ">{{ item.commition }}</td>
 
 
-                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Recurrentes') &&  !PathPage.includes('Articles')">
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.Entre_dargent }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.article }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.quantité }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.unite }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.Total }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.depot }}</td>
+                      <td v-if="PathPage.includes('Mouvement_stock')">{{ item.Numéro }}</td>
+
+
+
+                      <td v-if="PathPage.includes('Liste_entree')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Liste_entree')">{{ item.Numéro }}</td>
+                      <td v-if="PathPage.includes('Liste_entree')">{{ item.depot }}</td>
+                      <td v-if="PathPage.includes('Liste_entree')">{{ item.quantité }}</td>
+
+
+                      <td v-if="PathPage.includes('Liste_des_sorties')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Liste_des_sorties')">{{ item.Numéro }}</td>
+                      <td v-if="PathPage.includes('Liste_des_sorties')">{{ item.depot }}</td>
+                      <td v-if="PathPage.includes('Liste_des_sorties')">{{ item.quantité }}</td>
+
+
+                      <td v-if="PathPage.includes('Liste_des_inventaires')">{{ item.date }}</td>
+                      <td v-if="PathPage.includes('Liste_des_inventaires')">{{ item.Numéro }}</td>
+                      <td v-if="PathPage.includes('Liste_des_inventaires')">{{ item.depot }}</td>
+
+
+                      <td v-if="PathPage.includes('Gestion_des_depots')">{{ item.code }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_depots')">{{ item.libelle }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_depots')">{{ item.client }}</td>
+                      <td v-if="PathPage.includes('Gestion_des_depots')">{{ item.Portable }}</td>
+
+
+
+
+
+
+
+                      <td  v-if="!PathPage.includes('Diverses') && !PathPage.includes('Gestion_des_depots') && !PathPage.includes('Recurrentes') &&  !PathPage.includes('Articles') && !PathPage.includes('Gestion_des_commerciaux') && !PathPage.includes('Mouvement_stock')">
                          <v-chip v-if="item.etat == 'Clôturer(e)'"
                           label
                           class="ma-2"
@@ -144,7 +207,7 @@
                           {{ item.etat }}
                           </v-chip>
                       </td>  
-                      <td>
+                      <td v-if="!PathPage.includes('Mouvement_stock')">
                         <v-col cols="2" class="btnnnn">
                           <v-btn class="action-btn">
                               <v-icon
@@ -204,7 +267,7 @@
   import DataTable from '../../../backend/data.json';
   import printJS from 'print-js';
   export default {
-    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis' , 'NouvellRecetteDevis','CreatNewArticle'],
+    props:['ElementSearched','PathPage','NouvelleRecette' , 'NouvellDepenseDevis' , 'NouvellRecetteDevis','CreatNewArticle' , 'NouveauCommercial' ,'NouveauDepot'],
     data() {
         
       return{
@@ -535,6 +598,57 @@
               ]
               this.ActionsRow = Actions
           }
+          else if(this.PathPage.includes('Gestion_des_commerciaux')){
+              let Actions =[
+                {
+                  Name:'Editer',
+                  Icons :'fas fa-edit'
+                },
+                {
+                    Name:'Supprimer',
+                    Icons :'fas fa-trash-alt'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Liste_entree')){
+              let Actions =[
+                {
+                  Name:'Version pdf',
+                  Icons :'fas fa-file-pdf'
+                },
+                {
+                    Name:'Imprimer',
+                    Icons :'fas fa-print'
+                },
+                 {
+                    Name:'dupliquer',
+                    Icons :'fas fa-copy'
+                },
+               {
+                    Name:'apercu',
+                    Icons :'fas fa-eye'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
+          else if(this.PathPage.includes('Gestion_des_depots')){
+              let Actions =[
+                {
+                   Name:'Article',
+                   Icons :'fas fa-eye'
+               },
+               {
+                  Name:'Editer',
+                  Icons :'fas fa-edit'
+                },
+                {
+                    Name:'Supprimer',
+                    Icons :'fas fa-trash-alt'
+                },
+              ]
+              this.ActionsRow = Actions
+          }
       },
       //// GET DATA TABLE
       GetDataTable(){
@@ -580,6 +694,30 @@
           }
         else if(this.PathPage.includes('Articles')){
               let NewHeaderTable = ['Code','Libellé','famille','Type','Prix revient', 'Prix de vente(HT)']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Gestion_des_commerciaux')){
+              let NewHeaderTable = ['Code','Libellé','Utilisateur','Depot','Remise', 'Commition']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Mouvement_stock')){
+              let NewHeaderTable = ['Date','Type','Article','Quantités','Unité', 'V.U','Dépot','Numéro']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Liste_entree')){
+              let NewHeaderTable = ['Date de récéption','Numéro','Dépot','Quantités recue','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Liste_des_sorties')){
+              let NewHeaderTable = ['Date de récéption','Numéro','Dépot','Quantités recue','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Liste_des_inventaires')){
+              let NewHeaderTable = ['Date de récéption','Numéro','Dépot','Etat']
+              this.HeaderTable = NewHeaderTable
+          }
+        else if(this.PathPage.includes('Gestion_des_depots')){
+              let NewHeaderTable = ['Code','Libellé','Nom responsable','Téléphone responsable']
               this.HeaderTable = NewHeaderTable
           }
       },
@@ -641,7 +779,17 @@
           console.log('DATA IS :',this.CreatNewArticle)
           this.ListeDevis.push(this.CreatNewArticle)
           console.log("Old data" ,this.ListeDevis)
-        }
+        },
+         NouveauCommercial: function(){
+          console.log('DATA IS :',this.NouveauCommercial)
+          this.ListeDevis.push(this.NouveauCommercial)
+          console.log("Old data" ,this.ListeDevis)
+        },
+         NouveauDepot: function(){
+          console.log('DATA IS :',this.NouveauDepot)
+          this.ListeDevis.push(this.NouveauDepot)
+          console.log("Old data" ,this.ListeDevis)
+        },
     }
   }
 

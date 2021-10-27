@@ -32,6 +32,15 @@
                     </div>
                     </div>
                 </div>
+                <div  class="alert_commerciaux_div">
+                <v-alert v-if="successAlert == true" :value="successAlert " type="success"> 
+                    <!--  -->
+                    Le commercial a bien été ajouté!
+                </v-alert>
+                <v-alert v-if="failAlert == true" type="error">
+                    We're so sorry , something went wrong , please check you informations and try again , thank you!
+                </v-alert>
+                </div>
                         <v-row>
                             <v-dialog
                             v-model="dialog"
@@ -47,43 +56,44 @@
                                             <div class="code_commercial">
                                                 <div class="code_commercial_div">
                                                     <label for="">Code du vendeur * :</label><br>
-                                                    <input type="text" placeholder="VE1" v-model="code_vendeur">
+                                                    <input type="text" :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " placeholder="VE1" v-model="code_vendeur">
                                                 </div>
                                                 <div>
                                                     <label for="">Libellé * :</label><br>
-                                                    <input type="text" class="libelle_commerciaux" v-model="libelle">
+                                                    <input :style="add && (libelle == '') ? 'border-color: #dd4b39;' : '' " type="text" class="libelle_commerciaux" v-model="libelle">
+                                                    <small v-if="add  && (libelle == '')" class="MessageErrorFiledClient">Ce champ est obligatoire.</small>
                                                 </div>
                                             </div>
                                             <div class="commercial_checkbox">
-                                                <input type="checkbox">
+                                                <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="checkbox">
                                                 <label style="margin-left:6px;" for="">Accés restreint</label>
                                             </div>
                                             <hr>
                                             <div class="depot_div_commercial">
                                                 <div class="user_class_commercial">
                                                     <label for="">Utilisateur :</label>
-                                                    <select v-model="user" name="" id="">
-                                                        <option value=""></option>
+                                                    <select :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " v-model="user" name="" id="">
+                                                        <option v-for="user in users" :key="user">{{user}}</option>
                                                     </select>
                                                 </div>
                                                 <div>
                                                     <label for="">Dépôt :</label>
-                                                    <select v-model="depot" name="" id="">
-                                                        <option value=""></option>
+                                                    <select :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " v-model="depot" name="" id="">
+                                                        <option>Dépot principal</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="regle_div_commercial">
                                                 <div class="commision_class_commercial">
                                                     <label for="">Règle de commissionnement :</label>
-                                                    <select v-model="commition" name="" id="">
-                                                        <option value=""></option>
+                                                    <select :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " v-model="commition" name="" id="">
+                                                        <option></option>
                                                     </select>
                                                 </div>
                                                 <div class="remise">
                                                     <label for="">Remise autorisée :</label><br>
-                                                    <input v-model="remise" type="text" placeholder="0.00" >
-                                                    <input type="text" placeholder="%">
+                                                    <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " v-model="remise" type="text" placeholder="0.00" class="first">
+                                                    <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="text" placeholder="%" disabled class="second">
                                                 </div>
                                             </div>
                                             <div>
@@ -96,15 +106,15 @@
                                                 <div class="adressETcordonee">
                                                     <div>
                                                         <label for="">Téléphone :</label><br>
-                                                        <input placeholder="+212 357689973" type="text">
+                                                        <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " placeholder="+212 357689973" type="text">
                                                     </div>
                                                     <div>
                                                         <label for="">Mobile :</label><br>
-                                                        <input placeholder="+212 357689973" type="text">
+                                                        <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " placeholder="+212 357689973" type="text">
                                                     </div>
                                                     <div>
                                                         <label for="">E-mail :</label><br>
-                                                        <input placeholder="@" type="text">
+                                                        <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " placeholder="@" type="text">
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,20 +122,20 @@
                                                 <div class="flex_part">
                                                 <div>
                                                     <label for="">Adress :</label><br>
-                                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                                    <textarea :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " name="" id="" cols="30" rows="10"></textarea>
                                                 </div>
                                                 <div class="two_inputs_commercial">
                                                     <div>
                                                         <label for="">Code Postale :</label><br>
-                                                        <input type="text">
+                                                        <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="text">
                                                     <div class="pays_commercial_input">
                                                         <label for="">Pays :</label><br>
-                                                        <input type="text">
+                                                        <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="text">
                                                     </div>
                                                     </div>
                                                     <div>
                                                         <label for="">Ville :</label><br>
-                                                        <input type="text">
+                                                        <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="text">
                                                     </div>
                                                 </div>
                                                 </div>
@@ -145,7 +155,7 @@
                             <v-btn
                               color="blue darken-1"
                               text
-                              @click='NouveauClient()'
+                              @click='NouveauCommercial()'
                             >
                               Enregister
                             </v-btn>
@@ -159,7 +169,9 @@
                        <h5>Liste des commerciaux</h5>
                    </v-card-title>
                        <hr>
+                <Table :PathPage='PathPage' :NouveauCommercial='DataNouveauCommercial'/>
                  </v-card>
+                 
                 </div>
             </div>
           </div>
@@ -170,23 +182,69 @@
 </template>
 
 <script>
+  import Table from '../../components/Tables/Table_F.vue'
   import SideBar from '../../components/SideBar/Index.vue'
   import NaVBar from '../../components/navbar/navbar.vue'
   export default {
     components: {
       SideBar,
       NaVBar,
+      Table
       },
       
     data: () => ({
         dialog:false,
+        add:false,
         code_vendeur:'',
         libelle:'',
         user:'',
         depot:'',
         commition:'',
         remise:'',
+        users:[
+         'Karim BEN'
+        ],
+        successAlert:false,
+        failAlert:false,
+        DataNouveauCommercial:'',
     
-  })
+  }),
+    methods: {
+        NouveauCommercial(){
+            this.add = true
+            if( this.libelle !== '' ){
+                
+                let NouveauCommercial ={
+                    code:this.code_vendeur,
+                    libelle:this.libelle,
+                    client:this.user,
+                    depot:this.depot,
+                    remise:this.remise,
+                    commition:this.commition
+                    
+
+                }
+                this.DataNouveauCommercial =NouveauCommercial 
+                this.dialog = false
+                this.successAlert = true
+                }
+            else{
+                this.failAlert == true
+            }
+        },
+         GethPagePath(){
+          this.PathPage = this.$router.currentRoute.path
+          console.log(this.PathPage )
+        }
+    },
+      created(){
+        this.PathPage = this.$router.currentRoute.path
+        this.GethPagePath()
+        setTimeout(()=>{
+          this.successAlert=false
+        },5000)
+    }
+
+  
   }
 </script>   
