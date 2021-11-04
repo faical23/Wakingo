@@ -8,11 +8,17 @@
     transition: 0.3s ease-in-out !important;
   
   }
+  .v-sheet.v-list {
+    border: 1px solid black;
+    border-right: 1px solid #3c8dbc;
+    border-top: 1px solid #367fa9;
+    background: #fdfdfd;
+} 
   .v-list-item__avatar{
     display: none !important;
   }
   .v-list-item{
-    padding: 12px 20px !important;
+    padding: 12px 7px !important;
     min-height: 0px !important;
   }
     .v-list-item__title {
@@ -51,7 +57,9 @@
     background-color:#367fa9 !important;
     cursor: pointer !important;
     .SideBar_Logo__title{
-      font-size: 30px !important;
+      padding: 0px 0px;
+      margin-bottom: -6px;
+      font-size: 20px !important;
       font-weight: bolder !important;
       text-align: center !important;
       color: white !important;

@@ -6,7 +6,7 @@
           <v-app-bar-nav-icon  class="white--text"></v-app-bar-nav-icon>
           <v-toolbar-title class="text-uppercase white--text">
             
-              <h5 class="">KPUB</h5>
+              <h5 class="" style="margin-top: 10px">KPUB</h5>
                 
           </v-toolbar-title>
           <v-spacer></v-spacer>

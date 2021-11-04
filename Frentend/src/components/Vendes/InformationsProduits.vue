@@ -1,6 +1,6 @@
 <template>
   <div class="InformationsProduit">
-        <v-card class="SwitchOptions">
+        <v-card class="SwitchOptions" style="height:132px !important; margin-top:20px">
                 <v-toolbar
                 >
                 <template v-slot:extension>
@@ -27,7 +27,7 @@
                     v-for="(item,i) in items"
                     :key="i"
                 >
-                    <v-card flat>
+                    <v-card flat style="height:132px !important">>
 
                     <v-card-text>
                         <div v-show="SelectOptions == 'Informations piéce'" class="InformationPiéce">

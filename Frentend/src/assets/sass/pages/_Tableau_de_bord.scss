@@ -1,0 +1,269 @@
+.Content_tableau_de_bord{
+    margin: 20px;
+    .entete_tableau_de_bord{
+        font-family: 'Source Sans Pro',sans-serif;
+        display: flex;
+        justify-content: space-between;
+    }
+    .card_tableau_de_bord.v-card.v-card--flat.v-sheet.theme--light {
+        border-top-color: #3c8dbc;
+        height: auto !important;
+        .card_tittle_tableau_de_bord{
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 20px;
+            margin-bottom: -20px;
+            .tableau_de_bord_btns{
+                .v-btn:not(.v-btn--round).v-size--default {
+                    height: 23px;
+                    min-width: 34px;
+                    padding: 0 0px;
+                    background-color: white;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .charts_div{
+        display: flex;
+        justify-content: space-between;
+        p{
+            margin-left: 50%;
+        }
+        #chart{
+            padding: 110px 140px;
+            p{
+                margin-left: 60px;
+            }
+        }
+    }
+    .total_tableau_de_bord{
+        display: flex;
+        justify-content: space-around;
+        label{
+            
+            align-items: center;
+        }
+    }
+    
+    
+}
+.cored_cards{
+    background-color: #00a65a !important;;
+    width: 25%;
+    height: 150px;
+    margin-bottom: 71px;
+    margin-right: 63px;
+    .colored_cards_div{
+        padding: 20px;
+        h3{
+            font-size: 38px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            padding: 0;
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        .document{
+            font-size: 100px;
+        }
+        .document:hover{
+            // opacity: .5;
+            font-size: 110px;
+        }
+    }
+    .details{
+        display: flex;
+        background-color: #009752 !important;
+        padding: 1px 151px;
+        p{
+            color: white;
+            margin-top: 16px;
+        }
+        .fa{
+            color: white;
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+    .details:hover{
+        background-color: #018b4d !important;
+        p{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+        }
+        .fa{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+  
+}
+.cored_cards_devis{
+    background-color: #df2d6e !important;;
+    width: 25%;
+    height: 150px;
+    margin-bottom: 71px;
+    margin-right: 63px;
+    .colored_cards_div_devis{
+        padding: 20px;
+        h3{
+            font-size: 38px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            padding: 0;
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        .document_devis{
+            font-size: 100px;
+        }
+        .document_devis:hover{
+            // opacity: .5;
+            font-size: 110px;
+        }
+    }
+    .details_devis{
+        display: flex;
+        background-color: #D81B60 !important;
+        padding: 1px 151px;
+        p{
+            color: white;
+            margin-top: 16px;
+        }
+        .fa{
+            color: white;
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+    .details_devis:hover{
+        background-color: #d81b60ef !important;
+        p{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+        }
+        .fa{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+  
+}
+.cored_cards_tre{
+    background-color: #11cefd !important;;
+    width: 25%;
+    height: 150px;
+    margin-bottom: 71px;
+    .colored_cards_div_tre{
+        padding: 20px;
+        h3{
+            font-size: 38px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            padding: 0;
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        .document_tre{
+            font-size: 100px;
+            color: #0daed6;
+        }
+        .document_tre:hover{
+            // opacity: .5;
+            font-size: 105px;
+        }
+    }
+    .details_tre{
+        display: flex;
+        background-color: #0daed6 !important;
+        padding: 1px 151px;
+        p{
+            color: white;
+            margin-top: 16px;
+        }
+        .fa{
+            color: white;
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+    .details_tre:hover{
+        background-color: #0daed6d8  !important;
+        p{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+        }
+        .fa{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+  
+}
+.cored_cards_fournisseur{
+    background-color: #e26656 !important;;
+    width: 25%;
+    height: 150px;
+    margin-bottom: 71px;
+    .colored_cards_div_fournisseur{
+        padding: 20px;
+        h3{
+            font-size: 38px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            white-space: nowrap;
+            padding: 0;
+            color: white;
+        }
+        p{
+            color: white;
+        }
+        .document_fournisseur{
+            font-size: 100px;
+        }
+        .document_fournisseur:hover{
+            // opacity: .5;
+            font-size: 110px;
+        }
+    }
+    .details_fournisseur{
+        display: flex;
+        background-color: #c0594c !important;
+        padding: 1px 151px;
+        p{
+            color: white;
+            margin-top: 16px;
+        }
+        .fa{
+            color: white;
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+    .details_fournisseur:hover{
+        background-color: #c0594c !important;
+        p{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+        }
+        .fa{
+            color: rgba(255, 255, 255, 0.534);
+            margin-top: 16px;
+            margin-left: 5px;
+        }
+    }
+  
+}

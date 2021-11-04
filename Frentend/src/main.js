@@ -14,6 +14,10 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
+
+Vue.component('apexchart', VueApexCharts)
 
 
 Vue.use(Vuex)

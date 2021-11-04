@@ -1,7 +1,66 @@
 .information_piéce{
     display: flex;
-    justify-content: space-between;
     select{
+        border: 1px solid #9b9b9b;
+        border-radius: 4px;
+        height: 33px;
+        padding: 17px 18px;
         width: 100%;
     }
+        input {
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            height: 33px;
+            padding: 17px 18px;
+            width: 100%;
+        }
+        .depot_entree{
+            margin-right: 10px;
+            width: 100%;
+        }
+    }
+    .entree_tab{
+        
+        .entre_card{
+            margin-top: 20px;
+        }
 }
+    main.v-main.v-content.entree_content  {
+        margin-top: 60px;
+    }
+
+    .bnt-renitialiser_entree  {
+
+        margin-left: 170px
+    ;
+        margin-top: -25px
+    ;
+    background-color: #3c8dbc !important;
+    color: white;
+}
+.bnt-enregistrer_entree {
+        margin-top: -25px;
+        background-color: #3c8dbc !important;
+        color: white;
+        // margin-left: 140px
+        margin-right: -168px;
+          margin-left: 168px;
+    ;
+    }
+    .Options_entree{
+        padding: 5px;
+        select{
+            border: 1px solid #9b9b9b;
+            border-radius: 4px;
+            height: 33px;
+            padding: 17px 18px;
+            width: 100%;
+        } 
+        input {
+            margin-right: 4px;
+        } 
+    }
+    .enregitrer_entree{
+        background-color: #3c8dbc !important;
+        margin-left: 92.5%;
+    }

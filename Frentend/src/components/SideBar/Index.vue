@@ -9,18 +9,18 @@
 
  
 
-    <v-list :style="SideBarClicked ? 'text-align: center !important;' : 'text-align: start !important;'">
+    <v-list :style="SideBarClicked ? '!important; padding: 12px 7px;' : 'text-align: start !important;'">
       <!-- Start logo-->
         <v-list-item class="SideBar_Logo ">
-          <img  v-if="SideBarClicked " class="logo_img" src="../../assets/img/logo.png" :style="SideBarClicked ? 'width: 100% !important;' : 'width: 25%; !important'">
-            <v-list-item-title v-else  class="SideBar_Logo__title" @click='MoveSideBare("SideBare")'>Wakingo</v-list-item-title>
+          <img  v-if="SideBarClicked " class="logo_img" src="../../assets/img/wo.png" :style="SideBarClicked ? 'width: 188% !important;' : 'width: 164%; !important'">
+            <v-list-item-title v-else  class="SideBar_Logo__title" @click='MoveSideBare("SideBare") '  :style="MoveSideBare ? '!important; padding: 6px 7px;' : 'text-align: start !important;'">Wakingo</v-list-item-title>
         </v-list-item>
       <!-- end logo-->
 
       <!-- strat table bord-->
       <router-link to="/">
         <v-list-item  class="First_Header" :style="SideBarClicked ? 'display:block !important;' : 'display:flex !important;'">
-         <v-list-item-icon class="SideBar_Icons">
+         <v-list-item-icon class="SideBar_Icons" style="padding: 0px 16px !important;">
                   <i class="far fa-home-alt"></i>
         </v-list-item-icon>
           <v-list-item-title class="Tableau__bord__title"  :style="SideBarClicked ? 'display:none !important;' : 'display:block !important;'">Tableau de bord</v-list-item-title>
@@ -30,13 +30,14 @@
 
 
       <v-list-group
+       style="padding: 0px 16px !important;"
         class="First_Header"
         v-for="(Parent,n) in SideBare"
         :key="n"
       >
 
         <template v-slot:activator>
-        <v-list-item-icon class="SideBar_Icons">
+        <v-list-item-icon class="SideBar_Icons" >
                   <i :class="Parent.icon" ></i>
         </v-list-item-icon>
           <v-list-item-title  :style="SideBarClicked ? 'display:none !important;' : 'display:block !important;'">{{Parent.ParentName}}</v-list-item-title>
@@ -373,7 +374,7 @@
                     Path:'/Gestion_de_stock/Liste_des_sorties'
                   },
                   {
-                    SecondChild : "Nouveau bon d'entrée",
+                    SecondChild : "Nouveau bon de sortie",
                     Path:"/Gestion_de_stock/Nv_bon_de_sortie"
                   }
                 ]

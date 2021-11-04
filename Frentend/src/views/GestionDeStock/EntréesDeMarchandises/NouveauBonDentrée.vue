@@ -17,48 +17,45 @@
                         <div >
                         </div>
                         
-                    <div>
-                         <router-link
+                    
+                    <router-link
                     to= "/Ventes/NouveauDevis/Proforma"
                     >     
                     <v-btn
                         elevation="1"
-                        class="bnt-nv-bon-de-livraison  white--text" 
+                        class="bnt-enregistrer_entree   white--text" 
                         >
                         <i class="fas fa-save"></i>
                             Enregistrer
                         </v-btn>
                     </router-link>
-                         <router-link
+                    <router-link
                     to= "/Ventes/NouveauDevis/Proforma"
                     >     
                     <v-btn
                         elevation="1"
-                        class="bnt-nv-bon-de-livraison  white--text" 
+                        class="bnt-renitialiser_entree  white--text" 
                         >
                         <i class="fas fa-undo"></i>
                             Réinialiser
                         </v-btn>
                     </router-link>
                     </div>
-                    </div>
                 </div>
-                <div class="card2">
-                    <v-card flat dense >
-                  <v-content>
-                    <v-form class="recherche_rapide_content" >
-                        <div>
+                  <v-content class="entree_content">
+                    <v-form  >
+                        <div class="entree_tab">
                         <v-tabs
                         v-model="tab"
                         background-color="white"
-                        class="black--text"
+                        class=" entree black--text"
                         >
                         <v-tab
-                            v-for="item in items"
-                            :key="item.tab"
+                            v-for="tab in items"
+                            :key="tab.tab"
                         >
-                            <i :class="item.icon" style="margin-right:7px"></i>
-                            {{ item.tab }}
+                            <i :class="tab.icon" style="margin-right:7px"></i>
+                            {{ tab.tab }}
                         </v-tab>
                         </v-tabs>
 
@@ -67,110 +64,93 @@
                             v-for="item in items"
                             :key="item.tab"
                         >
-                            <v-card flat style="height:auto">
-                            <v-card-text>
+                            <v-card flat class="entre_card" style="height:auto">
+                           
                                 <!-- IF TAB SELECTED IS INFORMATIONS PI2CE SHOW : -->
-                                <div class="information_piéce" v-if="item.tab == 'Informations piéce'">
+                                <div class="information_piéce"  v-if="item.tab == 'Informations piéce'">
+                                    <v-col cols="2" >
                                     <div>
-                                        <label for="">Dépôt *:</label>
-                                        <select name="" id="">
+                                        <label for="">Dépôt *:</label><br>
+                                        <select class="depot_entree" name="" id="">
                                             <option value=""></option>
                                         </select>
                                     </div>
+                                    </v-col>
+                                     <v-col cols="2" >
                                     <div>
-                                        <label for="">Numéro * :</label>
+                                        <label for="">Numéro * :</label><br>
                                         <input type="text">
                                     </div>
+                                     </v-col>
+                                      <v-col cols="2" >
                                     <div>
-                                        <label for="">Date de la réception * :</label>
+                                        <label for="">Date de la réception * :</label><br>
                                         <input type="date">
                                     </div>
+                                     </v-col>
+                                     <v-col cols="2" >
                                     <div>
-                                        <label for="">N° de référence :</label>
+                                        <label for="">N° de référence :</label><br>
                                         <input type="date">
                                     </div>
+                                      </v-col>
+                                     <v-col cols="2" >
                                     <div>
-                                        <label for="">Responsable :</label>
+                                        <label for="">Responsable :</label><br>
                                         <select name="" id="">
                                             <option value=""></option>
                                         </select>
                                     </div>
+                                     </v-col>
                                 </div>
-                                    <!-- IF TAB SELECTED IS INFORMATIONS GENERAL SHOW : -->
-                                    <div class="Emplacement" v-if="item.tab == 'Emplacements'">
-                                            <!-- hh -->
-                                    <div class="ctn">
-                                        <div class="depot_second_tab">
+                                    <!-- IF TAB SELECTED IS OPTION SHOW : -->
+                                    <div class="Options_entree" v-if="item.tab == 'Options'">
                                             <div>
-                                                <label for="">Code :</label><br>
-                                                <hr>
-                                                <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="text" v-if="add_emmplacement == true" >
+                                                <v-col cols="3">
+                                                <label for="">Modèle PDF :</label><br>
+                                                <select name="" id="">
+                                                    <option>Bon d'entrée</option>
+                                                </select>
+                                                </v-col>
                                             </div>
                                             <div>
-                                                <label for="">Libellé :</label><br>
-                                                <hr>
-                                                <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="text" v-if="add_emmplacement == true" >
+                                                <v-col cols="3">
+                                                <input type="checkbox">
+                                                <label for="">Afficher les photos d'article</label>
+                                                </v-col>
                                             </div>
-                                            <div>
-                                                <label for="">Par défaut :</label><br>
-                                                <hr>
-                                                <input :style="add && (libelle == '') ? 'border-color: #3c763d;' : '' " type="checkbox" v-if="add_emmplacement == true" >
-                                            </div>
-                                            <div>
-                                                <label for="">#</label><br>
-                                                <hr>
-                                                <v-btn class="x" v-if="add_emmplacement == true"  @click="add_emmplacement = false" style="background-color:red">X</v-btn>
-                                            </div>
-                                        </div>
                                     </div>
-                                        <v-btn class="y" style=" background-color: #00acd6" @click="add_emmplacement = true">
-                                            <i class="fas fa-plus"></i>
-                                            Ajouter un emplacement
-                                            </v-btn> 
-                                    </div>
-                            </v-card-text>
                             </v-card>
                         </v-tab-item>
                         </v-tabs-items>
                     </div>                    
-                    </v-form>
-                    
-                    
+                    </v-form> 
                   </v-content>
-  
-                      
-
-                </v-card>
-                
-                </div>
-                <div class="nouveau-bon">
-                 <router-link
-                    to= "/Ventes/NouveauDevis/Proforma"
-                    >     
-                    <v-btn
-                        elevation="1"
-                        class="bnt-nv-bon-de-livraison  white--text" 
-                        >
-                        <i class="fas fa-play-circle"></i>
-                            Générer le Relevé
-                        </v-btn>
-                    </router-link>
-                    </div>
             </div>
+            <art />
+            <remarque />
+            <v-btn class="enregitrer_entree" style="color: white;">
+                Enregitrer
+            </v-btn>
           </div>
       </div>
-    
+      
   
                 
 </template>
 
+
 <script>
   import SideBar from '../../../components/SideBar/Index.vue'
   import NaVBar from '../../../components/navbar/navbar.vue'
+  import art from '../../../components/Vendes/EspaceArticle.vue'
+  import remarque from '../../../components/Vendes/Remarque.vue'
   export default {
     components: {
       SideBar,
       NaVBar,
+      art,
+      remarque
       },
       data: () => ({
           tab: null,

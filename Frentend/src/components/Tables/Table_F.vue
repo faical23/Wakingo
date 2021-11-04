@@ -105,6 +105,7 @@
                       <td v-if="PathPage.includes('ListeCommandes')">{{ item.dateLivraison }}</td> 
                       <td v-if="PathPage.includes('Gestion_des_Factures') || PathPage.includes('Liste_Des_Avoirs') || PathPage.includes('ListeDevies')">{{ item.Total }}</td> 
                       <td v-if="PathPage.includes('famille_client')"> {{ item.devis }}</td>
+                      <td v-if="PathPage.includes('ListeDevies')"> {{ item.devis }}</td>
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.Référence }}</td>
                       <td v-if="PathPage.includes('ListeDevies')"> {{ item.projet }}</td>
                      
@@ -129,8 +130,9 @@
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes')">{{item.TotatlTTC}}</td>
                       <td v-if="PathPage.includes('depenses_diverses')">{{item.Ventiation_depense}}</td>
                       <td v-if="PathPage.includes('Articles')">{{item.code}}</td>
-                      <td v-if="PathPage.includes('depenses_diverses') && PathPage.includes('Articles') ">{{ item.Libellé }}</td>
+                      <td v-if="PathPage.includes('depenses_diverses') && PathPage.includes('Articles') ">{{ item.Libellé}}</td>
                       <td v-if="PathPage.includes('depenses_diverses')">{{ item.TotatlTTC }}</td>
+                      <td v-if="PathPage.includes('depenses_diverses')">{{ item.Libellé }}</td>
 
                       <td v-if="PathPage.includes('Diverses')  || PathPage.includes('Recurrentes') || PathPage.includes('DepensesRecurrents')">{{item.Status}}</td>
 
